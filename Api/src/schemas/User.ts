@@ -15,6 +15,7 @@ const userSchema = new mongooseUser.Schema(
             default: '123-456'
         },
         tag: {
+            
             type: Array,
             default: []
         }
