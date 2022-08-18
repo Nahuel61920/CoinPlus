@@ -1,7 +1,8 @@
 import React from "react";
 import './services.css'
-import bitcoin from '../../../assets/img/bit.png'
-import wallet from '../../../assets/img/wallet.png'
+import compraCryp from '../../../assets/img/compra.png'
+import criptomonedas from '../../../assets/img/cryptocurrency.png'
+import retiro from '../../../assets/img/retiro.png'
 
 function Services() {
   return (
@@ -12,13 +13,12 @@ function Services() {
         <div className="col-12 col-md-4 d-flex justify-content-center">
           <div class="card-contain">
             <div class="card-image">
-              <img src={bitcoin} alt="bitcoin" width="100"/>
+              <img src={criptomonedas} alt="criptomonedas" width="75"/>
             </div>
             <div class="card-info">
-              <p class="text-title">Autor</p>
+              <p class="text-title">Analiza el mercado</p>
               <p class="text-body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti repellat, consequuntur doloribus voluptate esse iure?
+              Conoce las principales criptos, como funcionan y que mueve el mercado.
               </p>
             </div>
           </div>
@@ -26,25 +26,25 @@ function Services() {
         <div className="col-12 col-md-4 d-flex justify-content-center">
           <div class="card-contain">
             <div class="card-image">
-              <img src={wallet} alt="bitcoin" className="figure-img" width="65"/>
+            <img src={compraCryp} alt="compraCryp" width="75"/>
             </div>
             <div class="card-info">
-              <p class="text-title">Autor</p>
+              <p class="text-title">Comprar</p>
               <p class="text-body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti repellat, consequuntur doloribus voluptate esse iure?
+                Acceder a Bitcoin, Etherum, Litecion y otros activos digitales en pocos pasos.
               </p>
             </div>
           </div>
         </div>
         <div className="col-12 col-md-4 d-flex justify-content-center">
           <div class="card-contain">
-            <div class="card-image"></div>
+          <div class="card-image">
+              <img src={retiro} alt="bitcoin" className="figure-img" width="65"/>
+            </div>
             <div class="card-info">
-              <p class="text-title">Autor</p>
+              <p class="text-title">Vender</p>
               <p class="text-body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti repellat, consequuntur doloribus voluptate esse iure?
+                Transforma tus criptos en otras divisas y/o dolares de manera rapida y segura.
               </p>
             </div>
           </div>
