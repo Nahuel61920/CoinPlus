@@ -1,8 +1,11 @@
 import React from 'react'
+import Header from "../Sections/Header/Header"
 
 function Main() {
   return (
-    <div>Main</div>
+    <div className="container-fluid">
+      <Header/>
+    </div>
   )
 }
 

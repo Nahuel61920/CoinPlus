@@ -1,12 +1,14 @@
-import React from 'react'
-import Nav from '../../components/Nav/Nav';
-import Footer from '../../components/Footer/Footer';
+import React, { Fragment } from 'react'
+import Nav from "../../components/Nav/Nav"
+import Main from "../../components/Main/Main"
+import Footer from "../../components/Footer/Footer"
 
 function LandingPage() {
   return (
     <>
-    <Nav/>,
-    <Footer/>
+      <Nav/>
+      <Main/>
+      <Footer/>
     </>
   )
 }
