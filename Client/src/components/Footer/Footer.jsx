@@ -3,7 +3,7 @@ import Logo from '../../assets/img/coin+logo.png'
 
 function Footer() {
   return (
-    <div className="container-fluid bg-dark text-light d-inline-flex flex-lg-row flex-column ">
+    <div className="container-fluid bg-dark text-light d-inline-flex flex-lg-row flex-column px-md-5 px-1">
       <div className='section1 p-2 '>
         <img src={Logo} width="150" alt="" />
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, harum!</p>
