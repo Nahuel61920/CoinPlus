@@ -5,7 +5,7 @@ import './nav.css'
 
 function Nav() {
   return (
-    <nav class="navbar navbar-expand-sm navbar-dark bg-warning px-md-5 px-1">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-warning px-md-5 px-1 sticky-top">
         <div class="container-fluid w-100">
           <img src={Logo} alt="C+" width="150"/>
 
