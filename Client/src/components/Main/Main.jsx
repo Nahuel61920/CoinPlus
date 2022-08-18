@@ -1,10 +1,12 @@
 import React from 'react'
 import Header from "../Sections/Header/Header"
+import Services from "../Sections/Services/Services"
 
 function Main() {
   return (
-    <div className="container-fluid m-md-5 m-1">
+    <div className="container-xl">
       <Header/>
+      <Services/>
     </div>
   )
 }

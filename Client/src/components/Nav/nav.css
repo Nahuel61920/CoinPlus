@@ -2,7 +2,7 @@
     font-size: 1rem;
     font-weight: bold;
     margin: 0 0 0 2rem;
-    color: #000;
+    color: rgb(29, 11, 9);
     position: relative;
     text-decoration: none;
 }
@@ -36,4 +36,9 @@
     left: 0;
     bottom: -0.4rem;
     transition: 0.4s ease-out;
+  }
+
+  .navbar .active-link,
+  .navbar a.active {
+    color: rgb(15, 157, 223);
   }
