@@ -8,18 +8,15 @@ export default function Promo() {
 
         <h1 className="fw-bold text-center">About</h1>
         
-        <div class="row card-promo my-5" >
+        <div class="row card-promo my-5 p-3" >
             <div className="col-12 col-md-6 aling-content-center mt-5">
-            <h4 className="fs-4 mt-5">Quienes Somos</h4>
-            <p className="fs-4">La forma más simple y segura de comerciar criptomonedas.</p>
-            </div>
-      <div className="col-12 col-md-6 my-5 container__img_header">
-        <img src={coinIcon} alt="coinIcon"/>
-      </div>    
-               
+              <h4 className="fs-2 fw-bold mt-5">Quienes Somos</h4>
+              <p className="fs-4">La forma más simple y segura de comerciar criptomonedas.</p>
+          </div>
+          <div className="col-12 col-md-6 my-5 container__img_header">
+            <img src={coinIcon} alt="coinIcon"/>
+          </div>       
         </div>
-</div>
-
-
+      </div>
   )
 }
