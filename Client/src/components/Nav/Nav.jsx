@@ -1,5 +1,7 @@
 import React from 'react'
 import Logo from '../../assets/img/coin+logo.png'
+import { Link } from 'react-scroll';
+import './nav.css' 
 
 function Nav() {
   return (
@@ -18,12 +20,12 @@ function Nav() {
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link">Home</a></li>
-                    <li class="nav-item"><a class="nav-link">Services</a></li>
-                    <li class="nav-item"><a class="nav-link">About</a></li>
-                    <li class="nav-item"><a class="nav-link">Notifications</a></li>
-                </ul>
+                <div class="nav navbar-nav ms-auto">
+                  <Link to="Home" spy={true} offset={-150} href="#Home">Home</Link>
+                  <Link to="Services" spy={true} offset={-150} href="#Services">Services</Link>
+                  <Link to="About" spy={true} offset={-150} href="#About">About</Link>
+                  <Link to="Notifications" spy={true} offset={-150} href="#Notifications">Notifications</Link>
+                </div>
             </div>
         </div>
     </nav>

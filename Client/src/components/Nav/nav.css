@@ -1,0 +1,39 @@
+.navbar a {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0 0 0 2rem;
+    color: #000;
+    position: relative;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: rgb(15, 157, 223);
+}
+  
+  .navbar a::before {
+    content: "";
+    height: 3px;
+    width: 0;
+    background: rgb(15, 157, 223);
+    position: absolute;
+    left: 0;
+    bottom: -0.4rem;
+    transition: 0.4s ease-out;
+  }
+  
+  .navbar a:hover::before {
+    width: 100%;
+  }
+  
+  .navbar .active-link::before,
+  .navbar a.active::before {
+    content: "";
+    height: 3px;
+    width: 100%;
+    background: rgb(15, 157, 223);
+    position: absolute;
+    left: 0;
+    bottom: -0.4rem;
+    transition: 0.4s ease-out;
+  }
