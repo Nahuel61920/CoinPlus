@@ -28,10 +28,13 @@
     background: #42caff;
     background: linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%);
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    transition: all 0.3s ease-in-out;
    }
 
-   
-   
    .card-image::before {
     content: "";
     border-radius: inherit;
@@ -63,7 +66,6 @@
    
    /*Hover*/
    
-   .card-contain:hover .card-image img,
    .card-contain:hover .card-image {
     min-width: 110px;
     min-height: 110px;

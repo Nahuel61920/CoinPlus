@@ -1,6 +1,7 @@
 import React from "react";
 import './services.css'
 import bitcoin from '../../../assets/img/bit.png'
+import wallet from '../../../assets/img/wallet.png'
 
 function Services() {
   return (
@@ -24,7 +25,9 @@ function Services() {
         </div>
         <div className="col-12 col-md-4 d-flex justify-content-center">
           <div class="card-contain">
-            <div class="card-image"></div>
+            <div class="card-image">
+              <img src={wallet} alt="bitcoin" className="figure-img" width="65"/>
+            </div>
             <div class="card-info">
               <p class="text-title">Autor</p>
               <p class="text-body">
