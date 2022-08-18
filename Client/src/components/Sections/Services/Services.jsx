@@ -13,7 +13,7 @@ function Services() {
         <div className="col-12 col-md-4 d-flex justify-content-center">
           <div class="card-contain">
             <div class="card-image">
-              <img src={criptomonedas} alt="criptomonedas" width="75"/>
+              <img src={criptomonedas} alt="criptomonedas" width="70"/>
             </div>
             <div class="card-info">
               <p class="text-title">Analiza el mercado</p>
@@ -26,7 +26,7 @@ function Services() {
         <div className="col-12 col-md-4 d-flex justify-content-center">
           <div class="card-contain">
             <div class="card-image">
-            <img src={compraCryp} alt="compraCryp" width="75"/>
+            <img src={compraCryp} alt="compraCryp" width="70"/>
             </div>
             <div class="card-info">
               <p class="text-title">Comprar</p>

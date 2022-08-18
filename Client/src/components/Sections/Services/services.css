@@ -25,7 +25,7 @@
     min-height: 100px;
     border-radius: 50%;
     transform: translateY(-50%);
-    background: #42caff;
+    background: #ffc107;
     background: linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%);
     position: relative;
     display: flex;
