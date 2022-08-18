@@ -4,14 +4,14 @@ import "./header.css"
 
 function Header() {
   return (
-    <div className="row aling-content-center justify-items-center d-flex flex-md-row flex-column">
-      <div className="col-12 col-md-6 aling-items-center m-auto my-5">
-        <h4 className="fs-4">Lorem Ipsum is simply dummy.</h4>
-        <h1 className="title__text fw-bold my-4">Lorem Ipsum is simply dummy.</h1>
-        <p className="fs-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-        <button className="btn btn-primary">boton</button>
+    <div id="Home" className="row aling-content-center justify-content-center d-flex flex-md-row flex-column min-vh-100">
+      <div className="col-12 col-md-6 aling-content-center mt-5">
+        <h4 className="fs-4 mt-5">Tu ruta hacia el futuro.</h4>
+        <h1 className="title__text fw-bold my-4">Acércate al mundo cripto.</h1>
+        <p className="fs-4">La forma más simple y segura de comerciar criptomonedas.</p>
+        <button className="btn btn-primary">Ingresa</button>
       </div>
-      <div className="col-12 col-md-6 m-auto container__img_header my-5">
+      <div className="col-12 col-md-6 my-5 container__img_header">
         <img src={HeaderImg} alt="header"/>
       </div>
     </div>
