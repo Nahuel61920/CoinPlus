@@ -1,8 +1,10 @@
 import { prop, getModelForClass, Ref, modelOptions } from '@typegoose/typegoose';
 import { TimeStamps } from "@typegoose/typegoose/lib/defaultClasses";
+import {Crypto} from "./Crypto"
 
 @modelOptions({ options: { allowMixed: 0 } })
-class User extends TimeStamps{
+export class User extends TimeStamps{
+
     @prop({ required: true, trim: true})
     name: string;
 
@@ -19,13 +21,12 @@ class User extends TimeStamps{
     numberPhone: number;
 
     @prop({ type: () => Array, default: [] })
-    favourites: Array<string>;
-    //agregar la Ref del archivo Crypto.ts
+    favourites: Ref<Crypto>;
 
     @prop({ required: false, default: "https://media.discordapp.net/attachments/1005186345397927979/1009546767739658280/unknown.png" })
     picture:string;
 
-    @prop({ required: true, trim: true, lowercase:true, minlength:true })
+    @prop({ required: true, trim: true, lowercase:true, minlength:8 })
     password:string;
 
     @prop({ type: () => Boolean, default: false})
@@ -40,14 +41,11 @@ class User extends TimeStamps{
     @prop({required: false, trim: true})
     adress: string;
 
-    @prop()
+    @prop({required: true, trim: true})
     documentType: string;
 
-    @prop()
+    @prop({required: true})
     documentNum: number;
 }
 
-const UserModel = getModelForClass(User)
-
-export default UserModel
-
+export const UserModel = getModelForClass(User)
