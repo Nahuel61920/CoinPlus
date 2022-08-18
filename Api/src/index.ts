@@ -1,8 +1,9 @@
-const mongoose = require("mongoose");
-const options = {useNewUrlParser: true, useUnifiedTopology: true}
+import express from "express"
+import app from "./app"
+import "./db"
+import "./schemas/User"
 
-mongoose.connect('mongodb+srv://pfcoinplus:pfcoinplus@cluster0.resjtyz.mongodb.net/test', options,(error:any) =>{
-    error?console.log("**Connection Error**"):console.log("**Connected**")
+app.listen(app.get("port"), () => {
+    console.log("Listening on port 3001")
 })
 
-module.exports= {mongooseUser:mongoose}
