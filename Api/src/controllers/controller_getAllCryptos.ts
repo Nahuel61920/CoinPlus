@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 const axios = require ('axios');
 
-export const getAllCryptos = async  (req: Request, res: Response )=> {
+export const getAllCryptos = async  (req: Request, res: Response)=> {
     try {
       let response = await (await axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', {
           headers: {
@@ -9,10 +9,11 @@ export const getAllCryptos = async  (req: Request, res: Response )=> {
           },
           params : {
             'start': '1',
-            'limit': '2',
+            'limit': '100',
             'convert': 'USD'
           }
       })).data
+     
      //console.log("response.data= ",response.data)
       const misCryptos = await response.data.map ( (c: any ) => { // cambiar el type de "C" A <Crypto>
         //console.log("c.quote.USD= ", c.quote.USD) 
@@ -31,8 +32,8 @@ export const getAllCryptos = async  (req: Request, res: Response )=> {
               percent_change_90d: c.quote.USD.percent_change_90d,
           }
       })
-      //console.log(misCryptos)
 
+      
       if (misCryptos) {
         res.json(misCryptos)
       } else {
