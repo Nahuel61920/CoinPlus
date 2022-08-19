@@ -3,11 +3,23 @@ import Logo from '../../assets/img/coin+logo.png'
 import { Link } from 'react-scroll';
 import './nav.css' 
 
+import { useAuth0 } from '@auth0/auth0-react';
+
+import LoginButton from '../Login/LoginButton';
+import LogoutButton from '../Login/LogOut';
+
 function Nav() {
+
+  const {isAuthenticated} = useAuth0()
+
   return (
     <nav class="navbar navbar-expand-sm navbar-dark bg-warning px-md-5 px-1 sticky-top">
         <div class="container-fluid w-100">
           <img src={Logo} alt="C+" width="150"/>
+
+          {isAuthenticated ? <LogoutButton/> : <LoginButton/>}
+              
+                    
 
             <button class="navbar-toggler" 
                 type="button" 
