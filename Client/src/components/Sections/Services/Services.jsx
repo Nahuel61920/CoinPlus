@@ -10,7 +10,7 @@ function Services() {
       <h1 className="fw-bold text-center">Services</h1>
       <p className="text-center">What can you do in Coin+?</p>
       <div className="row justify-content-center">
-        <div className="col-6 col-md-4 d-flex justify-content-center">
+        <div className="col-6 col-md-4 d-flex justify-content-center"  data-aos="fade-up" data-aos-delay="200">
           <div class="card-contain">
             <div class="card-image">
               <img src={criptomonedas} alt="criptomonedas" width="70"/>
@@ -23,7 +23,7 @@ function Services() {
             </div>
           </div>
         </div>
-        <div className="col-6 col-md-4 d-flex justify-content-center">
+        <div className="col-6 col-md-4 d-flex justify-content-center"  data-aos="fade-up" data-aos-delay="400">
           <div class="card-contain">
             <div class="card-image">
             <img src={compraCryp} alt="compraCryp" width="70"/>
@@ -36,7 +36,7 @@ function Services() {
             </div>
           </div>
         </div>
-        <div className="col-6 col-md-4 d-flex justify-content-center">
+        <div className="col-6 col-md-4 d-flex justify-content-center"  data-aos="fade-up" data-aos-delay="600">
           <div class="card-contain">
           <div class="card-image">
               <img src={retiro} alt="bitcoin" className="figure-img" width="65"/>
