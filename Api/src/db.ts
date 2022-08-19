@@ -1,7 +1,7 @@
 require("dotenv").config();
 const { DB_USER, DB_PASSWORD} = process.env;
 
-import User from "./schemas/User"
+//import User from "./schemas/User"
 
 const mongoose = require("mongoose");
 const options = {useNewUrlParser: true, useUnifiedTopology: true}
