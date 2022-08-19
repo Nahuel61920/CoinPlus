@@ -7,6 +7,7 @@ import login from '../../../assets/img/log-in.png'
 import mail from '../../../assets/img/mail.png'
 import pay from '../../../assets/img/pay.png'
 import wallet from '../../../assets/img/wallet.png'
+import './toBePart.css'
 
 
 function ToBePart() {
@@ -14,9 +15,14 @@ function ToBePart() {
    <div className='container-fluid'>
     <h1 className="fw-bold text-center"> How to be part </h1>
     <p className="text-center">Step by step</p>
-     <div className='container-fluid card-tobe d-flex'>
-     <div className="col-12 col-md-3 d-flex justify-content-center ">
-          <div class="card-contain w-75">
+    
+    <div className='container-fluid card-tobe d-flex flex-wrap'>
+    <div class="step">
+          <div>
+          </div>
+        </div>
+        <div className="col-6 col-md-3 d-flex justify-content-center step-linear">
+          <div class="card-step w-75">
             <div class="card-image">
             <img src={uno} alt="uno" width="100"/>
             </div>
@@ -26,8 +32,8 @@ function ToBePart() {
             </div>
           </div>
         </div>
-        <div className="col-12 col-md-3 d-flex justify-content-center">
-          <div class="card-contain w-75">
+        <div className="col-6 col-md-3 d-flex justify-content-center step-linear">
+          <div class="card-step w-75">
             <div class="card-image">
             <img src={dos} alt="dos" width="100"/>
             </div>
@@ -37,8 +43,8 @@ function ToBePart() {
             </div>
           </div>
         </div>
-        <div className="col-12 col-md-3 d-flex justify-content-center">
-          <div class="card-contain w-75">
+        <div className="col-6 col-md-3 d-flex justify-content-center step-linear">
+          <div class="card-step w-75">
             <div class="card-image">
             <img src={tres} alt="tres" width="100"/>
             </div>
@@ -48,8 +54,8 @@ function ToBePart() {
             </div>
           </div>
         </div>
-        <div className="col-12 col-md-3 d-flex justify-content-center">
-          <div class="card-contain w-75">
+        <div className="col-6 col-md-3 d-flex justify-content-center step-linear">
+          <div class="card-step w-75">
             <div class="card-image">
             <img src={cuatro} alt="cuatro" width="100"/>
             </div>
