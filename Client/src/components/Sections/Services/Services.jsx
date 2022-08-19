@@ -1,6 +1,8 @@
 import React from "react";
 import './services.css'
-import bitcoin from '../../../assets/img/bit.png'
+import compraCryp from '../../../assets/img/compra.png'
+import criptomonedas from '../../../assets/img/cryptocurrency.png'
+import retiro from '../../../assets/img/retiro.png'
 
 function Services() {
   return (
@@ -8,40 +10,41 @@ function Services() {
       <h1 className="fw-bold text-center">Services</h1>
       <p className="text-center">What can you do in Coin+?</p>
       <div className="row justify-content-center">
-        <div className="col-12 col-md-4 d-flex justify-content-center">
+        <div className="col-6 col-md-4 d-flex justify-content-center"  data-aos="fade-up" data-aos-delay="200">
           <div class="card-contain">
             <div class="card-image">
-              <img src={bitcoin} alt="bitcoin" width="100"/>
+              <img src={criptomonedas} alt="criptomonedas" width="70"/>
             </div>
             <div class="card-info">
-              <p class="text-title">Autor</p>
+              <p class="text-title">Analiza el mercado</p>
               <p class="text-body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti repellat, consequuntur doloribus voluptate esse iure?
+              Conoce las principales criptos, cómo funcionan y qué mueve el mercado.
               </p>
             </div>
           </div>
         </div>
-        <div className="col-12 col-md-4 d-flex justify-content-center">
+        <div className="col-6 col-md-4 d-flex justify-content-center"  data-aos="fade-up" data-aos-delay="400">
           <div class="card-contain">
-            <div class="card-image"></div>
+            <div class="card-image">
+            <img src={compraCryp} alt="compraCryp" width="70"/>
+            </div>
             <div class="card-info">
-              <p class="text-title">Autor</p>
+              <p class="text-title">Comprar</p>
               <p class="text-body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti repellat, consequuntur doloribus voluptate esse iure?
+                Acceder a Bitcoin, Etherum, Litecion y otros activos digitales en pocos pasos.
               </p>
             </div>
           </div>
         </div>
-        <div className="col-12 col-md-4 d-flex justify-content-center">
+        <div className="col-6 col-md-4 d-flex justify-content-center"  data-aos="fade-up" data-aos-delay="600">
           <div class="card-contain">
-            <div class="card-image"></div>
+          <div class="card-image">
+              <img src={retiro} alt="bitcoin" className="figure-img" width="65"/>
+            </div>
             <div class="card-info">
-              <p class="text-title">Autor</p>
+              <p class="text-title">Vender</p>
               <p class="text-body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti repellat, consequuntur doloribus voluptate esse iure?
+                Transforma tus criptos en otras divisas y/o dólares de manera rápida y segura.
               </p>
             </div>
           </div>

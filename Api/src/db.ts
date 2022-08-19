@@ -10,6 +10,8 @@ mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.resjtyz.mongo
     error?console.log("**Connection Error**"):console.log("**Connected**")
 })
 
+export default mongoose;
+
 // async function prueba (){
 // const user = new User({
 //     name: "Anthony",

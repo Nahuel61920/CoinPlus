@@ -1,0 +1,8 @@
+.card-promo{
+    min-height: 500px;
+    background: #ffc107;
+    background: linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%);
+    box-shadow: 0.3em 0.3em 0.7em #00000015;
+    border: rgb(250, 250, 250) 0.2em solid;
+    border-radius: 20px;
+}
