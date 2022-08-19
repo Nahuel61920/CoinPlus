@@ -17,11 +17,11 @@ function ToBePart() {
     <p className="text-center">Step by step</p>
     
     <div className='container-fluid card-tobe d-flex flex-wrap'>
-    <div class="step">
-          <div>
+        <div class="step">
+          <div  data-aos="zoom-in" data-aos-delay="1500">
           </div>
         </div>
-        <div className="col-6 col-md-3 d-flex justify-content-center step-linear">
+        <div className="col-6 col-md-3 d-flex justify-content-center step-linear" data-aos="fade-up" data-aos-delay="300">
           <div class="card-step w-75">
             <div class="card-image">
             <img src={uno} alt="uno" width="100"/>
@@ -32,7 +32,7 @@ function ToBePart() {
             </div>
           </div>
         </div>
-        <div className="col-6 col-md-3 d-flex justify-content-center step-linear">
+        <div className="col-6 col-md-3 d-flex justify-content-center step-linear" data-aos="fade-up" data-aos-delay="600">
           <div class="card-step w-75">
             <div class="card-image">
             <img src={dos} alt="dos" width="100"/>
@@ -43,7 +43,7 @@ function ToBePart() {
             </div>
           </div>
         </div>
-        <div className="col-6 col-md-3 d-flex justify-content-center step-linear">
+        <div className="col-6 col-md-3 d-flex justify-content-center step-linear" data-aos="fade-up" data-aos-delay="900">
           <div class="card-step w-75">
             <div class="card-image">
             <img src={tres} alt="tres" width="100"/>
@@ -54,7 +54,7 @@ function ToBePart() {
             </div>
           </div>
         </div>
-        <div className="col-6 col-md-3 d-flex justify-content-center step-linear">
+        <div className="col-6 col-md-3 d-flex justify-content-center step-linear" data-aos="fade-up" data-aos-delay="1200">
           <div class="card-step w-75">
             <div class="card-image">
             <img src={cuatro} alt="cuatro" width="100"/>
