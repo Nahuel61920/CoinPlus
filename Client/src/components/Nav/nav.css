@@ -1,4 +1,10 @@
-.navbar a {
+.navbar {
+  background: linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%);
+    box-shadow: 0.3em 0.3em 0.7em #00000015;
+    border-bottom: rgb(250, 250, 250) 0.2em solid;
+}
+
+.nav a {
     font-size: 1rem;
     font-weight: bold;
     margin: 0 0 0 2rem;
@@ -7,11 +13,11 @@
     text-decoration: none;
 }
 
-.navbar a:hover {
+.nav a:hover {
     color: rgb(15, 157, 223);
 }
   
-  .navbar a::before {
+  .nav a::before {
     content: "";
     height: 3px;
     width: 0;
@@ -22,12 +28,12 @@
     transition: 0.4s ease-out;
   }
   
-  .navbar a:hover::before {
+  .nav a:hover::before {
     width: 100%;
   }
   
-  .navbar .active-link::before,
-  .navbar a.active::before {
+  .nav .active-link::before,
+  .nav a.active::before {
     content: "";
     height: 3px;
     width: 100%;
@@ -38,7 +44,7 @@
     transition: 0.4s ease-out;
   }
 
-  .navbar .active-link,
-  .navbar a.active {
+  .nav .active-link,
+  .nav a.active {
     color: rgb(15, 157, 223);
   }
