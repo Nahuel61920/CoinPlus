@@ -1,0 +1,32 @@
+.profile-nav{
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    border: 3px solid #645bff;
+    background-color: #fff;
+}
+
+.img-profile-nav{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.img-profile-details{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.dropdown-menu{
+    box-shadow: 0.3em 0.3em 0.7em #00000015;
+    left: -12em!important;
+    width: 16em!important;
+}
+
+.modal_drop{
+    background: linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%); 
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
