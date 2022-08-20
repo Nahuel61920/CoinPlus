@@ -9,7 +9,7 @@ export const getAllCryptos = async  (req: Request, res: Response)=> {
           },
           params : {
             'start': '1',
-            'limit': '100',
+            'limit': '1000',
             'convert': 'USD'
           }
       })).data

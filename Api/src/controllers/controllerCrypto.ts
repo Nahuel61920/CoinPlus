@@ -49,7 +49,7 @@ const getAPI01 = async () => {
         },
         params : {
             'start': '1',
-            'limit': '2',
+            'limit': '1000',
             'convert': 'USD'
         }
         }) 
@@ -94,6 +94,7 @@ const getAPI02 = async (id:number) => {
             description: infoAPI.data.data[id].description,
             logo: infoAPI.data.data[id].logo,
             tag_names: infoAPI.data.data[id]["tag-names"],
+            tag_groups: infoAPI.data.data[id]["tag-groups"],
         }
         return info
     }
