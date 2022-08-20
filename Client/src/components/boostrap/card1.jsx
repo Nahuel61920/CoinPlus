@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 function BasicExample({user}) {
   return (
     <Card style={{ width: '40rem' }}>
-        <div className='d-flex justify-content-between p-5 bg-warning'> 
+        <div className='d-flex justify-content-between p-5' style={{ background: 'linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%)'}}> 
         <div className='d-flex align-items-center'>
         <Card.Title >{user.name}</Card.Title>
         </div>
