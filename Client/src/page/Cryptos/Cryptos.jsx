@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Cryptos({
   id,
@@ -25,19 +26,19 @@ function Cryptos({
         </p>
       </div>
       <div className="col-1">
-        <p className="fw-bold">{price.toFixed(3)}</p>
+        <p className="fw-bold">${price.toFixed(3)}</p>
       </div>
       <div className="col-1">
-        <p className="fw-bold text-danger">{percent_change_1h.toFixed(2)}</p>
+        <p className="fw-bold text-danger">{percent_change_1h.toFixed(2)}%</p>
       </div>
       <div className="col-1">
-        <p className="fw-bold text-success">{percent_change_24h.toFixed(2)}</p>
+        <p className="fw-bold text-success">{percent_change_24h.toFixed(2)}%</p>
       </div>
       <div className="col-1">
-        <p className="fw-bold text-danger">{percent_change_7d.toFixed(2)}</p>
+        <p className="fw-bold text-danger">{percent_change_7d.toFixed(2)}%</p>
       </div>
       <div className="col-2">
-        <p className="fw-bold">{volume_24h.toFixed(2)}</p>
+        <p className="fw-bold">${volume_24h.toFixed(2)}</p>
       </div>
       <div className="col-2">
         <p className="fw-bold">
@@ -45,8 +46,11 @@ function Cryptos({
         </p>
       </div>
       <div className="col-2">
-        <p className="fw-bold">{percent_change_7d.toFixed(2)}</p>
+        <p className="fw-bold">{percent_change_7d.toFixed(2)}%</p>
       </div>
+      <Link className="por" to={`/crypto/${id}`}>
+        <button className="card-button">More info</button>
+      </Link>
     </div>
   );
 }
