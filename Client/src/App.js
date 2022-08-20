@@ -1,4 +1,3 @@
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import LandingPage from "./page/LandingPage/LandingPage.jsx";
 import AuthPrivateRoutes from "./routes/AuthPrivateRoutes";
