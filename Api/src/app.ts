@@ -14,6 +14,7 @@ import { Request, Response, NextFunction } from "express";
 var cors = require('cors')
 
 require("./db");
+require("./controllers/AutoUpload");
 
 server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 server.use(bodyParser.json({ limit: "50mb" }));
