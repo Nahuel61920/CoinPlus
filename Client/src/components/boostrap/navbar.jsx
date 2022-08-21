@@ -32,8 +32,8 @@ function OffcanvasExample({logo}) {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Link to='/'>
+                <Nav className="justify-content-end flex-grow-1 pe-3 text-primary">
+                <Link to='/' style={{ textDecoration: 'none' }}>
                   <Nav.Link href="#action1">Home</Nav.Link>
                 </Link>
                   <Nav.Link href="#action2">Mi billetera</Nav.Link>
