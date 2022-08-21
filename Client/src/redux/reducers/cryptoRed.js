@@ -12,7 +12,6 @@ export const cryptoSlice = createSlice({
       state.cryptos = payload;
     },
     cryptoDetail: (state, { type, payload }) => {
-      console.log(payload);
       state.details = payload;
     },
   },
@@ -32,7 +31,6 @@ export const fetchCrypto = () => (dispatch) => {
 };
 
 export const detailCrypto = (id) => (dispatch) => {
-  console.log(id);
   axios
     .get(`http://localhost:3001/crypto/${id}`)
     .then((res) => {

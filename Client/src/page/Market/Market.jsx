@@ -4,7 +4,7 @@ import Footer from "../../components/Footer/Footer";
 import Nav from "../../components/Nav/Nav";
 import { fetchCrypto } from "../../redux/reducers/cryptoRed";
 import Cryptos from "../Cryptos/Cryptos";
-import NavAl from "../../components/Nav/NavAl"
+import NavAl from "../../components/Nav/NavAl";
 function Market() {
   const dispatch = useDispatch();
 
@@ -54,6 +54,7 @@ function Market() {
             <Cryptos
               keyNumber={index + 1}
               id={c.id}
+              key={index}
               name={c.name}
               price={c.price}
               symbol={c.symbol}

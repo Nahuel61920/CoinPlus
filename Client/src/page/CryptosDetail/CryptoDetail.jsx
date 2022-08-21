@@ -8,47 +8,36 @@ function CryptoDetail() {
   const { details } = useSelector((state) => state.crypto);
   const dispatch = useDispatch();
 
-  console.log(id);
-  console.log(details);
-
   useEffect(() => {
     dispatch(detailCrypto(id));
   }, [dispatch, id]);
 
-  if (Object.keys(details).length === 0) {
-    console.log(details);
-
-    return (
-      <div className="paginado2">
+  return (
+    <div className="paginado2">
+      <div>
+        <img className="imagdetalle" src={details.logo} alt={details.id} />
+      </div>
+      <div className="cardDetalle">
         <div>
-          <img
-            className="imagdetalle"
-            src={details.logo}
-            alt={details.symbol}
-          />
+          <h1>
+            {details.name} <span>{details.symbol}</span>
+          </h1>
         </div>
-        <div className="cardDetalle">
-          <div>
-            <h1>
-              {details.name} <span>{details.symbol}</span>
-            </h1>
-          </div>
-          <div className="base3">
-            <h1>
-              Price:
-              {details.price}
-            </h1>
-          </div>
-          <div className="base3">
-            <h2>Description: {details.description}</h2>
-          </div>
-          <div className="base3">
-            <h2>24%: {details.volume_change_24h}</h2>
-          </div>
+        <div className="base3">
+          <h1>
+            Price:
+            {details.price}
+          </h1>
+        </div>
+        <div className="base3">
+          <h2>Description: {details.description}</h2>
+        </div>
+        <div className="base3">
+          <h2>24%: {details.volume_change_24h}</h2>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default CryptoDetail;
