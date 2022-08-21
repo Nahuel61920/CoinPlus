@@ -50,26 +50,36 @@ export const getCryptoByID:RequestHandler = async (req,res) => {
 
 export const getCryptoByQuery:RequestHandler = async (req,res) => {
     const { min,max,tag_names } = req.query
+    const min_changed = min?min:0
+    const max_changed = max?max:Infinity
 
-    const crypto = await CryptoModel.find(
+    const tag_names_changed =tag_names?.toString().toLowerCase().split(" ").join("-")
+
+    if(tag_names){
+        const crypto = await CryptoModel.find(
         {   
-            price:{$gte:min,$lte:max},
-            tag_names:{$elemMatch:{$eq:tag_names}}
-        },
-        {_id:0,__v:0}
-        )
-
-    res.status(200).send(crypto)
+            price:{$gte:min_changed,$lte:max_changed},
+            tag_names:{$elemMatch:{$eq:tag_names_changed}}
+        },{_id:0,__v:0})
+        res.status(200).send(crypto)   
+    }
+    else{
+        const crypto = await CryptoModel.find(
+        {   
+            price:{$gte:min_changed,$lte:max_changed}
+        },{_id:0,__v:0})
+        res.status(200).send(crypto)
+    }
 }
 
 
 // En caso se necesite guardar en la BD
 export const postCrypto:RequestHandler = async (req,res) => {
-    // const cryptoData01 = await getAPI01(1,5000);
-    // const cryptoData02 = await getAPI01(5001,4660);
-    // const cryptoData = cryptoData01.concat(cryptoData02)
-    // const saved = await CryptoModel.insertMany(cryptoData)
-    // res.status(200).json(saved) 
+    const cryptoData01 = await getAPI01(1,5000);
+    const cryptoData02 = await getAPI01(5001,4660);
+    const cryptoData = cryptoData01.concat(cryptoData02)
+    const saved = await CryptoModel.insertMany(cryptoData)
+    res.status(200).json(saved) 
 
 
     // const cryptoUncomplete = await CryptoModel.find({},{id:1,_id:0})
@@ -102,41 +112,24 @@ export const postCrypto:RequestHandler = async (req,res) => {
     // console.log(loquesea03)
     // }
 
-    const baco= [
-        {
-          "id": 1
-        },
-        {
-          "id": 1027
-        },
-        {
-          "id": 825
-        },
-        {
-          "id": 3408
-        },
-        {
-          "id": 1839
-        },
-        {
-          "id": 4687
-        }]
+    // const baco= [
+    //     {"id": 1},{"id": 1027},{"id": 825},{"id": 3408},{"id": 1839},{"id": 4687}]
 
-    for(let i=0;i<5;i++){
-        await(new Promise(resolve => setTimeout(()=>resolve(
-        async ()=>{
-            let b = await getAPI02(baco[i].id)
-            let crypto = await CryptoModel.findOneAndUpdate({id:baco[i].id},b)
-         }),4*1000
-        )))
-        console.log("-------->"+baco[i].id)
-        console.log("------------>"+i)
-        }
+    // for(let i=0;i<5;i++){
+    //     await(new Promise(resolve => setTimeout(()=>resolve(
+    //     async ()=>{
+    //         let b = await getAPI02(baco[i].id)
+    //         let crypto = await CryptoModel.findOneAndUpdate({id:baco[i].id},b)
+    //      }),4*1000
+    //     )))
+    //     console.log("-------->"+baco[i].id)
+    //     console.log("------------>"+i)
+    //     }
 
 
-    const cryptoComplete = await CryptoModel.find()
+    // const cryptoComplete = await CryptoModel.find()
 
-    res.status(200).json(cryptoComplete)
+    // res.status(200).json(cryptoComplete)
 }
 
 export const testCrypto:RequestHandler = async (req,res) => {
@@ -190,6 +183,7 @@ export const getAPI01 = async (start:Number,limit:Number) => {
             percent_change_30d: c.quote.USD.percent_change_30d,
             percent_change_60d: c.quote.USD.percent_change_60d,
             percent_change_90d: c.quote.USD.percent_change_90d,
+            tag_names: c. tags,
         }})
         return info
     }
@@ -214,7 +208,7 @@ export const getAPI02 = async (id:number) => {
             // id: infoAPI.data.data[id].id,
             description: infoAPI.data.data[id].description,
             logo: infoAPI.data.data[id].logo,
-            tag_names: infoAPI.data.data[id]["tag-names"],
+            // tag_names: infoAPI.data.data[id]["tag-names"],
             tag_groups: infoAPI.data.data[id]["tag-groups"],
         }
         return info
