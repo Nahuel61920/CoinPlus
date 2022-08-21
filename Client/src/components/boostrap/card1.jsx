@@ -4,8 +4,8 @@ import Card from 'react-bootstrap/Card';
 
 function BasicExample({user}) {
   return (
-    <Card style={{ width: '40rem' }}>
-        <div className='d-flex justify-content-between p-5' style={{ background: 'linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%)'}}> 
+    <Card style={{ width: '40rem' }} className="m-3">
+        <div className='d-flex justify-content-between p-4' style={{ background: 'linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%)'}}> 
         <div className='d-flex align-items-center'>
         <Card.Title >{user.name}</Card.Title>
         </div>
@@ -18,6 +18,8 @@ function BasicExample({user}) {
         <Card.Text>Telefono:</Card.Text>
         <Card.Text>Dni:</Card.Text>
         <Card.Text>País:</Card.Text>
+        <Card.Text>Última fecha de entrada: {user.updated_at.slice(0,10) + ' ' + user.updated_at.slice(11,19)}</Card.Text>
+        <Card.Text>Logueado con: {user.sub.charAt(0).toUpperCase() + user.sub.slice(1,6)}</Card.Text>
       </Card.Body>
     </Card>
   );
