@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../components/Footer/Footer";
-import Nav from "../../components/Nav/Nav";
 import { fetchCrypto } from "../../redux/reducers/cryptoRed";
 import Cryptos from "../Cryptos/Cryptos";
+
+import NavAl from "../../components/Nav/NavAl"
 
 function Market() {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ function Market() {
 
   return (
     <div>
-      <Nav />
+      <NavAl />
       <div className="container-xxl my-4">
         <h1 className="fw-bold text-center">Market</h1>
         <p className="text-center">Precio de las criptomonedas de hoy</p>
