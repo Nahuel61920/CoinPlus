@@ -1,16 +1,35 @@
 import { RequestHandler } from "express";
 const axios = require ('axios');
 
+const fs = require('fs');
+const path = require('path');
+
+let rawdata = fs.readFileSync(path.join(__dirname, '/updater/coinList.json'))
+let coinList = JSON.parse(rawdata);
+
 const API_KEY ="af01c4a7-d62b-45a2-9afd-bf9ed61d6eaf"
 
 import {CryptoModel} from "../schemas/Crypto";
 
 export const getCryptos:RequestHandler = async (req,res) => {
-  
-    // const crypto = await getAPI01(1,5);
-    const crypto = await CryptoModel.find({},{_id:0,__v:0});
+    const  name  =req.query.name?.toString()
+    
+    const crypto = await CryptoModel.find({},{name:1,description:1,_id:0});
 
-    res.status(200).send(crypto)
+    try{
+        if(name){
+        const cryptosFiltrados = crypto.filter(c => c.name.toLowerCase().includes(name.toLowerCase()))
+
+        cryptosFiltrados.length>0?res.status(200).send(cryptosFiltrados):res.status(404).send(`Cryptos with the word ${name} were not found. Would you like to try another?`)
+
+        }
+        else{
+        res.status(200).send(crypto)
+        }
+    }
+    catch(error){
+        res.status(404).send(error)
+    }
 
 }
 
@@ -31,6 +50,7 @@ export const getCryptoByID:RequestHandler = async (req,res) => {
 
 export const getCryptoByQuery:RequestHandler = async (req,res) => {
     const { min,max,tag_names } = req.query
+
     const crypto = await CryptoModel.find(
         {   
             price:{$gte:min,$lte:max},
@@ -41,6 +61,7 @@ export const getCryptoByQuery:RequestHandler = async (req,res) => {
 
     res.status(200).send(crypto)
 }
+
 
 // En caso se necesite guardar en la BD
 export const postCrypto:RequestHandler = async (req,res) => {
@@ -67,25 +88,80 @@ export const postCrypto:RequestHandler = async (req,res) => {
     // })
 
     // const loquesea03 =[{id: 3408},{id:1839}]
-    // loquesea03.map(async (c) => {
-    //     const b = await getAPI02(c.id)
-    //     const crypto = await CryptoModel.findOneAndUpdate({id:c.id},b)
-    // })
+
+
+    // for(let i=5;i<15;i++){
+    // let loquesea03 =coinList.slice(10*i,10*i+9)
+    // await(new Promise(resolve => setTimeout(()=>resolve(
+    // loquesea03.map(async (c:any) => {
+    //     let b = await getAPI02(c.id)
+    //     let crypto = await CryptoModel.findOneAndUpdate({id:c.id},b)
+    // })),10*1000
+    // )))
+    // console.log("------------>"+i)
+    // console.log(loquesea03)
+    // }
+
+    const baco= [
+        {
+          "id": 1
+        },
+        {
+          "id": 1027
+        },
+        {
+          "id": 825
+        },
+        {
+          "id": 3408
+        },
+        {
+          "id": 1839
+        },
+        {
+          "id": 4687
+        }]
+
+    for(let i=0;i<5;i++){
+        await(new Promise(resolve => setTimeout(()=>resolve(
+        async ()=>{
+            let b = await getAPI02(baco[i].id)
+            let crypto = await CryptoModel.findOneAndUpdate({id:baco[i].id},b)
+         }),4*1000
+        )))
+        console.log("-------->"+baco[i].id)
+        console.log("------------>"+i)
+        }
+
 
     const cryptoComplete = await CryptoModel.find()
 
     res.status(200).json(cryptoComplete)
 }
 
-export const testCrypto:RequestHandler =  (req,res) => {
-  
-    res.status(200).send("crypto")
+export const testCrypto:RequestHandler = async (req,res) => {
+    const gato = "Dingo"
+    // const liebre ="liebre"
+    // const liebre = setTimeout(()=>gato,2*1000)
+    for(let i=0;i<3;i++){
+    const liebre = await (new Promise(resolve => setTimeout(()=>resolve(gato),2*1000)))
+    console.log(liebre)    
+    }
+
+    
+    
+    res.status(200).send("liebre")
+
+
+
+
+
 
 }
 
 //API DATA
 
-const getAPI01 = async (start:Number,limit:Number) => {
+export const getAPI01 = async (start:Number,limit:Number) => {
 
     try{
         const infoAPI = await axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', {
@@ -122,7 +198,7 @@ const getAPI01 = async (start:Number,limit:Number) => {
     }
 }
 
-const getAPI02 = async (id:number) => {
+export const getAPI02 = async (id:number) => {
 
     try{
         const infoAPI = await axios.get('https://pro-api.coinmarketcap.com/v2/cryptocurrency/info', {
