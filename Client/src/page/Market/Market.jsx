@@ -1,26 +1,56 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../components/Footer/Footer";
-import Nav from "../../components/Nav/Nav";
 import { fetchCrypto } from "../../redux/reducers/cryptoRed";
 import Cryptos from "../Cryptos/Cryptos";
 import NavAl from "../../components/Nav/NavAl";
+import axios from "axios";
+import Paginate from "../../components/Paginate/Paginate"
+
+
+
 function Market() {
   const dispatch = useDispatch();
 
   const { cryptos } = useSelector((state) => state.crypto);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [crypsPerPage] = useState(15);
+  const [range, setRange] = useState({ first: 0, last: 15 });
+  const [currentCryp, setCurrentCryp] = useState(
+  cryptos?.slice(range.first, range.last)
+);
+const paginado = (pageNumber) => {
+  setCurrentPage(pageNumber);
+};
 
-  useEffect(() => {
-    dispatch(fetchCrypto());
-  }, [dispatch]);
+useEffect(() => {
+  setCurrentCryp(cryptos?.slice(range.first, range.last));
+}, [cryptos, range.first, range.last]);
+useEffect(() => {
+  setRange({
+    first: (currentPage - 1) * crypsPerPage,
+    last: currentPage * crypsPerPage,
+  });
+}, [currentPage, crypsPerPage]);
+
+  
+
+  // useEffect(() => {
+  //   dispatch(fetchCrypto());
+  // }, [dispatch]);
 
   return (
     <div>
       <NavAl />
+
       <div className="container-xxl my-4">
         <h1 className="fw-bold text-center">Market</h1>
         <p className="text-center">Precio de las criptomonedas de hoy</p>
         <div className="row d-flex align-items-center border-top border-bottom border-2 mt-4 pt-3 px-4">
+          <Paginate crypsPerPage={crypsPerPage}
+          cryptos={cryptos?.length}
+          paginate={paginado}
+           />
           <div className="col-1">
             <p className="fw-bold">#</p>
           </div>
@@ -49,7 +79,7 @@ function Market() {
             <p className="fw-bold">Ultimos 7 dias</p>
           </div>
         </div>
-        {cryptos.map((c, index) => {
+        {currentCryp.map((c, index) => {
           return (
             <Cryptos
               keyNumber={index + 1}
@@ -65,6 +95,7 @@ function Market() {
             />
           );
         })}
+
       </div>
       <Footer />
     </div>
