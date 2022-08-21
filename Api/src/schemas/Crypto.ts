@@ -1,12 +1,15 @@
 import { prop, getModelForClass, Ref, modelOptions } from '@typegoose/typegoose';
-import { TimeStamps } from "@typegoose/typegoose/lib/defaultClasses";
+// import { TimeStamps } from "@typegoose/typegoose/lib/defaultClasses";
 
 
 @modelOptions({ 
     options: { allowMixed: 0 },
-    schemaOptions:{_id:false}
+    schemaOptions:{
+        _id: false,
+        timestamps: false
+    }
 })
-export class Crypto extends TimeStamps{
+export class Crypto {
 
     @prop({ required: true})
     id: number;
@@ -51,7 +54,10 @@ export class Crypto extends TimeStamps{
     logo: string;
 
     @prop({ required: false})
-    tag_names: string;
+    tag_names: string[];
+
+    @prop({ required: false})
+    tag_groups: string[];
 }
 
 export const CryptoModel = getModelForClass(Crypto)
