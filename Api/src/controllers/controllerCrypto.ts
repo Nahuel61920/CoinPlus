@@ -14,7 +14,7 @@ import {CryptoModel} from "../schemas/Crypto";
 export const getCryptos:RequestHandler = async (req,res) => {
     const  name  =req.query.name?.toString()
     
-    const crypto = await CryptoModel.find({},{name:1,description:1,_id:0});
+    const crypto = await CryptoModel.find({},{_id:0,__v:0});
 
     try{
         if(name){
