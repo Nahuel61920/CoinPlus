@@ -9,7 +9,7 @@ export const getAllDetail = async  (req: Request, res: Response)=> {
         
         let response = await (await axios.get('https://pro-api.coinmarketcap.com/v2/cryptocurrency/info', {
           headers: {
-            'X-CMC_PRO_API_KEY': 'af01c4a7-d62b-45a2-9afd-bf9ed61d6eaf',
+            'X-CMC_PRO_API_KEY': 'ea824a0d-431a-48ec-8e80-abdf4dcf9c30',
           },
           params : {
             'id': id

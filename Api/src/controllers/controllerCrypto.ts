@@ -7,7 +7,7 @@ const path = require('path');
 let rawdata = fs.readFileSync(path.join(__dirname, '/updater/coinList.json'))
 let coinList = JSON.parse(rawdata);
 
-const API_KEY ="ea824a0d-431a-48ec-8e80-abdf4dcf9c30"
+const API_KEY = 'ea824a0d-431a-48ec-8e80-abdf4dcf9c30'
 
 import {CryptoModel} from "../schemas/Crypto";
 
