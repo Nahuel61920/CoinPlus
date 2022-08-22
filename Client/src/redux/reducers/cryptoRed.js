@@ -26,7 +26,7 @@ export default cryptoSlice.reducer;
 
 export const fetchCrypto = () => (dispatch) => {
   axios
-    .get("http://localhost:3001/market")
+    .get("http://localhost:3001/crypto")
     .then((res) => {
       dispatch(setCryptoList(res.data));
     })

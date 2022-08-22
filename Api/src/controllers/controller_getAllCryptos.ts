@@ -45,4 +45,3 @@ export const getAllCryptos = async  (req: Request, res: Response)=> {
   
     
 }
-
