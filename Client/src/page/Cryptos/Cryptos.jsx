@@ -8,6 +8,7 @@ function Cryptos({
   symbol,
   price,
   volume_24h,
+  logo,
   volume_change_24h,
   percent_change_1h,
   percent_change_24h,
@@ -21,15 +22,16 @@ function Cryptos({
       <div className="col-1">
         <p className="fw-bold">{keyNumber}</p>
       </div>
-      <div className="col-1">
+      <div className="col-3 d-flex">
+        <img src={logo} alt={name} width="30" height="30"/>
         <Link className="por" to={`/market/${id}`}>
-          <p className="fw-bold">
+          <p className="fw-bold px-2">
             {name} <span>{symbol}</span>
           </p>
         </Link>
       </div>
       <div className="col-1">
-        <p className="fw-bold">${price.toFixed(3)}</p>
+        <p className="fw-bold">${price.toLocaleString( "es-ES" )}</p>
       </div>
       <div className="col-1">
         {percent_change_1h > 0 ? (
@@ -61,15 +63,20 @@ function Cryptos({
         )}
       </div>
       <div className="col-2">
-        <p className="fw-bold">${volume_24h.toFixed(2)}</p>
-      </div>
-      <div className="col-2">
         <p className="fw-bold">
-          - <span>-</span>
+        ${volume_24h.toLocaleString( "es-ES" )}
         </p>
       </div>
       <div className="col-2">
-        <p className="fw-bold">{percent_change_7d.toFixed(2)}%</p>
+          {volume_change_24h > 0 ? (
+            <p className="fw-bold text-success">
+              {volume_change_24h.toFixed(2)}%
+            </p>
+          ) : (
+            <p className="fw-bold text-danger">
+              {volume_change_24h.toFixed(2)}%
+            </p>
+          )}
       </div>
     </div>
   );

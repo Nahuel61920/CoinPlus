@@ -32,7 +32,9 @@ function CryptoDetail() {
         </div>
         <div className="col-6">
             <h1 className="fw-bold text-end">
-              Precio: <span> ${details.price.toLocaleString( "es-ES" )}</span>
+              Precio: <span> ${
+                !details.price ? " " : details.price.toLocaleString( "es-ES" )
+              }</span>
             </h1>
         </div>
       </div>
@@ -42,20 +44,24 @@ function CryptoDetail() {
           <h2>Description: <span className="fs-4">{details.description}</span></h2>
         </div>
         <div className="base4">
-          <h2>Volumen cada 24h: ${details.volume_24h.toLocaleString( "es-ES" )}</h2>
+          <h2>Volumen cada 24h: ${
+                !details.volume_24h ? " " : details.volume_24h.toLocaleString( "es-ES" )
+              }</h2>
         </div>
         <div className="base3">
           <h2>Volumen de cambio cada 24h: {" "}
             {
+              !details.volume_change_24h ? " " : 
               details.volume_change_24h > 0 ? (
                 <span className="text-success">
-                  {details.volume_change_24h}
+                  {details.volume_change_24h.toFixed(2)}
                 </span>
               ) : (
                 <span className="text-danger">
-                  {details.volume_change_24h}
+                  {details.volume_change_24h.toFixed(2)}
                 </span>
               )
+            
             }
           </h2>
         </div>
@@ -83,82 +89,95 @@ function CryptoDetail() {
         <div className="row d-flex align-items-center  border border-2 mb-3">
           <div className="col-2">
             <h4>
-              {details.percent_change_1h > 0 ? (
+              {
+              !details.percent_change_1h ? " " : 
+              details.percent_change_1h > 0 ? (
                 <span className="text-success">
-                  {details.percent_change_1h.toLocaleString( "es-ES" )}%
+                  {details.percent_change_1h.toFixed(2)}
                 </span>
               ) : (
                 <span className="text-danger">
-                  {details.percent_change_1h.toLocaleString( "es-ES" )}%
+                  {details.percent_change_1h.toFixed(2)}
                 </span>
-              )}
+              )
+            }
             </h4>
           </div>
           <div className="col-2">
-            <h4>{
+            <h4>
+            {
+              !details.percent_change_24h ? " " : 
               details.percent_change_24h > 0 ? (
                 <span className="text-success">
-                  {details.percent_change_24h.toLocaleString( "es-ES" )}%
+                  {details.percent_change_24h.toFixed(2)}
                 </span>
               ) : (
                 <span className="text-danger">
-                  {details.percent_change_24h.toLocaleString( "es-ES" )}%
+                  {details.percent_change_24h.toFixed(2)}
                 </span>
               )
             }
             </h4>
           </div>
           <div className="col-2">
-          <h4>{
-              details.percent_change_7h > 0 ? (
+          <h4>
+            {
+              !details.percent_change_7d ? " " : 
+              details.percent_change_7d > 0 ? (
                 <span className="text-success">
-                  {details.percent_change_7d.toLocaleString( "es-ES" )}%
+                  {details.percent_change_7d.toFixed(2)}
                 </span>
               ) : (
                 <span className="text-danger">
-                  {details.percent_change_7d.toLocaleString( "es-ES" )}%
+                  {details.percent_change_7d.toFixed(2)}
                 </span>
               )
             }
             </h4>
           </div>
           <div className="col-2">
-          <h4>{
+          <h4>
+            {
+              !details.percent_change_30d ? " " : 
               details.percent_change_30d > 0 ? (
                 <span className="text-success">
-                  {details.percent_change_30d.toLocaleString( "es-ES" )}%
+                  {details.percent_change_30d.toFixed(2)}
                 </span>
               ) : (
                 <span className="text-danger">
-                  {details.percent_change_30d.toLocaleString( "es-ES" )}%
+                  {details.percent_change_30d.toFixed(2)}
                 </span>
               )
             }
             </h4>
           </div>
           <div className="col-2">
-          <h4>{
+          <h4>
+            {
+              !details.percent_change_60d ? " " : 
               details.percent_change_60d > 0 ? (
                 <span className="text-success">
-                  {details.percent_change_60d.toLocaleString( "es-ES" )}%
+                  {details.percent_change_60d.toFixed(2)}
                 </span>
               ) : (
                 <span className="text-danger">
-                  {details.percent_change_60d.toLocaleString( "es-ES" )}%
+                  {details.percent_change_60d.toFixed(2)}
                 </span>
               )
             }
             </h4>
           </div>
           <div className="col-2">
-          <h4>{
+          <h4>
+          {
+              !details.percent_change_90d ? " " : 
               details.percent_change_90d > 0 ? (
                 <span className="text-success">
-                  {details.percent_change_90d.toLocaleString( "es-ES" )}%
+                  {details.percent_change_90d.toFixed(2)}
                 </span>
               ) : (
                 <span className="text-danger">
-                  {details.percent_change_90d.toLocaleString( "es-ES" )}%
+                  {details.percent_change_90d.toFixed(2)}
                 </span>
               )
             }

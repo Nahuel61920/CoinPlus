@@ -1,0 +1,9 @@
+.select_filter select{
+    appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+    color: #7b7b7b;
+    border: none;
+    cursor: pointer;
+}
+

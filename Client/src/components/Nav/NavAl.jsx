@@ -1,6 +1,5 @@
 import React from 'react'
 import Logo from '../../assets/img/coin+logo.png'
-import { Link } from 'react-scroll';
 import { NavLink } from 'react-router-dom';
 import './nav.css' ;
 
@@ -35,11 +34,11 @@ function NavAl() {
           </NavLink>
           <div>
           <div class="container-fluid">
-<form class="d-flex " role="search">
-  <input class="form-control me-2 hight" type="search" placeholder="Search..." aria-label="Search" value={name} onChange={(e) => setName(e.target.value)}/>
-  <button class="buttonLogin" type="submit" onClick={(e) => handleSubmit(e)}>Search</button>
-</form>
-</div>
+            <form class="d-flex " role="search">
+              <input class="form-control me-2 hight" type="search" placeholder="Search..." aria-label="Search" value={name} onChange={(e) => setName(e.target.value)}/>
+              <button class="buttonLogin" type="submit" onClick={(e) => handleSubmit(e)}>Search</button>
+            </form>
+            </div>
          </div>
             <button class="navbar-toggler" 
                 type="button" 
@@ -53,7 +52,8 @@ function NavAl() {
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="nav navbar-nav ms-auto mx-3"/>
-                <ImgProfile/>
+                  <NavLink to="/market" style={{ textDecoration: 'none' }} className="px-4 fw-bold text-primary">Market</NavLink>
+                  <ImgProfile/>
                 </div>
         </div>
     </nav>
