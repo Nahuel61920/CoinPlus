@@ -11,10 +11,6 @@ export default function Paginate({
     pageNumbers.push(i + 1);
   }
 
-console.log(crypsPerPage,
-    cryptos,
-    paginate,)
-
   return (
     <ul >
       {pageNumbers &&
@@ -22,14 +18,14 @@ console.log(crypsPerPage,
           (
             number //map para recorrer el array
           ) => (
-            <li
+            <button
               key={number}
               onClick={() => paginate(number)}
             >
               {" "}
               {/* si el numero de pagina es igual al currentPage, le pongo la clase active /}{/ muestro el numero de pagina */}
               <p>{number}</p>
-            </li>
+            </button>
           )
         )}
     </ul>

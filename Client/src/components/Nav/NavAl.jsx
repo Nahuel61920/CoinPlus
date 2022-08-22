@@ -13,11 +13,19 @@ import { Cryptoname, nameCrypto } from '../../redux/reducers/cryptoRed';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 
+
 function NavAl() {
 
   const {isAuthenticated} = useAuth0()
   const dispatch = useDispatch();
   const [name, setName] = useState('');
+
+  function handleSubmit(e){
+    e.preventDefault();
+    dispatch(nameCrypto(name));
+    setName('');
+    
+  };
 
   return (
     <nav class="navbar navbar-expand-sm navbar-dark bg-warning px-md-5 px-1 sticky-top">
@@ -28,8 +36,8 @@ function NavAl() {
           <div>
           <div class="container-fluid">
 <form class="d-flex " role="search">
-  <input class="form-control me-2 hight" type="search" placeholder="Search..." aria-label="Search"/>
-  <button class="buttonLogin" type="submit"  onClick={(e) => handleSubmit(e)}>Search</button>
+  <input class="form-control me-2 hight" type="search" placeholder="Search..." aria-label="Search" value={name} onChange={(e) => setName(e.target.value)}/>
+  <button class="buttonLogin" type="submit" onClick={(e) => handleSubmit(e)}>Search</button>
 </form>
 </div>
          </div>

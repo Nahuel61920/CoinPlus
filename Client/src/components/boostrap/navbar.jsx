@@ -14,11 +14,13 @@ function OffcanvasExample({logo}) {
         <Navbar key={expand} bg="light" expand={expand} className="mb-3">
           <Container fluid>
             <Navbar.Brand href="#">
+              <Link to='/'>
             <img
               src={logo}
               width="150"
               alt="React Bootstrap logo"
             />
+              </Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas

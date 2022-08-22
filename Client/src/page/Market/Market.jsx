@@ -11,33 +11,23 @@ import Paginate from "../../components/Paginate/Paginate"
 
 function Market() {
   const dispatch = useDispatch();
-
   const { cryptos } = useSelector((state) => state.crypto);
+
+
   const [currentPage, setCurrentPage] = useState(1);
-  const [crypsPerPage] = useState(15);
-  const [range, setRange] = useState({ first: 0, last: 15 });
-  const [currentCryp, setCurrentCryp] = useState(
-  cryptos?.slice(range.first, range.last)
-);
-const paginado = (pageNumber) => {
-  setCurrentPage(pageNumber);
-};
+  const [crypsPerPage, setCrypsPerPage] = useState(50);
+  const indexOfLastCryp = currentPage * crypsPerPage; //15
+  const indexOfFirstCryp = indexOfLastCryp - crypsPerPage; //0
+  const currentCryps = cryptos.slice(indexOfFirstCryp, indexOfLastCryp);
 
-useEffect(() => {
-  setCurrentCryp(cryptos?.slice(range.first, range.last));
-}, [cryptos, range.first, range.last]);
-useEffect(() => {
-  setRange({
-    first: (currentPage - 1) * crypsPerPage,
-    last: currentPage * crypsPerPage,
-  });
-}, [currentPage, crypsPerPage]);
+  const paginado = (pageNumber) => {
+    setCurrentPage(pageNumber)
+  }
 
-  
 
-  // useEffect(() => {
-  //   dispatch(fetchCrypto());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchCrypto());
+  }, [dispatch]);
 
   return (
     <div>
@@ -79,7 +69,7 @@ useEffect(() => {
             <p className="fw-bold">Ultimos 7 dias</p>
           </div>
         </div>
-        {currentCryp.map((c, index) => {
+        {currentCryps.map((c, index) => {
           return (
             <Cryptos
               keyNumber={index + 1}
