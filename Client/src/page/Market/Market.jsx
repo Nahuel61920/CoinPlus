@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../components/Footer/Footer";
+import ScrollTop from "../../components/ScrollTop/ScrollTop";
 import {
   fetchCrypto,
   orderCrypto,
@@ -14,13 +15,15 @@ import {
 } from "../../redux/reducers/cryptoRed";
 import Cryptos from "../Cryptos/Cryptos";
 import NavAl from "../../components/Nav/NavAl";
-import axios from "axios";
 import Paginate from "../../components/Paginate/Paginate";
-import "./market.css"
+import "./market.css";
+import load from "../../assets/img/load.gif"
 
 function Market() {
   const dispatch = useDispatch();
   const { cryptos } = useSelector((state) => state.crypto);
+
+  const [charge, setCharge] = useState(false);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [crypsPerPage, setCrypsPerPage] = useState(50);
@@ -33,10 +36,16 @@ function Market() {
   };
 
   useEffect(() => {
+    setCharge(true);
+    setTimeout(() => {
+      setCharge(false);
+    }, 4000);
     dispatch(fetchCrypto());
+
   }, [dispatch]);
 
   const [category, setCategory] = useState("All");
+   
 
   function handleSubmit(e) {
     let tag = e.toString();
@@ -118,7 +127,8 @@ function Market() {
           </select>
           <Paginate
             crypsPerPage={crypsPerPage}
-            cryptos={cryptos?.length}
+            cryptos={cryptos.length}
+            currentPage={currentPage}
             paginate={paginado}
           />
           <div className="col-1 select_filter">
@@ -189,7 +199,13 @@ function Market() {
             </select>
           </div>
         </div>
-        {currentCryps.map((c, index) => {
+        {
+          charge ? (
+            <div className="d-flex justify-content-center my-5">
+              <img src={load} alt="loading" height="200" className="my-5" />
+            </div>
+          ) : currentCryps.length ? (
+            currentCryps.map((c, index) => {
           return (
             <Cryptos
               keyNumber={index + 1}
@@ -206,8 +222,15 @@ function Market() {
               logo={c.logo}
             />
           );
-        })}
+        })
+          ) : (
+            <div className="d-flex justify-content-center">
+              <h1>Crypto no encontradas</h1>
+            </div>
+          )
+        }
       </div>
+      <ScrollTop/>
       <Footer />
     </div>
   );

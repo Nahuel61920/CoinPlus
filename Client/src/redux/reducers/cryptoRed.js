@@ -6,7 +6,7 @@ export const cryptoSlice = createSlice({
   initialState: {
     cryptos: [],
     cryptoFilter: [],
-    details: {},
+    details: [],
   },
   reducers: {
     setCryptoList: (state, { type, payload }) => {
@@ -115,7 +115,7 @@ export const cryptoSlice = createSlice({
   },
 });
 
-export const { setCryptoList, cryptoDetail, nameCrypto, cryptoOrder, filterForPrice,filterForVolume, filterForVolume24, filterForPercentChange1h, filterForPercentChange24h, filterForPercentChange7d, orderByName} =
+export const {setCryptoList, cryptoDetail, nameCrypto, cryptoOrder, filterForPrice,filterForVolume, filterForVolume24, filterForPercentChange1h, filterForPercentChange24h, filterForPercentChange7d, orderByName} =
   cryptoSlice.actions;
 
 export default cryptoSlice.reducer;
@@ -188,5 +188,10 @@ export const filterVolume24 = (payload) => (dispatch) => {
 // order for name
 export const orderName = (payload) => (dispatch) => {
   dispatch(Cryptoname(payload));
+}
+
+// borrar el estado de detalles
+export const cleanState = () => (dispatch) => {
+  dispatch(cryptoDetail([]));
 }
 
