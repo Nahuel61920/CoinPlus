@@ -20,6 +20,8 @@ export const cryptoSlice = createSlice({
   },
 });
 
+
+
 export const { setCryptoList, cryptoDetail, nameCrypto} = cryptoSlice.actions;
 
 export default cryptoSlice.reducer;
