@@ -17,12 +17,21 @@ export const cryptoSlice = createSlice({
     nameCrypto: (state, { type, payload }) => {
       state.cryptos = payload;
     },
+    cryptoOrder: (state, { type, payload }) => {
+      console.log(payload);
+      let tag =
+        payload === "All"
+          ? state.cryptoFilter
+          : state.cryptoFilter.filter((cryptoFilter) => {
+              return cryptoFilter.tag_groups?.includes(payload);
+            });
+      state.cryptos = tag;
+    },
   },
 });
 
-
-
-export const { setCryptoList, cryptoDetail, nameCrypto} = cryptoSlice.actions;
+export const { setCryptoList, cryptoDetail, nameCrypto, cryptoOrder } =
+  cryptoSlice.actions;
 
 export default cryptoSlice.reducer;
 
@@ -44,11 +53,19 @@ export const detailCrypto = (id) => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
-export const Cryptoname= (name) => (dispatch) => {
+export const Cryptoname = (name) => (dispatch) => {
   axios
     .get(`http://localhost:3001/crypto/?name=` + name)
     .then((res) => {
       dispatch(nameCrypto(res.data));
     })
     .catch((err) => console.log(err));
+};
+
+export const orderCrypto = (payload) => (dispatch) => {
+  try {
+    dispatch(cryptoOrder(payload));
+  } catch (error) {
+    console.log(error);
+  }
 };

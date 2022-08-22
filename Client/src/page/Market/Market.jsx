@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../components/Footer/Footer";
-import { fetchCrypto } from "../../redux/reducers/cryptoRed";
+import { fetchCrypto, orderCrypto } from "../../redux/reducers/cryptoRed";
 import Cryptos from "../Cryptos/Cryptos";
 import NavAl from "../../components/Nav/NavAl";
 import axios from "axios";
-import Paginate from "../../components/Paginate/Paginate"
-
-
+import Paginate from "../../components/Paginate/Paginate";
 
 function Market() {
   const dispatch = useDispatch();
   const { cryptos } = useSelector((state) => state.crypto);
-
 
   const [currentPage, setCurrentPage] = useState(1);
   const [crypsPerPage, setCrypsPerPage] = useState(50);
@@ -21,13 +18,20 @@ function Market() {
   const currentCryps = cryptos.slice(indexOfFirstCryp, indexOfLastCryp);
 
   const paginado = (pageNumber) => {
-    setCurrentPage(pageNumber)
-  }
-
+    setCurrentPage(pageNumber);
+  };
 
   useEffect(() => {
     dispatch(fetchCrypto());
   }, [dispatch]);
+
+  const [category, setCategory] = useState("All");
+
+  function handleSubmit(e) {
+    let tag = e.toString();
+    dispatch(orderCrypto(tag));
+    setCategory("All");
+  }
 
   return (
     <div>
@@ -37,10 +41,32 @@ function Market() {
         <h1 className="fw-bold text-center">Market</h1>
         <p className="text-center">Precio de las criptomonedas de hoy</p>
         <div className="row d-flex align-items-center border-top border-bottom border-2 mt-4 pt-3 px-4">
-          <Paginate crypsPerPage={crypsPerPage}
-          cryptos={cryptos?.length}
-          paginate={paginado}
-           />
+          <select
+            className="name-filt"
+            onChange={(e) => {
+              handleSubmit(e.target.value);
+            }}
+          >
+            <option className="nav-links" value="All">
+              Cryptos
+            </option>
+            <option value={"INDUSTRY"}>Industry</option>
+            <option value={"PLATFORM"}>Platform</option>
+            <option value={"CATEGORY"}>Category</option>
+            <option value={"OTHERS"}>Others</option>
+            <option value={"ALGORITHM"}>Algoritm</option>
+            {/* {cryptos.map((tag_groups, index) => (
+              <option key={index} value={tag_groups.value}>
+                {" "}
+                {tag_groups.name}{" "}
+              </option>
+            ))} */}
+          </select>
+          <Paginate
+            crypsPerPage={crypsPerPage}
+            cryptos={cryptos?.length}
+            paginate={paginado}
+          />
           <div className="col-1">
             <p className="fw-bold">#</p>
           </div>
@@ -85,7 +111,6 @@ function Market() {
             />
           );
         })}
-
       </div>
       <Footer />
     </div>
