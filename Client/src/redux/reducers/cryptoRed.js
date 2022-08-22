@@ -5,11 +5,13 @@ export const cryptoSlice = createSlice({
   name: "crypto",
   initialState: {
     cryptos: [],
+    cryptoFilter: [],
     details: {},
   },
   reducers: {
     setCryptoList: (state, { type, payload }) => {
       state.cryptos = payload;
+      state.cryptoFilter = payload;
     },
     cryptoDetail: (state, { type, payload }) => {
       state.details = payload;
@@ -18,7 +20,6 @@ export const cryptoSlice = createSlice({
       state.cryptos = payload;
     },
     cryptoOrder: (state, { type, payload }) => {
-      console.log(payload);
       let tag =
         payload === "All"
           ? state.cryptoFilter

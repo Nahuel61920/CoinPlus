@@ -31,6 +31,7 @@ function Market() {
     let tag = e.toString();
     dispatch(orderCrypto(tag));
     setCategory("All");
+    setCurrentPage(1);
   }
 
   return (
