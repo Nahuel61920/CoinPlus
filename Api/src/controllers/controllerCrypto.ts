@@ -1,6 +1,7 @@
+import { AxiosError } from "axios";
 import { RequestHandler } from "express";
+import {CryptoModel} from "../schemas/Crypto";
 const axios = require ('axios');
-
 const fs = require('fs');
 const path = require('path');
 
@@ -9,10 +10,9 @@ let coinList = JSON.parse(rawdata);
 
 const API_KEY = 'ea824a0d-431a-48ec-8e80-abdf4dcf9c30'
 
-import {CryptoModel} from "../schemas/Crypto";
 
 export const getCryptos:RequestHandler = async (req,res) => {
-    const  name  =req.query.name?.toString()
+    const  name = req.query.name?.toString()
     
     const crypto = await CryptoModel.find({},{_id:0,__v:0});
 
@@ -35,16 +35,25 @@ export const getCryptos:RequestHandler = async (req,res) => {
 
 export const getCryptoByID:RequestHandler = async (req,res) => {
     const {id} = req.params
-
     // const crypto = await getAPI01(1,500);
     // const cryptoFiltrado = await crypto.filter((c:any) => c.id === Number(id))[0]
-    const cryptoInfo = await getAPI02(Number(id));
+    
+    try {
+        if(id){
+            const cryptoInfo = await getAPI02(Number(id));
 
-    const cryptoActualizado = await CryptoModel.findOneAndUpdate({id},cryptoInfo,{new: true})
+            const cryptoActualizado = await CryptoModel.findOneAndUpdate({id},cryptoInfo,{new: true})
 
-    const cryptoFiltrado = await CryptoModel.findOne({id},{_id:0,__v:0})
+            const cryptoFiltrado = await CryptoModel.findOne({id},{_id:0,__v:0})
 
-    res.status(200).send(cryptoFiltrado)
+            res.status(200).send(cryptoFiltrado)
+        }else{
+            res.status(404).send("ID (type number) is needed for detail search")
+        }
+    } catch (error) {
+        res.status(404).send(error)
+    }
+   
 
 }
 
@@ -55,28 +64,34 @@ export const getCryptoByQuery:RequestHandler = async (req,res) => {
 
     const tag_names_changed =tag_names?.toString().toLowerCase().split(" ").join("-")
 
-    if(tag_names){
-        const crypto = await CryptoModel.find(
-        {   
-            price:{$gte:min_changed,$lte:max_changed},
-            tag_names:{$elemMatch:{$eq:tag_names_changed}}
-        },{_id:0,__v:0})
-        res.status(200).send(crypto)   
+    try {
+        if(tag_names){
+            const crypto = await CryptoModel.find(
+            {   
+                price:{$gte:min_changed,$lte:max_changed},
+                tag_names:{$elemMatch:{$eq:tag_names_changed}}
+            },{_id:0,__v:0})
+            res.status(200).send(crypto)   
+        }
+        else{
+            const crypto = await CryptoModel.find(
+            {   
+                price:{$gte:min_changed,$lte:max_changed}
+            },{_id:0,__v:0})
+            res.status(200).send(crypto)
+        }
+    } catch (error) {
+        res.status(404).send(error)
     }
-    else{
-        const crypto = await CryptoModel.find(
-        {   
-            price:{$gte:min_changed,$lte:max_changed}
-        },{_id:0,__v:0})
-        res.status(200).send(crypto)
-    }
+    
 }
 
 
 // En caso se necesite guardar en la BD
 export const postCrypto:RequestHandler = async (req,res) => {
-    const cryptoData01 = await getAPI01(1,5000);
-    const cryptoData02 = await getAPI01(5001,4660);
+    
+    const cryptoData01 = await getAPI01(1,1000);
+    const cryptoData02 = await getAPI01(1001,2000);
     const cryptoData = cryptoData01.concat(cryptoData02)
     const saved = await CryptoModel.insertMany(cryptoData)
     res.status(200).json(saved) 
