@@ -1,12 +1,12 @@
 require("dotenv").config();
-const { DB_USER, DB_PASSWORD} = process.env;
+//const {MONGO_URL} = process.env;
 
 //import User from "./schemas/User"
 
 const mongoose = require("mongoose");
 const options = {useNewUrlParser: true, useUnifiedTopology: true}
 
-mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.resjtyz.mongodb.net/dbcoin`, options,(error:any) =>{
+mongoose.connect(process.env.MONGO_URL, options,(error:any) =>{
     error?console.log("**Connection Error**"):console.log("**Connected**")
 })
 

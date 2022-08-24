@@ -5,7 +5,8 @@ import ScrollTop from "../../components/ScrollTop/ScrollTop";
 import {
   fetchCrypto,
   categoryCrypto,
-  filterCrypto,
+  filterCategories,
+  filterPlatforms,
   orderCrypto,
   filterPrice,
   filterVolume,
@@ -49,7 +50,13 @@ function Market() {
 
   function handleSubmitCategory(e) {
     let tag = e.toString();
-    dispatch(filterCrypto(tag));
+    dispatch(filterCategories(tag));
+    setCurrentPage(1);
+  }
+
+  function handleSubmitPlatform(e) {
+    let tag = e.toString();
+    dispatch(filterPlatforms(tag));
     setCurrentPage(1);
   }
 
@@ -109,7 +116,7 @@ function Market() {
         <h1 className="fw-bold text-center">Market</h1>
         <p className="text-center">Precio de las criptomonedas de hoy</p>
         <div className="row d-flex align-items-center justify-content-center border-top border-bottom border-2 mt-4 pt-3 px-4">
-          <select
+          {/* <select
             className="name-filt col-5 m-3"
             onChange={(e) => {
               handleSubmit(e.target.value);
@@ -123,20 +130,20 @@ function Market() {
             <option value={"CATEGORY"}>Category</option>
             <option value={"OTHERS"}>Others</option>
             <option value={"ALGORITHM"}>Algoritm</option>
-            {/* {cryptos.map((tag_groups, index) => (
+            {cryptos.map((tag_groups, index) => (
               <option key={index} value={tag_groups.value}>
                 {" "}
                 {tag_groups}{" "}
               </option>
-            ))} */}
-          </select>
+            ))}
+          </select> */}
           <select
-            defaultValue="All"
+            defaultValue="Category"
             className="name-filt col-5  m-3"
             onChange={(e) => handleSubmitCategory(e.target.value)}
           >
             <option value="All">
-              All
+              Category
             </option>
             {category
             .map(
@@ -151,7 +158,61 @@ function Market() {
               )
             )}
           </select>
-
+          
+          <select
+            defaultValue="Platform"
+            className="name-filt col-5  m-3"
+            onChange={(e) => handleSubmitPlatform(e.target.value)}
+          >
+            <option value="All">
+             Platform
+            </option>
+            <option value="TRON Ecosystem">
+              TRON Ecosystem
+            </option>
+            <option value="Ethereum Ecosystem">
+              Ethereum Ecosystem
+            </option>
+            <option value="Asset-Backed Token">
+              Asset-Backed Token
+            </option>
+            <option value="Polkadot">
+              Polkadot
+            </option>
+            <option value="Binance Chain">
+              Binance Chain
+            </option>
+            <option value="Polkadot Ecosystem">
+              Polkadot Ecosystem
+            </option>
+            <option value="Fantom Ecosystem">
+              Fantom Ecosystem
+            </option>
+            <option value="Solana Ecosystem">
+              Solana Ecosystem
+            </option>
+            <option value="Arbitrum Ecosytem">
+              Arbitrum Ecosytem
+            </option>
+            <option value="Bnb Chain">
+              Bnb Chain
+            </option>
+            <option value="Injective Ecosystem">
+              Injective Ecosystem
+            </option>
+            {/* {category
+            .map(
+              (
+                capt,
+                key
+              ) => (
+                <option key={key} value={capt.name}>
+                  {" "}
+                  {capt.name}
+                </option>
+              )
+            )} */}
+          </select>
           <Paginate
             crypsPerPage={crypsPerPage}
             cryptos={cryptos.length}

@@ -30,7 +30,7 @@ export const cryptoSlice = createSlice({
       let tag =
         payload === "All"
           ? state.cryptoFilter
-          : state.cryptos.filter((cryptoFilter) => {
+          : state.cryptoFilter.filter((cryptoFilter) => {
               return cryptoFilter.tag_groups?.includes(payload);
             });
       state.cryptos = tag;
@@ -42,10 +42,20 @@ export const cryptoSlice = createSlice({
       let categorys =
         payload === "All"
           ? state.cryptoFilter
-          : state.cryptoFilter.filter((cryptoFilter) => {
+          : state.cryptos.filter((cryptoFilter) => {
               return cryptoFilter.tag_names.includes(payload.toLowerCase().replace(/ /g, "-"))
             });
       state.cryptos = categorys;
+    },
+
+    filterPlatform: (state, { type, payload }) => {
+      let platforms =
+        payload === "All"
+          ? state.cryptoFilter
+          : state.cryptos.filter((cryptoFilter) => {
+              return cryptoFilter.tag_names.includes(payload.toLowerCase().replace(/ /g, "-"));
+            });
+      state.cryptos = platforms;
     },
     filterForPrice: (state, { type, payload }) => {
       console.log(state.cryptos.price);
@@ -134,7 +144,7 @@ export const cryptoSlice = createSlice({
   },
 });
 
-export const {setCryptoList, cryptoDetail, nameCrypto, cryptoOrder, allcryptoCategory, filterCategory, filterForPrice,filterForVolume, filterForVolume24, filterForPercentChange1h, filterForPercentChange24h, filterForPercentChange7d, orderByName} =
+export const {setCryptoList, cryptoDetail, nameCrypto, cryptoOrder, allcryptoCategory, filterCategory, filterPlatform, filterForPrice,filterForVolume, filterForVolume24, filterForPercentChange1h, filterForPercentChange24h, filterForPercentChange7d, orderByName} =
   cryptoSlice.actions;
 
 export default cryptoSlice.reducer;
@@ -166,8 +176,12 @@ export const categoryCrypto = (id) => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
-export const filterCrypto = (payload) => (dispatch) => {
+export const filterCategories = (payload) => (dispatch) => {
   dispatch(filterCategory(payload));
+}
+
+export const filterPlatforms = (payload) => (dispatch) => {
+  dispatch(filterPlatform(payload));
 }
 
 export const Cryptoname = (name) => (dispatch) => {

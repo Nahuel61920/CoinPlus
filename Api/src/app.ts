@@ -34,7 +34,7 @@ server.use(morgan("dev"));
 //   next();
 // });
 server.use(cors())
-server.set("port", process.env.PORT || 3004);
+server.set("port", process.env.PORT);
 server.use(express.json());
 server.use(
   fileUpload({
