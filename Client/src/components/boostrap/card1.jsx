@@ -14,10 +14,10 @@ function BasicExample({user}) {
       <Card.Body>
         <Card.Text>Correo: {user.email}</Card.Text>
         <Card.Text>Idioma: {user.locale.slice(0,2)}</Card.Text>
-        {/* <Card.Text>Direccion: </Card.Text>
+        <Card.Text>Direccion: </Card.Text>
         <Card.Text>Telefono:</Card.Text>
         <Card.Text>Dni:</Card.Text>
-        <Card.Text>País:</Card.Text> */}
+        <Card.Text>País:</Card.Text>
         <Card.Text>Última fecha de entrada: {user.updated_at.slice(0,10) + ' ' + user.updated_at.slice(11,19)}</Card.Text>
         <Card.Text>Logueado con: {user.sub.charAt(0).toUpperCase() + user.sub.slice(1,6)}</Card.Text>
       </Card.Body>
