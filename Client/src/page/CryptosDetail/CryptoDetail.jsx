@@ -30,12 +30,7 @@ function CryptoDetail() {
   return (
     <>
     <NavAl/>
-    {
-      charge ? (
-        <div className="d-flex justify-content-center my-5">
-              <img src={load} alt="loading" height="200" className="my-5" />
-            </div>
-      ) : details ? (
+    { details.price ? (
         <div className="container-xl">
           <div className="row d-flex align-items-center border-top border-bottom border-2 py-3">
             <div className="d-flex gap-3 col-6 align-items-center">
@@ -68,11 +63,11 @@ function CryptoDetail() {
                   !details.volume_change_24h ? " " : 
                   details.volume_change_24h > 0 ? (
                     <span className="text-success">
-                      {details.volume_change_24h.toFixed(2)}
+                      {details.volume_change_24h.toFixed(2)}%
                     </span>
                   ) : (
                     <span className="text-danger">
-                      {details.volume_change_24h.toFixed(2)}
+                      {details.volume_change_24h.toFixed(2)}%
                     </span>
                   )
                 
@@ -107,11 +102,11 @@ function CryptoDetail() {
                   !details.percent_change_1h ? " " : 
                   details.percent_change_1h > 0 ? (
                     <span className="text-success">
-                      {details.percent_change_1h.toFixed(2)}
+                      {details.percent_change_1h.toFixed(2)}%
                     </span>
                   ) : (
                     <span className="text-danger">
-                      {details.percent_change_1h.toFixed(2)}
+                      {details.percent_change_1h.toFixed(2)}%
                     </span>
                   )
                 }
@@ -123,11 +118,11 @@ function CryptoDetail() {
                   !details.percent_change_24h ? " " : 
                   details.percent_change_24h > 0 ? (
                     <span className="text-success">
-                      {details.percent_change_24h.toFixed(2)}
+                      {details.percent_change_24h.toFixed(2)}%
                     </span>
                   ) : (
                     <span className="text-danger">
-                      {details.percent_change_24h.toFixed(2)}
+                      {details.percent_change_24h.toFixed(2)}%
                     </span>
                   )
                 }
@@ -139,11 +134,11 @@ function CryptoDetail() {
                   !details.percent_change_7d ? " " : 
                   details.percent_change_7d > 0 ? (
                     <span className="text-success">
-                      {details.percent_change_7d.toFixed(2)}
+                      {details.percent_change_7d.toFixed(2)}%
                     </span>
                   ) : (
                     <span className="text-danger">
-                      {details.percent_change_7d.toFixed(2)}
+                      {details.percent_change_7d.toFixed(2)}%
                     </span>
                   )
                 }
@@ -155,11 +150,11 @@ function CryptoDetail() {
                   !details.percent_change_30d ? " " : 
                   details.percent_change_30d > 0 ? (
                     <span className="text-success">
-                      {details.percent_change_30d.toFixed(2)}
+                      {details.percent_change_30d.toFixed(2)}%
                     </span>
                   ) : (
                     <span className="text-danger">
-                      {details.percent_change_30d.toFixed(2)}
+                      {details.percent_change_30d.toFixed(2)}%
                     </span>
                   )
                 }
@@ -171,11 +166,11 @@ function CryptoDetail() {
                   !details.percent_change_60d ? " " : 
                   details.percent_change_60d > 0 ? (
                     <span className="text-success">
-                      {details.percent_change_60d.toFixed(2)}
+                      {details.percent_change_60d.toFixed(2)}%
                     </span>
                   ) : (
                     <span className="text-danger">
-                      {details.percent_change_60d.toFixed(2)}
+                      {details.percent_change_60d.toFixed(2)}%
                     </span>
                   )
                 }
@@ -187,11 +182,11 @@ function CryptoDetail() {
                   !details.percent_change_90d ? " " : 
                   details.percent_change_90d > 0 ? (
                     <span className="text-success">
-                      {details.percent_change_90d.toFixed(2)}
+                      {details.percent_change_90d.toFixed(2)}%
                     </span>
                   ) : (
                     <span className="text-danger">
-                      {details.percent_change_90d.toFixed(2)}
+                      {details.percent_change_90d.toFixed(2)}%
                     </span>
                   )
                 }
@@ -201,36 +196,12 @@ function CryptoDetail() {
           </div>
         </div>
       ) : (
-        <div className="text-center">
-          <h1>No se encontro esta busqueda</h1>
+        <div className="d-flex justify-content-center my-5">
+          <img src={load} alt="loading" height="200" className="my-5" />
         </div>
       )
     }
     <Footer/>
-    {/* <div className="paginado2">
-      <div>
-        <img className="imagdetalle" src={details.logo} alt={details.id} />
-      </div>
-      <div className="cardDetalle">
-        <div>
-          <h1>
-            {details.name} <span>{details.symbol}</span>
-          </h1>
-        </div>
-        <div className="base3">
-          <h1>
-            Price:
-            {details.price}
-          </h1>
-        </div>
-        <div className="base3">
-          <h2>Description: {details.description}</h2>
-        </div>
-        <div className="base3">
-          <h2>24%: {details.volume_change_24h}</h2>
-        </div>
-      </div>
-    </div> */}
     </>
   );
 }

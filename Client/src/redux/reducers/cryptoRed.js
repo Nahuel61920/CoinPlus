@@ -7,6 +7,7 @@ export const cryptoSlice = createSlice({
     cryptos: [],
     cryptoFilter: [],
     details: [],
+    category: [],
   },
   reducers: {
     setCryptoList: (state, { type, payload }) => {
@@ -17,16 +18,34 @@ export const cryptoSlice = createSlice({
       state.details = payload;
     },
     nameCrypto: (state, { type, payload }) => {
-      state.cryptos = payload;
+      let nameCry =
+        payload === ""
+          ? state.cryptoFilter
+          : state.cryptos.filter((cryptoFilter) => {
+              return cryptoFilter.name.toLowerCase().includes(payload.toLowerCase());
+            });
+      state.cryptos = nameCry;
     },
     cryptoOrder: (state, { type, payload }) => {
       let tag =
         payload === "All"
           ? state.cryptoFilter
-          : state.cryptoFilter.filter((cryptoFilter) => {
+          : state.cryptos.filter((cryptoFilter) => {
               return cryptoFilter.tag_groups?.includes(payload);
             });
       state.cryptos = tag;
+    },
+    allcryptoCategory: (state, { type, payload }) => {
+      state.category = payload
+    },
+    filterCategory: (state, { type, payload }) => {
+      let categorys =
+        payload === "All"
+          ? state.cryptoFilter
+          : state.cryptoFilter.filter((cryptoFilter) => {
+              return cryptoFilter.tag_names.includes(payload.toLowerCase().replace(/ /g, "-"))
+            });
+      state.cryptos = categorys;
     },
     filterForPrice: (state, { type, payload }) => {
       console.log(state.cryptos.price);
@@ -115,7 +134,7 @@ export const cryptoSlice = createSlice({
   },
 });
 
-export const {setCryptoList, cryptoDetail, nameCrypto, cryptoOrder, filterForPrice,filterForVolume, filterForVolume24, filterForPercentChange1h, filterForPercentChange24h, filterForPercentChange7d, orderByName} =
+export const {setCryptoList, cryptoDetail, nameCrypto, cryptoOrder, allcryptoCategory, filterCategory, filterForPrice,filterForVolume, filterForVolume24, filterForPercentChange1h, filterForPercentChange24h, filterForPercentChange7d, orderByName} =
   cryptoSlice.actions;
 
 export default cryptoSlice.reducer;
@@ -138,13 +157,25 @@ export const detailCrypto = (id) => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
-export const Cryptoname = (name) => (dispatch) => {
+export const categoryCrypto = (id) => (dispatch) => {
   axios
-    .get(`http://localhost:3001/crypto/?name=` + name)
+    .get(`http://localhost:3001/category`)
     .then((res) => {
-      dispatch(nameCrypto(res.data));
+      dispatch(allcryptoCategory(res.data));
     })
     .catch((err) => console.log(err));
+};
+
+export const filterCrypto = (payload) => (dispatch) => {
+  dispatch(filterCategory(payload));
+}
+
+export const Cryptoname = (name) => (dispatch) => {
+  try {
+    dispatch(nameCrypto(name));
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const orderCrypto = (payload) => (dispatch) => {

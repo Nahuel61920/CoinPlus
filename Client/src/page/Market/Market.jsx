@@ -4,6 +4,8 @@ import Footer from "../../components/Footer/Footer";
 import ScrollTop from "../../components/ScrollTop/ScrollTop";
 import {
   fetchCrypto,
+  categoryCrypto,
+  filterCrypto,
   orderCrypto,
   filterPrice,
   filterVolume,
@@ -17,11 +19,12 @@ import Cryptos from "../Cryptos/Cryptos";
 import NavAl from "../../components/Nav/NavAl";
 import Paginate from "../../components/Paginate/Paginate";
 import "./market.css";
-import load from "../../assets/img/load.gif"
+import load from "../../assets/img/load.gif";
 
 function Market() {
   const dispatch = useDispatch();
-  const { cryptos } = useSelector((state) => state.crypto);
+  const { cryptos, category } = useSelector((state) => state.crypto);
+  console.log(cryptos);
 
   const [charge, setCharge] = useState(false);
 
@@ -41,16 +44,18 @@ function Market() {
       setCharge(false);
     }, 4000);
     dispatch(fetchCrypto());
-
+    dispatch(categoryCrypto());
   }, [dispatch]);
 
-  const [category, setCategory] = useState("All");
-   
+  function handleSubmitCategory(e) {
+    let tag = e.toString();
+    dispatch(filterCrypto(tag));
+    setCurrentPage(1);
+  }
 
   function handleSubmit(e) {
     let tag = e.toString();
     dispatch(orderCrypto(tag));
-    setCategory("All");
     setCurrentPage(1);
   }
 
@@ -98,14 +103,14 @@ function Market() {
 
   return (
     <div>
-      <NavAl />
+      <NavAl setCurrentPage={setCurrentPage}/>
 
       <div className="container-xxl my-4">
         <h1 className="fw-bold text-center">Market</h1>
         <p className="text-center">Precio de las criptomonedas de hoy</p>
-        <div className="row d-flex align-items-center border-top border-bottom border-2 mt-4 pt-3 px-4">
+        <div className="row d-flex align-items-center justify-content-center border-top border-bottom border-2 mt-4 pt-3 px-4">
           <select
-            className="name-filt"
+            className="name-filt col-5 m-3"
             onChange={(e) => {
               handleSubmit(e.target.value);
             }}
@@ -121,10 +126,32 @@ function Market() {
             {/* {cryptos.map((tag_groups, index) => (
               <option key={index} value={tag_groups.value}>
                 {" "}
-                {tag_groups.name}{" "}
+                {tag_groups}{" "}
               </option>
             ))} */}
           </select>
+          <select
+            defaultValue="All"
+            className="name-filt col-5  m-3"
+            onChange={(e) => handleSubmitCategory(e.target.value)}
+          >
+            <option value="All">
+              All
+            </option>
+            {category
+            .map(
+              (
+                capt,
+                key
+              ) => (
+                <option key={key} value={capt.name}>
+                  {" "}
+                  {capt.name}
+                </option>
+              )
+            )}
+          </select>
+
           <Paginate
             crypsPerPage={crypsPerPage}
             cryptos={cryptos.length}
@@ -135,11 +162,16 @@ function Market() {
             <p className="fw-bold">#</p>
           </div>
           <div className="col-3 select_filter">
-              <select defaultValue="name" onChange={(e) => handleSortOrderByName(e)}>
-                <option className="p-2" value="name">Nombre</option>
-                <option value="asc">Nombre (A-Z)</option>
-                <option value="desc">Nombre (Z-A)</option>
-              </select>
+            <select
+              defaultValue="name"
+              onChange={(e) => handleSortOrderByName(e)}
+            >
+              <option className="p-2" value="name">
+                Nombre
+              </option>
+              <option value="asc">Nombre (A-Z)</option>
+              <option value="desc">Nombre (Z-A)</option>
+            </select>
           </div>
           <div className="col-1 select_filter">
             <select defaultValue="Precio" onChange={(e) => handleSort(e)}>
@@ -169,14 +201,14 @@ function Market() {
             </select>
           </div>
           <div className="col-1 select_filter">
-          <select
-            defaultValue="7d"
-            onChange={(e) => handleSortPercentChange7d(e)}
-          >
-            <option value="7d">7d %</option>
-            <option value="min">Min</option>
-            <option value="max">Max</option>
-          </select>
+            <select
+              defaultValue="7d"
+              onChange={(e) => handleSortPercentChange7d(e)}
+            >
+              <option value="7d">7d %</option>
+              <option value="min">Min</option>
+              <option value="max">Max</option>
+            </select>
           </div>
           <div className="col-2 select_filter">
             <select
@@ -199,38 +231,32 @@ function Market() {
             </select>
           </div>
         </div>
-        {
-          charge ? (
-            <div className="d-flex justify-content-center my-5">
-              <img src={load} alt="loading" height="200" className="my-5" />
-            </div>
-          ) : currentCryps.length ? (
-            currentCryps.map((c, index) => {
-          return (
-            <Cryptos
-              keyNumber={index + 1}
-              id={c.id}
-              key={index}
-              name={c.name}
-              price={c.price}
-              symbol={c.symbol}
-              volume_24h={c.volume_24h}
-              volume_change_24h={c.volume_change_24h}
-              percent_change_1h={c.percent_change_1h}
-              percent_change_24h={c.percent_change_24h}
-              percent_change_7d={c.percent_change_7d}
-              logo={c.logo}
-            />
-          );
-        })
-          ) : (
-            <div className="d-flex justify-content-center">
-              <h1>Crypto no encontradas</h1>
-            </div>
-          )
-        }
+        {currentCryps.length ? (
+          currentCryps.map((c, index) => {
+            return (
+              <Cryptos
+                keyNumber={index + 1}
+                id={c.id}
+                key={index}
+                name={c.name}
+                price={c.price}
+                symbol={c.symbol}
+                volume_24h={c.volume_24h}
+                volume_change_24h={c.volume_change_24h}
+                percent_change_1h={c.percent_change_1h}
+                percent_change_24h={c.percent_change_24h}
+                percent_change_7d={c.percent_change_7d}
+                logo={c.logo}
+              />
+            );
+          })
+        ) : (
+          <div className="d-flex justify-content-center my-5">
+            <img src={load} alt="loading" height="200" className="my-5" />
+          </div>
+        )}
       </div>
-      <ScrollTop/>
+      <ScrollTop />
       <Footer />
     </div>
   );

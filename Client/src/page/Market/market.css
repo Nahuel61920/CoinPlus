@@ -5,5 +5,13 @@
     color: #7b7b7b;
     border: none;
     cursor: pointer;
+    outline: none;
+    padding: 0 2px;
+}
+
+option{
+    padding: 20px;
+    outline: none;
+    border: none;
 }
 
