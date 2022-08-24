@@ -5,7 +5,7 @@ const axios = require ('axios');
 const fs = require('fs');
 const path = require('path');
 
-let rawdata = fs.readFileSync(path.join(__dirname, '/updater/coinList.json'))
+let rawdata = fs.readFileSync(path.join(__dirname, '../../updater/coinList.json' || '../../../updater/coinList.json'));
 let coinList = JSON.parse(rawdata);
 
 const API_KEY = 'ea824a0d-431a-48ec-8e80-abdf4dcf9c30'

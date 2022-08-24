@@ -34,7 +34,7 @@ server.use(morgan("dev"));
 //   next();
 // });
 server.use(cors())
-server.set("port", process.env.PORT);
+server.set("port", process.env.PORT || 3001);
 server.use(express.json());
 server.use(
   fileUpload({
@@ -43,8 +43,10 @@ server.use(
   })
 );
 
+const host = process.env.HOST || "0.0.0.0";
+
 server.use("/", routes);
-server.listen(server.get("port"), () => {
+server.listen(server.get("port"), host, () => {
   console.log("Ya me levanté");
 });
 
