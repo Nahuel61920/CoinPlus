@@ -11,6 +11,7 @@ import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 import { TransactionContext } from "../../context/TransactionContext";
 import { shortenAddress } from "../../utils/shortenAddress";
+import Transactions from "./Transactions";
 
 const Input = ({ placeholder, name, type, value, handleChange }) => (
   <input
@@ -123,6 +124,7 @@ function User() {
           </div>
         </div>
       </div>
+      <Transactions />
     </div>
   );
 }
