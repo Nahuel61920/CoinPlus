@@ -139,7 +139,7 @@ function Market() {
           </select> */}
           <select
             defaultValue="Category"
-            className="name-filt col-5  m-3"
+            className="name-filt col-5  m-3 animate__animated animate__bounceInLeft animate__delay-1s"
             onChange={(e) => handleSubmitCategory(e.target.value)}
           >
             <option value="All">
@@ -161,7 +161,7 @@ function Market() {
           
           <select
             defaultValue="Platform"
-            className="name-filt col-5  m-3"
+            className="name-filt col-5  m-3 animate__animated animate__bounceInRight animate__delay-2s"
             onChange={(e) => handleSubmitPlatform(e.target.value)}
           >
             <option value="All">
