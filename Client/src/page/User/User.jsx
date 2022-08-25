@@ -5,7 +5,7 @@ import Logo from '../../assets/img/coin+logo.png'
 import NavBar from '../../components/boostrap/navbar'
 import UserCard from '../../components/boostrap/card1'
 import Wallet from '../../components/boostrap/walletmini';
-
+import Form from '../../components/boostrap/formUser'
 
 function User() {
   const {user, isAuthenticated} = useAuth0()
@@ -16,6 +16,10 @@ function User() {
     <div className='container-fluid d-flex justify-content-between p-5 '>
       <UserCard user={user}/>
       <Wallet/>
+    </div>
+    <div className='w-50 p-5'>
+
+    <Form/>
     </div>
     </div>
  )
