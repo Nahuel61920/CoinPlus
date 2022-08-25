@@ -13,7 +13,7 @@ function BasicExample({user}) {
         </div>
       <Card.Body>
         <Card.Text>Correo: {user.email}</Card.Text>
-        <Card.Text>Idioma: {user.locale.slice(0,2)}</Card.Text>
+        <Card.Text>Idioma: {user.local}</Card.Text>
         <Card.Text>Direccion: </Card.Text>
         <Card.Text>Telefono:</Card.Text>
         <Card.Text>Dni:</Card.Text>
