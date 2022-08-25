@@ -43,10 +43,9 @@ server.use(
   })
 );
 
-const host = process.env.HOST || "0.0.0.0";
 
 server.use("/", routes);
-server.listen(server.get("port"), host, () => {
+server.listen(server.get("port"), () => {
   console.log("Ya me levanté");
 });
 
