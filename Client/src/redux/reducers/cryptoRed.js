@@ -151,7 +151,7 @@ export default cryptoSlice.reducer;
 
 export const fetchCrypto = () => (dispatch) => {
   axios
-    .get("http://localhost:3001/crypto")
+    .get("/crypto")
     .then((res) => {
       dispatch(setCryptoList(res.data));
     })
@@ -160,7 +160,7 @@ export const fetchCrypto = () => (dispatch) => {
 
 export const detailCrypto = (id) => (dispatch) => {
   axios
-    .get(`http://localhost:3001/crypto/${id}`)
+    .get(`/crypto/${id}`)
     .then((res) => {
       dispatch(cryptoDetail(res.data));
     })
@@ -169,7 +169,7 @@ export const detailCrypto = (id) => (dispatch) => {
 
 export const categoryCrypto = (id) => (dispatch) => {
   axios
-    .get(`http://localhost:3001/category`)
+    .get(`/category`)
     .then((res) => {
       dispatch(allcryptoCategory(res.data));
     })
