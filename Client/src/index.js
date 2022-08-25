@@ -1,29 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import * as bootstrap from 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'animate.css';
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import * as bootstrap from "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "animate.css";
 
-import {Auth0Provider} from '@auth0/auth0-react'
+import { Auth0Provider } from "@auth0/auth0-react";
+
+import { TransactionsProvider } from "./context/TransactionContext";
 
 import axios from "axios";
 
 axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
-const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID; 
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <React.StrictMode>
-      <Auth0Provider domain={domain} clientId={clientId} redirectUri={window.location.origin}>
-      <App />
+      <Auth0Provider
+        domain={domain}
+        clientId={clientId}
+        redirectUri={window.location.origin}
+      >
+        <TransactionsProvider>
+          <App />
+        </TransactionsProvider>
       </Auth0Provider>
     </React.StrictMode>
   </BrowserRouter>
