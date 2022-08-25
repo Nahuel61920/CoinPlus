@@ -26,6 +26,15 @@
     padding-top: 5px;
     font-size: 1em;
    }
+
+   .card-tarj{
+     background: url('../../assets/img/tarjeta.jpg');
+     background-size: contain;
+     background-position: center;
+     border-radius: 20px;
+     height: 250px;
+     width: 450px;
+   }
    
    .card .img {
     width: 120px;
