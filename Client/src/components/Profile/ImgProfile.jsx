@@ -10,12 +10,12 @@ export default function Profile() {
     isAuthenticated && (
         <div className="profile-nav dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img className="img-profile-nav" src={user.picture} alt={user.name}/>
+                <img className="img-profile-nav" src={user.picture} alt={user.nickname}/>
           </a>
           <ul class="dropdown-menu text-center p-0 justify-content-center ">
             <div className='modal_drop'>
-                <img className="img-profile-details my-3" src={user.picture} alt={user.name}/>
-                <h6>{user.name}</h6>
+                <img className="img-profile-details my-3" src={user.picture} alt={user.nickname}/>
+                <h6>{user.nickname}</h6>
                 <p>{user.email}</p>
             </div>
             <div className='justify-content-center d-flex m-2 gap-2'>
