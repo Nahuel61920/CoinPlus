@@ -1,0 +1,150 @@
+.bg_categori{
+    text-align: center;
+    font-size: .8rem;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    padding: 1rem;
+    margin: .5rem;
+    border-radius: 10px;
+    text-transform: capitalize;
+    background-color: #34495e;
+    color: #fff;
+}
+
+/* .bg0{
+    background-color: #11d311;
+    color: #000;
+}
+
+.bg1{
+    background-color: #1abc9c;
+    color: #ffffff;
+}
+
+.bg2{
+    background-color: #474e5d;
+    color: #ffffff;
+}
+
+.bg3{
+    background-color: #e2d6d6;
+    color: #555555;
+}
+
+.bg4{
+    background-color: #2f2f2f;
+    color: #fff;
+}
+
+.bg5{
+    background-color: #e67e22;
+    color: #fff;
+}
+
+.bg6{
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.bg7{
+    background-color: #f1c40f;
+    color: #fff;
+}
+
+.bg8{
+    background-color: #3498db;
+    color: #fff;
+}
+
+.bg9{
+    background-color: #9b59b6;
+    color: #fff;
+}
+
+.bg10{
+    background-color: #34495e;
+    color: #fff;
+}
+
+.bg11{
+    background-color: #e67e22;
+    color: #fff;
+}
+
+.bg12{
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.bg13{
+    background-color: #f1c40f;
+    color: #fff;
+}
+
+.bg14{
+    background-color: #3498db;
+    color: #fff;
+}
+
+.bg15{
+    background-color: #9b59b6;
+    color: #fff;
+}
+
+.bg16{
+    background-color: #34495e;
+    color: #fff;
+}
+
+.bg17{
+    background-color: #e67e22;
+    color: #fff;
+}
+
+.bg18{
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.bg19{
+    background-color: #f1c40f;
+    color: #fff;
+}
+
+.bg20{
+    background-color: #3498db;
+    color: #fff;
+}
+
+.bg21{
+    background-color: #9b59b6;
+    color: #fff;
+}
+
+.bg22{
+    background-color: #34495e;
+    color: #fff;
+}
+
+.bg23{
+    background-color: #11d311;
+    color: #000;
+}
+
+.bg24{
+    background-color: #1abc9c;
+    color: #ffffff;
+}
+
+.bg25{
+    background-color: #474e5d;
+    color: #ffffff;
+}
+
+.bg26{
+    background-color: #e2d6d6;
+    color: #555555;
+} */

@@ -16,6 +16,7 @@ function Cryptos({
   percent_change_30d,
   percent_change_60d,
   percent_change_90d,
+  tag_names,
 }) {
   return (
     <div className="row d-flex align-items-center border-top border-bottom border-2 pt-3 px-4">

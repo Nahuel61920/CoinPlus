@@ -308,6 +308,7 @@ function Market() {
                 percent_change_24h={c.percent_change_24h}
                 percent_change_7d={c.percent_change_7d}
                 logo={c.logo}
+                tag_names={c.tag_names}
               />
             );
           })

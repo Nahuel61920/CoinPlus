@@ -5,6 +5,7 @@ import Logo from "../../assets/img/coin+logo.png";
 import NavBar from "../../components/boostrap/navbar";
 import UserCard from "../../components/boostrap/card1";
 // import Wallet from "../../components/boostrap/walletmini";
+import Form from '../../components/boostrap/formUser'
 
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
@@ -52,18 +53,21 @@ function User() {
       <NavBar logo={Logo} />
       <div className="container-fluid d-flex justify-content-between p-5 ">
         <UserCard user={user} />
+        <div className="col-5 d-flex flex-column justify-content-center align-items-center">
         {!currentAccount && (
           <button
             type="button"
             onClick={connectWallet}
-            className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
+            className="d-flex flex-row justify-content-center align-items-center bg-primary p-2"
           >
-            <AiFillPlayCircle className="text-white mr-2" />
-            <p className="text-white text-base font-semibold">Connect Wallet</p>
+            <AiFillPlayCircle className="text-white me-2" />
+            <div>
+            <p className="text-white text-center m-auto">Connect Wallet</p>
+            </div>
           </button>
         )}
         {/* <Wallet/> */}
-        <div className="col-5 d-flex flex-column flex-1 justify-items-center justify-content-start">
+        <div className="d-flex flex-column flex-1 justify-items-center justify-content-start">
           <div className="my-3 card-tarj p-3 d-flex justify-items-start flex-column rounded-xl h-40 sm:w-72">
             <div className="d-flex justify-between flex-column w-full h-full">
               <div className="d-flex justify-content-between justify-items-start">
@@ -123,7 +127,12 @@ function User() {
             )}
           </div>
         </div>
+        </div>
       </div>
+      <div className='w-50 p-5'>
+
+    <Form/>
+    </div>
       <Transactions />
     </div>
   );

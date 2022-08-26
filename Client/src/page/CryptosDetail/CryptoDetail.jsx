@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 import { detailCrypto, cleanState } from "../../redux/reducers/cryptoRed";
 import NavAl from "../../components/Nav/NavAl";
 import Footer from "../../components/Footer/Footer";
-import load from "../../assets/img/load.gif"
+import load from "../../assets/img/load.gif";
+import "./crypto.css"
 
 function CryptoDetail() {
   const { id } = useParams();
@@ -192,6 +193,18 @@ function CryptoDetail() {
                 }
                 </h4>
               </div>
+            </div>
+            <h2 className="text-center m-4">Categorias</h2>
+            <div className="d-flex align-items-center justify-content-center flex-wrap mb-2">
+                {
+                  details.tag_names.length ? details.tag_names.map( (tag, index) => {
+                    return (
+                      <div className="d-flex  " key={index}>
+                        <h4 className={"bg_categori bg" + index}>{tag}</h4>
+                      </div>
+                    )
+                  } ) : <h4>No hay categorias</h4>
+                }
             </div>
           </div>
         </div>
