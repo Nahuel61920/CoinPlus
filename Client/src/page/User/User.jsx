@@ -6,6 +6,7 @@ import NavBar from "../../components/boostrap/navbar";
 import UserCard from "../../components/boostrap/card1";
 // import Wallet from "../../components/boostrap/walletmini";
 import Form from '../../components/boostrap/formUser'
+import Cloudinary from '../../components/boostrap/cloudinary'
 
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
@@ -130,8 +131,9 @@ function User() {
         </div>
       </div>
       <div className='w-50 p-5'>
-
+    
     <Form/>
+    <Cloudinary/>
     </div>
       <Transactions />
     </div>

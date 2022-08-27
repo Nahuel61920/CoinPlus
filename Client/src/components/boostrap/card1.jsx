@@ -24,6 +24,7 @@ function BasicExample({user}) {
         <Card.Text>Logueado con: {user.sub.charAt(0).toUpperCase() + user.sub.slice(1,6)}</Card.Text>
       </Card.Body>
     </Card>
+  
   );
 }
 

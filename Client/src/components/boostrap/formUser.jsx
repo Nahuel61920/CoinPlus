@@ -2,6 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import React from 'react';
 
+
 function BasicExample() {
   return (
     <Form>
@@ -50,7 +51,9 @@ function BasicExample() {
         Submit
       </Button>
     </Form>
+    
   );
+  
 }
 
 export default BasicExample; 
