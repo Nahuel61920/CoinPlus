@@ -1,90 +1,99 @@
 .navbar {
   background: linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%);
-    box-shadow: 0.3em 0.3em 0.7em #00000015;
-    border-bottom: rgb(250, 250, 250) 0.2em solid;
+  box-shadow: 0.3em 0.3em 0.7em #00000015;
+  border-bottom: rgb(250, 250, 250) 0.2em solid;
 }
 
 .nav a {
-    font-size: 1rem;
-    font-weight: bold;
-    margin: .5rem 0;
-    color: rgb(29, 11, 9);
-    position: relative;
-    text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: .5rem 0;
+  color: rgb(29, 11, 9);
+  position: relative;
+  text-decoration: none;
 }
 
 .nav a:hover {
-    color: rgb(15, 157, 223);
+  color: rgb(15, 157, 223);
 }
-  
-  .nav a::before {
-    content: "";
-    height: 3px;
-    width: 0;
-    background: rgb(15, 157, 223);
-    position: absolute;
-    left: 0;
-    bottom: -0.4rem;
-    transition: 0.4s ease-out;
-  }
-  
-  .nav a:hover::before {
-    width: 100%;
-  }
-  
-  .nav .active-link::before,
-  .nav a.active::before {
-    content: "";
-    height: 3px;
-    width: 100%;
-    background: rgb(15, 157, 223);
-    position: absolute;
-    left: 0;
-    bottom: -0.4rem;
-    transition: 0.4s ease-out;
-  }
 
-  .nav .active-link,
-  .nav a.active {
-    color: rgb(15, 157, 223);
-  }
+.nav a::before {
+  content: "";
+  height: 3px;
+  width: 0;
+  background: rgb(15, 157, 223);
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  transition: 0.4s ease-out;
+}
+
+.nav a:hover::before {
+  width: 100%;
+}
+
+.nav .active-link::before,
+.nav a.active::before {
+  content: "";
+  height: 3px;
+  width: 100%;
+  background: rgb(15, 157, 223);
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  transition: 0.4s ease-out;
+}
+
+.nav .active-link,
+.nav a.active {
+  color: rgb(15, 157, 223);
+}
+
+.user-nav .profile-nav,
+.user-nav .buttonLogin {
+  display: flex;
+}
+
+.user-nav-2 .profile-nav,
+.user-nav-2 .buttonLogin {
+  display: none;
+}
+
+.user-nav-2 {
+  display: none;
+}
+
+@media (min-width: 768px) {
 
   .user-nav .profile-nav,
-  .user-nav .buttonLogin{
-    display: flex;
+  .user-nav .buttonLogin {
+    display: none;
   }
 
   .user-nav-2 .profile-nav,
-  .user-nav-2 .buttonLogin{
-    display: none;
+  .user-nav-2 .buttonLogin {
+    display: flex;
+    margin-left: 2rem;
   }
 
-  .user-nav-2{
-    display: none;
+  .user-nav-2 {
+    display: flex;
   }
 
-  @media (min-width: 768px) {
-    .user-nav .profile-nav,
-    .user-nav .buttonLogin{
-      display: none;
-    }
-    .user-nav-2 .profile-nav,
-    .user-nav-2 .buttonLogin{
-      display: flex;
-      margin-left: 1rem;
-    }
-
-    .user-nav-2{
-      display: flex;
-    }
-
-    .nav a {
-      margin: 0 0 0 2rem;
+  .nav a {
+    margin: 0 0 0 1rem;
   }
-  }
+}
 
-  @media (max-width: 768px) {
-    .nav .active-link::before,
+@media (min-width: 860px) {
+  .nav a {
+    margin: 0 0 0 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .nav .active-link::before,
   .nav a.active::before {
     width: 0%;
   }
@@ -92,4 +101,4 @@
   .nav a:hover::before {
     width: 0%;
   }
-  }
+}

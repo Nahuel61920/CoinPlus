@@ -82,3 +82,22 @@ a{
   .buttomLogout:hover .arrow:before {
     right: 3px;
   }
+
+  .buttonLoginMq {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .buttonLoginMq {
+      display: flex;
+      cursor: pointer;
+    }
+    .iconLogin {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+
+    .buttonLogSin {
+      display: none!important;
+    }
+  }
