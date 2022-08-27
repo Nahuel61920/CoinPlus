@@ -5,6 +5,7 @@ import LoginDetailBtn from '../Login/LoginDetailBtn.jsx';
 import './profile.css';
 
 
+
 export default function Profile() {
     const {user, isAuthenticated} = useAuth0()
   return (
@@ -25,6 +26,7 @@ export default function Profile() {
                 <LogOut/>
                 <LoginDetailBtn/>
             </div>
+
           </ul>
         </div>
     )

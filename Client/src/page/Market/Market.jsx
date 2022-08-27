@@ -28,8 +28,6 @@ function Market() {
   const { cryptos, category, isLoading } = useSelector((state) => state.crypto);
   console.log(cryptos);
 
-  const [charge, setCharge] = useState(false);
-
   const [currentPage, setCurrentPage] = useState(1);
   const [crypsPerPage, setCrypsPerPage] = useState(50);
   const indexOfLastCryp = currentPage * crypsPerPage; //15
@@ -41,10 +39,6 @@ function Market() {
   };
 
   useEffect(() => {
-    /* setCharge(true);
-    setTimeout(() => {
-      setCharge(false);
-    }, 4000); */
     dispatch(loadingSet())
     dispatch(fetchCrypto());
     dispatch(categoryCrypto());
@@ -203,18 +197,7 @@ function Market() {
             <option value="Injective Ecosystem">
               Injective Ecosystem
             </option>
-            {/* {category
-            .map(
-              (
-                capt,
-                key
-              ) => (
-                <option key={key} value={capt.name}>
-                  {" "}
-                  {capt.name}
-                </option>
-              )
-            )} */}
+
           </select>
           </div>
           {currentCryps.length ? (

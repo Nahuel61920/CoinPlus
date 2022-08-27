@@ -7,7 +7,7 @@
 .nav a {
     font-size: 1rem;
     font-weight: bold;
-    margin: 0 0 0 2rem;
+    margin: .5rem 0;
     color: rgb(29, 11, 9);
     position: relative;
     text-decoration: none;
@@ -47,4 +47,49 @@
   .nav .active-link,
   .nav a.active {
     color: rgb(15, 157, 223);
+  }
+
+  .user-nav .profile-nav,
+  .user-nav .buttonLogin{
+    display: flex;
+  }
+
+  .user-nav-2 .profile-nav,
+  .user-nav-2 .buttonLogin{
+    display: none;
+  }
+
+  .user-nav-2{
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .user-nav .profile-nav,
+    .user-nav .buttonLogin{
+      display: none;
+    }
+    .user-nav-2 .profile-nav,
+    .user-nav-2 .buttonLogin{
+      display: flex;
+      margin-left: 1rem;
+    }
+
+    .user-nav-2{
+      display: flex;
+    }
+
+    .nav a {
+      margin: 0 0 0 2rem;
+  }
+  }
+
+  @media (max-width: 768px) {
+    .nav .active-link::before,
+  .nav a.active::before {
+    width: 0%;
+  }
+
+  .nav a:hover::before {
+    width: 0%;
+  }
   }
