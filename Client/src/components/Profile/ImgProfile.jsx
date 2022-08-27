@@ -4,6 +4,7 @@ import LogOut from '../Login/LogOut';
 import LoginDetailBtn from '../Login/LoginDetailBtn.jsx';
 import './profile.css';
 
+
 export default function Profile() {
     const {user, isAuthenticated} = useAuth0()
   return (
@@ -14,9 +15,11 @@ export default function Profile() {
           </a>
           <ul class="dropdown-menu text-center p-0 justify-content-center ">
             <div className='modal_drop'>
-                <img className="img-profile-details my-3" src={user.picture} alt={user.nickname}/>
+                <div className='img-desp'>
+                <img className="img-profile-nav-desp" src={user.picture} alt={user.nickname}/>
+                </div>
                 <h6>{user.nickname}</h6>
-                <p>{user.email}</p>
+                <p className='email'>{user.email}</p>
             </div>
             <div className='justify-content-center d-flex m-2 gap-2'>
                 <LogOut/>
