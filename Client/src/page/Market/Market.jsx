@@ -7,7 +7,6 @@ import {
   categoryCrypto,
   filterCategories,
   filterPlatforms,
-  orderCrypto,
   filterPrice,
   filterVolume,
   filterForPercentChange1h,
@@ -60,11 +59,11 @@ function Market() {
     setCurrentPage(1);
   }
 
-  function handleSubmit(e) {
+  /* function handleSubmit(e) {
     let tag = e.toString();
     dispatch(orderCrypto(tag));
     setCurrentPage(1);
-  }
+  } */
 
   function handleSort(e) {
     e.preventDefault();

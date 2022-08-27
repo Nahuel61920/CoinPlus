@@ -26,15 +26,15 @@ export const cryptoSlice = createSlice({
             });
       state.cryptos = nameCry;
     },
-    cryptoOrder: (state, { type, payload }) => {
-      let tag =
-        payload === "All"
-          ? state.cryptoFilter
-          : state.cryptoFilter.filter((cryptoFilter) => {
-              return cryptoFilter.tag_groups?.includes(payload);
-            });
-      state.cryptos = tag;
-    },
+    //cryptoOrder: (state, { type, payload }) => {
+    //  let tag =
+    //    payload === "All"
+    //      ? state.cryptoFilter
+    //      : state.cryptoFilter.filter((cryptoFilter) => {
+    //          return cryptoFilter.tag_groups?.includes(payload);
+    //       });
+    //  state.cryptos = tag;
+    //},
     allcryptoCategory: (state, { type, payload }) => {
       state.category = payload
     },
@@ -42,7 +42,7 @@ export const cryptoSlice = createSlice({
       let categorys =
         payload === "All"
           ? state.cryptoFilter
-          : state.cryptos.filter((cryptoFilter) => {
+          : state.cryptoFilter.filter((cryptoFilter) => {
               return cryptoFilter.tag_names.includes(payload.toLowerCase().replace(/ /g, "-"))
             });
       state.cryptos = categorys;
@@ -192,13 +192,13 @@ export const Cryptoname = (name) => (dispatch) => {
   }
 };
 
-export const orderCrypto = (payload) => (dispatch) => {
+/* export const orderCrypto = (payload) => (dispatch) => {
   try {
     dispatch(cryptoOrder(payload));
   } catch (error) {
     console.log(error);
   }
-};
+}; */
 
 
 // filter price
