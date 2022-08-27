@@ -8,14 +8,17 @@ export const cryptoSlice = createSlice({
     cryptoFilter: [],
     details: [],
     category: [],
+    isLoading: true,
   },
   reducers: {
     setCryptoList: (state, { type, payload }) => {
       state.cryptos = payload;
       state.cryptoFilter = payload;
+      state.isLoading = false;
     },
     cryptoDetail: (state, { type, payload }) => {
       state.details = payload;
+      state.isLoading = false;
     },
     nameCrypto: (state, { type, payload }) => {
       let nameCry =
@@ -25,6 +28,7 @@ export const cryptoSlice = createSlice({
               return cryptoFilter.name.toLowerCase().includes(payload.toLowerCase());
             });
       state.cryptos = nameCry;
+      state.isLoading = false;
     },
     //cryptoOrder: (state, { type, payload }) => {
     //  let tag =
@@ -140,11 +144,14 @@ export const cryptoSlice = createSlice({
       state.cryptos = state.cryptos.filter((crypto) => {
         return crypto.name;
       })
+    },
+    loadingSet: (state, { type, payload }) => {
+      state.isLoading = true;
     }
   },
 });
 
-export const {setCryptoList, cryptoDetail, nameCrypto, cryptoOrder, allcryptoCategory, filterCategory, filterPlatform, filterForPrice,filterForVolume, filterForVolume24, filterForPercentChange1h, filterForPercentChange24h, filterForPercentChange7d, orderByName} =
+export const {setCryptoList, cryptoDetail, nameCrypto, cryptoOrder, allcryptoCategory, filterCategory, filterPlatform, filterForPrice,filterForVolume, filterForVolume24, filterForPercentChange1h, filterForPercentChange24h, filterForPercentChange7d, orderByName, loadingSet} =
   cryptoSlice.actions;
 
 export default cryptoSlice.reducer;
@@ -240,3 +247,8 @@ export const cleanState = () => (dispatch) => {
   dispatch(cryptoDetail([]));
 }
 
+// loading
+
+export const activateLoading = () => (dispatch) =>{
+  dispatch(loadingSet());
+};

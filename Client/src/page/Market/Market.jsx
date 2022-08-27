@@ -14,16 +14,18 @@ import {
   filterForPercentChange7d,
   filterForVolume24,
   orderByName,
+  loadingSet
 } from "../../redux/reducers/cryptoRed";
 import Cryptos from "../Cryptos/Cryptos";
 import NavAl from "../../components/Nav/NavAl";
 import Paginate from "../../components/Paginate/Paginate";
 import "./market.css";
 import load from "../../assets/img/load.gif";
+import noCryptos from "../../assets/img/no_crypto_found.png";
 
 function Market() {
   const dispatch = useDispatch();
-  const { cryptos, category } = useSelector((state) => state.crypto);
+  const { cryptos, category, isLoading } = useSelector((state) => state.crypto);
   console.log(cryptos);
 
   const [charge, setCharge] = useState(false);
@@ -39,10 +41,11 @@ function Market() {
   };
 
   useEffect(() => {
-    setCharge(true);
+    /* setCharge(true);
     setTimeout(() => {
       setCharge(false);
-    }, 4000);
+    }, 4000); */
+    dispatch(loadingSet())
     dispatch(fetchCrypto());
     dispatch(categoryCrypto());
   }, [dispatch]);
@@ -136,6 +139,7 @@ function Market() {
               </option>
             ))}
           </select> */}
+          <div className="row d-flex align-items-center justify-content-center">
           <select
             defaultValue="Category"
             className="name-filt col-5  m-3 animate__animated animate__bounceInLeft animate__delay-1s"
@@ -212,12 +216,16 @@ function Market() {
               )
             )} */}
           </select>
+          </div>
+          {currentCryps.length ? (
           <Paginate
             crypsPerPage={crypsPerPage}
             cryptos={cryptos.length}
             currentPage={currentPage}
             paginate={paginado}
-          />
+          />) : (
+            <></>
+          )}
           <div className="col-1 select_filter">
             <p className="fw-bold">#</p>
           </div>
@@ -290,8 +298,12 @@ function Market() {
               <option value="max">Max</option>
             </select>
           </div>
-        </div>
-        {currentCryps.length ? (
+        </div>{
+          isLoading ? (
+            <div className="d-flex justify-content-center my-5">
+            <img src={load} alt="loading" height="200" className="my-5" />
+          </div>):
+        currentCryps.length ? (
           currentCryps.map((c, index) => {
             return (
               <Cryptos
@@ -312,8 +324,9 @@ function Market() {
             );
           })
         ) : (
-          <div className="d-flex justify-content-center my-5">
-            <img src={load} alt="loading" height="200" className="my-5" />
+          <div className="d-flex justify-content-center my-5 flex-column">
+            <h3 className="text-center">Crypto no encontrada</h3>
+            <img src={noCryptos} alt="noCryptos" height="360" width="525" className="m-auto" />
           </div>
         )}
       </div>
