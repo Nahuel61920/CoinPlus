@@ -20,11 +20,6 @@ export default function LoginDetailBtn() {
   });
 
   function HandleCreate(e) {
-    const a = users.filter((b) => b.users.email === e.users.email);
-    if (a.length > 0) {
-      return alert("There is a pokémon with that name, try another");
-    }
-
     let crear = {
       name: user.given_name,
       email: user.email,
@@ -34,16 +29,6 @@ export default function LoginDetailBtn() {
     };
 
     dispatch(createUser(crear));
-
-    console.log("input--->", crear);
-
-    // setInput({
-    //   name: user.given_name,
-    //   email: user.email,
-    //   nickname: user.nickname,
-    //   picture: user.picture,
-    //   source: user.sub.toString(),
-    // });
   }
 
   return (
