@@ -9,6 +9,7 @@ export const cryptoSlice = createSlice({
     details: [],
     category: [],
     isLoading: true,
+    users:[],
   },
   reducers: {
     setCryptoList: (state, { type, payload }) => {
@@ -147,11 +148,15 @@ export const cryptoSlice = createSlice({
     },
     loadingSet: (state, { type, payload }) => {
       state.isLoading = true;
-    }
+    },
+    setUser: (state, { type, payload }) => {
+      state.users = payload;
+     
+    },
   },
 });
 
-export const {setCryptoList, cryptoDetail, nameCrypto, cryptoOrder, allcryptoCategory, filterCategory, filterPlatform, filterForPrice,filterForVolume, filterForVolume24, filterForPercentChange1h, filterForPercentChange24h, filterForPercentChange7d, orderByName, loadingSet} =
+export const {setCryptoList, cryptoDetail, nameCrypto, cryptoOrder, allcryptoCategory, filterCategory, filterPlatform, filterForPrice,filterForVolume, filterForVolume24, filterForPercentChange1h, filterForPercentChange24h, filterForPercentChange7d, orderByName, loadingSet, setUser} =
   cryptoSlice.actions;
 
 export default cryptoSlice.reducer;
@@ -251,4 +256,10 @@ export const cleanState = () => (dispatch) => {
 
 export const activateLoading = () => (dispatch) =>{
   dispatch(loadingSet());
+};
+
+export const createUser = (payload) => (dispatch) => {
+  axios
+    .post("/profile", payload)
+      .catch((err) => console.log(err));
 };

@@ -1,12 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./User.css";
 import Logo from "../../assets/img/coin+logo.png";
 import NavBar from "../../components/boostrap/navbar";
 import UserCard from "../../components/boostrap/card1";
 // import Wallet from "../../components/boostrap/walletmini";
-import Form from "../../components/boostrap/formUser";
-import Cloudinary from '../../components/boostrap/cloudinary'
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
@@ -14,11 +12,15 @@ import { TransactionContext } from "../../context/TransactionContext";
 import { shortenAddress } from "../../utils/shortenAddress";
 import Transactions from "./Transactions";
 
+
+
+
 const Input = ({ placeholder, name, type, value, handleChange }) => (
   <input
     placeholder={placeholder}
     type={type}
     step="0.0001"
+
     value={value}
     onChange={(e) => handleChange(e, name)}
     className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
@@ -130,8 +132,7 @@ function User() {
         </div>
       </div>
       <div className="w-50 p-5">
-        <Form />
-        <Cloudinary/>
+       
       </div>
       <Transactions />
     </div>

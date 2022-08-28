@@ -5,16 +5,16 @@ import {Crypto} from "./Crypto"
 @modelOptions({ options: { allowMixed: 0 } })
 export class User extends TimeStamps{
 
-    @prop({ required: true, trim: true})
+    @prop({ required: false, trim: true})
     name: string;
 
     @prop({ required: false, trim: true, default: "" })
-    middleName?: string;
+    nickname?: string;
 
-    @prop({ required: true, trim: true})
+    @prop({ required: false, trim: true})
     lastName: string;
 
-    @prop({ required: true, trim: true, lowercase:true})
+    @prop({ required: false, trim: true, lowercase:true})
     email:string;
 
     @prop({ required: false,  default: 123-456 })
@@ -26,7 +26,7 @@ export class User extends TimeStamps{
     @prop({ required: false, default: "https://media.discordapp.net/attachments/1005186345397927979/1009546767739658280/unknown.png" })
     picture:string;
 
-    @prop({ required: true, trim: true, lowercase:true, minlength:8 })
+    @prop({ required: false, trim: true, lowercase:true, minlength:8 })
     password:string;
 
     @prop({ type: () => Boolean, default: false})
@@ -41,11 +41,15 @@ export class User extends TimeStamps{
     @prop({required: false, trim: true})
     adress: string;
 
-    @prop({required: true, trim: true})
+    @prop({required: false, trim: true})
     documentType: string;
 
-    @prop({required: true})
+    @prop({required: false})
     documentNum: number;
+
+    @prop({required: false})
+    source: string;
+
 }
 
 export const UserModel = getModelForClass(User)
