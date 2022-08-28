@@ -22,7 +22,7 @@ export default function Profile() {
                 <h6>{user.nickname}</h6>
                 <p className='email'>{user.email}</p>
             </div>
-            <div className='justify-content-center d-flex m-2 gap-2'>
+            <div className='justify-content-center d-flex m-2 gap-2 btns-profile'>
                 <LogOut/>
                 <LoginDetailBtn/>
             </div>

@@ -50,18 +50,32 @@
 }
 
 .user-nav .profile-nav,
-.user-nav .buttonLogin {
+.user-nav .buttonLogin,
+.nav-All .profile-nav {
   display: flex;
 }
 
 .user-nav-2 .profile-nav,
-.user-nav-2 .buttonLogin {
+.user-nav-2 .buttonLogin,
+.nav-All-2 .profile-nav {
   display: none;
 }
 
-.user-nav-2 {
+.user-nav-2,
+.nav-All-2 {
   display: none;
 }
+
+.img-nav-all{
+  width: 150px;
+}
+
+.btn-navAll{
+  width: 30px!important;
+  height: 30px!important;
+}
+
+
 
 @media (min-width: 768px) {
 
@@ -85,6 +99,22 @@
   }
 }
 
+@media (min-width: 540px) {
+  
+  .nav-All .profile-nav {
+    display: none;
+  }
+
+  .nav-All-2 .profile-nav {
+    display: flex;
+    margin-left: 2rem;
+  }
+
+  .nav-All-2 {
+    display: flex;
+  }
+}
+
 @media (min-width: 860px) {
   .nav a {
     margin: 0 0 0 2rem;
@@ -100,5 +130,9 @@
 
   .nav a:hover::before {
     width: 0%;
+  }
+
+  .img-nav-all{
+    width: 80px;
   }
 }

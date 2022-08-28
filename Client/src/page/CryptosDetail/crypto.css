@@ -148,3 +148,21 @@
     background-color: #e2d6d6;
     color: #555555;
 } */
+
+
+@media (max-width: 768px) {
+    .base2 h2,
+    .base3 h2,
+    .base4 h2{
+        font-size: 1.3rem;
+    }
+
+    .base2 span,
+    .base3 span,
+    .base4 span{
+        font-size: 1.1rem!important;
+    }
+    .info-detail-cry h4{
+        font-size: .9rem;
+    }
+}

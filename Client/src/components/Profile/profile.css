@@ -44,3 +44,14 @@
 .email{
     margin-bottom: 12px;
 }
+
+.btns-profile .buttonLogin{
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .nav-All .profile-nav{
+        height: 40px;
+        width: 40px;
+    }
+}

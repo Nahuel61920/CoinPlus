@@ -224,14 +224,14 @@ function Market() {
               <option value="desc">Nombre (Z-A)</option>
             </select>
           </div>
-          <div className="col-1 select_filter">
+          <div className="col-2 col-md-1 select_filter">
             <select defaultValue="Precio" onChange={(e) => handleSort(e)}>
               <option value="Precio">Precio</option>
               <option value="min">Min</option>
               <option value="max">Max</option>
             </select>
           </div>
-          <div className="col-1 select_filter">
+          <div className="col-2 col-md-1 select_filter">
             <select
               defaultValue="1h"
               onChange={(e) => handleSortPercentChange1h(e)}
@@ -241,7 +241,7 @@ function Market() {
               <option value="max">Max</option>
             </select>
           </div>
-          <div className="col-1 select_filter">
+          <div className="col-2 col-md-1 select_filter">
             <select
               defaultValue="24h"
               onChange={(e) => handleSortPercentChange24h(e)}
@@ -251,7 +251,7 @@ function Market() {
               <option value="max">Max</option>
             </select>
           </div>
-          <div className="col-1 select_filter">
+          <div className="col-2 col-md-1 select_filter">
             <select
               defaultValue="7d"
               onChange={(e) => handleSortPercentChange7d(e)}
@@ -261,7 +261,7 @@ function Market() {
               <option value="max">Max</option>
             </select>
           </div>
-          <div className="col-2 select_filter">
+          <div className="col-2 select_filter info-cry-none">
             <select
               defaultValue="Volumen"
               onChange={(e) => handleSortVolume(e)}
@@ -271,7 +271,7 @@ function Market() {
               <option value="max">Max</option>
             </select>
           </div>
-          <div className="col-2 select_filter">
+          <div className="col-2 select_filter info-cry-none">
             <select
               defaultValue="Volumen24h"
               onChange={(e) => handleSortfilterForVolume24(e)}

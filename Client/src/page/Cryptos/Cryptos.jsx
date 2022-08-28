@@ -19,22 +19,22 @@ function Cryptos({
   tag_names,
 }) {
   return (
-    <div className="row d-flex align-items-center border-top border-bottom border-2 pt-3 px-4">
+    <div className="row d-flex align-items-center border-top border-bottom border-2 pt-3 px-4 row-crypto">
       <div className="col-1">
         <p className="fw-bold">{keyNumber}</p>
       </div>
-      <div className="col-3 d-flex">
-        <img src={logo} alt={name} width="30" height="30"/>
+      <div className="col-3 d-flex name-cry-info">
+        <img src={logo} alt={name} />
         <Link className="por" to={`/market/${id}`}>
           <p className="fw-bold px-2">
             {name} <span>{symbol}</span>
           </p>
         </Link>
       </div>
-      <div className="col-1">
-        <p className="fw-bold">${price.toLocaleString( "es-ES" )}</p>
+      <div className="col-2 col-md-1">
+        <p className="fw-bold">${price.toLocaleString( "en-US" )}</p>
       </div>
-      <div className="col-1">
+      <div className="col-2 col-md-1">
         {percent_change_1h > 0 ? (
           <p className="fw-bold text-success">
             {percent_change_1h.toFixed(2)}%
@@ -43,7 +43,7 @@ function Cryptos({
           <p className="fw-bold text-danger">{percent_change_1h.toFixed(2)}%</p>
         )}
       </div>
-      <div className="col-1">
+      <div className="col-2 col-md-1">
         {percent_change_24h > 0 ? (
           <p className="fw-bold text-success">
             {percent_change_24h.toFixed(2)}%
@@ -54,7 +54,7 @@ function Cryptos({
           </p>
         )}
       </div>
-      <div className="col-1">
+      <div className="col-2 col-md-1">
         {percent_change_7d > 0 ? (
           <p className="fw-bold text-success">
             {percent_change_7d.toFixed(2)}%
@@ -63,12 +63,12 @@ function Cryptos({
           <p className="fw-bold text-danger">{percent_change_7d.toFixed(2)}%</p>
         )}
       </div>
-      <div className="col-2">
+      <div className="col-2 info-cry-none">
         <p className="fw-bold">
-        ${volume_24h.toLocaleString( "es-ES" )}
+        ${volume_24h.toLocaleString( "en-US" )}
         </p>
       </div>
-      <div className="col-2">
+      <div className="col-2 info-cry-none">
           {volume_change_24h > 0 ? (
             <p className="fw-bold text-success">
               {volume_change_24h.toFixed(2)}%

@@ -13,6 +13,21 @@ function CryptoDetail() {
   const dispatch = useDispatch();
   const [charge, setCharge] = useState(false);
 
+  let porcentaje1h = details.price*(details.percent_change_1h/100)+details.price;
+  let porcentaje24h = details.price*(details.percent_change_24h/100)+details.price;
+  let porcentaje7d = details.price*(details.percent_change_7d/100)+details.price;
+  let porcentaje30d = details.price*(details.percent_change_30d/100)+details.price;
+  let porcentaje60d = details.price*(details.percent_change_60d/100)+details.price;
+  let porcentaje90d = details.price*(details.percent_change_90d/100)+details.price;
+
+  console.log(porcentaje1h);
+  console.log(porcentaje24h);
+  console.log(porcentaje7d);
+  console.log(porcentaje30d);
+  console.log(porcentaje60d);
+  console.log(porcentaje90d);
+
+
   
 
   useEffect(() => {
@@ -43,20 +58,20 @@ function CryptoDetail() {
             <div className="col-6">
                 <h1 className="fw-bold text-end">
                   Precio: <span> ${
-                    !details.price ? " " : details.price.toLocaleString( "es-ES" )
+                    !details.price ? " " : details.price.toLocaleString( "en-US" )
                   }</span>
                 </h1>
             </div>
           </div>
           <div className="cardDetalle gap-3">
             
-            <div className="my-4">
+            <div className="my-4 base2">
               <h2>Description: <span className="fs-4">{details.description}</span></h2>
             </div>
             <div className="base4">
-              <h2>Volumen cada 24h: ${
-                    !details.volume_24h ? " " : details.volume_24h.toLocaleString( "es-ES" )
-                  }</h2>
+              <h2>Volumen cada 24h: <span>${
+                    !details.volume_24h ? " " : details.volume_24h.toLocaleString( "en-US" )
+                  }</span></h2>
             </div>
             <div className="base3">
               <h2>Volumen de cambio cada 24h: {" "}
@@ -77,27 +92,27 @@ function CryptoDetail() {
             </div>
             <h2 className="text-center m-4">Cambio porcentual</h2>
             <div className="row d-flex align-items-center border border-2">
-              <div className="col-2">
+              <div className="col-2 info-detail-cry">
                 <h4>Cambio 1h:</h4>
               </div>
-              <div className="col-2">
+              <div className="col-2 info-detail-cry">
                 <h4>Cambio 24h:</h4>
               </div>
-              <div className="col-2">
+              <div className="col-2 info-detail-cry">
                 <h4>Cambio 7d:</h4>
               </div>
-              <div className="col-2">
+              <div className="col-2 info-detail-cry">
                 <h4>Cambio 30d:</h4>
               </div>
-              <div className="col-2">
+              <div className="col-2 info-detail-cry">
                 <h4>Cambio 60d:</h4>
               </div>
-              <div className="col-2">
+              <div className="col-2 info-detail-cry">
                 <h4>Cambio 90d:</h4>
               </div>
             </div>
             <div className="row d-flex align-items-center  border border-2 mb-3">
-              <div className="col-2">
+              <div className="col-2 info-detail-cry">
                 <h4>
                   {
                   !details.percent_change_1h ? " " : 
@@ -113,7 +128,7 @@ function CryptoDetail() {
                 }
                 </h4>
               </div>
-              <div className="col-2">
+              <div className="col-2 info-detail-cry">
                 <h4>
                 {
                   !details.percent_change_24h ? " " : 
@@ -129,7 +144,7 @@ function CryptoDetail() {
                 }
                 </h4>
               </div>
-              <div className="col-2">
+              <div className="col-2 info-detail-cry">
               <h4>
                 {
                   !details.percent_change_7d ? " " : 
@@ -145,7 +160,7 @@ function CryptoDetail() {
                 }
                 </h4>
               </div>
-              <div className="col-2">
+              <div className="col-2 info-detail-cry">
               <h4>
                 {
                   !details.percent_change_30d ? " " : 
@@ -161,7 +176,7 @@ function CryptoDetail() {
                 }
                 </h4>
               </div>
-              <div className="col-2">
+              <div className="col-2 info-detail-cry">
               <h4>
                 {
                   !details.percent_change_60d ? " " : 
@@ -177,7 +192,7 @@ function CryptoDetail() {
                 }
                 </h4>
               </div>
-              <div className="col-2">
+              <div className="col-2 info-detail-cry">
               <h4>
               {
                   !details.percent_change_90d ? " " : 

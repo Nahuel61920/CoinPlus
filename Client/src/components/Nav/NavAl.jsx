@@ -25,9 +25,9 @@ function NavAl({setCurrentPage}) {
 
   return (
     <nav class="navbar navbar-expand-sm navbar-dark bg-warning px-md-5 px-1 sticky-top">
-      <div class="container-fluid w-100">
+      <div class="container-fluid w-100 ">
         <NavLink to="/">
-          <img src={Logo} alt="C+" width="150" />
+          <img src={Logo} alt="C+" className="img-nav-all" />
         </NavLink>
         <div>
           <div class="container-fluid">
@@ -45,7 +45,7 @@ function NavAl({setCurrentPage}) {
           </div>
         </div>
         <button
-          class="navbar-toggler"
+          class="navbar-toggler btn-navAll p-0"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -53,9 +53,11 @@ function NavAl({setCurrentPage}) {
           aria-expanded="false"
           aria-label="toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon fs-6"></span>
         </button>
-
+        <div className="nav-All"><ImgProfile />  </div>      
+        
+        
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <div class="nav navbar-nav ms-auto mx-3" />
           <NavLink
@@ -65,8 +67,8 @@ function NavAl({setCurrentPage}) {
           >
             Market
           </NavLink>
-          <ImgProfile />
         </div>
+        <div className="nav-All-2"><ImgProfile />  </div> 
       </div>
     </nav>
   );

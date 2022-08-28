@@ -15,3 +15,33 @@ option{
     border: none;
 }
 
+.name-cry-info img{
+    width: 30px;
+    height: 30px;
+}
+
+@media (max-width: 1000px) {
+    .row-crypto p{
+        font-size: .9rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .row-crypto p{
+        font-size: .8rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .info-cry-none{
+        display: none;
+    }
+    .name-cry-info img{
+        width: 20px;
+        height: 20px;
+    }
+    .name-cry-info{
+        font-size: .8rem;
+    }
+}
