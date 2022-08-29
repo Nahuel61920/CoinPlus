@@ -276,7 +276,7 @@ function Market() {
               defaultValue="Volumen24h"
               onChange={(e) => handleSortfilterForVolume24(e)}
             >
-              <option value="Volumen24h">Volumen 24h %</option>
+              <option value="Volumen24h">Ultimos 7 dias</option>
               <option value="min">Min</option>
               <option value="max">Max</option>
             </select>
