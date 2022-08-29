@@ -17,7 +17,7 @@ function Services() {
             </div>
             <div class="card-info">
               <p class="text-title">Analiza el mercado</p>
-              <p class="text-body">
+              <p class="text-bodys">
               Conoce las principales criptos, cómo funcionan y qué mueve el mercado.
               </p>
             </div>
@@ -30,7 +30,7 @@ function Services() {
             </div>
             <div class="card-info">
               <p class="text-title">Comprar</p>
-              <p class="text-body">
+              <p class="text-bodys">
                 Acceder a Bitcoin, Etherum, Litecion y otros activos digitales en pocos pasos.
               </p>
             </div>
@@ -43,7 +43,7 @@ function Services() {
             </div>
             <div class="card-info">
               <p class="text-title">Vender</p>
-              <p class="text-body">
+              <p class="text-bodys">
                 Transforma tus criptos en otras divisas y/o dólares de manera rápida y segura.
               </p>
             </div>

@@ -47,11 +47,11 @@ function User() {
 
   // console.log(user)
   return (
-    <div>
+    <div className="bg-global">
       <NavBar logo={Logo} />
-      <div className="container-fluid d-flex justify-content-between p-5 ">
-        <UserCard user={user} />
-        <div className="col-5 d-flex flex-column justify-content-center align-items-center">
+      <div className="row justify-content-center m-2">
+        <UserCard user={user} className="col-12 col-md-6" />
+        <div className="col-12 col-md-5 d-flex flex-column justify-content-center align-items-center animate__animated animate__backInRight animate__delay-1s">
           {!currentAccount && (
             <button
               type="button"
@@ -84,7 +84,7 @@ function User() {
                 </div>
               </div>
             </div>
-            <div className="bg-black p-5 sm:w-96 w-full d-flex flex-column justify-items-start justify-items-center">
+            <div className="bg-envio p-5 sm:w-96 w-full d-flex flex-column justify-items-start justify-items-center">
               <Input
                 placeholder="Address To"
                 name="addressTo"
@@ -118,9 +118,12 @@ function User() {
                 <button
                   type="button"
                   onClick={handleSubmit}
-                  className="text-black w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
+                  className="btn-envio w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
                 >
-                  Send now
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span> Send now
                 </button>
               )}
             </div>

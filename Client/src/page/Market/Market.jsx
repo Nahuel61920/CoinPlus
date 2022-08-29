@@ -105,13 +105,13 @@ function Market() {
   }
 
   return (
-    <div>
+    <div className="bg-global">
       <NavAl setCurrentPage={setCurrentPage} />
 
       <div className="container-xxl my-4">
         <h1 className="fw-bold text-center">Market</h1>
         <p className="text-center">Precio de las criptomonedas de hoy</p>
-        <div className="row d-flex align-items-center justify-content-center border-top border-bottom border-2 mt-4 pt-3 px-4">
+        <div className="row d-flex align-items-center justify-content-center mt-4 pt-3 px-4">
           <div className="row d-flex align-items-center justify-content-center">
             <select
               defaultValue="Category"

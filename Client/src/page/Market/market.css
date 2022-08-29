@@ -1,7 +1,13 @@
+select{
+    background: var(--background);
+    color: var(--text-nav);
+}
+
 .select_filter select{
     appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
+    background: var(--background);
     color: #7b7b7b;
     border: none;
     cursor: pointer;
@@ -18,6 +24,11 @@ option{
 .name-cry-info img{
     width: 30px;
     height: 30px;
+}
+
+.row-crypto{
+    border-bottom: 2px solid var(--border-crypto);
+    border-top: 2px solid var(--border-crypto);
 }
 
 @media (max-width: 1000px) {

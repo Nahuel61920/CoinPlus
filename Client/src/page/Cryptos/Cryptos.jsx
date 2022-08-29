@@ -144,13 +144,13 @@ function Cryptos({
 
 
   return (
-    <div className="row d-flex align-items-center border-top border-bottom border-2 pt-3 px-4 row-crypto">
+    <div className="row d-flex align-items-center pt-3 px-4 row-crypto">
       <div className="col-1">
         <p className="fw-bold">{keyNumber}</p>
       </div>
       <div className="col-3 d-flex name-cry-info">
         <img src={logo} alt={name} />
-        <Link className="por" to={`/market/${id}`}>
+        <Link className="por" to={`/market/${id}`} style={{ textDecoration: 'none' }}>
           <p className="fw-bold px-2">
             {name} <span>{symbol}</span>
           </p>

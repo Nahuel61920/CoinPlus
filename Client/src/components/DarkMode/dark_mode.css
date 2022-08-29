@@ -1,0 +1,11 @@
+.btn-switch{
+    max-width: 30px;
+    max-height: 30px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.btn-switch img {
+    width: 100%;
+    height: 100%;
+}

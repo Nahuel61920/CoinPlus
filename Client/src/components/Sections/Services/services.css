@@ -1,9 +1,9 @@
 .card-contain {
     width: 280px;
     height: 290px;
-    background: #ddd5d5;
+    background: var(--bg-card-service);
     overflow: visible;
-    box-shadow: 0 5px 20px 2px rgba(0,0,0,0.1);
+    box-shadow: var(--box-shadow-card-service);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,7 +26,7 @@
     border-radius: 50%;
     transform: translateY(-50%);
     background: #ffc107;
-    background: linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%);
+    background: var(--bg-service);
     position: relative;
     display: flex;
     justify-content: center;
@@ -44,7 +44,7 @@
     width: 110%;
     height: 110%;
     transform: translate(-50%, -50%);
-    border: 10px solid #fff; 
+    border: var(--border-card-img-service); 
    }
 
    
@@ -53,13 +53,13 @@
     text-transform: uppercase;
     font-size: 1em;
     font-weight: bold;
-    color: #060628;
+    color: var(--title-card-service);
    }
    
-   .text-body {
+   .text-bodys {
     font-size: .8em;
     text-align: center;
-    color: #6f6d78;
+    color: #786d6d;
     font-weight: 400;
     font-style: italic;
    }

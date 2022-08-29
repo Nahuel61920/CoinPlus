@@ -7,6 +7,10 @@
     height: 100%;
 }
 
+.contenedor-header {
+    color: var(--text-primary);
+}
+
 .contenedor-header .buttonLogin{
     display: flex!important;
 }

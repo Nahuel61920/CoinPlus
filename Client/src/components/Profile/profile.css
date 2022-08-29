@@ -45,6 +45,11 @@
     margin-bottom: 12px;
 }
 
+.modal_drop{
+    background: var(--bg-nav);; 
+    color: var(--text-nav);
+}
+
 .btns-profile .buttonLogin{
     margin: 0;
 }

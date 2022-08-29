@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../../assets/img/coin+logo.png";
 import { NavLink, useNavigate } from "react-router-dom";
+import DarkMode from '../DarkMode/DarkMode';
 import "./nav.css";
 
 import ImgProfile from "../Profile/ImgProfile";
@@ -27,7 +28,9 @@ function NavAl({setCurrentPage}) {
     <nav class="navbar navbar-expand-sm navbar-dark bg-warning px-md-5 px-1 sticky-top">
       <div class="container-fluid w-100 ">
         <NavLink to="/">
-          <img src={Logo} alt="C+" className="img-nav-all" />
+            <div className="navbar-imge" width="150">
+            
+            </div>
         </NavLink>
         <div>
           <div class="container-fluid">
@@ -55,7 +58,7 @@ function NavAl({setCurrentPage}) {
         >
           <span class="navbar-toggler-icon fs-6"></span>
         </button>
-        <div className="nav-All"><ImgProfile />  </div>      
+        <div className="nav-All d-flex align-items-center gap-2"><DarkMode/><ImgProfile />  </div>      
         
         
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -68,7 +71,8 @@ function NavAl({setCurrentPage}) {
             Market
           </NavLink>
         </div>
-        <div className="nav-All-2"><ImgProfile />  </div> 
+        
+        <div className="nav-All-2 d-flex align-items-center gap-2"><DarkMode/><ImgProfile />  </div> 
       </div>
     </nav>
   );

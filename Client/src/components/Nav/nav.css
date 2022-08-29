@@ -1,16 +1,23 @@
 .navbar {
-  background: linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%);
-  box-shadow: 0.3em 0.3em 0.7em #00000015;
-  border-bottom: rgb(250, 250, 250) 0.2em solid;
+  background: var(--bg-nav);
+  box-shadow: var(--box-shadow-nav);
+  border-bottom: var(--border-bottom-nav);
 }
 
 .nav a {
   font-size: 1rem;
   font-weight: bold;
   margin: .5rem 0;
-  color: rgb(29, 11, 9);
+  color: var(--text-nav);
   position: relative;
   text-decoration: none;
+}
+
+.navbar-imge{
+  background: var(--logo-nav);
+  background-size: cover;
+  padding: 2rem;
+  min-width: 150px;
 }
 
 .nav a:hover {
@@ -51,13 +58,17 @@
 
 .user-nav .profile-nav,
 .user-nav .buttonLogin,
-.nav-All .profile-nav {
+.user-nav .dark-mode,
+.nav-All .profile-nav,
+.nav-All .dark-mode {
   display: flex;
 }
 
 .user-nav-2 .profile-nav,
 .user-nav-2 .buttonLogin,
-.nav-All-2 .profile-nav {
+.user-nav-2 .dark-mode,
+.nav-All-2 .profile-nav,
+.nav-All-2 .dark-mode {
   display: none;
 }
 
@@ -75,19 +86,34 @@
   height: 30px!important;
 }
 
+.btn-navProfile{
+  background: var(--bg-card-step)!important;
+}
+.nav-togle-user{
+  background: var(--background);
+}
+
+.bg-nav-user{
+  background: var(--bg-nav);
+  color: var(--text-nav);
+}
+
+
+
 
 
 @media (min-width: 768px) {
 
   .user-nav .profile-nav,
-  .user-nav .buttonLogin {
+  .user-nav .buttonLogin,
+  .user-nav .dark-mode {
     display: none;
   }
 
   .user-nav-2 .profile-nav,
-  .user-nav-2 .buttonLogin {
+  .user-nav-2 .buttonLogin,
+  .user-nav-2 .dark-mode {
     display: flex;
-    margin-left: 2rem;
   }
 
   .user-nav-2 {
@@ -101,13 +127,14 @@
 
 @media (min-width: 540px) {
   
-  .nav-All .profile-nav {
+  .nav-All .profile-nav,
+  .nav-All .dark-mode {
     display: none;
   }
 
-  .nav-All-2 .profile-nav {
+  .nav-All-2 .profile-nav,
+  .nav-All-2 .dark-mode {
     display: flex;
-    margin-left: 2rem;
   }
 
   .nav-All-2 {
@@ -135,4 +162,13 @@
   .img-nav-all{
     width: 80px;
   }
+
+  .navbar-imge{
+    background: var(--logo-nav);
+    background-size: contain;
+    padding: 2rem 0 0 0;
+    min-width: 75px;
+    height: 100%;
+  }
+  
 }

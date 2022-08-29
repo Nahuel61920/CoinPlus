@@ -167,11 +167,11 @@ function CryptoDetail() {
   };
 
   return (
-    <>
+    <div className="bg-global">
       <NavAl />
       {details.price ? (
         <div className="container-xl">
-          <div className="row d-flex align-items-center border-top border-bottom border-2 py-3">
+          <div className="row d-flex align-items-center border-detail py-3">
             <div className="d-flex gap-3 col-6 align-items-center">
               <img
                 className="imagdetalle"
@@ -228,7 +228,7 @@ function CryptoDetail() {
               </h2>
             </div>
             <h2 className="text-center m-4">Cambio porcentual</h2>
-            <div className="row d-flex align-items-center border border-2">
+            <div className="row d-flex align-items-center border-cell">
               <div className="col-2 info-detail-cry">
                 <h4>Cambio 1h:</h4>
               </div>
@@ -248,7 +248,7 @@ function CryptoDetail() {
                 <h4>Cambio 90d:</h4>
               </div>
             </div>
-            <div className="row d-flex align-items-center  border border-2 mb-3">
+            <div className="row d-flex align-items-center  border-cell mb-3">
               <div className="col-2 info-detail-cry">
                 <h4>
                   {!details.percent_change_1h ? (
@@ -363,7 +363,7 @@ function CryptoDetail() {
         </div>
       )}
       <Footer />
-    </>
+    </div>
   );
 }
 

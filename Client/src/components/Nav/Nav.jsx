@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "../../assets/img/coin+logo.png";
 import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
+import DarkMode from '../DarkMode/DarkMode';
 import "./nav.css";
 
 import { useAuth0 } from "@auth0/auth0-react";
@@ -28,9 +29,11 @@ function Nav() {
           <span class="navbar-toggler-icon"></span>
         </button>
         <NavLink to="/">
-          <img src={Logo} alt="C+" width="150" />
+          <div className="navbar-imge" width="150">
+            
+          </div>
         </NavLink>
-        <div className="user-nav">{isAuthenticated ? <ImgProfile /> : <LoginButton />}</div>
+        <div className="user-nav d-flex align-items-center gap-2"><DarkMode/>{isAuthenticated ? <ImgProfile /> : <LoginButton />}</div>
         <div class="collapse navbar-collapse collapse-imge" id="navbarSupportedContent">
           <div class="nav navbar-nav ms-auto ">
             <Link to="Home" spy={true} offset={-150} href="#Home">
@@ -52,7 +55,8 @@ function Nav() {
             </Link>
           </div>
         </div>
-        <div className="user-nav-2">{isAuthenticated ? <ImgProfile /> : <LoginButton />}</div>
+        
+        <div className="user-nav-2 d-flex align-items-center gap-2"><DarkMode/>{isAuthenticated ? <ImgProfile /> : <LoginButton />}</div>
       </div>
     </nav>
   );

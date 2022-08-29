@@ -6,12 +6,12 @@ import ScrollTop from "../../components/ScrollTop/ScrollTop"
 
 function LandingPage() {
   return (
-    <>
+    <div className="bg-global">
       <Nav/>
       <ScrollTop/>
       <Main/>
       <Footer/>
-    </>
+    </div>
   )
 }
 

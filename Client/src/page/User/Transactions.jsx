@@ -27,14 +27,14 @@ const TransactionsCard = ({
       min-w-full
       flex-column p-3 rounded-md hover:shadow-2xl"
     >
-      <div className="d-flex flex-column justify-items-center w-full mt-3">
-        <div className="display-flex justify-content-start w-full mb-6 p-2">
+      <div className="d-flex flex-column justify-content-center w-full mt-3 card-transac">
+        <div className="display-flex text-center justify-content-start w-full mb-6 p-2">
           <a
             href={`https://ropsten.etherscan.io/address/${addressFrom}`}
             target="_blank"
             rel="noreferrer"
           >
-            <p className="text-black text-base">
+            <p className="text-base">
               From: {shortenAddress(addressFrom)}
             </p>
           </a>
@@ -43,15 +43,15 @@ const TransactionsCard = ({
             target="_blank"
             rel="noreferrer"
           >
-            <p className="text-black text-base">
+            <p className="text-base">
               To: {shortenAddress(addressTo)}
             </p>
           </a>
-          <p className="text-black text-base">Amount: {amount} ETH</p>
+          <p className="text-base">Amount: {amount} ETH</p>
           {message && (
             <>
               <br />
-              <p className="text-black text-base">Message: {message}</p>
+              <p className="text-base">Message: {message}</p>
             </>
           )}
         </div>
@@ -60,7 +60,7 @@ const TransactionsCard = ({
           alt="nature"
           className="w-full h-64 2xl:h-96 rounded-md shadow-lg object-cover"
         />
-        <div className="bg-black p-3 px-5 w-max rounded-3xl -mt-5 shadow-2xl">
+        <div className="bg-black p-3 px-5 text-center mt-3 bg-hora-tranc">
           <p className="text-white font-bold">{timestamp}</p>
         </div>
       </div>
@@ -75,11 +75,11 @@ const Transactions = () => {
     <div className="d-flex w-full justify-content-center justify-items-center 2xl:px-20">
       <div className="d-flex flex-column md:p-12 py-12 px-4">
         {currentAccount ? (
-          <h3 className="text-black text-3xl text-center my-2">
+          <h3 className="text-3xl text-center my-2">
             Latest Transactions
           </h3>
         ) : (
-          <h3 className="text-black text-3xl text-center my-2">
+          <h3 className="text-3xl text-center my-2">
             Connect your account to see the latest transactions
           </h3>
         )}

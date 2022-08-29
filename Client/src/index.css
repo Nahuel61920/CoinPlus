@@ -12,3 +12,66 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+html {
+  --background: #fff;
+  --bg-nav: linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%);
+  --logo-nav: url(./assets/img/coin+logo.png);
+  --text-nav: rgb(29, 11, 9);
+  --box-shadow: 0.3em 0.3em 0.7em #00000015;
+  --border-bottom: rgb(250, 250, 250) 0.2em solid;
+  --text-primary: rgb(30, 30, 30);
+  --bg-service: linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%);
+  --bg-card-service: #ddd5d5;
+  --title-card-service: #060628;
+  --box-shadow-service: 0 5px 20px 2px rgba(0,0,0,0.1);
+  --border-card-img-service: 10px solid #fff;
+  --bg-card-step: #ddd5d5;
+  --step-line: #ffc107;
+  --border-crypto: #ebebeb;
+  --bg-card-user: linear-gradient(144deg,#ed9224, #eeff54 60%,#e6eeb0);
+  --bg-btn-envio: linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%);
+  --box-shadow-btn-envio: 0 0 2px #c8ff00, 0 0 2px #ff9900, 0 0 2px #e5ff00;
+  --box-shadow-btn-envio-hover: 0 0 10px #c8ff00, 0 0 15px #ff9900, 0 0 25px #e5ff00;
+  --btn-color-primary: #ff8800;
+  --btn-color-secondary: #ff7300;
+  --btn-color-tertiary: #ff5e00;
+}
+
+/* Color variables if the theme is dark */
+html[data-theme="dark"] {
+  --background: rgb(7, 4, 22);
+  --bg-nav: linear-gradient(to bottom, #1a0747 0%, #06052e 100%);
+  --logo-nav: url(./assets/img/coin+Blan.png);
+  --text-nav: rgb(255, 255, 255);
+  --box-shadow-nav: 0.3em 0.3em 0.7em #ffffff10;
+  --border-bottom-nav: rgb(0, 0, 0) 0.2em solid;
+  --text-primary: rgb(250, 250, 250);
+  --bg-service: #d6d5e7;
+  --bg-card-service: #0e0f24;
+  --title-card-service: #ffffff;
+  --box-shadow-service: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  --border-card-img-service: 10px solid rgb(7, 4, 22);
+  --bg-card-step: #333670;
+  --step-line: #d6d5e7;
+  --border-crypto: #080d22;
+  --bg-card-user: linear-gradient(144deg,#0e0f24, #0e0f24 60%,#0e0f24);
+  --bg-btn-envio: linear-gradient(to bottom, #1a0747 0%, #06052e 100%);
+  --box-shadow-btn-envio: 0 0 8px #ae00ff, 0 0 8px #001eff, 0 0 8px #ae00ff;
+  --box-shadow-btn-envio-hover: 0 0 10px #ae00ff, 0 0 15px #001eff, 0 0 25px #ae00ff;
+  --btn-color-primary: #ae00ff;
+  --btn-color-secondary: #001eff;
+  --btn-color-tertiary: #ae00ff;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+.bg-global{
+  background: var(--background);
+}
+
+a{
+  text-decoration: none!important;
+}

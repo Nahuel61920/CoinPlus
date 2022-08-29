@@ -5,3 +5,56 @@
     border: 3px solid #645bff;
     background-color: #fff;
 }
+
+.title-name{
+    color: var(--text-nav)!important;
+}
+
+
+.btn-form-sum {
+    --color: #560bad;
+    font-family: inherit;
+    display: inline-block;
+    width: 8em;
+    height: 2.6em;
+    line-height: 2.5em;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--color);
+    transition: color .5s;
+    z-index: 1;
+    font-size: 17px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: var(--color);
+   }
+   
+   .btn-form-sum:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: var(--color);
+    height: 150px;
+    width: 200px;
+    border-radius: 50%;
+   }
+   
+   .btn-form-sum:hover {
+    color: #fff;
+   }
+   
+   .btn-form-sum:before {
+    top: 100%;
+    left: 100%;
+    transition: all .7s;
+   }
+   
+   .btn-form-sum:hover:before {
+    top: -30px;
+    left: -30px;
+   }
+   
+   .btn-form-sum:active:before {
+    background: #3a0ca3;
+    transition: background 0s;
+   }

@@ -38,15 +38,15 @@ function ProfileCard({ user }) {
   return (
     <Card
       style={{ width: "40rem" }}
-      className="m-3 animate__animated animate__backInLeft animate__delay-500ms"
+      className="my-3 animate__animated animate__backInLeft animate__delay-500ms p-0"
     >
       <div
-        className="d-flex justify-content-between p-4"
+        className="d-flex justify-content-between px-5 py-3 w-100"
         style={{
-          background: "linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%)",
+          background: "var(--bg-nav)",
         }}
       >
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center title-name">
           <Card.Title>{user.nickname}</Card.Title>
         </div>
         <Card.Img
@@ -94,7 +94,7 @@ function ProfileCard({ user }) {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicDirection">
+        {/* <Form.Group className="mb-3" controlId="formBasicDirection">
           <Form.Label>Direccion</Form.Label>
           <Form.Control type="text" placeholder="Escriba su direccion" />
         </Form.Group>
@@ -117,7 +117,7 @@ function ProfileCard({ user }) {
         <Form.Group className="mb-3" controlId="formBasicUser">
           <Form.Label>Usuario</Form.Label>
           <Form.Control type="text" placeholder="Escriba su usuario" />
-        </Form.Group>
+        </Form.Group> */}
 
         <FormGroup controlId="formFileSm" className="mb-3">
           <Form.Label>Imagen</Form.Label>
@@ -129,13 +129,12 @@ function ProfileCard({ user }) {
           />
         </FormGroup>
 
-        <Button
-          variant="primary"
-          type="submit"
+        <button
           onClick={(e) => HandlerUpdate(e)}
+          className="btn-form-sum"
         >
           Submit
-        </Button>
+        </button>
       </Card.Body>
     </Card>
   );
