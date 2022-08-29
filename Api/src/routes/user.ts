@@ -7,6 +7,6 @@ router.get( '/test' , userControllers.testUser)
 router.get( '/:id' , userControllers.getUsers)
 router.get( '/' , userControllers.getUsers)
 router.post( '/' , userControllers.postUser)
-
+router.put("/", userControllers.updateUser)
 
 export = router;

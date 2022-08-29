@@ -14,7 +14,7 @@ import {
   filterForPercentChange7d,
   filterForVolume24,
   orderByName,
-  loadingSet
+  loadingSet,
 } from "../../redux/reducers/cryptoRed";
 import Cryptos from "../Cryptos/Cryptos";
 import NavAl from "../../components/Nav/NavAl";
@@ -39,7 +39,7 @@ function Market() {
   };
 
   useEffect(() => {
-    dispatch(loadingSet())
+    dispatch(loadingSet());
     dispatch(fetchCrypto());
     dispatch(categoryCrypto());
   }, [dispatch]);
@@ -106,107 +106,54 @@ function Market() {
 
   return (
     <div>
-      <NavAl setCurrentPage={setCurrentPage}/>
+      <NavAl setCurrentPage={setCurrentPage} />
 
       <div className="container-xxl my-4">
         <h1 className="fw-bold text-center">Market</h1>
         <p className="text-center">Precio de las criptomonedas de hoy</p>
         <div className="row d-flex align-items-center justify-content-center border-top border-bottom border-2 mt-4 pt-3 px-4">
-          {/* <select
-            className="name-filt col-5 m-3"
-            onChange={(e) => {
-              handleSubmit(e.target.value);
-            }}
-          >
-            <option className="nav-links" value="All">
-              Cryptos
-            </option>
-            <option value={"INDUSTRY"}>Industry</option>
-            <option value={"PLATFORM"}>Platform</option>
-            <option value={"CATEGORY"}>Category</option>
-            <option value={"OTHERS"}>Others</option>
-            <option value={"ALGORITHM"}>Algoritm</option>
-            {cryptos.map((tag_groups, index) => (
-              <option key={index} value={tag_groups.value}>
-                {" "}
-                {tag_groups}{" "}
-              </option>
-            ))}
-          </select> */}
           <div className="row d-flex align-items-center justify-content-center">
-          <select
-            defaultValue="Category"
-            className="name-filt col-5  m-3 animate__animated animate__bounceInLeft animate__delay-1s"
-            onChange={(e) => handleSubmitCategory(e.target.value)}
-          >
-            <option value="All">
-              Category
-            </option>
-            {category
-            .map(
-              (
-                capt,
-                key
-              ) => (
+            <select
+              defaultValue="Category"
+              className="name-filt col-5  m-3 animate__animated animate__bounceInLeft animate__delay-1s"
+              onChange={(e) => handleSubmitCategory(e.target.value)}
+            >
+              <option value="All">Category</option>
+              {category.map((capt, key) => (
                 <option key={key} value={capt.name}>
                   {" "}
                   {capt.name}
                 </option>
-              )
-            )}
-          </select>
-          
-          <select
-            defaultValue="Platform"
-            className="name-filt col-5  m-3 animate__animated animate__bounceInRight animate__delay-2s"
-            onChange={(e) => handleSubmitPlatform(e.target.value)}
-          >
-            <option value="All">
-             Platform
-            </option>
-            <option value="TRON Ecosystem">
-              TRON Ecosystem
-            </option>
-            <option value="Ethereum Ecosystem">
-              Ethereum Ecosystem
-            </option>
-            <option value="Asset-Backed Token">
-              Asset-Backed Token
-            </option>
-            <option value="Polkadot">
-              Polkadot
-            </option>
-            <option value="Binance Chain">
-              Binance Chain
-            </option>
-            <option value="Polkadot Ecosystem">
-              Polkadot Ecosystem
-            </option>
-            <option value="Fantom Ecosystem">
-              Fantom Ecosystem
-            </option>
-            <option value="Solana Ecosystem">
-              Solana Ecosystem
-            </option>
-            <option value="Arbitrum Ecosytem">
-              Arbitrum Ecosytem
-            </option>
-            <option value="Bnb Chain">
-              Bnb Chain
-            </option>
-            <option value="Injective Ecosystem">
-              Injective Ecosystem
-            </option>
+              ))}
+            </select>
 
-          </select>
+            <select
+              defaultValue="Platform"
+              className="name-filt col-5  m-3 animate__animated animate__bounceInRight animate__delay-2s"
+              onChange={(e) => handleSubmitPlatform(e.target.value)}
+            >
+              <option value="All">Platform</option>
+              <option value="TRON Ecosystem">TRON Ecosystem</option>
+              <option value="Ethereum Ecosystem">Ethereum Ecosystem</option>
+              <option value="Asset-Backed Token">Asset-Backed Token</option>
+              <option value="Polkadot">Polkadot</option>
+              <option value="Binance Chain">Binance Chain</option>
+              <option value="Polkadot Ecosystem">Polkadot Ecosystem</option>
+              <option value="Fantom Ecosystem">Fantom Ecosystem</option>
+              <option value="Solana Ecosystem">Solana Ecosystem</option>
+              <option value="Arbitrum Ecosytem">Arbitrum Ecosytem</option>
+              <option value="Bnb Chain">Bnb Chain</option>
+              <option value="Injective Ecosystem">Injective Ecosystem</option>
+            </select>
           </div>
           {currentCryps.length ? (
-          <Paginate
-            crypsPerPage={crypsPerPage}
-            cryptos={cryptos.length}
-            currentPage={currentPage}
-            paginate={paginado}
-          />) : (
+            <Paginate
+              crypsPerPage={crypsPerPage}
+              cryptos={cryptos.length}
+              currentPage={currentPage}
+              paginate={paginado}
+            />
+          ) : (
             <></>
           )}
           <div className="col-1 select_filter">
@@ -281,12 +228,12 @@ function Market() {
               <option value="max">Max</option>
             </select>
           </div>
-        </div>{
-          isLoading ? (
-            <div className="d-flex justify-content-center my-5">
+        </div>
+        {isLoading ? (
+          <div className="d-flex justify-content-center my-5">
             <img src={load} alt="loading" height="200" className="my-5" />
-          </div>):
-        currentCryps.length ? (
+          </div>
+        ) : currentCryps.length ? (
           currentCryps.map((c, index) => {
             return (
               <Cryptos
@@ -309,7 +256,13 @@ function Market() {
         ) : (
           <div className="d-flex justify-content-center my-5 flex-column">
             <h3 className="text-center">Crypto no encontrada</h3>
-            <img src={noCryptos} alt="noCryptos" height="360" width="525" className="m-auto" />
+            <img
+              src={noCryptos}
+              alt="noCryptos"
+              height="360"
+              width="525"
+              className="m-auto"
+            />
           </div>
         )}
       </div>

@@ -1,52 +1,70 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Form from 'react-bootstrap/Form';
-import "./card.css"
-import {useState} from 'react';
-import {FormGroup, Input} from 'reactstrap'
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Form from "react-bootstrap/Form";
+import "./card.css";
+import { useState } from "react";
+import { FormGroup, Input } from "reactstrap";
+import { useDispatch } from "react-redux";
+import { updateUser } from "../../redux/reducers/cryptoRed";
 
-
-function ProfileCard({user}) {
+function ProfileCard({ user }) {
+  const dispatch = useDispatch();
 
   const [image, setImage] = useState("");
 
   const uploadImage = async (e) => {
-      const files = e.target.files;
-      const data = new FormData();
-      data.append("file", files[0]);
-      data.append("upload_preset", "images");
-      const res = await fetch(
-          "https://api.cloudinary.com/v1_1/coinplus/image/upload",
+    const files = e.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "images");
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/coinplus/image/upload",
 
-          {
-              method: "POST",
-              body: data,
-          }
-      )
-      const file = await res.json();
-      console.log("file cloudinary---->", file)
-      setImage(file.secure_url);
-    }
-     
-  console.log(user)
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+    const file = await res.json();
+    console.log("file cloudinary---->", file);
+    setImage(file.secure_url);
+  };
+
+  function HandlerUpdate(e) {
+    console.log(e);
+    dispatch(updateUser({ picture: image }));
+  }
+
   return (
-    <Card style={{ width: '40rem' }} className="m-3 animate__animated animate__backInLeft animate__delay-500ms">
-        <div className='d-flex justify-content-between p-4' style={{ background: 'linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%)'}}> 
-          <div className='d-flex align-items-center'>
-             <Card.Title >{user.nickname}</Card.Title>
-          </div>
-          <Card.Img class='img-profile' variant="top" src={ image || user.picture }  />
+    <Card
+      style={{ width: "40rem" }}
+      className="m-3 animate__animated animate__backInLeft animate__delay-500ms"
+    >
+      <div
+        className="d-flex justify-content-between p-4"
+        style={{
+          background: "linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%)",
+        }}
+      >
+        <div className="d-flex align-items-center">
+          <Card.Title>{user.nickname}</Card.Title>
         </div>
-        
+        <Card.Img
+          class="img-profile"
+          variant="top"
+          src={image || user.picture}
+        />
+      </div>
+
       <Card.Body>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email</Form.Label>
           <Form.Control placeholder={user.email} disabled />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicIdioma" >
+        <Form.Group className="mb-3" controlId="formBasicIdioma">
           <Form.Label>Idioma</Form.Label>
-          <Form.Control placeholder={user.local? user.local: "Es"} disabled />
+          <Form.Control placeholder={user.local ? user.local : "Es"} disabled />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicName">
@@ -56,18 +74,29 @@ function ProfileCard({user}) {
 
         <Form.Group className="mb-3" controlId="formBasicFecha">
           <Form.Label>Ultima fecha de ingreso:</Form.Label>
-          <Form.Control placeholder={user.updated_at.slice(0,10) + ' ' + user.updated_at.slice(11,19)} disabled />
+          <Form.Control
+            placeholder={
+              user.updated_at.slice(0, 10) + " " + user.updated_at.slice(11, 19)
+            }
+            disabled
+          />
         </Form.Group>
 
         <Form.Group className="mb-3">
           <Form.Label>Logueado con:</Form.Label>
-          <Form.Control placeholder={user.sub.charAt(0)==="a"?user.sub.charAt(0).toUpperCase() + user.sub.slice(1,5):
-          user.sub.charAt(0).toUpperCase() + user.sub.slice(1,6)} disabled />
+          <Form.Control
+            placeholder={
+              user.sub.charAt(0) === "a"
+                ? user.sub.charAt(0).toUpperCase() + user.sub.slice(1, 5)
+                : user.sub.charAt(0).toUpperCase() + user.sub.slice(1, 6)
+            }
+            disabled
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicDirection">
           <Form.Label>Direccion</Form.Label>
-          <Form.Control type="text" placeholder="Escriba su direccion"  />
+          <Form.Control type="text" placeholder="Escriba su direccion" />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasiPhone">
@@ -90,18 +119,21 @@ function ProfileCard({user}) {
           <Form.Control type="text" placeholder="Escriba su usuario" />
         </Form.Group>
 
-      
         <FormGroup controlId="formFileSm" className="mb-3">
           <Form.Label>Imagen</Form.Label>
-              <Input
-                type="file"
-                name = "file"
-                placeholder= "Sube tu imagen aqui!"
-                onChange= {uploadImage}
-                />
+          <Input
+            type="file"
+            name="file"
+            placeholder="Sube tu imagen aqui!"
+            onChange={uploadImage}
+          />
         </FormGroup>
 
-        <Button variant="primary" type="submit">
+        <Button
+          variant="primary"
+          type="submit"
+          onClick={(e) => HandlerUpdate(e)}
+        >
           Submit
         </Button>
       </Card.Body>
