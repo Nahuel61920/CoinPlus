@@ -5,6 +5,7 @@ import PrivateRoutes from "./routes/PrivateRoutes";
 
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import Pagado from "./components/Pagado/Pagado.jsx";
 
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -15,6 +16,7 @@ function App() {
     <Provider store={store}>
       <Routes>
         <Route exact path="/" element={<LandingPage />} />
+        <Route path="/pagado" element={<Pagado />} />
         <Route
           path="/*"
           element={
