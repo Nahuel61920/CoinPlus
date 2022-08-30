@@ -1,6 +1,8 @@
 .img-profile {
-    height: 100%;
-    width: 20%;
+    min-height: 90px;
+    max-height: 90px;
+    min-width: 90px;
+    max-width: 90px;
     border-radius: 50%;
     border: 3px solid #645bff;
     background-color: #fff;
@@ -12,7 +14,6 @@
 
 
 .btn-form-sum {
-    --color: #560bad;
     font-family: inherit;
     display: inline-block;
     width: 8em;
@@ -26,7 +27,6 @@
     font-size: 17px;
     border-radius: 6px;
     font-weight: 500;
-    color: var(--color);
    }
    
    .btn-form-sum:before {

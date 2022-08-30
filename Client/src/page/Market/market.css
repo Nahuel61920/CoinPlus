@@ -3,6 +3,13 @@ select{
     color: var(--text-nav);
 }
 
+.card_cryp_best{
+    background: var(--bg-card-crypto-best);
+    padding: 30px 10px 30px 40px;
+    height: 100%;
+    border-radius: 10px;
+  }
+
 .select_filter select{
     appearance: none;
 	-webkit-appearance: none;
@@ -35,6 +42,14 @@ option{
     .row-crypto p{
         font-size: .9rem;
     }
+    /* .card_cryp_best{
+        background: var(--bg-card-user);
+        padding: 30px 10px 30px 40px;
+        max-width: 49%!important;
+        min-width: 49%!important;
+        height: 100%;
+        border-radius: 10px;
+      } */
 }
 
 @media (max-width: 900px) {
@@ -55,4 +70,13 @@ option{
     .name-cry-info{
         font-size: .8rem;
     }
+    /* 
+      .card_cryp_best{
+        background: var(--bg-card-user);
+        padding: 30px 10px 30px 40px;
+        max-width: 100%!important;
+        min-width: 100%!important;
+        height: 100%;
+        border-radius: 10px;
+      } */
 }

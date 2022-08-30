@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import * as bootstrap from "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css";
+import "swiper/css/bundle";
 
 import { Auth0Provider } from "@auth0/auth0-react";
 

@@ -16,7 +16,7 @@ code {
 html {
   --background: #fff;
   --bg-nav: linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%);
-  --logo-nav: url(./assets/img/coin+logo.png);
+  --logo-nav: url("./assets/img/coin+logo.png");
   --text-nav: rgb(29, 11, 9);
   --box-shadow: 0.3em 0.3em 0.7em #00000015;
   --border-bottom: rgb(250, 250, 250) 0.2em solid;
@@ -36,13 +36,15 @@ html {
   --btn-color-primary: #ff8800;
   --btn-color-secondary: #ff7300;
   --btn-color-tertiary: #ff5e00;
+  --btn-scroll-top: url('./assets/img/scroll_to_top.png');
+  --bg-card-crypto-best: linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%);
 }
 
 /* Color variables if the theme is dark */
 html[data-theme="dark"] {
   --background: rgb(7, 4, 22);
   --bg-nav: linear-gradient(to bottom, #1a0747 0%, #06052e 100%);
-  --logo-nav: url(./assets/img/coin+Blan.png);
+  --logo-nav: url("./assets/img/coin+Blan.png");
   --text-nav: rgb(255, 255, 255);
   --box-shadow-nav: 0.3em 0.3em 0.7em #ffffff10;
   --border-bottom-nav: rgb(0, 0, 0) 0.2em solid;
@@ -62,6 +64,8 @@ html[data-theme="dark"] {
   --btn-color-primary: #ae00ff;
   --btn-color-secondary: #001eff;
   --btn-color-tertiary: #ae00ff;
+  --btn-scroll-top: url('./assets/img/scroll_to_top_black.png');
+  --bg-card-crypto-best: linear-gradient(144deg,#0e0f24, #0e0f24 60%,#0e0f24);
 }
 
 p, h1, h2, h3, h4, h5, h6 {

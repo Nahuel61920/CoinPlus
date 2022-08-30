@@ -26,7 +26,7 @@ function ScrollTop() {
             {
                 showScroll && (
                     <div className="scroll_top" onClick={scrollToTop}>
-                        <img src={scrollTop} alt="scroll to top" />
+                        <div className="img"></div>
                     </div>
                 )
             }

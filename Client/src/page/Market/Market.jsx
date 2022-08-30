@@ -4,6 +4,7 @@ import Footer from "../../components/Footer/Footer";
 import ScrollTop from "../../components/ScrollTop/ScrollTop";
 import {
   fetchCrypto,
+  fetchCryptoBest,
   categoryCrypto,
   filterCategories,
   filterPlatforms,
@@ -23,9 +24,17 @@ import "./market.css";
 import load from "../../assets/img/load.gif";
 import noCryptos from "../../assets/img/no_crypto_found.png";
 
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper";
+
 function Market() {
   const dispatch = useDispatch();
-  const { cryptos, category, isLoading } = useSelector((state) => state.crypto);
+  const { cryptos, bestCrypto, category, isLoading } = useSelector(
+    (state) => state.crypto
+  );
   console.log(cryptos);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -42,6 +51,7 @@ function Market() {
     dispatch(loadingSet());
     dispatch(fetchCrypto());
     dispatch(categoryCrypto());
+    dispatch(fetchCryptoBest());
   }, [dispatch]);
 
   function handleSubmitCategory(e) {
@@ -112,6 +122,67 @@ function Market() {
         <h1 className="fw-bold text-center">Market</h1>
         <p className="text-center">Precio de las criptomonedas de hoy</p>
         <div className="row d-flex align-items-center justify-content-center mt-4 pt-3 px-4">
+          <h2>Best Cryptos</h2>
+          {bestCrypto.length ? (
+            <div className="row d-flex align-items-center justify-content-center mt-4 mb-5">
+              <Swiper
+                slidesPerView={3}
+                slidesPerGroup={3}
+                grabCursor={true}
+                loop={true}
+                loopFillGroupWithBlank={true}
+                pagination={{
+                  clickable: true,
+                }}
+                navigation={true}
+                modules={[Pagination, Navigation]}
+                breakpoints={{
+                  0: {
+                    slidesPerView: 1,
+                    slidesPerGroup: 1,
+                  },
+                  768: {
+                    slidesPerView: 2,
+                    slidesPerGroup: 2,
+                    spaceBetween: 20,
+                  },
+                  1024: {
+                    slidesPerView: 3,
+                    slidesPerGroup: 3,
+                    spaceBetween: 30
+                  },
+                }}
+              >
+              {bestCrypto.map((c, key) => {
+                if (key < 12) {
+                  return (
+                    <SwiperSlide className="card_cryp_best" key={c.id}>
+                      <div className="card-body row">
+                        <div className="col-md-8">
+                          <h5 className="card-title">{c.name}</h5>
+                          <p className="card-text">{c.symbol}</p>
+                          <p className="card-text">
+                            ${c.price.toLocaleString("en-US")}
+                          </p>
+                        </div>
+                        <div className="col-md-4">
+                          <img
+                            src={c.logo}
+                            alt={c.name}
+                            className="img-fluid"
+                          />
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  );
+                }
+              })}
+              </Swiper>
+            </div>
+          ) : (
+            <h1>loading</h1>
+          )}
+
           <div className="row d-flex align-items-center justify-content-center">
             <select
               defaultValue="Category"

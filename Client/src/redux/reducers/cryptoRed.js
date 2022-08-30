@@ -6,6 +6,7 @@ export const cryptoSlice = createSlice({
   initialState: {
     cryptos: [],
     cryptoFilter: [],
+    bestCrypto: [],
     details: [],
     category: [],
     isLoading: true,
@@ -16,6 +17,10 @@ export const cryptoSlice = createSlice({
       state.cryptos = payload;
       state.cryptoFilter = payload;
       state.isLoading = false;
+    },
+
+    setCryptoBest: (state, { type, payload }) => {
+      state.bestCrypto = payload.sort((a, b) => b.volume_24h - a.volume_24h);
     },
     cryptoDetail: (state, { type, payload }) => {
       state.details = payload;
@@ -82,6 +87,7 @@ export const cryptoSlice = createSlice({
         return crypto.price > 0;
       });
     },
+
     filterForVolume: (state, { type, payload }) => {
       if (payload === "min") {
         state.cryptos = state.cryptos.sort(
@@ -202,9 +208,19 @@ export const {
   orderByName,
   loadingSet,
   setUser,
+  setCryptoBest
 } = cryptoSlice.actions;
 
 export default cryptoSlice.reducer;
+
+export const fetchCryptoBest = () => (dispatch) => {
+  axios
+    .get("/crypto")
+    .then((res) => {
+      dispatch(setCryptoBest(res.data));
+    })
+    .catch((err) => console.log(err));
+};
 
 export const fetchCrypto = () => (dispatch) => {
   axios
@@ -214,6 +230,8 @@ export const fetchCrypto = () => (dispatch) => {
     })
     .catch((err) => console.log(err));
 };
+
+
 
 export const detailCrypto = (id) => (dispatch) => {
   axios
