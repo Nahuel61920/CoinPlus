@@ -185,6 +185,9 @@ export const cryptoSlice = createSlice({
     loadingSet: (state, { type, payload }) => {
       state.isLoading = true;
     },
+    inventUser: (state, { type, payload }) => {
+      state.users = payload;
+    },
     setUser: (state, { type, payload }) => {
       state.users = payload;
     },
@@ -207,6 +210,7 @@ export const {
   filterForPercentChange7d,
   orderByName,
   loadingSet,
+  inventUser,
   setUser,
   setCryptoBest
 } = cryptoSlice.actions;
@@ -320,11 +324,26 @@ export const activateLoading = () => (dispatch) => {
   dispatch(loadingSet());
 };
 
+// Coloca la informacion de Auth0 en el estado global y la BD
 export const createUser = (payload) => (dispatch) => {
-  axios.post("/profile", payload).catch((err) => console.log(err));
+  console.log("cryptoRed(createUser)----->"+payload)
+  dispatch(inventUser(payload));
+  axios.post("/profile", payload)
+  .catch((err) => console.log(err));
 };
 
+// Obtiene datos BD y los coloca en el estado global
+export const getUser = (payload) => (dispatch) => {
+  console.log("cryptoRed(getUser)----->"+payload)
+  axios
+    .get(`/profile?email=${payload}`)
+    .then((res) => {
+      dispatch(setUser(res.data));
+    })
+    .catch((err) => console.log(err));
+};
+
+// Obtiene datos del formulario y los coloca en la BD y el estado glocal
 export const updateUser = (payload) => (dispatch) => {
-  console.log(payload);
   axios.put("/profile", payload).catch((err) => console.log(err));
 };
