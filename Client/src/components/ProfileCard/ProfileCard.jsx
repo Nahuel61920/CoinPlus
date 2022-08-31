@@ -33,8 +33,16 @@ function ProfileCard({ user }) {
 
   function HandlerUpdate(e) {
     console.log(e);
-    dispatch(updateUser({ picture: image }));
+    let crear = {
+      name: usuarios.name,
+      email: usuarios.email,
+      nickname: usuarios.nickname,
+      picture: image,
+      source: usuarios.source,
+    };
+    dispatch(updateUser(crear));
   }
+console.log("Aca esta la carta de usuario"+usuarios)
 
   return (
     <Card
