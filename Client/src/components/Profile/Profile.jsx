@@ -19,11 +19,10 @@ export default function Profile() {
   const {usuarios} = useSelector((state) => state.crypto)
 
 
-
-  useEffect(() =>{
-    dispatch(getUser("anthonyperezalbornoz@gmail.com"));
-    console.log("Profile------------->"+usuarios.nickname)
-  },[])
+  // useEffect(() =>{
+  //   dispatch(getUser("anthonyperezalbornoz@gmail.com"));
+  //   console.log("Profile------------->"+usuarios.nickname)
+  // },[])
 
 
 
@@ -36,9 +35,9 @@ export default function Profile() {
           <ul class="dropdown-menu text-center p-0 justify-content-center ">
             <div className='modal_drop'>
                 <div className='img-desp'>
-                <img className="img-profile-nav-desp" src={user.picture} alt={user.nickname}/>
+                <img className="img-profile-nav-desp" src={usuarios.picture} alt={user.nickname}/>
                 </div>
-                <h6>{user.nickname}</h6>
+                <h6>{usuarios.nickname}</h6>
                 <p className='email'>{user.email}</p>
             </div>
             <div className='justify-content-center d-flex m-2 gap-2 btns-profile'>

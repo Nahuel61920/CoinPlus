@@ -6,38 +6,29 @@ import { useSelector, useDispatch } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function LoginDetailBtn() {
-  const { user } = useAuth0();
-
-  const dispatch = useDispatch();
+  const { user,isLoading } = useAuth0();
   const { usuarios } = useSelector((state) => state.crypto);
+  const dispatch = useDispatch();
 
-  const [input, setInput] = useState({
-    name: "",
-    email: "",
-    nickname: "",
-    picture: "",
-    source: "",
-  });
+  if(isLoading){return <div>Loading ...</div>;}
 
   function HandleCreate(e) {
-    if(!usuarios.length){
-      let crear = {
-        name: user.given_name,
-        email: user.email,
-        nickname: user.nickname,
-        picture: user.picture,
-        source: user.sub.toString(),
-      };
 
-      dispatch(createUser(crear));
-    }
+    let crear = {
+      name: user.given_name,
+      email: user.email,
+      nickname: user.nickname,
+      picture: user.picture,
+      source: user.sub.toString(),
+    };
+
+    dispatch(createUser(crear));
   }
-
 
   return (
     <Link to="/user" style={{ textDecoration: "none" }}>
       <button className="buttonLogin" onClick={(e) => HandleCreate(e)}>
-        Perfil
+        Perf  il
         <div class="arrow-wrapper">
           <div class="arrow"></div>
         </div>

@@ -11,18 +11,11 @@ import { getUser } from '../../redux/reducers/cryptoRed';
 
 function ProfileCard({ user }) {
   const dispatch = useDispatch();
-
-  useEffect(() =>{
-    dispatch(getUser("estebancarrizo619@gmail.com"));
-  },[])
-
-
   const {usuarios} = useSelector((state) => state.crypto)
-  console.log("soy el usuario de profilecard", usuarios);
-
 
 
   const [image, setImage] = useState("");
+  
 
   const uploadImage = async (e) => {
     const files = e.target.files;
@@ -64,7 +57,7 @@ function ProfileCard({ user }) {
         <Card.Img
           class="img-profile"
           variant="top"
-          src={image || user.picture}
+          src={usuarios.picture || user.picture}
         />
       </div>
 
