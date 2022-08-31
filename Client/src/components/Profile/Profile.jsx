@@ -15,22 +15,13 @@ import { getUser } from '../../redux/reducers/cryptoRed';
 export default function Profile() {
   const {user, isAuthenticated} = useAuth0()
 
-  const dispatch = useDispatch()
   const {usuarios} = useSelector((state) => state.crypto)
-
-
-  // useEffect(() =>{
-  //   dispatch(getUser("anthonyperezalbornoz@gmail.com"));
-  //   console.log("Profile------------->"+usuarios.nickname)
-  // },[])
-
-
 
   return (
     isAuthenticated && (
         <div className="profile-nav dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img className="img-profile-nav" src={usuarios.picture} alt={user.nickname}/>
+                <img className="img-profile-nav" src={usuarios.picture||user.picture} alt={user.nickname}/>
           </a>
           <ul class="dropdown-menu text-center p-0 justify-content-center ">
             <div className='modal_drop'>

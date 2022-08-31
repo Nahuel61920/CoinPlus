@@ -339,6 +339,7 @@ export const getUser = (payload) => (dispatch) => {
   axios
     .get(`/profile?email=${payload}`)
     .then((res) => {
+      console.log(res.data);
       dispatch(setUser(res.data));
     })
     .catch((err) => console.log(err));

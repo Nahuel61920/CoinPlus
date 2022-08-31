@@ -21,14 +21,16 @@ export default function LoginDetailBtn() {
       picture: user.picture,
       source: user.sub.toString(),
     };
+    dispatch(getUser(user.email));
 
     dispatch(createUser(crear));
+    
   }
 
   return (
     <Link to="/user" style={{ textDecoration: "none" }}>
       <button className="buttonLogin" onClick={(e) => HandleCreate(e)}>
-        Perf  il
+        Perfil
         <div class="arrow-wrapper">
           <div class="arrow"></div>
         </div>
