@@ -9,6 +9,7 @@ export const postUser:RequestHandler = async (req,res) => {
     let userBD = await UserModel.find({email:user.email})
     
     if(userBD.length > 0 ) {
+        console.log("----->"+user.email)
         res.status(400).send("Ya existe ese correo electronico")
     } else {
         const saved = await user.save();
@@ -18,8 +19,21 @@ export const postUser:RequestHandler = async (req,res) => {
 
 export const getUsers:RequestHandler = async (req,res) => {
     const user = await UserModel.find()
-
-    res.status(200).json(user)
+    const {email} =req.query
+    try{
+    if(email){
+    // const user = await UserModel.find({email})
+    console.log(email)
+    const user02 = await UserModel.find({email})
+    res.status(200).json(user02)
+    }
+    else{
+        res.status(200).json(user)
+    }
+    }
+    catch(error){
+        console.log(error)
+    }
 }
 
 export const getUserbyID:RequestHandler = async (req,res) => {

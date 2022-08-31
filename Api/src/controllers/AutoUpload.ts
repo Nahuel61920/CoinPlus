@@ -20,8 +20,8 @@ const autoUpload:any = async() => {
     }
 }
 
-const titulo:any = ()=>{console.log("------------------TIME---------------------------PRICE---------------")}
+// const titulo:any = ()=>{console.log("------------------TIME---------------------------PRICE---------------")}
 
 // setTimeout(titulo,10*1000)
 
-// setInterval(autoUpload,10*1000)
+// setInterval(autoUpload,61*1000)
