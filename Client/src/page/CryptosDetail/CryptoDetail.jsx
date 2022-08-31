@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { detailCrypto, cleanState } from "../../redux/reducers/cryptoRed";
-import NavAl from "../../components/Nav/NavAl";
+import NavMarket from "../../components/Nav/NavMarket";
 import Footer from "../../components/Footer/Footer";
 import load from "../../assets/img/load.gif";
 import "./crypto.css";
@@ -168,7 +168,7 @@ function CryptoDetail() {
 
   return (
     <div className="bg-global">
-      <NavAl />
+      <NavMarket />
       {details.price ? (
         <div className="container-xl">
           <div className="row d-flex align-items-center border-detail py-3">

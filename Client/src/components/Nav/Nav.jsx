@@ -7,8 +7,8 @@ import "./nav.css";
 
 import { useAuth0 } from "@auth0/auth0-react";
 
-import LoginButton from "../Login/LoginButton";
-import ImgProfile from "../Profile/ImgProfile";
+import LoginButton from "../BtnsLogin/LoginButton";
+import Profile from "../Profile/Profile";
 
 function Nav() {
   const { isAuthenticated } = useAuth0();
@@ -33,7 +33,7 @@ function Nav() {
             
           </div>
         </NavLink>
-        <div className="user-nav d-flex align-items-center gap-2"><DarkMode/>{isAuthenticated ? <ImgProfile /> : <LoginButton />}</div>
+        <div className="user-nav d-flex align-items-center gap-2"><DarkMode/>{isAuthenticated ? <Profile /> : <LoginButton />}</div>
         <div class="collapse navbar-collapse collapse-imge" id="navbarSupportedContent">
           <div class="nav navbar-nav ms-auto ">
             <Link to="Home" spy={true} offset={-150} href="#Home">
@@ -56,7 +56,7 @@ function Nav() {
           </div>
         </div>
         
-        <div className="user-nav-2 d-flex align-items-center gap-2"><DarkMode/>{isAuthenticated ? <ImgProfile /> : <LoginButton />}</div>
+        <div className="user-nav-2 align-items-center gap-2"><DarkMode/>{isAuthenticated ? <Profile /> : <LoginButton />}</div>
       </div>
     </nav>
   );
