@@ -188,8 +188,17 @@ export const cryptoSlice = createSlice({
     setUser: (state, { type, payload }) => {
       state.users = payload;
     },
+    getCryptoPrice: (state, {type, payload}) => {
+      let nameChange = 
+      state.cryptos.filter((c) =>{
+        return c.name === payload
+      })
+      state.cryptos = nameChange
+    }
   },
 });
+
+
 
 export const {
   setCryptoList,
@@ -208,7 +217,8 @@ export const {
   orderByName,
   loadingSet,
   setUser,
-  setCryptoBest
+  setCryptoBest,
+  getCryptoPrice
 } = cryptoSlice.actions;
 
 export default cryptoSlice.reducer;
@@ -328,3 +338,12 @@ export const updateUser = (payload) => (dispatch) => {
   console.log(payload);
   axios.put("/profile", payload).catch((err) => console.log(err));
 };
+
+export const findPrice = (payload) => (dispatch) => {
+  axios.get("/crypto")
+  .then((res) => {
+    dispatch(getCryptoPrice(res.data));
+  })
+  .catch((err) => console.log(err));
+}
+
