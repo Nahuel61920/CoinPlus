@@ -346,5 +346,6 @@ export const getUser = (payload) => (dispatch) => {
 
 // Obtiene datos del formulario y los coloca en la BD y el estado glocal
 export const updateUser = (payload) => (dispatch) => {
+  dispatch(inventUser(payload));
   axios.put("/profile", payload).catch((err) => console.log(err));
 };
