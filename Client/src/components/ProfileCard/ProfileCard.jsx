@@ -10,9 +10,8 @@ import { updateUser } from "../../redux/reducers/cryptoRed";
 function ProfileCard({ user }) {
   const dispatch = useDispatch();
   const {usuarios} = useSelector((state) => state.crypto)
-
-
   const [image, setImage] = useState("");
+  
 
   const uploadImage = async (e) => {
     const files = e.target.files;
@@ -54,7 +53,7 @@ function ProfileCard({ user }) {
         <Card.Img
           class="img-profile"
           variant="top"
-          src={image || user.picture}
+          src={usuarios.picture || user.picture}
         />
       </div>
 
