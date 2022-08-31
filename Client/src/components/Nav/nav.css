@@ -138,7 +138,7 @@
   }
 
   .nav-All-2 {
-    display: flex;
+    display: none;
   }
 }
 
@@ -161,6 +161,7 @@
 
   .img-nav-all{
     width: 80px;
+    height: 80px;
   }
 
   .navbar-imge{
@@ -169,6 +170,10 @@
     padding: 2rem 0 0 0;
     min-width: 75px;
     height: 100%;
+  }
+
+  .form-control{
+    width: 150px!important;
   }
   
 }

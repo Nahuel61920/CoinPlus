@@ -94,20 +94,20 @@ function Cryptos({
     ];
 
     const labels = [
-      porcentajeCam2d,
-      porcentajeCam90d,
-      porcentajeCam60d,
-      porcentajeCam30d,
-      porcentajeCam6d,
-      porcentajeCam5d,
-      porcentajeCam4d,
-      porcentajeCam3d,
-      percent_change_7d,
-      percent_change_24h,
-      porcentajeCam12h,
-      porcentajeCam6h,
-      porcentajeCam3h,
-      percent_change_1h,
+      porcentajeCam2d + "%",
+      porcentajeCam90d + "%",
+      porcentajeCam60d + "%",
+      porcentajeCam30d + "%",
+      porcentajeCam6d + "%",
+      porcentajeCam5d + "%",
+      porcentajeCam4d + "%",
+      porcentajeCam3d + "%",
+      percent_change_7d + "%",
+      percent_change_24h + "%",
+      porcentajeCam12h + "%",
+      porcentajeCam6h + "%",
+      porcentajeCam3h + "%",
+      percent_change_1h + "%",
     ];
 
     const options = {

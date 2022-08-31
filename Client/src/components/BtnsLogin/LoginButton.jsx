@@ -16,7 +16,7 @@ export default function LoginButton() {
           <div class="arrow"></div>
       </div>
     </button>
-    <div onClick={() => loginWithRedirect()} className="buttonLoginMq">
+    <div onClick={() => loginWithRedirect()} className=" buttonLoginMq">
       <FaUserAltSlash className="iconLogin"/>
     </div>
     </>

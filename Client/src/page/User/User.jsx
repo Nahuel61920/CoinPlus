@@ -2,8 +2,8 @@ import React, { useContext, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./User.css";
 import Logo from "../../assets/img/coin+logo.png";
-import NavBar from "../../components/boostrap/navbar";
-import UserCard from "../../components/boostrap/card1";
+import NavProfile from "../../components/Nav/NavProfile";
+import UserCard from "../../components/ProfileCard/ProfileCard";
 // import Wallet from "../../components/boostrap/walletmini";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
@@ -48,7 +48,7 @@ function User() {
   // console.log(user)
   return (
     <div className="bg-global">
-      <NavBar logo={Logo} />
+      <NavProfile logo={Logo} />
       <div className="row justify-content-center m-2">
         <UserCard user={user} className="col-12 col-md-6" />
         <div className="col-12 col-md-5 d-flex flex-column justify-content-center align-items-center animate__animated animate__backInRight animate__delay-1s">

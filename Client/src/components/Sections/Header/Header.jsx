@@ -1,7 +1,7 @@
 import React from 'react'
 import HeaderImg from "../../../assets/svg/headerimg.svg";
-import LoginButton from "../../Login/LoginButton";
-import MarketBtn from "../../Login/MarketBtn";
+import LoginButton from "../../BtnsLogin/LoginButton";
+import MarketBtn from "../../BtnsLogin/MarketBtn";
 import { useAuth0 } from '@auth0/auth0-react';
 import "./header.css"
 

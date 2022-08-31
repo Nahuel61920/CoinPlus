@@ -4,12 +4,12 @@ import { NavLink, useNavigate } from "react-router-dom";
 import DarkMode from '../DarkMode/DarkMode';
 import "./nav.css";
 
-import ImgProfile from "../Profile/ImgProfile";
+import Profile from "../Profile/Profile";
 import { fetchCrypto, nameCrypto } from "../../redux/reducers/cryptoRed";
 import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 
-function NavAl({setCurrentPage}) {
+function NavMarket({setCurrentPage}) {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const navigate = useNavigate();
@@ -58,7 +58,7 @@ function NavAl({setCurrentPage}) {
         >
           <span class="navbar-toggler-icon fs-6"></span>
         </button>
-        <div className="nav-All d-flex align-items-center gap-2"><DarkMode/><ImgProfile />  </div>      
+        <div className="nav-All d-flex align-items-center gap-2"><DarkMode/><Profile />  </div>      
         
         
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -72,10 +72,10 @@ function NavAl({setCurrentPage}) {
           </NavLink>
         </div>
         
-        <div className="nav-All-2 d-flex align-items-center gap-2"><DarkMode/><ImgProfile />  </div> 
+        <div className="nav-All-2 d-flex align-items-center gap-2"><DarkMode/><Profile />  </div> 
       </div>
     </nav>
   );
 }
 
-export default NavAl;
+export default NavMarket;
