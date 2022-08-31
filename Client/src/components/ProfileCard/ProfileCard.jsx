@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
@@ -6,10 +7,19 @@ import { useState } from "react";
 import { FormGroup, Input } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../../redux/reducers/cryptoRed";
+import { getUser } from '../../redux/reducers/cryptoRed';
 
 function ProfileCard({ user }) {
   const dispatch = useDispatch();
+
+  useEffect(() =>{
+    dispatch(getUser("estebancarrizo619@gmail.com"));
+  },[])
+
+
   const {usuarios} = useSelector((state) => state.crypto)
+  console.log("soy el usuario de profilecard", usuarios);
+
 
 
   const [image, setImage] = useState("");
@@ -49,7 +59,7 @@ function ProfileCard({ user }) {
         }}
       >
         <div className="d-flex align-items-center title-name">
-          <Card.Title>{usuarios.nickname}</Card.Title>
+          <Card.Title>{usuarios[0].nickname}</Card.Title>
         </div>
         <Card.Img
           class="img-profile"
@@ -61,17 +71,17 @@ function ProfileCard({ user }) {
       <Card.Body>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email</Form.Label>
-          <Form.Control placeholder={user.email} disabled />
+          <Form.Control placeholder={usuarios[0].email} disabled />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicIdioma">
           <Form.Label>Idioma</Form.Label>
-          <Form.Control placeholder={user.local ? user.local : "Es"} disabled />
+          <Form.Control placeholder={usuarios[0].local ? usuarios[0].local : "Es"} disabled />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Nombre</Form.Label>
-          <Form.Control placeholder={user.name} disabled />
+          <Form.Control placeholder={usuarios[0].name} disabled />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicFecha">
@@ -96,14 +106,14 @@ function ProfileCard({ user }) {
           />
         </Form.Group>
 
-        {/* <Form.Group className="mb-3" controlId="formBasicDirection">
+        <Form.Group className="mb-3" controlId="formBasicDirection">
           <Form.Label>Direccion</Form.Label>
           <Form.Control type="text" placeholder="Escriba su direccion" />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasiPhone">
           <Form.Label>Telefono</Form.Label>
-          <Form.Control type="text" placeholder="Escriba su telefono" />
+          <Form.Control type="text" placeholder={usuarios[0].numberPhone ? usuarios[0].numberPhone : "Escriba su telefono"} />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicDNI">
@@ -119,7 +129,7 @@ function ProfileCard({ user }) {
         <Form.Group className="mb-3" controlId="formBasicUser">
           <Form.Label>Usuario</Form.Label>
           <Form.Control type="text" placeholder="Escriba su usuario" />
-        </Form.Group> */}
+        </Form.Group>
 
         <FormGroup controlId="formFileSm" className="mb-3">
           <Form.Label>Imagen</Form.Label>
