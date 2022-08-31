@@ -38,8 +38,10 @@ function OffcanvasExample({logo}) {
                 <Link to='/' style={{ textDecoration: 'none' }}>
                   <Nav.Link href="#action1">Home</Nav.Link>
                 </Link>
-                  {/* <Nav.Link href="#action2">Mi billetera</Nav.Link>
-                  <Nav.Link href="#action3">Movimientos</Nav.Link> */}
+                <Link to='/wallet'>
+                   <Nav.Link href="#action2">Mi billetera</Nav.Link>
+                </Link>
+                  <Nav.Link href="#action3">Movimientos</Nav.Link>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
