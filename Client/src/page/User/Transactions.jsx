@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import { TransactionContext } from "../../context/TransactionContext";
 
-//import useFetch from "../hooks/useFetch";
+import useFetch from "./useFetch";
 import dummyData from "../../utils/dummyData";
 import { shortenAddress } from "../../utils/shortenAddress";
 
@@ -15,7 +15,7 @@ const TransactionsCard = ({
   amount,
   url,
 }) => {
-  // const gifUrl = useFetch({ keyword });
+  const gifUrl = useFetch({ keyword });
 
   return (
     <div
@@ -34,18 +34,14 @@ const TransactionsCard = ({
             target="_blank"
             rel="noreferrer"
           >
-            <p className="text-base">
-              From: {shortenAddress(addressFrom)}
-            </p>
+            <p className="text-base">From: {shortenAddress(addressFrom)}</p>
           </a>
           <a
             href={`https://ropsten.etherscan.io/address/${addressTo}`}
             target="_blank"
             rel="noreferrer"
           >
-            <p className="text-base">
-              To: {shortenAddress(addressTo)}
-            </p>
+            <p className="text-base">To: {shortenAddress(addressTo)}</p>
           </a>
           <p className="text-base">Amount: {amount} ETH</p>
           {message && (
@@ -56,7 +52,7 @@ const TransactionsCard = ({
           )}
         </div>
         <img
-          // src={gifUrl || url}
+          src={gifUrl || url}
           alt="nature"
           className="w-full h-64 2xl:h-96 rounded-md shadow-lg object-cover"
         />
@@ -75,9 +71,7 @@ const Transactions = () => {
     <div className="d-flex w-full justify-content-center justify-items-center 2xl:px-20">
       <div className="d-flex flex-column md:p-12 py-12 px-4">
         {currentAccount ? (
-          <h3 className="text-3xl text-center my-2">
-            Latest Transactions
-          </h3>
+          <h3 className="text-3xl text-center my-2">Latest Transactions</h3>
         ) : (
           <h3 className="text-3xl text-center my-2">
             Connect your account to see the latest transactions
