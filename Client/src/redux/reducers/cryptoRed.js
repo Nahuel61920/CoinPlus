@@ -11,6 +11,7 @@ export const cryptoSlice = createSlice({
     category: [],
     isLoading: true,
     users: [],
+    usuarios: [],
   },
   reducers: {
     setCryptoList: (state, { type, payload }) => {
@@ -186,10 +187,10 @@ export const cryptoSlice = createSlice({
       state.isLoading = true;
     },
     inventUser: (state, { type, payload }) => {
-      state.users = payload;
+      state.usuarios = payload;
     },
     setUser: (state, { type, payload }) => {
-      state.users = payload;
+      state.usuarios = payload;
     },
   },
 });
@@ -334,7 +335,7 @@ export const createUser = (payload) => (dispatch) => {
 
 // Obtiene datos BD y los coloca en el estado global
 export const getUser = (payload) => (dispatch) => {
-  console.log("cryptoRed(getUser)----->"+payload)
+  // console.log("cryptoRed(getUser)----->"+payload)
   axios
     .get(`/profile?email=${payload}`)
     .then((res) => {

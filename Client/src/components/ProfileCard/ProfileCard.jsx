@@ -4,11 +4,13 @@ import Form from "react-bootstrap/Form";
 import "./profileCard.css";
 import { useState } from "react";
 import { FormGroup, Input } from "reactstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../../redux/reducers/cryptoRed";
 
 function ProfileCard({ user }) {
   const dispatch = useDispatch();
+  const {usuarios} = useSelector((state) => state.crypto)
+
 
   const [image, setImage] = useState("");
 
@@ -47,7 +49,7 @@ function ProfileCard({ user }) {
         }}
       >
         <div className="d-flex align-items-center title-name">
-          <Card.Title>{user.nickname}</Card.Title>
+          <Card.Title>{usuarios.nickname}</Card.Title>
         </div>
         <Card.Img
           class="img-profile"
