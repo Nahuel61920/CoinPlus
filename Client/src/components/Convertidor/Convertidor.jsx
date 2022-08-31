@@ -5,15 +5,20 @@ import { getCryptoPrice } from "../../redux/reducers/cryptoRed";
 
 
 function DolaraCrypto (precio, crypto){
-    crypto = crypto.name
-    precio = crypto.value
-    input = input.value
+    // crypto = crypto.name
+    // precio = crypto.value
+    // input = input.value
     
-    return crypto*input/precio
+    // return crypto*input/precio
 
 }
 
 export default function Convertidor() {
+
+  const dispatch = useDispatch()
+  useEffect(() =>{
+    dispatch(fetchCrypto())
+  },[])
 
     const { cryptos } = useSelector(
         (state) => state.crypto
@@ -21,8 +26,10 @@ export default function Convertidor() {
 
     const [crypto, setCrypto] = useState(0);   
 
+
+
       function handleCryptoName(e) {
-        dispatch(getCryptoPrice);
+        dispatch(getCryptoPrice(e));
         
       }
 
@@ -35,7 +42,7 @@ export default function Convertidor() {
             >
               <option value="All">Escoja su Criptomoneda</option>
               {cryptos.map((c) => (
-                <option key={key} value={c.name}>{c.name}</option>
+                <option value={c.name}>{c.name}</option>
               ))}
             </select>
     </div>
