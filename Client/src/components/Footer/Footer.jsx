@@ -4,25 +4,23 @@ import "./footer.css"
 
 function Footer() {
   return (
-    <div className="container-fluid bg-dark text-light d-inline-flex flex-lg-row flex-column px-md-5 px-1">
-      <div className='section1 p-2 '>
-        <img src={Logo} width="120" alt="" />
-        <p>Acércate al mundo cripto.</p>
-        <p>La forma más simple y segura de comerciar criptomonedas.</p>
-        <p>Encuntra las mejores ofertas del mercado</p>
+    <div className="container-fluid bg-dark text-white altura p-3">
+      <div className="row">
+        <div><img src={Logo} width="120" alt="" /></div>
       </div>
-      <div className='section2 p-2'>
-        <h3>Funcionalidades</h3>
-        <p>Analiza cómo funcionan y qué mueve el mercado.</p>
-        <p>Comprar criptomonedas y otros activos digitales.</p>
-        <p>Vende tus criptomonedas de manera rapida y segura.</p>
+
+      <div className="row">
+        <div className="col invisible">hola</div>
+        <div className="col">
+          <p className='text-white'>Mi perfil</p>
+          <p className='text-white'>Mi billetera</p>
+        </div>
+        <div className="col">
+          Nuestro equipo
+        </div>
       </div>
-      <div className='section3 p-2'>
-        <h3>Quienes Somos</h3>
-        <p>La forma más simple y segura de comerciar criptomonedas.</p>
-        <p>Tu mejor aliado a la hora de operar con activos digitales.</p>
-        <p>Más que un banco digital, somos una familia.</p>
-      </div>
+
+      <div className="row text-center text-white mt-5"><p className='color-copy'>Copyright © 2022. All Rights Reserved.</p></div>
     </div>
   )
 }
