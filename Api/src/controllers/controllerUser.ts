@@ -5,7 +5,7 @@ import {UserModel} from "../schemas/User";
 
 export const postUser:RequestHandler = async (req,res) => {
     const user = new UserModel(req.body);
-    
+     
     let userBD = await UserModel.find({email:user.email})
     
     if(userBD.length > 0 ) {
@@ -56,21 +56,24 @@ export const testUser:RequestHandler = (req,res) => {
 
 export const updateUser:RequestHandler = async (req,res) =>{
 
+
+    try{
     const user = await UserModel.findOne({email:req.body.email})
 
     console.log(user)
 
-    // const parametros = {
-    // picture: req.body.picture?req.body.picture : user?.picture,
-    // }
+    const parametros ={
+        picture:req.body.picture?req.body.picture : user?.picture,
+        numberPhone : req.body.numberPhone?req.body.numberPhone:user?.numberPhone,
+        country : req.body.country?req.body.country:user?.country,
+        postalCod : req.body.postalCod?req.body.postalCod:user?.postalCod,
+    }
 
      const userBD = await UserModel.findOneAndUpdate({email:req.body.email}, {picture:req.body.picture?req.body.picture : user?.picture})
 
-    //const userBD = await UserModel.find({email:"tomasscastillo99@gmail.com"})
-   
-    
-    // "picture": "https://lh3.googleusercontent.com/a-/AFdZucqLkteyLRgaH9GP1OqdRzeuPhd9osBJbLdDZ6sqfA=s96-c"
-
     res.status(200).send(userBD)
-    
+    }
+    catch(error){
+        res.status(400).send("Please send a valid email")
+    }
 }
