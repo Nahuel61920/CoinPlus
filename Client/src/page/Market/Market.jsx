@@ -125,7 +125,7 @@ function Market() {
               className="name-filt col-5  m-3 animate__animated animate__bounceInLeft animate__delay-1s"
               onChange={(e) => handleSubmitCategory(e.target.value)}
             >
-              <option value="All">Category</option>
+              <option value="All">Categoría</option>
               {category.map((capt, key) => (
                 <option key={key} value={capt.name}>
                   {" "}
@@ -139,7 +139,7 @@ function Market() {
               className="name-filt col-5  m-3 animate__animated animate__bounceInRight animate__delay-2s"
               onChange={(e) => handleSubmitPlatform(e.target.value)}
             >
-              <option value="All">Platform</option>
+              <option value="All">Plataforma</option>
               <option value="TRON Ecosystem">TRON Ecosystem</option>
               <option value="Ethereum Ecosystem">Ethereum Ecosystem</option>
               <option value="Asset-Backed Token">Asset-Backed Token</option>
@@ -230,7 +230,7 @@ function Market() {
               defaultValue="Volumen24h"
               onChange={(e) => handleSortfilterForVolume24(e)}
             >
-              <option value="Volumen24h">Ultimos 7 dias</option>
+              <option value="Volumen24h">Últimos 7 días</option>
               <option value="min">Min</option>
               <option value="max">Max</option>
             </select>

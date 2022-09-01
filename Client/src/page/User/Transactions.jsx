@@ -35,7 +35,7 @@ const TransactionsCard = ({
             rel="noreferrer"
           >
             <p className="text-base">
-              From: {shortenAddress(addressFrom)}
+              Desde: {shortenAddress(addressFrom)}
             </p>
           </a>
           <a
@@ -44,14 +44,14 @@ const TransactionsCard = ({
             rel="noreferrer"
           >
             <p className="text-base">
-              To: {shortenAddress(addressTo)}
+              Para: {shortenAddress(addressTo)}
             </p>
           </a>
-          <p className="text-base">Amount: {amount} ETH</p>
+          <p className="text-base">Cantidad: {amount} ETH</p>
           {message && (
             <>
               <br />
-              <p className="text-base">Message: {message}</p>
+              <p className="text-base">Mensaje: {message}</p>
             </>
           )}
         </div>
@@ -76,11 +76,11 @@ const Transactions = () => {
       <div className="d-flex flex-column md:p-12 py-12 px-4">
         {currentAccount ? (
           <h3 className="text-3xl text-center my-2">
-            Latest Transactions
+            Últimas Transacciones
           </h3>
         ) : (
           <h3 className="text-3xl text-center my-2">
-            Connect your account to see the latest transactions
+            Conecte su cuenta para conocer sus Últimas Transacciones
           </h3>
         )}
 

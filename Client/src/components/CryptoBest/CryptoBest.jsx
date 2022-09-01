@@ -10,7 +10,7 @@ import loader from "../../assets/img/loading-best.gif";
 function CryptoBest({bestCrypto}) {
   return (
     <div>
-      <h2>Best Cryptos</h2>
+      <h2>Las mejores Criptos</h2>
       {bestCrypto.length ? (
         <div className="row d-flex align-items-center justify-content-center mt-4 mb-5">
           <Swiper
