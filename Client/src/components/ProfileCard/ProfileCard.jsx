@@ -142,7 +142,7 @@ console.log("Aca esta la carta de usuario"+usuarios)
           onClick={(e) => HandlerUpdate(e)}
           className="btn-form-sum"
         >
-          Submit
+          Enviar
         </button>
       </Card.Body>
     </Card>

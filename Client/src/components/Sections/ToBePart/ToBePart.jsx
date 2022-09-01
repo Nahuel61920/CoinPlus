@@ -13,8 +13,8 @@ import './toBePart.css'
 function ToBePart() {
   return (
    <div className='container-fluid'>
-    <h1 className="fw-bold text-center"> How to be part </h1>
-    <p className="text-center">Step by step</p>
+    <h1 className="fw-bold text-center"> Cómo ser parte </h1>
+    <p className="text-center">Paso a paso</p>
     
     <div className='container-fluid card-tobe d-flex flex-wrap'>
         <div class="step">
@@ -49,7 +49,7 @@ function ToBePart() {
             <img src={tres} alt="tres" width="100"/>
             </div>
             <div class="card-info text-center">
-              <p class="text-title">Añade métodos de pago</p>
+              <p class="text-title">Conéctate con Paypal y Metamask</p>
               <img src={pay} alt="pay" width="100"/>
             </div>
           </div>

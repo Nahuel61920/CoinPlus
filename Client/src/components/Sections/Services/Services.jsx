@@ -7,8 +7,8 @@ import retiro from '../../../assets/img/retiro.png'
 function Services() {
   return (
     <div id="Services">
-      <h1 className="fw-bold text-center">Services</h1>
-      <p className="text-center">What can you do in Coin+?</p>
+      <h1 className="fw-bold text-center">Servicios</h1>
+      <p className="text-center">Qué puedes hacer en Coin+?</p>
       <div className="row justify-content-center">
         <div className="col-6 col-md-4 d-flex justify-content-center"  data-aos="fade-up" data-aos-delay="200">
           <div class="card-contain">
@@ -31,7 +31,7 @@ function Services() {
             <div class="card-info">
               <p class="text-title">Comprar</p>
               <p class="text-bodys">
-                Acceder a Bitcoin, Etherum, Litecion y otros activos digitales en pocos pasos.
+              Accede a toda la red de Etherum y otros activos digitales en pocos pasos.
               </p>
             </div>
           </div>
