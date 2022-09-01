@@ -4,14 +4,7 @@ import { fetchCrypto } from '../../redux/reducers/cryptoRed';
 import { getCryptoPrice } from "../../redux/reducers/cryptoRed";
 
 
-function DolaraCrypto (precio, crypto){
-    // crypto = crypto.name
-    // precio = crypto.value
-    // input = input.value
-    
-    // return crypto*input/precio
 
-}
 
 export default function Convertidor() {
 
@@ -24,11 +17,24 @@ export default function Convertidor() {
         (state) => state.crypto
       );
 
-    const [crypto, setCrypto] = useState(0);   
+    const [crypto, setCrypto] = useState(0);
+    const [input, setInput] = useState();   
+    const [res, setRes] =useState(); 
 
+    function dolarACrypto (){
+       
+       let precio = cryptoPrice[0].price
+       let valor = input
+        console.log(precio, valor, "muestralo a mati")
+       let resultado = valor*1/precio
+       
+       setRes(resultado) 
+  
+    }  
 
+    console.log(res, "esto es res")
 
-      function handleCryptoName(e) {
+    function handleCryptoName(e) {
         dispatch(getCryptoPrice(e));
         console.log(e);
       }
@@ -46,8 +52,13 @@ export default function Convertidor() {
                 <option value={c.name}>{c.name}</option>
               ))}
             </select>
-            <input type="text" value={cryptoPrice.length ? cryptoPrice[0].price : 0} className="col-5 m-3 animate__animated animate__bounceInLeft animate__delay-1s" />
-
+           <input type="text" value={cryptoPrice.length ? "$ "+cryptoPrice[0].price.toString().slice(0,7) : 0} className="col-5 m-3 animate__animated animate__bounceInLeft animate__delay-1s" />
+           
+           <input type="text" value={input} className="col-5 m-3 animate__animated animate__bounceInLeft animate__delay-1s"
+            placeholder="Ingrese monto a convertir..." onChange = {(e) => {setInput(e.target.value); dolarACrypto(e.target.value)}}>
+           </input>     
+           
+           <input type="text" value={res} className="col-5 m-3 animate__animated animate__bounceInLeft animate__delay-1s" />     
     </div>
   )
 }
