@@ -43,8 +43,8 @@ export default function Convertidor() {
 
   function handleExchange(e) {
     setCurrentTrade({
-      [e.target.name!=="dolar"?"crypto":"dolar"] : e.target.value,
-      [e.target.name==="dolar"?"crypto":"dolar"] : convert("dolar",e.target.value),
+      // [e.target.name!=="dolar"?"crypto":"dolar"] : e.target.value,
+      [e.target.name==="dolar"?"crypto":"dolar"] : e.target.name==="dolar"?convert("dolar",e.target.value):convert("",e.target.value),
   })
   }
 
@@ -69,16 +69,16 @@ export default function Convertidor() {
           <option value={c.name}>{c.name}</option>
         ))}
       </select>
-        <input type="text" value={cryptoPrice.length ? "$ "+cryptoPrice[0].price.toString().slice(0,7) : 0} className="col-5 m-3 animate__animated animate__bounceInLeft animate__delay-1s" />
+        <input type="text" value={cryptoPrice.length ? cryptoPrice[0].price.toString().slice(0,8) : 0} className="col-5 m-3 animate__animated animate__bounceInLeft animate__delay-1s" />
       <div>
-        <p>$</p>
-        <input type="text" name="dolar"  className="col-5 m-3 animate__animated animate__bounceInLeft animate__delay-1s"
+      <p>Valor en Dólares</p>
+        <p>$</p><input type="text" name="dolar"  className="col-5 m-3 animate__animated animate__bounceInLeft animate__delay-1s"
           placeholder="Ingrese monto a convertir..." onChange = {handleExchange} value={currentTrade.dolar}>
         </input> 
       </div> 
       <div>
-        <p>{currentCrypto}</p>
-        <input type="text" name="crypto" value={currentTrade.crypto} className="col-5 m-3 animate__animated animate__bounceInLeft animate__delay-1s" 
+        <p>Valor en Criptomonedas</p>
+        <p>(Ξ)</p><input type="text" name="crypto" value={currentTrade.crypto} className="col-5 m-3 animate__animated animate__bounceInLeft animate__delay-1s" 
           onChange = {handleExchange}>
         </input> 
       </div>  
