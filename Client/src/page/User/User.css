@@ -201,3 +201,8 @@
      border-bottom-left-radius: 20px;
       border-bottom-right-radius: 20px;
    }
+
+   .card-transaction{
+    background: var(--bg-card-service);
+    border-radius: 20px;
+   }

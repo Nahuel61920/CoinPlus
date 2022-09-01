@@ -19,16 +19,10 @@ const TransactionsCard = ({
 
   return (
     <div
-      className="bg-[#181918] m-4 d-flex flex-1
-      2xl:min-w-[450px]
-      2xl:max-w-[500px]
-      sm:min-w-[270px]
-      sm:max-w-[300px]
-      min-w-full
-      flex-column p-3 rounded-md hover:shadow-2xl"
+      className="col-4 gap-4 md:col-6 lg:col-4 xl:col-4 p-2 md:p-4 lg:p-6 xl:p-6"
     >
-      <div className="d-flex flex-column justify-content-center w-full mt-3 card-transac">
-        <div className="display-flex text-center justify-content-start w-full mb-6 p-2">
+      <div className="d-flex flex-column justify-content-center  card-transaction">
+        <div className="display-flex text-center justify-content-start w-full p-2">
           <a
             href={`https://ropsten.etherscan.io/address/${addressFrom}`}
             target="_blank"
@@ -54,9 +48,10 @@ const TransactionsCard = ({
         <img
           src={gifUrl || url}
           alt="nature"
-          className="w-full h-64 2xl:h-96 rounded-md shadow-lg object-cover"
+          className="w-full"
+          height="150"
         />
-        <div className="bg-black p-3 px-5 text-center mt-3 bg-hora-tranc">
+        <div className="bg-black p-3 px-5 text-center bg-hora-tranc">
           <p className="text-white font-bold">{timestamp}</p>
         </div>
       </div>
@@ -78,7 +73,7 @@ const Transactions = () => {
           </h3>
         )}
 
-        <div className="d-flex flex-wrap justify-content-center justify-items-center mt-10">
+        <div className="d-flex flex-wrap justify-content-center justify-items-center mt-5">
           {[...dummyData, ...transactions].reverse().map((transaction, i) => (
             <TransactionsCard key={i} {...transaction} />
           ))}
