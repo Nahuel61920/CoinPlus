@@ -9,9 +9,11 @@ import { updateUser } from "../../redux/reducers/cryptoRed";
 
 function ProfileCard({ user }) {
   const dispatch = useDispatch();
-  const {usuarios} = useSelector((state) => state.crypto)
+  const { usuarios } = useSelector((state) => state.crypto);
   const [image, setImage] = useState("");
-  
+  const [number, setNumber] = useState("");
+  const [countryes, setCountryes] = useState("");
+  const [codigoPostal, setCodigoPostal] = useState("");
 
   const uploadImage = async (e) => {
     const files = e.target.files;
@@ -39,10 +41,13 @@ function ProfileCard({ user }) {
       nickname: usuarios.nickname,
       picture: image,
       source: usuarios.source,
+      numberPhone: number,
+      country: countryes,
+      postalCod: codigoPostal,
     };
     dispatch(updateUser(crear));
+    console.log(crear);
   }
-console.log("Aca esta la carta de usuario"+usuarios)
 
   return (
     <Card
@@ -58,27 +63,26 @@ console.log("Aca esta la carta de usuario"+usuarios)
         <div className="d-flex align-items-center title-name">
           <Card.Title>{usuarios.nickname}</Card.Title>
         </div>
-        <Card.Img
-          class="img-profile"
-          variant="top"
-          src={usuarios.picture || user.picture}
-        />
+        <Card.Img class="img-profile" variant="top" src={usuarios.picture} />
       </div>
 
       <Card.Body>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email</Form.Label>
-          <Form.Control placeholder={user.email} disabled />
+          <Form.Control placeholder={usuarios.email} disabled />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicIdioma">
           <Form.Label>Idioma</Form.Label>
-          <Form.Control placeholder={user.local ? user.local : "Es"} disabled />
+          <Form.Control
+            placeholder={usuarios.local ? usuarios.local : "Es"}
+            disabled
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Nombre</Form.Label>
-          <Form.Control placeholder={user.name} disabled />
+          <Form.Control placeholder={usuarios.name} disabled />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicFecha">
@@ -105,28 +109,53 @@ console.log("Aca esta la carta de usuario"+usuarios)
 
         {/* <Form.Group className="mb-3" controlId="formBasicDirection">
           <Form.Label>Direccion</Form.Label>
-          <Form.Control type="text" placeholder="Escriba su direccion" />
-        </Form.Group>
+          <Form.Control type="text" placeholder={usuarios.direccion ? usuarios.direccion :"Escriba su direccion"} />
+        </Form.Group> */}
 
         <Form.Group className="mb-3" controlId="formBasiPhone">
           <Form.Label>Telefono</Form.Label>
-          <Form.Control type="text" placeholder="Escriba su telefono" />
+          <Form.Control
+            type="text"
+            placeholder={
+              usuarios.numberPhone
+                ? usuarios.numberPhone
+                : "Escriba su telefono"
+            }
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
+          />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicDNI">
+        {/* <Form.Group className="mb-3" controlId="formBasicDNI">
           <Form.Label>DNI</Form.Label>
           <Form.Control type="text" placeholder="Escriba su DNI" />
-        </Form.Group>
+        </Form.Group> */}
 
         <Form.Group className="mb-3" controlId="formBasicCountry">
           <Form.Label>Pais</Form.Label>
-          <Form.Control type="text" placeholder="Escriba su pais" />
+          <Form.Control
+            type="text"
+            placeholder={
+              usuarios.country ? usuarios.country : "Escriba su pais"
+            }
+            value={countryes}
+            onChange={(e) => setCountryes(e.target.value)}
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicUser">
-          <Form.Label>Usuario</Form.Label>
-          <Form.Control type="text" placeholder="Escriba su usuario" />
-        </Form.Group> */}
+          <Form.Label>Codigo postal</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder={
+              usuarios.postalCod
+                ? usuarios.postalCod
+                : "Escriba su codigo postal"
+            }
+            value={codigoPostal}
+            onChange={(e) => setCodigoPostal(e.target.value)}
+          />
+        </Form.Group>
 
         <FormGroup controlId="formFileSm" className="mb-3">
           <Form.Label>Imagen</Form.Label>
@@ -138,10 +167,7 @@ console.log("Aca esta la carta de usuario"+usuarios)
           />
         </FormGroup>
 
-        <button
-          onClick={(e) => HandlerUpdate(e)}
-          className="btn-form-sum"
-        >
+        <button onClick={(e) => HandlerUpdate(e)} className="btn-form-sum">
           Enviar
         </button>
       </Card.Body>
