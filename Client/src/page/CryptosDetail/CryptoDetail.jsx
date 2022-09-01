@@ -197,7 +197,7 @@ function CryptoDetail() {
           <div className="cardDetalle gap-3">
             <div className="my-4 base2">
               <h2>
-                Description: <span className="fs-4">{details.description}</span>
+                Description: <span className="fs-4"> "(Inglés)" {details.description}</span>
               </h2>
             </div>
             <div className="base4">
@@ -341,7 +341,7 @@ function CryptoDetail() {
               </div>
             </div>
             <Line data={data} options={options} />
-            <h2 className="text-center m-4">Categorias</h2>
+            <h2 className="text-center m-4">Categorías</h2>
             <div className="d-flex align-items-center justify-content-center flex-wrap mb-2">
               {details.tag_names.length ? (
                 details.tag_names.map((tag, index) => {
@@ -352,7 +352,7 @@ function CryptoDetail() {
                   );
                 })
               ) : (
-                <h4>No hay categorias</h4>
+                <h4>No hay categorías</h4>
               )}
             </div>
           </div>

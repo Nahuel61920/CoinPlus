@@ -60,7 +60,7 @@ function User() {
             >
               <AiFillPlayCircle className="text-white me-2" />
               <div>
-                <p className="text-white text-center m-auto">Connect Wallet</p>
+                <p className="text-white text-center m-auto">Conectar Wallet</p>
               </div>
             </button>
           )}
@@ -79,7 +79,7 @@ function User() {
                     {shortenAddress(currentAccount)}
                   </p>
                   <p className="text-white font-semibold text-lg mt-1">
-                    Ethereum
+                    Red Ethereum
                   </p>
                 </div>
               </div>
@@ -113,7 +113,7 @@ function User() {
               <div className="h-[1px] w-full bg-gray-400 my-2" />
 
               {isLoading ? (
-                <h1 className="text-white">Sending crypto</h1>
+                <h1 className="text-white">Enviando cripto</h1>
               ) : (
                 <button
                   type="button"
@@ -123,7 +123,7 @@ function User() {
                   <span></span>
                   <span></span>
                   <span></span>
-                  <span></span> Send now
+                  <span></span> Envíe ahora
                 </button>
               )}
             </div>

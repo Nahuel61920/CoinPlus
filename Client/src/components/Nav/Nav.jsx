@@ -37,13 +37,13 @@ function Nav() {
         <div class="collapse navbar-collapse collapse-imge" id="navbarSupportedContent">
           <div class="nav navbar-nav ms-auto ">
             <Link to="Home" spy={true} offset={-150} href="#Home">
-              Home
+              Inicio
             </Link>
             <Link to="Services" spy={true} offset={-150} href="#Services">
-              Services
+              Servicios
             </Link>
             <Link to="About" spy={true} offset={-150} href="#About">
-              About
+              Nosotros
             </Link>
             <Link
               to="Notifications"
@@ -51,7 +51,7 @@ function Nav() {
               offset={-150}
               href="#Notifications"
             >
-              Notifications
+              Notificaciones
             </Link>
           </div>
         </div>
