@@ -20,7 +20,7 @@ export default function Convertidor() {
     dispatch(fetchCrypto())
   },[])
 
-    const { cryptos } = useSelector(
+    const { cryptos, cryptoPrice } = useSelector(
         (state) => state.crypto
       );
 
@@ -30,7 +30,7 @@ export default function Convertidor() {
 
       function handleCryptoName(e) {
         dispatch(getCryptoPrice(e));
-        
+        console.log(e);
       }
 
   return (
@@ -39,12 +39,15 @@ export default function Convertidor() {
               defaultValue="Category"
               className="name-filt col-5  m-3 animate__animated animate__bounceInLeft animate__delay-1s"
               onChange={(e) => handleCryptoName(e.target.value)}
+              
             >
               <option value="All">Escoja su Criptomoneda</option>
               {cryptos.map((c) => (
                 <option value={c.name}>{c.name}</option>
               ))}
             </select>
+            <input type="text" value={cryptoPrice.length ? cryptoPrice[0].price : 0} className="col-5 m-3 animate__animated animate__bounceInLeft animate__delay-1s" />
+
     </div>
   )
 }

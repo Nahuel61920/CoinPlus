@@ -6,6 +6,7 @@ export const cryptoSlice = createSlice({
   initialState: {
     cryptos: [],
     cryptoFilter: [],
+    cryptoPrice: [],
     bestCrypto: [],
     details: [],
     category: [],
@@ -197,7 +198,8 @@ export const cryptoSlice = createSlice({
       state.cryptos.filter((c) =>{
         return c.name === payload
       })
-      state.cryptos = nameChange
+      state.cryptoPrice = nameChange
+      console.log(state.cryptoPrice)
     }
   },
 });
@@ -362,10 +364,7 @@ export const updateUser = (payload) => (dispatch) => {
 };
 
 export const findPrice = (payload) => (dispatch) => {
-  axios.get("/crypto")
-  .then((res) => {
-    dispatch(getCryptoPrice(res.data));
-  })
-  .catch((err) => console.log(err));
+  dispatch(getCryptoPrice(payload));
+  console.log(payload);
 }
 
