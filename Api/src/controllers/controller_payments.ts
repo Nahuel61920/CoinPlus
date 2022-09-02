@@ -4,6 +4,7 @@ require("dotenv").config();
 const {PAYPAL_API, PAYPAL_CLIENT, PAYPAL_SECRET, HOST2} = process.env 
 
 export const createOrder = async (req:Request, res:Response) => {
+  const {dolariki}= req.query
     try {
         const order = {
           intent: "CAPTURE",
@@ -12,7 +13,7 @@ export const createOrder = async (req:Request, res:Response) => {
               amount: {
                 currency_code: "USD",
                 // value: "llamar a operacion",
-                value: "200.00"
+                value: dolariki
               },
               description: "Compra de Criptomoneda"
             },
@@ -53,7 +54,7 @@ export const createOrder = async (req:Request, res:Response) => {
                 // Authorization: `Bearer A21AAJagUs1imx554lpd2G8qZ90mw92sMV-6p9aHYNQJzJyS2y6HVCtewFzclvMIqmduuBWk5ysBQklmB6NYOex91fNpnKbog `
                 }
         })
-            console.log(response.data)
+           // console.log(response.data)
         
             return res.send(response.data);
         
