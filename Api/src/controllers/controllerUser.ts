@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
 const axios = require ('axios');
 import {UserModel} from "../schemas/User";
-
+const emailer = require ('../emailer')
 
 export const postUser:RequestHandler = async (req,res) => {
     const user = new UserModel(req.body);
@@ -75,7 +75,7 @@ export const updateUser:RequestHandler = async (req,res) =>{
     }
 
      const userBD = await UserModel.findOneAndUpdate({email:req.body.email}, parametros)
-
+    emailer.sendMail(userBD)
     res.status(200).send(userBD)
     }
     catch(error){
