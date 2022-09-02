@@ -45,7 +45,6 @@ function User() {
     sendTransaction();
   };
 
-  // console.log(user)
   return (
     <div className="bg-global">
       <NavProfile logo={Logo} />

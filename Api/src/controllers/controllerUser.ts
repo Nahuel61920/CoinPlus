@@ -31,6 +31,10 @@ export const getUsers:RequestHandler = async (req,res) => {
             nickname: userFiltered?.nickname,
             picture: userFiltered?.picture,
             source: userFiltered?.source,
+            numberPhone : userFiltered?.numberPhone,
+            country : userFiltered?.country,
+            postalCod : userFiltered?.postalCod,
+            documentNum : userFiltered?.documentNum,
         }
         res.status(200).json(dataChanged)
     }
@@ -67,9 +71,10 @@ export const updateUser:RequestHandler = async (req,res) =>{
         numberPhone : req.body.numberPhone?req.body.numberPhone:user?.numberPhone,
         country : req.body.country?req.body.country:user?.country,
         postalCod : req.body.postalCod?req.body.postalCod:user?.postalCod,
+        documentNum : req.body.documentNum?req.body.documentNum:user?.documentNum,
     }
 
-     const userBD = await UserModel.findOneAndUpdate({email:req.body.email}, {picture:req.body.picture?req.body.picture : user?.picture})
+     const userBD = await UserModel.findOneAndUpdate({email:req.body.email}, parametros)
 
     res.status(200).send(userBD)
     }
