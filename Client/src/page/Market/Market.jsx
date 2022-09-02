@@ -30,7 +30,6 @@ function Market() {
   const { cryptos, bestCrypto, category, isLoading } = useSelector(
     (state) => state.crypto
   );
-  console.log(cryptos);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [crypsPerPage, setCrypsPerPage] = useState(50);

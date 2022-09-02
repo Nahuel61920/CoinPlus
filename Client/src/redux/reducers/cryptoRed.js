@@ -76,14 +76,11 @@ export const cryptoSlice = createSlice({
       state.cryptos = platforms;
     },
     filterForPrice: (state, { type, payload }) => {
-      console.log(state.cryptos.price);
       if (payload === "min") {
         state.cryptos = state.cryptos.sort((a, b) => a.price - b.price);
       } else {
         state.cryptos = state.cryptos.sort((a, b) => b.price - a.price);
       }
-
-      console.log(state.cryptos);
 
       state.cryptos = state.cryptos.filter((crypto) => {
         return crypto.price > 0;
@@ -120,8 +117,6 @@ export const cryptoSlice = createSlice({
       state.cryptos = state.cryptos.filter((crypto) => {
         return crypto.percent_change_1h;
       });
-
-      console.log(state.cryptos);
     },
     // ordenar por categoria
     filterForPercentChange24h: (state, { type, payload }) => {
@@ -199,7 +194,6 @@ export const cryptoSlice = createSlice({
         return c.name === payload
       })
       state.cryptoPrice = nameChange
-      console.log(state.cryptoPrice)
     }
   },
 });
@@ -339,7 +333,6 @@ export const activateLoading = () => (dispatch) => {
 
 // Coloca la informacion de Auth0 en el estado global y la BD
 export const createUser = (payload) => (dispatch) => {
-  console.log("cryptoRed(createUser)----->"+payload)
   dispatch(inventUser(payload));
   axios.post("/profile", payload)
   .catch((err) => console.log(err));
@@ -351,7 +344,6 @@ export const getUser = (payload) => (dispatch) => {
   axios
     .get(`/profile?email=${payload}`)
     .then((res) => {
-      console.log(res.data);
       dispatch(setUser(res.data));
     })
     .catch((err) => console.log(err));
@@ -365,6 +357,5 @@ export const updateUser = (payload) => (dispatch) => {
 
 export const findPrice = (payload) => (dispatch) => {
   dispatch(getCryptoPrice(payload));
-  console.log(payload);
 }
 

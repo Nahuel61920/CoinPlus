@@ -17,8 +17,8 @@ export class User extends TimeStamps{
     @prop({ required: false, trim: true, lowercase:true})
     email:string;
 
-    @prop({ required: false,  default: 123-456 })
-    numberPhone: number;
+    @prop({ required: false, trim: true,  default: "" })
+    numberPhone: string;
 
     @prop({ type: () => Array, default: [] })
     favourites: Ref<Crypto>;
@@ -38,8 +38,8 @@ export class User extends TimeStamps{
     @prop({ required: false, trim: true, default: "" })
     country:string;
 
-    @prop({ required: false,  default: 1234 })
-    postalCod: number;
+    @prop({ required: false,  trim: true, default: "" })
+    postalCod: string;
 
     @prop({required: false, trim: true})
     adress: string;
@@ -47,8 +47,8 @@ export class User extends TimeStamps{
     @prop({required: false, trim: true})
     documentType: string;
 
-    @prop({required: false})
-    documentNum: number;
+    @prop({required: false, trim: true,  default: "" })
+    documentNum: string;
 
     @prop({required: false})
     source: string;
