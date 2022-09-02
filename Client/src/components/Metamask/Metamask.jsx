@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import Logo from "../../assets/img/coin+logo.png";
 import UserCard from "../../components/ProfileCard/ProfileCard";
@@ -8,8 +9,12 @@ import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 import { TransactionContext } from "../../context/TransactionContext";
 import { shortenAddress } from "../../utils/shortenAddress";
+import  axios  from "axios";
+
 
 const Input = ({ placeholder, name, type, value, handleChange }) => (
+
+  
   <input
     placeholder={placeholder}
     type={type}
@@ -20,8 +25,11 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
   />
 );
 
-function Metamask() {
+ function  Metamask  () {
   const { user, isAuthenticated } = useAuth0();
+
+  const navigate = useNavigate()
+  const [url, setUrl]=useState("")
 
   const {
     currentAccount,
@@ -41,6 +49,16 @@ function Metamask() {
 
     sendTransaction();
   };
+
+ 
+  async function handleCobrar (e){
+    const pepito=  await axios.post('/create-order')
+                    .then((res)=> {return res.data.links[1].href})
+                    .then((res)=> setUrl(res))
+  }
+   
+ 
+  
   return (
     <div className="container-fluid ">
 
@@ -48,6 +66,26 @@ function Metamask() {
             <h1 className="text-center">Los duendes haran este trabajo</h1>
         </div>
 
+        {/* Aca comienza PAYPAL*/}
+        <div>
+          
+          <button onClick={(e)=>handleCobrar(e)} >Hacer pedido</button>
+            {
+              url.length ?
+
+              
+              (<a href={url} target="_blank">
+                <button >pagar</button>
+              </a>):(<h1></h1>)
+
+               
+            }
+          
+         
+          
+        </div>
+
+        {/* Aca comienza METAMASK*/}
         <div className="col-12 col-md-5 d-flex flex-column justify-content-center align-items-center animate__animated animate__backInRight animate__delay-1s">
           {!currentAccount && (
             <button
@@ -126,6 +164,8 @@ function Metamask() {
             </button>
           )}
         </div>
+
+
       </div>
       </div>
     </div>

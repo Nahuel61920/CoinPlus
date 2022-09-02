@@ -55,7 +55,7 @@ export const createOrder = async (req:Request, res:Response) => {
         })
             console.log(response.data)
         
-            return res.json(response.data);
+            return res.send(response.data);
         
 }catch(error:any){
     console.log(error.message);
