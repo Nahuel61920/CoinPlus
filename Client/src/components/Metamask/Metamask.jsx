@@ -62,9 +62,6 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
   return (
     <div className="container-fluid ">
 
-        <div className="container conversor bg-danger">
-            <h1 className="text-center">Los duendes haran este trabajo</h1>
-        </div>
 
         {/* Aca comienza PAYPAL*/}
         <div>
