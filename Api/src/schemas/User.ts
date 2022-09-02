@@ -20,6 +20,9 @@ export class User extends TimeStamps{
     @prop({ required: false, trim: true,  default: "" })
     numberPhone: string;
 
+    @prop({ required: false, trim: true,  default: "" })
+    date: string;
+
     @prop({ type: () => Array, default: [] })
     favourites: Ref<Crypto>;
 

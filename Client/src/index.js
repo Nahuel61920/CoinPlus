@@ -23,7 +23,6 @@ const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <React.StrictMode>
       <Auth0Provider
         domain={domain}
         clientId={clientId}
@@ -33,7 +32,6 @@ root.render(
           <App />
         </TransactionsProvider>
       </Auth0Provider>
-    </React.StrictMode>
   </BrowserRouter>
 );
 

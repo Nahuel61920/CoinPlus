@@ -31,6 +31,7 @@ export const getUsers:RequestHandler = async (req,res) => {
             nickname: userFiltered?.nickname,
             picture: userFiltered?.picture,
             source: userFiltered?.source,
+            date : userFiltered?.date,
             numberPhone : userFiltered?.numberPhone,
             country : userFiltered?.country,
             postalCod : userFiltered?.postalCod,
@@ -69,6 +70,7 @@ export const updateUser:RequestHandler = async (req,res) =>{
     const parametros ={
         picture:req.body.picture?req.body.picture : user?.picture,
         numberPhone : req.body.numberPhone?req.body.numberPhone:user?.numberPhone,
+        date: req.body.date?req.body.date:user?.date,
         country : req.body.country?req.body.country:user?.country,
         postalCod : req.body.postalCod?req.body.postalCod:user?.postalCod,
         documentNum : req.body.documentNum?req.body.documentNum:user?.documentNum,

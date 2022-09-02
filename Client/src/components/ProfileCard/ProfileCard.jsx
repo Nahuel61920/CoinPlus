@@ -4,16 +4,17 @@ import "./profileCard.css";
 import { useState } from "react";
 import { FormGroup, Input } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUser } from "../../redux/reducers/cryptoRed";
+import { updateUser, getUser } from "../../redux/reducers/cryptoRed";
 
 function ProfileCard({ user }) {
   const dispatch = useDispatch();
   const { usuarios } = useSelector((state) => state.crypto);
-  const [image, setImage] = useState("");
-  const [number, setNumber] = useState("");
-  const [countryes, setCountryes] = useState("");
-  const [codigoPostal, setCodigoPostal] = useState("");
-  const [dni, setDni ] = useState("");
+  const [image, setImage] = useState(usuarios ? usuarios.picture : "");
+  const [number, setNumber] = useState(usuarios ? usuarios.numberPhone : "");
+  const [countryes, setCountryes] = useState(usuarios ? usuarios.country : "");
+  const [codigoPostal, setCodigoPostal] = useState(usuarios ? usuarios.postalCod : "");
+  const [dni, setDni ] = useState(usuarios ? usuarios.documentNum : "");
+  const [date, setDate] = useState(usuarios ? usuarios.date : "");
 
   const uploadImage = async (e) => {
     const files = e.target.files;
@@ -40,11 +41,14 @@ function ProfileCard({ user }) {
       picture: image,
       source: usuarios.source,
       numberPhone: number,
+      date: date,
       country: countryes,
       postalCod: codigoPostal,
       documentNum: dni
     };
     dispatch(updateUser(crear));
+    dispatch(getUser(user.email));
+    console.log(crear)
   }
 
   return (
@@ -114,23 +118,46 @@ function ProfileCard({ user }) {
             </Form.Group>
 
             {usuarios.documentNum === "" ? (
-              <Form.Group className="mb-3" controlId="formBasiPhone">
+              <Form.Group className="mb-3" controlId="formBasiDNI">
                 <Form.Label>DNI</Form.Label>
                 <Form.Control
-                  type="number"
+                  type="text"
                   placeholder={"Escriba su DNI"}
                   value={dni}
                   onChange={(e) => setDni(e.target.value)}
                 />
               </Form.Group>
             ) : (
-              <Form.Group className="mb-3" controlId="formBasiPhone">
+              <Form.Group className="mb-3" controlId="formBasiDNI">
                 <Form.Label>DNI</Form.Label>
                 <Form.Control
-                  type="number"
+                  type="text"
                   placeholder={usuarios.documentNum}
                   value={usuarios.documentNum}
                   onChange={(e) => setDni(e.target.value)}
+                  disabled
+                />
+              </Form.Group>
+            )}
+
+            {usuarios.documentNum === "" ? (
+              <Form.Group className="mb-3" controlId="formBasiDate">
+                <Form.Label>Fecha</Form.Label>
+                <Form.Control
+                  type="date"
+                  placeholder={"Escriba su Fecha"}
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                />
+              </Form.Group>
+            ) : (
+              <Form.Group className="mb-3" controlId="formBasiDate">
+                <Form.Label>Fecha</Form.Label>
+                <Form.Control
+                  type="date"
+                  placeholder={usuarios.date}
+                  value={usuarios.date}
+                  onChange={(e) => setDate(e.target.value)}
                   disabled
                 />
               </Form.Group>

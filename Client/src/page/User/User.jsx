@@ -1,41 +1,41 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./User.css";
 import Logo from "../../assets/img/coin+logo.png";
 import NavProfile from "../../components/Nav/NavProfile";
 import UserCard from "../../components/ProfileCard/ProfileCard";
 // import Wallet from "../../components/boostrap/walletmini";
-import { AiFillPlayCircle } from "react-icons/ai";
-import { SiEthereum } from "react-icons/si";
-import { BsInfoCircle } from "react-icons/bs";
-import { TransactionContext } from "../../context/TransactionContext";
-import { shortenAddress } from "../../utils/shortenAddress";
+// import { AiFillPlayCircle } from "react-icons/ai";
+// import { SiEthereum } from "react-icons/si";
+// import { BsInfoCircle } from "react-icons/bs";
+// import { TransactionContext } from "../../context/TransactionContext";
+// import { shortenAddress } from "../../utils/shortenAddress";
 import Transactions from "./Transactions";
 
-const Input = ({ placeholder, name, type, value, handleChange }) => (
-  <input
-    placeholder={placeholder}
-    type={type}
-    step="0.0001"
-    value={value}
-    onChange={(e) => handleChange(e, name)}
-    className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
-  />
-);
+// const Input = ({ placeholder, name, type, value, handleChange }) => (
+//   <input
+//     placeholder={placeholder}
+//     type={type}
+//     step="0.0001"
+//     value={value}
+//     onChange={(e) => handleChange(e, name)}
+//     className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
+//   />
+// );
 
 function User() {
-  const { user, isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
 
-  const {
+  /* const {
     currentAccount,
     connectWallet,
     handleChange,
     sendTransaction,
     formData,
     isLoading,
-  } = useContext(TransactionContext);
+  } = useContext(TransactionContext); */
 
-  const handleSubmit = (e) => {
+  /* const handleSubmit = (e) => {
     const { addressTo, amount, keyword, message } = formData;
 
     e.preventDefault();
@@ -43,14 +43,15 @@ function User() {
     if (!addressTo || !amount || !keyword || !message) return;
 
     sendTransaction();
-  };
+  }; */
 
   return (
     <div className="bg-global">
       <NavProfile logo={Logo} />
       <div className="row justify-content-center m-2">
         <UserCard user={user} className="col-12 col-md-6" />
-        <div className="col-12 col-md-5 d-flex flex-column justify-content-center align-items-center animate__animated animate__backInRight animate__delay-1s">
+        
+        {/* <div className="col-12 col-md-5 d-flex flex-column justify-content-center align-items-center animate__animated animate__backInRight animate__delay-1s">
           {!currentAccount && (
             <button
               type="button"
@@ -63,7 +64,6 @@ function User() {
               </div>
             </button>
           )}
-          {/* <Wallet/> */}
           <div className="d-flex flex-column flex-1 justify-items-center justify-content-start">
             <div className="my-3 card-tarj p-3 d-flex justify-items-start flex-column rounded-xl h-40 sm:w-72">
               <div className="d-flex justify-between flex-column w-full h-full">
@@ -127,7 +127,8 @@ function User() {
               )}
             </div>
           </div>
-        </div>
+        </div> */}
+
       </div>
       <div className="w-50 p-5"></div>
       <Transactions />
