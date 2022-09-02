@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import {Link} from 'react-router-dom'
 import DarkMode from '../DarkMode/DarkMode';
+import Profile from "../Profile/Profile";
 
 function OffcanvasExample({logo}) {
   return (
@@ -20,6 +21,7 @@ function OffcanvasExample({logo}) {
             </Navbar.Brand>
             <div className="d-flex gap-2 align-items-center">
               <DarkMode/>
+              <Profile />
               <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}  className="btn-navProfile"/>
               
             </div>
