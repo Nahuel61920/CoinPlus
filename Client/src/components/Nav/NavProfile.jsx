@@ -38,12 +38,17 @@ function OffcanvasExample({logo}) {
               <Offcanvas.Body className="nav-togle-user">
                 <Nav className="justify-content-end flex-grow-1 pe-3 text-primary">
                 <Link to='/' style={{ textDecoration: 'none' }}>
-                  <Nav.Link href="#action1">Home</Nav.Link>
+                  <Nav.Link href="#action1">Inicio</Nav.Link>
+                </Link>
+                <Link to='/user'>
+                   <Nav.Link href="#action2">Perfil</Nav.Link>
                 </Link>
                 <Link to='/wallet'>
                    <Nav.Link href="#action2">Mi billetera</Nav.Link>
                 </Link>
-                  <Nav.Link href="#action3">Movimientos</Nav.Link>
+                <Link to='/movements'>
+                <Nav.Link href="#action3">Movimientos</Nav.Link>
+                </Link>   
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

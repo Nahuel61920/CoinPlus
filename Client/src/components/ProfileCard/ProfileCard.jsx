@@ -269,8 +269,8 @@ function ProfileCard({ user }) {
           >
             <form id="algin-form">
                     <div class="form-group">
-                        <h4>Leave a comment</h4>
-                        <Form.Label for="message">Message</Form.Label>
+                        <h4>Deje un comentario</h4>
+                        <Form.Label for="message">Mensaje</Form.Label>
                         <textarea name="msg" id=""msg cols="30" rows="5" class="form-control my-2"></textarea>
                     </div>
                     <div class="rating"> 

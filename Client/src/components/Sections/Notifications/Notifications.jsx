@@ -4,7 +4,7 @@ import notificationsSvg from "../../../assets/svg/notificationsSvg.svg"
 function Notifications() {
   return (
     <div id="Notifications" className="row aling-content-center justify-content-center d-flex flex-md-row flex-column min-vh-100">
-      <h1 className="fw-bold text-center mt-4">Notifications</h1>
+      <h1 className="fw-bold text-center mt-4">Notificaciones</h1>
       <div className="col-12 col-md-6 my-5 container__img_header" data-aos="fade-right" data-aos-delay="650">
         <img src={notificationsSvg} alt="header"/>
       </div>
