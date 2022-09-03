@@ -20,6 +20,8 @@ export default function Convertidor() {
     crypto: "",
   });
 
+  const [currentKindOfExchange, setCurrentKindOfExchange] = useState(true);
+
   function convert(inCoin, amount) {
     if (inCoin === "dolar") {
       return amount / cryptoPrice[0].price;
@@ -51,6 +53,12 @@ export default function Convertidor() {
     });
   }
 
+  function handleKindOfExchange() {
+    currentKindOfExchange?setCurrentKindOfExchange(false):setCurrentKindOfExchange(true)
+  }
+
+
+
   return (
     <div className="container-fluid">
       <div className="container d-flex justify-content-center mt-3 mb-3">
@@ -61,7 +69,7 @@ export default function Convertidor() {
             <div className="d-flex justify-content-center">
               <select
                 defaultValue="Category"
-                className="name-filt col-5  m-3 animate__animated animate__bounceInLeft animate__delay-1s"
+                className="name-filt col-5  m-3 "
                 onChange={(e) => {
                   handleCryptoName(e);
                   handleUpdate(e);
@@ -101,27 +109,30 @@ export default function Convertidor() {
             </div>
             <div className="container">
               <div className="container">
-                <div className="row">
+                  {currentKindOfExchange&&
+                (<div className="row">
                   <h6 className="text-center">Enviar Dolares</h6>
                   <div className="container d-flex justify-content-center">
                     <span>$</span>
                     <input
                       type="text"
                       name="dolar"
-                      className="col-5 m-3 animate__animated animate__bounceInLeft animate__delay-1s rounded-1"
+                      className="col-5 m-3  rounded-1"
                       placeholder="Ingrese monto a convertir..."
                       onChange={handleExchange}
                       value={currentTrade.dolar}
                     ></input>
                   </div>
                 </div>
+                )}
+
+                {currentKindOfExchange&&(
                 <div className="container d-flex justify-content-center mb-3 mt-3">
                   <div className="row">
-                  <button className="">REVERSE</button>
+                  <button className="" onClick={handleKindOfExchange}>REVERSE</button>
                   </div>
-
                 </div>
-
+                )}
 
                 <div className="row">
                   <h6 className="text-center">Recibe Crypto</h6>   
@@ -137,41 +148,42 @@ export default function Convertidor() {
                       type="text"
                       name="crypto"
                       value={currentTrade.crypto}
-                      className="col-5 m-3 animate__animated animate__bounceInLeft animate__delay-1s rounded-1"
+                      className="col-5 m-3 rounded-1"
                       onChange={handleExchange}
                     ></input>
                   </div>
+
+                  {!currentKindOfExchange&&(
+                <div className="container d-flex justify-content-center mb-3 mt-3">
+                  <div className="row">
+                  <button className="" onClick={handleKindOfExchange}>REVERSE</button>
+                  </div>
                 </div>
+                )}
+
+
+                  {!currentKindOfExchange&&
+                (<div className="row">
+                  <h6 className="text-center">Enviar Dolares</h6>
+                  <div className="container d-flex justify-content-center">
+                    <span>$</span>
+                    <input
+                      type="text"
+                      name="dolar"
+                      className="col-5 m-3 rounded-1"
+                      placeholder="Ingrese monto a convertir..."
+                      onChange={handleExchange}
+                      value={currentTrade.dolar}
+                    ></input>
+                  </div>
+                </div>
+                )}
+                </div>      
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* <select
-        defaultValue="Category"
-        className="name-filt col-5  m-3 animate__animated animate__bounceInLeft animate__delay-1s"
-        onChange={(e) => {handleCryptoName(e);handleUpdate(e)}}
-        
-      >
-        <option value="All">Escoja su Criptomoneda</option>
-        {cryptos.map((c) => (
-          <option value={c.name}>{c.name}</option>
-        ))}
-      </select>
-        <input type="text" value={cryptoPrice.length ? cryptoPrice[0].price.toString().slice(0,8) : 0} className="col-5 m-3 animate__animated animate__bounceInLeft animate__delay-1s" />
-      <div>
-      <p>Valor en Dólares</p>
-        <p>$</p><input type="text" name="dolar"  className="col-5 m-3 animate__animated animate__bounceInLeft animate__delay-1s"
-          placeholder="Ingrese monto a convertir..." onChange = {handleExchange} value={currentTrade.dolar}>
-        </input> 
-      </div> 
-      <div>
-        <p>Valor en Criptomonedas</p>
-        <p>(Ξ)</p><input type="text" name="crypto" value={currentTrade.crypto} className="col-5 m-3 animate__animated animate__bounceInLeft animate__delay-1s" 
-          onChange = {handleExchange}>
-        </input> 
-      </div>   */}
     </div>
   );
 }
