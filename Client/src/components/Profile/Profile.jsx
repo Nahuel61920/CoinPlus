@@ -11,7 +11,7 @@ export default function Profile() {
   const { usuarios } = useSelector((state) => state.crypto);
   const dispatch = useDispatch();
 
-  if(isLoading){return <div>Loading ...</div>;}
+  if(isLoading){return <div>Cargando ...</div>;}
 
   function HandleCreate(e) {
 

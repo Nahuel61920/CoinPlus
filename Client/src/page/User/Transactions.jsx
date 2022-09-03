@@ -5,6 +5,8 @@ import { TransactionContext } from "../../context/TransactionContext";
 import useFetch from "./useFetch";
 import dummyData from "../../utils/dummyData";
 import { shortenAddress } from "../../utils/shortenAddress";
+import NavProfile from "../../components/Nav/NavProfile";
+import Logo from "../../assets/img/coin+logo.png";
 
 const TransactionsCard = ({
   addressTo,
@@ -18,9 +20,7 @@ const TransactionsCard = ({
   const gifUrl = useFetch({ keyword });
 
   return (
-    <div
-      className="col-4 gap-4 md:col-6 lg:col-4 xl:col-4 p-2 md:p-4 lg:p-6 xl:p-6"
-    >
+    <div className="col-4 gap-4 md:col-6 lg:col-4 xl:col-4 p-2 md:p-4 lg:p-6 xl:p-6">
       <div className="d-flex flex-column justify-content-center  card-transaction">
         <div className="display-flex text-center justify-content-start w-full p-2">
           <a
@@ -63,13 +63,15 @@ const Transactions = () => {
   const { transactions, currentAccount } = useContext(TransactionContext);
 
   return (
+    <div className="bg-global">
+      <NavProfile logo={Logo}/>
     <div className="d-flex w-full justify-content-center justify-items-center 2xl:px-20">
       <div className="d-flex flex-column md:p-12 py-12 px-4">
         {currentAccount ? (
           <h3 className="text-3xl text-center my-2">Últimas Transacciones</h3>
         ) : (
           <h3 className="text-3xl text-center my-2">
-            Conecte su cuenta para conocer sus Últimas Transacciones
+             Últimas Transacciones
           </h3>
         )}
 
@@ -79,6 +81,7 @@ const Transactions = () => {
           ))}
         </div>
       </div>
+    </div>
     </div>
   );
 };
