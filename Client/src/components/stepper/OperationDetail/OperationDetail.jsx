@@ -1,8 +1,16 @@
 import React from "react";
+import swal from 'sweetalert';
+
 
 function OperationDetail() {
+
+  function handleClickButton(){
+    swal("Good job!", "You clicked the button!", "success")
+  }
+
+
   return (
-    <div className="container-fluid ">
+    <div className="container-fluidm mb-5">
       <div className="container d-flex justify-content-center">
         <div className="card">
           <div className="card-body">
@@ -40,6 +48,11 @@ function OperationDetail() {
                 </select>
               </div>
              </div>
+          </div>
+          <div className="container text-center d-flex justify-content-center mb-2">
+            <div className="row">
+            <button style={{width:'90px'}} onClick={handleClickButton}>Continuar</button>
+            </div>
           </div>
         </div>
       </div>
