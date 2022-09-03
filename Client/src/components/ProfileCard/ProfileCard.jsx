@@ -281,23 +281,48 @@ function ProfileCard({ user }) {
               </button>
             </Card.Body>
           </Card>
-          <Card
-            className="my-3 animate__animated animate__backInLeft animate__delay-500ms p-4 col-5"
-          >
-            <form id="algin-form">
-                    <div class="form-group">
-                        <h4>Deje un comentario</h4>
-                        <Form.Label for="message">Mensaje</Form.Label>
-                        <textarea name="msg" id=""msg cols="30" rows="5" class="form-control my-2"></textarea>
-                    </div>
-                    <div class="rating"> 
-                              <input type="radio" name="rating" value="5" id="5"/><label for="5">☆</label>
-                              <input type="radio" name="rating" value="4" id="4"/><label for="4">☆</label> 
-                              <input type="radio" name="rating" value="3" id="3"/><label for="3">☆</label>
-                              <input type="radio" name="rating" value="2" id="2"/><label for="2">☆</label>
-                              <input type="radio" name="rating" value="1" id="1"/><label for="1">☆</label>
-                          </div>
-                </form>
+          <Card className="my-3 animate__animated animate__backInLeft animate__delay-500ms p-0 col-5">
+          <div
+              className="d-flex justify-content-center align-items-center py-4"
+              style={{
+                background: "var(--bg-nav)",
+              }}
+            >
+            <h2 className="text-center">Deje un comentario</h2>
+            </div>
+            <form id="algin-form" className="p-3">
+              <div class="form-group mb-3">
+                <Form.Label for="message">Mensaje</Form.Label>
+                <textarea
+                  name="msg"
+                  id=""
+                  msg
+                  cols="30"
+                  rows="5"
+                  class="form-control my-2"
+                  onChange={(e) => setComment(e.target.value)}
+                ></textarea>
+              </div>
+              <div class="rating">
+                <input type="radio" name="rating" value="5" id="5" />
+                <label for="5">☆</label>
+                <input type="radio" name="rating" value="4" id="4" />
+                <label for="4">☆</label>
+                <input type="radio" name="rating" value="3" id="3" />
+                <label for="3">☆</label>
+                <input type="radio" name="rating" value="2" id="2" />
+                <label for="2">☆</label>
+                <input type="radio" name="rating" value="1" id="1" />
+                <label for="1">☆</label>
+              </div>
+            </form>
+            
+            <button
+                className="btn-form-sum mx-3 mb-3"
+                onClick={(e) => HandlerComent(e)}
+              >
+                Enviar
+              </button>
           </Card>
         </div>
       ) : (
