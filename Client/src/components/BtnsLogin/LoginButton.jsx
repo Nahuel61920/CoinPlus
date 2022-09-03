@@ -11,7 +11,7 @@ export default function LoginButton() {
   return (
     <>
     <button onClick={() => loginWithRedirect()} className="buttonLogin buttonLogSin">
-      Login/SignUp
+      Entrar/Registro
       <div class="arrow-wrapper">
           <div class="arrow"></div>
       </div>

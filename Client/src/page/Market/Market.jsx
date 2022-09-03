@@ -113,7 +113,7 @@ function Market() {
       <NavMarket setCurrentPage={setCurrentPage} />
 
       <div className="container-xxl my-4">
-        <h1 className="fw-bold text-center">Market</h1>
+        <h1 className="fw-bold text-center">Mercado</h1>
         <p className="text-center">Precio de las criptomonedas de hoy</p>
         <div className="row d-flex align-items-center justify-content-center mt-4 pt-3 px-4">
           <CryptoBest bestCrypto={bestCrypto}/>

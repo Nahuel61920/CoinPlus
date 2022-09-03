@@ -9,7 +9,7 @@ export default function LoginDetailBtn() {
   const { user,isLoading } = useAuth0();
   const dispatch = useDispatch();
 
-  if(isLoading){return <div>Loading ...</div>;}
+  if(isLoading){return <div>Cargando ...</div>;}
 
   function HandleCreate(e) {
 

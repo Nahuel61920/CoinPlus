@@ -76,7 +76,7 @@ export default function Convertidor() {
                 }}
               >
                 <option className="text-center" value="All">
-                  Escoja su Criptomoneda
+                  Seleccione su Criptomoneda
                 </option>
                 {cryptos.map((c) => (
                   <option value={c.name}>{c.name}</option>
@@ -129,13 +129,13 @@ export default function Convertidor() {
                 {currentKindOfExchange&&(
                 <div className="container d-flex justify-content-center mb-3 mt-3">
                   <div className="row">
-                  <button className="" onClick={handleKindOfExchange}>REVERSE</button>
+                  <button className="" onClick={handleKindOfExchange}>REVERSA</button>
                   </div>
                 </div>
                 )}
 
                 <div className="row">
-                  <h6 className="text-center">Recibe Crypto</h6>   
+                  <h6 className="text-center">Recibe Criptomonedas</h6>   
                   <div className="container d-flex justify-content-center">
                     <span>
                       {cryptoPrice.length > 0 ? (
