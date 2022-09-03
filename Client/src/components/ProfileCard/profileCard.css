@@ -58,3 +58,42 @@
     background: #3a0ca3;
     transition: background 0s;
    }
+
+   .rating {
+    display: flex;
+           margin-top: -10px;
+       flex-direction: row-reverse;
+       margin-left: -4px;
+           float: left;
+   }
+   
+   .rating>input {
+       display: none
+   }
+   
+   .rating>label {
+           position: relative;
+       width: 19px;
+       font-size: 25px;
+       color: #645bff!important;
+       cursor: pointer;
+   }
+   
+   .rating>label::before {
+       content: "\2605";
+       position: absolute;
+       opacity: 0
+   }
+   
+   .rating>label:hover:before,
+   .rating>label:hover~label:before {
+       opacity: 1 !important
+   }
+   
+   .rating>input:checked~label:before {
+       opacity: 1
+   }
+   
+   .rating:hover>input:checked~label:before {
+       opacity: 0.4
+   }

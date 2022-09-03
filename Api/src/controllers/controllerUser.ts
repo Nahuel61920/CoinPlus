@@ -26,6 +26,7 @@ export const getUsers:RequestHandler = async (req,res) => {
         const userFiltered = await UserModel.findOne({email})
         
         const dataChanged ={
+            id: userFiltered?._id,
             name: userFiltered?.name,
             email: userFiltered?.email,
             nickname: userFiltered?.nickname,
@@ -36,6 +37,7 @@ export const getUsers:RequestHandler = async (req,res) => {
             country : userFiltered?.country,
             postalCod : userFiltered?.postalCod,
             documentNum : userFiltered?.documentNum,
+            comments: userFiltered?.comments,
         }
         res.status(200).json(dataChanged)
     }
