@@ -57,6 +57,7 @@ export default function Convertidor() {
         <div className="card">
           <div className="card-body">
             <h1 className="card-title text-center">{`Bienvenido ${usuarios.name}`}</h1>
+            <h5 className="text-center border-bottom">Tipo de cambio hoy</h5>
             <div className="d-flex justify-content-center">
               <select
                 defaultValue="Category"
@@ -74,8 +75,8 @@ export default function Convertidor() {
                 ))}
               </select>
             </div>
-            <div className="container">
-              <h5 className="text-center border-bottom">Tipo de cambio hoy</h5>
+            <div className="container border-bottom">
+             
             <div className="row">
               <div className="col">
                 <h6 className="text-center">Compra</h6>
@@ -98,11 +99,11 @@ export default function Convertidor() {
             </div>
 
             </div>
-            <div className="container border">
-              <div className="row">
+            <div className="container">
+              <div className="container">
                 <div className="row">
-                  <h6>Enviar Dolares</h6>
-                  <div className="container d-flex">
+                  <h6 className="text-center">Enviar Dolares</h6>
+                  <div className="container d-flex justify-content-center">
                     <span>$</span>
                     <input
                       type="text"
@@ -114,14 +115,22 @@ export default function Convertidor() {
                     ></input>
                   </div>
                 </div>
+                <div className="container d-flex justify-content-center mb-3 mt-3">
+                  <div className="row">
+                  <button className="">REVERSE</button>
+                  </div>
+
+                </div>
+
+
                 <div className="row">
-                  <h6>Recibe Crypto</h6>
-                  <div className="container d-flex">
+                  <h6 className="text-center">Recibe Crypto</h6>   
+                  <div className="container d-flex justify-content-center">
                     <span>
                       {cryptoPrice.length > 0 ? (
                         <p>{cryptoPrice[0].symbol}</p>
                       ) : (
-                        <p></p>
+                        <p>$</p>
                       )}
                     </span>
                     <input
