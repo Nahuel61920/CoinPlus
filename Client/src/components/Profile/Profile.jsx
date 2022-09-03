@@ -25,7 +25,7 @@ export default function Profile() {
     dispatch(getUser(user.email));
 
     dispatch(createUser(crear));
-    
+    console.log(usuarios);
   }
 
   return (

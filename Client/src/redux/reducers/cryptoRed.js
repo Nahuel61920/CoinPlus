@@ -355,6 +355,12 @@ export const updateUser = (payload) => (dispatch) => {
   axios.put("/profile", payload).catch((err) => console.log(err));
 };
 
+export const postComent = (payload) => (dispatch) => {
+  console.log(payload)
+  axios.post("/comment", payload).catch((err) => console.log(err));
+  
+};
+
 export const findPrice = (payload) => (dispatch) => {
   dispatch(getCryptoPrice(payload));
 }

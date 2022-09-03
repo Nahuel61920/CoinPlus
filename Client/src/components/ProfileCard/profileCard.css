@@ -8,8 +8,8 @@
     background-color: #fff;
 }
 
-.title-name{
-    color: var(--text-nav)!important;
+.title-name {
+    color: var(--text-nav) !important;
 }
 
 
@@ -27,9 +27,9 @@
     font-size: 17px;
     border-radius: 6px;
     font-weight: 500;
-   }
-   
-   .btn-form-sum:before {
+}
+
+.btn-form-sum:before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -37,63 +37,93 @@
     height: 150px;
     width: 200px;
     border-radius: 50%;
-   }
-   
-   .btn-form-sum:hover {
+}
+
+.btn-form-sum:hover {
     color: #fff;
-   }
-   
-   .btn-form-sum:before {
+}
+
+.btn-form-sum:before {
     top: 100%;
     left: 100%;
     transition: all .7s;
-   }
-   
-   .btn-form-sum:hover:before {
+}
+
+.btn-form-sum:hover:before {
     top: -30px;
     left: -30px;
-   }
-   
-   .btn-form-sum:active:before {
+}
+
+.btn-form-sum:active:before {
     background: #3a0ca3;
     transition: background 0s;
-   }
+}
 
-   .rating {
+.rating {
     display: flex;
-           margin-top: -10px;
-       flex-direction: row-reverse;
-       margin-left: -4px;
-           float: left;
-   }
-   
-   .rating>input {
-       display: none
-   }
-   
-   .rating>label {
-           position: relative;
-       width: 19px;
-       font-size: 25px;
-       color: #645bff!important;
-       cursor: pointer;
-   }
-   
-   .rating>label::before {
-       content: "\2605";
-       position: absolute;
-       opacity: 0
-   }
-   
-   .rating>label:hover:before,
-   .rating>label:hover~label:before {
-       opacity: 1 !important
-   }
-   
-   .rating>input:checked~label:before {
-       opacity: 1
-   }
-   
-   .rating:hover>input:checked~label:before {
-       opacity: 0.4
-   }
+    margin-top: -10px;
+    flex-direction: row-reverse;
+    margin-left: -4px;
+    float: left;
+}
+
+.rating>input {
+    display: none
+}
+
+.rating>label {
+    position: relative;
+    width: 19px;
+    font-size: 25px;
+    color: #645bff !important;
+    cursor: pointer;
+}
+
+.rating>label::before {
+    content: "\2605";
+    position: absolute;
+    opacity: 0
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+    opacity: 1 !important
+}
+
+.rating>input:checked~label:before {
+    opacity: 1
+}
+
+.rating:hover>input:checked~label:before {
+    opacity: 0.4
+}
+.update{
+    width: 100px;
+    position: relative;
+}
+
+.update img {
+}
+
+.update .round {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #645bff;
+    width: 37px;
+    height: 37px;
+    line-height: 33px;
+    text-align: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.update .round input[type="file"] {
+    position: absolute;
+    transform: scale(2);
+    opacity: 0;
+}
+
+input[type=file]::-webkit-file-upload-button{
+    cursor: pointer;
+}
