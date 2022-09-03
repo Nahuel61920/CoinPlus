@@ -11,7 +11,7 @@ export default function LogoutButton() {
       <div class="arrow-wrapper">
           <div class="arrow"></div>
       </div>
-      LogOut
+      Salir
     </button>
   )
 }
