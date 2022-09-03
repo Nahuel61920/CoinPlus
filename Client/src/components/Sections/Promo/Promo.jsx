@@ -6,7 +6,7 @@ export default function Promo() {
   return (
     <div id='About'>
 
-        <h1 className="fw-bold text-center">About</h1>
+        <h1 className="fw-bold text-center">Sobre nosotros</h1>
         
         <div class="row card-promo my-4 p-3" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
             <div className="col-10 col-md-7 aling-content-center mt-5">

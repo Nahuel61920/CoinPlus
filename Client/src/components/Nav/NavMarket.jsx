@@ -37,7 +37,7 @@ function NavMarket({setCurrentPage}) {
               <input
                 class="form-control me-2 hight"
                 type="search"
-                placeholder="Search..."
+                placeholder="Buscar..."
                 aria-label="Search"
                 value={name}
                 onChange={(e) => {
@@ -68,7 +68,7 @@ function NavMarket({setCurrentPage}) {
             style={{ textDecoration: "none" }}
             className="px-4 fw-bold text-primary"
           >
-            Market
+            Mercado
           </NavLink>
         </div>
         
