@@ -27,7 +27,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 
  function  Metamask  () {
   const { user, isAuthenticated } = useAuth0();
-
+  const [compra, setCompra] = useState("");
   const navigate = useNavigate()
   const [url, setUrl]=useState("")
 
@@ -51,8 +51,9 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
   };
 
  
-  async function handleCobrar (e){
-    const pepito=  await axios.post('/create-order')
+  async function handleCobrar (e, compra){
+    const dolariki=compra
+    const pay=  await axios.post(`/create-order?dolariki=${dolariki}`)
                     .then((res)=> {return res.data.links[1].href})
                     .then((res)=> setUrl(res))
   }
@@ -62,14 +63,19 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
   return (
     <div className="container-fluid ">
 
-        <div className="container conversor bg-danger">
-            <h1 className="text-center">Los duendes haran este trabajo</h1>
-        </div>
-
-        {/* Aca comienza PAYPAL*/}
+       {/* Aca comienza PAYPAL*/}
         <div>
-          
-          <button onClick={(e)=>handleCobrar(e)} >Hacer pedido</button>
+          <div>
+            <p>Ingresa aqui los dolares a pagar:</p>
+            <input
+              type="text"
+              name="crypto"
+              value={compra}
+              className="col-5 m-3 animateanimated animatebounceInLeft animate__delay-1s"
+              onChange={(e) => setCompra(e.target.value)}
+            />
+        </div>
+          <button onClick={(e)=>handleCobrar(e, compra)} >Hacer pedido</button>
             {
               url.length ?
 
