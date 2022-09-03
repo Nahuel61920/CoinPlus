@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCrypto } from "../../redux/reducers/cryptoRed";
-import { getCryptoPrice } from "../../redux/reducers/cryptoRed";
+import { fetchCrypto } from "../../../redux/reducers/cryptoRed";
+import { getCryptoPrice } from "../../../redux/reducers/cryptoRed";
 
 export default function Convertidor() {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export default function Convertidor() {
   );
 
   //Set the current crypto name
-  const [currentCrypto, setCurrentCrypto] = useState("");
+  const [setCurrentCrypto] = useState("");
   const [currentTrade, setCurrentTrade] = useState({
     dolar: "",
     crypto: "",
