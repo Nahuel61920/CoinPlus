@@ -101,7 +101,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
             >
               <AiFillPlayCircle className="text-white me-2" />
               <div>
-                <p className="text-white text-center m-auto">Connect Wallet</p>
+                <p className="text-white text-center m-auto">Conecte su billetera</p>
               </div>
             </button>
           )}
@@ -129,25 +129,25 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
         </div>
         <div className="bg-envio p-5 sm:w-96 w-full d-flex flex-column justify-items-start justify-items-center">
           <Input
-            placeholder="Address To"
+            placeholder="Dirección"
             name="addressTo"
             type="text"
             handleChange={handleChange}
           />
           <Input
-            placeholder="Amount (ETH)"
+            placeholder="Monto (ETH)"
             name="amount"
             type="number"
             handleChange={handleChange}
           />
           <Input
-            placeholder="Keyword (Gif)"
+            placeholder="Clave (Gif)"
             name="keyword"
             type="text"
             handleChange={handleChange}
           />
           <Input
-            placeholder="Enter Message"
+            placeholder="Ingrese un mensaje"
             name="message"
             type="text"
             handleChange={handleChange}
@@ -156,7 +156,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
           <div className="h-[1px] w-full bg-gray-400 my-2" />
 
           {isLoading ? (
-            <h1 className="text-white">Sending crypto</h1>
+            <h1 className="text-white">Enviando crypto</h1>
           ) : (
             <button
               type="button"
@@ -166,7 +166,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
               <span></span>
               <span></span>
               <span></span>
-              <span></span> Send now
+              <span></span> Enviar
             </button>
           )}
         </div>

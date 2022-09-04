@@ -131,7 +131,7 @@ function User() {
 
       </div>
       <div className="w-50 p-5"></div>
-      <Transactions />
+      {/* <Transactions /> */}
     </div>
   );
 }
