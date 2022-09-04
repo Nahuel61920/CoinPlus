@@ -48,7 +48,10 @@ function OffcanvasExample({logo}) {
                 </Link>
                 <Link to='/movements'>
                 <Nav.Link href="#action3">Movimientos</Nav.Link>
-                </Link>   
+                </Link>
+                <Link to='/operation'>
+                <Nav.Link href="#action4">Compra-Venta</Nav.Link>
+                </Link>      
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
