@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Convertidor from "./Convertidor";
 import StepperControl from "./StepperControl";
 import StepsDisplay from "./StepsDisplay";
+import OperationDetail from "./OperationDetail"
 
 
 export default function Stepper (){
@@ -20,7 +21,7 @@ export default function Stepper (){
         case 1:
             return <Convertidor />;
         case 2:
-            return (<div>Step02</div>);
+            return <OperationDetail/>;
         case 3:
             return (<div>Step03</div>);
         case 4:
@@ -39,8 +40,11 @@ export default function Stepper (){
       };
     
     return(
-        <div>
-            <StepsDisplay steps={steps} currentStep={currentStep}/>
+        <div className=" container border">
+            <div className="d-flex justify-content-center">
+              <StepsDisplay steps={steps} currentStep={currentStep}/>  
+            </div>
+            
 
             {
                 displayStep(currentStep)
@@ -50,7 +54,8 @@ export default function Stepper (){
                 handleClick={handleClick}
                 currentStep={currentStep}
                 steps={steps}
-            />
+            /> 
+           
         </div>
     );   
 }

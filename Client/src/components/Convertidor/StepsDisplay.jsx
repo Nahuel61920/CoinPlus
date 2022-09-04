@@ -68,9 +68,16 @@ export default function StepsDisplay ({ steps, currentStep }){
         return (
           <div
             key={index}
+            className='d-flex'
           >
-            <div >
+            <div className="d-flex flex-column" >
               <div
+              className={`rounded-circle  bg-warning d-flex justify-content-center mx-auto ${
+                step.selected 
+                ?"text-white bg-success"
+                :""
+              }`}
+              style={{width:'25px'}}
               >
                 {step.completed ? (
                   <span >&#10003;</span>
@@ -78,21 +85,27 @@ export default function StepsDisplay ({ steps, currentStep }){
                   index + 1
                 )}
               </div>
-              <div
-               
-              >
+              <div className={` "" ${step.highlighted ?"text-primary":"text-muted"} `}>
                 {step.description}
               </div>
             </div>
-            <div
+            <div className="d-flex align-items-center">
               
-            ></div>
+              {index!==3&&
+              <div
+                className={`'mb-3' ${step.completed ?"bg-success":"bg-warning"} `}
+                style={{height:'5px', width:'10rem'}}
+              >
+              </div> 
+              }
+            </div>
+            
           </div>
         );
       });
 
     return(
-        <div>
+        <div className="d-flex">
             {stepsDisplay}
         </div>
     )

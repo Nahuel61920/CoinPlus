@@ -129,7 +129,7 @@ export default function Convertidor() {
                 {currentKindOfExchange&&(
                 <div className="container d-flex justify-content-center mb-3 mt-3">
                   <div className="row">
-                  <button className="" onClick={handleKindOfExchange}>REVERSA</button>
+                  <button type="button" class="btn btn-dark" onClick={handleKindOfExchange}>REVERSA</button>
                   </div>
                 </div>
                 )}
