@@ -27,8 +27,13 @@ function Footer() {
           
         </div>
         <div className="col">
-          Nuestro equipo
+        <Link to='/equipo'>
+                    <Nav>  
+                    <p className='text-white'> Nuestro equipo </p>
+                    </Nav>
+        </Link>
         </div>
+        
       </div>
 
       <div className="row text-center text-white mt-5"><p className='color-copy'>Copyright © 2022. Todos los derechos reservados.</p></div>

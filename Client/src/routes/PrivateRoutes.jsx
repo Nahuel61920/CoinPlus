@@ -6,6 +6,7 @@ import CryptoDetail from "../page/CryptosDetail/CryptoDetail";
 import Pagado from "../components/Pagado/Pagado.jsx";
 import Billetera from '../components/Profile/billetera/Billetera'
 import Transactions from "../page/User/Transactions.jsx";
+import Equipo from "../components/Equipo/Equipo.jsx";
 
 function PrivateRoutes() {
   return (
@@ -15,6 +16,7 @@ function PrivateRoutes() {
       <Route path="/market/:id" element={<CryptoDetail />} />
       <Route path="/wallet" element={<Billetera />} />
       <Route path="/movements" element={<Transactions />} />
+      <Route path="/equipo" element={<Equipo />} />
     </Routes>
   );
 }
