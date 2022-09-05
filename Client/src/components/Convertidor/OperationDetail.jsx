@@ -34,10 +34,10 @@ function OperationDetail() {
   }, []);
 
   return (
-    <div className="col-5">
-      <div className="">
-        <div className="card-1 ">
-          <div className="card-body">
+    <div  className="col-5">
+      <div  className="">
+        <div  className="card-1 ">
+          <div  className="card-body">
             <h4 className="card-title text-center mb-2">
               Completa los datos de tu operación
             </h4>
