@@ -86,11 +86,11 @@ export default function Equipo() {
         <h3 className="titulo text-white text-center">El Equipo de Coin+</h3>
         
         <div className="container">
-            <div className="row">
+            <div className="row gridp">
                 
             {
                 miembros.map(m => (
-                    <div className="col-md-4" key={m.id}>
+                    <div className="col-md-3 cardh" key={m.id}>
                         <CardEquipo nombre={m.nombre} 
                                     imagen={m.imagen}       
                                     linkedin={m.linkedin}
