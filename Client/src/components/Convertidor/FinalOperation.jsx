@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Transference() {
+function FinalOperation() {
   return (
     <div style={{height:'500px'}} className='container d-flex justify-content-center'>
         <div className="card">
@@ -18,3 +18,5 @@ export default function Transference() {
     </div>
   )
 }
+
+export default FinalOperation

@@ -5,6 +5,7 @@ import StepsDisplay from "./StepsDisplay";
 import OperationDetail from "./OperationDetail"
 import Transference from "./Transference";
 import NavBar from "../Nav/NavProfile"
+import FinalOperation from "./FinalOperation";
 
 
 export default function Stepper (){
@@ -27,7 +28,7 @@ export default function Stepper (){
         case 3:
             return <Transference/>;
         case 4:
-            return (<div>Step04</div>);
+            return <FinalOperation/>;
         default:
             return (<div>No hay Step</div>);
     }
