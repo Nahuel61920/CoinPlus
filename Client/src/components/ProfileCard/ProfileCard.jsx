@@ -6,7 +6,11 @@ import { TbPencil, TbPencilOff } from "react-icons/tb";
 
 import { FormGroup, Input } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUser, getUser, postComent } from "../../redux/reducers/cryptoRed";
+import {
+  updateUser,
+  getUser,
+  postComent,
+} from "../../redux/reducers/cryptoRed";
 import { ImCamera } from "react-icons/im";
 
 function ProfileCard({ user }) {
@@ -60,6 +64,7 @@ function ProfileCard({ user }) {
     };
     dispatch(updateUser(crear));
     dispatch(getUser(user.email));
+    setEdit(!edit);
     console.log(crear);
   }
 
@@ -90,15 +95,9 @@ function ProfileCard({ user }) {
                 background: "var(--bg-nav)",
               }}
             >
-                  <div className="edit_btn" onClick={HandlerEdit}>
-                    {
-                      edit === false ? (
-                        <TbPencil />
-                      ) : (
-                        <TbPencilOff />
-                      )
-                    }
-                  </div>
+              <div className="edit_btn" onClick={HandlerEdit}>
+                {edit === false ? <TbPencil /> : <TbPencilOff />}
+              </div>
 
               <div className="d-flex align-items-center title-name">
                 <Card.Title>{usuarios.nickname}</Card.Title>
@@ -111,7 +110,7 @@ function ProfileCard({ user }) {
                 />
                 <div className="round">
                   <Input type="file" name="file" onChange={uploadImage} />
-                  <ImCamera fontSize={23} color="#fff" className="mb-1"/>
+                  <ImCamera fontSize={23} color="#fff" className="mb-1" />
                 </div>
               </div>
             </div>
@@ -130,8 +129,9 @@ function ProfileCard({ user }) {
                 />
               </Form.Group> */}
 
-              {!usuarios.name || edit === true ? (
-                  <Form.Group className="mb-3" controlId="formBasicName">
+              <div className="row">
+                {!usuarios.name || edit === true ? (
+                  <Form.Group className="mb-3 col-6" controlId="formBasicName">
                     <Form.Label>Nombre</Form.Label>
                     <Form.Control
                       type="text"
@@ -141,7 +141,7 @@ function ProfileCard({ user }) {
                     />
                   </Form.Group>
                 ) : (
-                  <Form.Group className="mb-3" controlId="formBasiName">
+                  <Form.Group className="mb-3 col-6" controlId="formBasiName">
                     <Form.Label>Nombre</Form.Label>
                     <Form.Control
                       type="text"
@@ -153,8 +153,8 @@ function ProfileCard({ user }) {
                   </Form.Group>
                 )}
 
-              {!usuarios.lastName || edit === true ? (
-                  <Form.Group className="mb-3" controlId="formBasicName">
+                {!usuarios.lastName || edit === true ? (
+                  <Form.Group className="mb-3 col-6" controlId="formBasicName">
                     <Form.Label>Apellido</Form.Label>
                     <Form.Control
                       type="text"
@@ -164,7 +164,7 @@ function ProfileCard({ user }) {
                     />
                   </Form.Group>
                 ) : (
-                  <Form.Group className="mb-3" controlId="formBasiName">
+                  <Form.Group className="mb-3 col-6" controlId="formBasiName">
                     <Form.Label>Apellido</Form.Label>
                     <Form.Control
                       type="text"
@@ -175,6 +175,7 @@ function ProfileCard({ user }) {
                     />
                   </Form.Group>
                 )}
+              </div>
 
               <div className="row">
                 <Form.Group className="mb-3 col-6" controlId="formBasicFecha">
@@ -338,22 +339,28 @@ function ProfileCard({ user }) {
                 
               </FormGroup>
  */}
-              <button
-                onClick={(e) => HandlerUpdate(e)}
-                className="btn-form-sum"
-              >
-                Enviar
-              </button>
+              {
+                edit === true ? (
+                <button
+                  onClick={(e) => HandlerUpdate(e)}
+                  className="btn-form-sum"
+                >
+                  Enviar
+                </button> 
+                ) : (
+                  null
+                )
+              }
             </Card.Body>
           </Card>
           <Card className="animate__animated animate__backInRight animate__delay-500ms p-0 col-5">
-          <div
+            <div
               className="d-flex justify-content-center align-items-center py-4"
               style={{
                 background: "var(--bg-nav)",
               }}
             >
-            <h2 className="text-center">Deje un comentario</h2>
+              <h2 className="text-center">Deje un comentario</h2>
             </div>
             <form id="algin-form" className="p-3">
               <div class="form-group mb-3">
@@ -369,25 +376,61 @@ function ProfileCard({ user }) {
                 ></textarea>
               </div>
               <div class="rating">
-                <input type="radio" name="rating" value="5" id="5" onChange={(e) => setRating(e.target.value)}/>
+                <input
+                  type="radio"
+                  name="rating"
+                  value="5"
+                  id="5"
+                  onChange={(e) => setRating(e.target.value)}
+                />
                 <label for="5">☆</label>
-                <input type="radio" name="rating" value="4" id="4" onChange={(e) => setRating(e.target.value)}/>
+                <input
+                  type="radio"
+                  name="rating"
+                  value="4"
+                  id="4"
+                  onChange={(e) => setRating(e.target.value)}
+                />
                 <label for="4">☆</label>
-                <input type="radio" name="rating" value="3" id="3" onChange={(e) => setRating(e.target.value)}/>
+                <input
+                  type="radio"
+                  name="rating"
+                  value="3"
+                  id="3"
+                  onChange={(e) => setRating(e.target.value)}
+                />
                 <label for="3">☆</label>
-                <input type="radio" name="rating" value="2" id="2" onChange={(e) => setRating(e.target.value)}/>
+                <input
+                  type="radio"
+                  name="rating"
+                  value="2"
+                  id="2"
+                  onChange={(e) => setRating(e.target.value)}
+                />
                 <label for="2">☆</label>
-                <input type="radio" name="rating" value="1" id="1" onChange={(e) => setRating(e.target.value)}/>
+                <input
+                  type="radio"
+                  name="rating"
+                  value="1"
+                  id="1"
+                  onChange={(e) => setRating(e.target.value)}
+                />
                 <label for="1">☆</label>
               </div>
             </form>
-            
-            <button
+
+            {
+              !usuarios.name? (
+                null
+                ) : (
+                  <button
                 className="btn-form-sum mx-3 mb-3"
                 onClick={(e) => HandlerComent(e)}
               >
                 Enviar
               </button>
+              )
+            }
           </Card>
         </div>
       ) : (
