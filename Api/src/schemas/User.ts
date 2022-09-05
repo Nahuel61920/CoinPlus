@@ -27,7 +27,7 @@ export class User extends TimeStamps{
     @prop({ type: () => Array, default: [] })
     favourites: Ref<Crypto>;
 
-    @prop({ type: () => Array, default: [] })
+    @prop({ref: "Comment", type: () => Array, default: [] })
     comments: Ref<Comment>;
 
     @prop({ required: false, default: "https://media.discordapp.net/attachments/1005186345397927979/1009546767739658280/unknown.png" })
