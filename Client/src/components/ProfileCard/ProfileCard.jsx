@@ -88,7 +88,7 @@ function ProfileCard({ user }) {
   return (
     <>
       {usuarios && usuarios.blocked === false ? (
-        <div className="row gap-4">
+        <div className="row gap-4 justify-content-center">
           <Card className="my-3 animate__animated animate__backInLeft animate__delay-500ms p-0 col-5">
             <div
               className="d-flex justify-content-between px-5 py-3 w-100"
@@ -427,7 +427,7 @@ function ProfileCard({ user }) {
           </Card>
         </div>
       ) : (
-        <Blocked />
+        <h3>Hola</h3>
       )}
     </>
   );
