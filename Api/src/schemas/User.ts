@@ -37,7 +37,7 @@ export class User extends TimeStamps{
     password:string;
 
     @prop({ type: () => Boolean, default: false})
-    isBanned: boolean;
+    blocked: boolean;
 
     @prop({ required: false, trim: true, default: "" })
     country:string;

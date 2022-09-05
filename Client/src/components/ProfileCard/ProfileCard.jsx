@@ -86,7 +86,7 @@ function ProfileCard({ user }) {
 
   return (
     <>
-      {usuarios ? (
+      {usuarios && usuarios.blocked === false ? (
         <div className="row gap-4">
           <Card className="my-3 animate__animated animate__backInLeft animate__delay-500ms p-0 col-5">
             <div
@@ -434,7 +434,7 @@ function ProfileCard({ user }) {
           </Card>
         </div>
       ) : (
-        <h1>no tengo usuario</h1>
+        <h1>Estoy bloqueado</h1>
       )}
     </>
   );

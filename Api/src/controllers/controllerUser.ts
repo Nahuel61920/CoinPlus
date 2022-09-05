@@ -39,6 +39,7 @@ export const getUsers:RequestHandler = async (req,res) => {
             postalCod : userFiltered?.postalCod,
             documentNum : userFiltered?.documentNum,
             comments: userFiltered?.comments,
+            blocked: userFiltered?.blocked,
         }
         res.status(200).json(dataChanged)
     }
