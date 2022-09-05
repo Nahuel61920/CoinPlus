@@ -12,6 +12,7 @@ import {
   postComent,
 } from "../../redux/reducers/cryptoRed";
 import { ImCamera } from "react-icons/im";
+import Blocked from "../MsgBlocked/Blocked";
 
 function ProfileCard({ user }) {
   const dispatch = useDispatch();
@@ -339,18 +340,14 @@ function ProfileCard({ user }) {
                 
               </FormGroup>
  */}
-              {
-                edit === true ? (
+              {edit === true ? (
                 <button
                   onClick={(e) => HandlerUpdate(e)}
                   className="btn-form-sum"
                 >
                   Enviar
-                </button> 
-                ) : (
-                  null
-                )
-              }
+                </button>
+              ) : null}
             </Card.Body>
           </Card>
           <Card className="animate__animated animate__backInRight animate__delay-500ms p-0 col-5">
@@ -419,22 +416,18 @@ function ProfileCard({ user }) {
               </div>
             </form>
 
-            {
-              !usuarios.name? (
-                null
-                ) : (
-                  <button
+            {!usuarios.name ? null : (
+              <button
                 className="btn-form-sum mx-3 mb-3"
                 onClick={(e) => HandlerComent(e)}
               >
                 Enviar
               </button>
-              )
-            }
+            )}
           </Card>
         </div>
       ) : (
-        <h1>Estoy bloqueado</h1>
+        <Blocked />
       )}
     </>
   );
