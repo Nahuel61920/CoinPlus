@@ -1,0 +1,45 @@
+.card{
+    height: 100%;
+    width: 70%;
+    padding: 10px;
+    margin: 1em;
+    border: 2px;
+    border-color:darkgoldenrod;
+    border-style:solid;
+    border-radius: 5%;
+}
+
+.card-body{
+    padding: 10px;
+}
+
+.card-text{
+    font-size: small;
+}
+
+.card-img-top{
+    width: 70%;
+    border: 2px;
+    border-color:rgba(184, 135, 11, 0.783);
+    border-style:solid;
+    border-radius: 5%;
+}
+
+.imagen{
+    margin-bottom: 10px;
+    
+
+}
+
+.a{
+    color: rgb(229, 229, 229);
+}
+
+.a:hover{
+    color: cadetblue;
+}
+
+.icon{
+    margin: 5px;
+    height: 22px;
+}
