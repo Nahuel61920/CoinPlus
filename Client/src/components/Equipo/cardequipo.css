@@ -1,4 +1,4 @@
-.card{
+.cardequipo{
     height: 100%;
     width: 70%;
     padding: 10px;
@@ -9,37 +9,50 @@
     border-radius: 5%;
 }
 
-.card-body{
+.cardequipo:hover{
+    box-shadow: 5px 10px 20px 1px rgba(255, 255, 255, 0.273) !important;
+    transition: all 0.3s linear;
+
+}
+
+.cardequipo-body{
     padding: 10px;
 }
 
-.card-text{
+.cardequipo-text{
     font-size: small;
 }
 
-.card-img-top{
+.cardequipo-img-top{
     width: 70%;
     border: 2px;
     border-color:rgba(184, 135, 11, 0.783);
     border-style:solid;
     border-radius: 5%;
+    transform: scale(1);
+    transition: all 0.2s ease-in-out;
+}
+
+.cardequipo-img-top:hover{
+    transform: scale(0.98); 
 }
 
 .imagen{
+    
     margin-bottom: 10px;
     
 
 }
 
-.a{
+.aequipo{
     color: rgb(229, 229, 229);
 }
 
-.a:hover{
+.aequipo:hover{
     color: cadetblue;
 }
 
-.icon{
+.equipoicon{
     margin: 5px;
     height: 22px;
 }
