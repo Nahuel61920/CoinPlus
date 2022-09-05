@@ -1,3 +1,4 @@
+import { number } from "prop-types";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCrypto } from "../../redux/reducers/cryptoRed";
@@ -9,9 +10,17 @@ export default function Convertidor() {
     dispatch(fetchCrypto());
   }, [dispatch]);
 
+  // Constantes de conversión
+
+  const factorExchange = 0.0035;
+  const numberOfDecimals = 5
+
+
   const { cryptos, cryptoPrice, usuarios } = useSelector(
     (state) => state.crypto
   );
+
+  const ethereumEcosystem = cryptos?.filter(e=> e.tag_names.includes("ethereum-ecosystem"))
 
   //Set the current crypto name
   const [currentCrypto, setCurrentCrypto] = useState("");
@@ -24,9 +33,9 @@ export default function Convertidor() {
 
   function convert(inCoin, amount) {
     if (inCoin === "dolar") {
-      return amount / cryptoPrice[0].price;
+      return (Math.round((amount / cryptoPrice[0].price)*Math.pow(10,numberOfDecimals)))/Math.pow(10,numberOfDecimals);
     } else {
-      return amount * cryptoPrice[0].price;
+      return (Math.round((amount * cryptoPrice[0].price)*Math.pow(10,2)))/Math.pow(10,2);
     }
   }
 
@@ -78,7 +87,7 @@ export default function Convertidor() {
                 <option className="text-center" value="All">
                   Seleccione su Criptomoneda
                 </option>
-                {cryptos.map((c) => (
+                {ethereumEcosystem.map((c) => (
                   <option value={c.name}>{c.name}</option>
                 ))}
               </select>
@@ -90,7 +99,7 @@ export default function Convertidor() {
                 <h6 className="text-center">Compra</h6>
                 {cryptoPrice.length > 0 ? (
                   <p className="text-center">
-                    {"$" + Math.round(cryptoPrice[0].price, 4) * (1 - 0.007)}
+                    {"$" + Math.round(cryptoPrice[0].price* (1 - factorExchange)*Math.pow(10,numberOfDecimals))/Math.pow(10,numberOfDecimals)}
                   </p>
                 ) : (
                   <p>-</p>
@@ -99,7 +108,7 @@ export default function Convertidor() {
               <div className="col">
                 <h6 className="text-center">Venta</h6>
                 {cryptoPrice.length > 0 ? (
-                  <p className="text-center">{"$" + Math.round(cryptoPrice[0].price, 4) * 1.007}</p>
+                  <p className="text-center">{"$" + Math.round(cryptoPrice[0].price* (1 + factorExchange)*Math.pow(10,numberOfDecimals))/Math.pow(10,numberOfDecimals)}</p>
                 ) : (
                   <p>-</p>
                 )}
@@ -111,9 +120,9 @@ export default function Convertidor() {
               <div className="container">
                   {currentKindOfExchange&&
                 (<div className="row">
-                  <h6 className="text-center">Enviar Dolares</h6>
+                  <h6 className="text-center">Enviar Dólares</h6>
                   <div className="container d-flex justify-content-center">
-                    <span>$</span>
+                    <p>$</p>
                     <input
                       type="text"
                       name="dolar"
@@ -135,7 +144,7 @@ export default function Convertidor() {
                 )}
 
                 <div className="row">
-                  <h6 className="text-center">Recibe Criptomonedas</h6>   
+                  <h6 className="text-center">{currentKindOfExchange?"Recibe":"Enviar"} Criptomonedas </h6>   
                   <div className="container d-flex justify-content-center">
                     <span>
                       {cryptoPrice.length > 0 ? (
@@ -149,6 +158,7 @@ export default function Convertidor() {
                       name="crypto"
                       value={currentTrade.crypto}
                       className="col-5 m-3 rounded-1"
+                      placeholder={currentKindOfExchange?"":"Ingrese monto a convertir..."}
                       onChange={handleExchange}
                     ></input>
                   </div>
@@ -156,7 +166,7 @@ export default function Convertidor() {
                   {!currentKindOfExchange&&(
                 <div className="container d-flex justify-content-center mb-3 mt-3">
                   <div className="row">
-                  <button className="" onClick={handleKindOfExchange}>REVERSE</button>
+                  <button  type="button" class="btn btn-dark"  onClick={handleKindOfExchange}>REVERSA</button>
                   </div>
                 </div>
                 )}
@@ -164,14 +174,14 @@ export default function Convertidor() {
 
                   {!currentKindOfExchange&&
                 (<div className="row">
-                  <h6 className="text-center">Enviar Dolares</h6>
+                  <h6 className="text-center">Recibe Dólares</h6>
                   <div className="container d-flex justify-content-center">
-                    <span>$</span>
+                    <p>$</p>
                     <input
                       type="text"
                       name="dolar"
                       className="col-5 m-3 rounded-1"
-                      placeholder="Ingrese monto a convertir..."
+                      placeholder=""
                       onChange={handleExchange}
                       value={currentTrade.dolar}
                     ></input>
