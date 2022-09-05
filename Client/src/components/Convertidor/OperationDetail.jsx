@@ -34,11 +34,11 @@ function OperationDetail() {
   }, []);
 
   return (
-    <div className="container-fluidm mb-5 ">
-      <div className="container d-flex justify-content-center">
-        <div className="card ">
+    <div className="col-5">
+      <div className="">
+        <div className="card-1 ">
           <div className="card-body">
-            <h4 className="card-title text-center">
+            <h4 className="card-title text-center mb-2">
               Completa los datos de tu operación
             </h4>
             {/* Primera seccion */}

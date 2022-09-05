@@ -42,15 +42,18 @@ export default function Stepper (){
       };
     
     return(
-        <>
+        <div className="bg-global">
          <NavBar/>
-        <div className=" container border">
+        <div className=" container">
             <div className="d-flex justify-content-center p-5">
               <StepsDisplay steps={steps} currentStep={currentStep}/>  
             </div>
+            <div className="d-flex justify-content-center pb-4">
+              
             {
                 displayStep(currentStep)
-            }
+            } 
+            </div>
 
             <StepperControl
                 handleClick={handleClick}
@@ -59,6 +62,6 @@ export default function Stepper (){
             /> 
            
         </div>
-        </>
+        </div>
     );   
 }

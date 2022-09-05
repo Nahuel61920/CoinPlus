@@ -72,7 +72,7 @@ function ProfileCard({ user }) {
   return (
     <>
       {usuarios ? (
-        <div className="row justify-content-center gap-4">
+        <div className="row gap-4">
           <Card className="my-3 animate__animated animate__backInLeft animate__delay-500ms p-0 col-5">
             <div
               className="d-flex justify-content-between px-5 py-3 w-100"
@@ -285,7 +285,7 @@ function ProfileCard({ user }) {
               </button>
             </Card.Body>
           </Card>
-          <Card className="my-3 animate__animated animate__backInLeft animate__delay-500ms p-0 col-5">
+          <Card className="animate__animated animate__backInRight animate__delay-500ms p-0 col-5">
           <div
               className="d-flex justify-content-center align-items-center py-4"
               style={{

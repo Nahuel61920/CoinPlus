@@ -1,0 +1,6 @@
+.card-1 {
+    background: var(--bg-card-user);
+    border-radius: 10px;
+    padding: 1em 1.8em;
+    height: 500px;
+}

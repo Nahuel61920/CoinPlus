@@ -60,11 +60,11 @@ export default function Convertidor() {
 
 
   return (
-    <div className="container-fluid">
-      <div className="container d-flex justify-content-center mt-3 mb-3">
-        <div className="card">
+    <div className="col-5">
+      <div className="">
+        <div className="card-1 ">
           <div className="card-body">
-            <h1 className="card-title text-center">{`Bienvenido ${usuarios.name}`}</h1>
+            <h1 className="card-title text-center mb-2">{`Bienvenido ${usuarios.name}`}</h1>
             <h5 className="text-center border-bottom">Tipo de cambio hoy</h5>
             <div className="d-flex justify-content-center">
               <select

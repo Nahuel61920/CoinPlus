@@ -53,6 +53,14 @@ function Nav() {
             >
               Notificaciones
             </Link>
+            <Link
+              to="Reviews"
+              spy={true}
+              offset={-150}
+              href="#Reviews"
+            >
+              Comentarios
+            </Link>
           </div>
         </div>
         

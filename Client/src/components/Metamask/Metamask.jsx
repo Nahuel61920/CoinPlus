@@ -110,8 +110,8 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
       <div className="container">
       {/* <Wallet/> */}
 
-      <div className="d-flex flex-column flex-1 justify-items-center justify-content-start">
-        <div className="my-3 card-tarj p-3 d-flex justify-items-start flex-column rounded-xl h-40 sm:w-72">
+      <div className="d-flex flex-column flex-1 justify-items-center justify-content-start row">
+        <div className="my-3 card-tarj p-3 d-flex justify-items-start flex-column rounded-xl h-40 sm:w-72 col-5">
           <div className="d-flex justify-between flex-column w-full h-full">
             <div className="d-flex justify-content-between justify-items-start">
               <div className="p-2 rounded-full rounded-circle border border-2 border-white d-flex justify-content-center justify-items-center">
@@ -127,7 +127,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
             </div>
           </div>
         </div>
-        <div className="bg-envio p-5 sm:w-96 w-full d-flex flex-column justify-items-start justify-items-center">
+        <div className="bg-envio p-5 sm:w-96 w-full d-flex flex-column justify-items-start justify-items-center col-5">
           <Input
             placeholder="Dirección"
             name="addressTo"
