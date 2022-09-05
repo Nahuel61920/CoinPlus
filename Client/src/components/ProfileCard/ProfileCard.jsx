@@ -2,6 +2,8 @@ import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import "./profileCard.css";
 import { useState } from "react";
+import { TbPencil, TbPencilOff } from "react-icons/tb";
+
 import { FormGroup, Input } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser, getUser, postComent } from "../../redux/reducers/cryptoRed";
@@ -10,6 +12,9 @@ import { ImCamera } from "react-icons/im";
 function ProfileCard({ user }) {
   const dispatch = useDispatch();
   const { usuarios } = useSelector((state) => state.crypto);
+  const [edit, setEdit] = useState(false);
+  const [name, setName] = useState(usuarios ? usuarios.name : "");
+  const [lastname, setLastname] = useState(usuarios ? usuarios.lastname : "");
   const [image, setImage] = useState("");
   const [number, setNumber] = useState(usuarios ? usuarios.numberPhone : "");
   const [countryes, setCountryes] = useState(usuarios ? usuarios.country : "");
@@ -40,7 +45,8 @@ function ProfileCard({ user }) {
 
   function HandlerUpdate(e) {
     let crear = {
-      name: usuarios.name,
+      name: name,
+      lastName: lastname,
       email: usuarios.email,
       nickname: usuarios.nickname,
       picture: image,
@@ -69,6 +75,10 @@ function ProfileCard({ user }) {
     dispatch(postComent(crear));
   }
 
+  function HandlerEdit() {
+    setEdit(!edit);
+  }
+
   return (
     <>
       {usuarios ? (
@@ -80,6 +90,16 @@ function ProfileCard({ user }) {
                 background: "var(--bg-nav)",
               }}
             >
+                  <div className="edit_btn" onClick={HandlerEdit}>
+                    {
+                      edit === false ? (
+                        <TbPencil />
+                      ) : (
+                        <TbPencilOff />
+                      )
+                    }
+                  </div>
+
               <div className="d-flex align-items-center title-name">
                 <Card.Title>{usuarios.nickname}</Card.Title>
               </div>
@@ -110,10 +130,51 @@ function ProfileCard({ user }) {
                 />
               </Form.Group> */}
 
-              <Form.Group className="mb-3" controlId="formBasicName">
-                <Form.Label>Nombre</Form.Label>
-                <Form.Control placeholder={usuarios.name} disabled />
-              </Form.Group>
+              {!usuarios.name || edit === true ? (
+                  <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Label>Nombre</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder={"Escriba su Nombre"}
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </Form.Group>
+                ) : (
+                  <Form.Group className="mb-3" controlId="formBasiName">
+                    <Form.Label>Nombre</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder={usuarios.name}
+                      value={usuarios.name}
+                      onChange={(e) => setName(e.target.value)}
+                      disabled
+                    />
+                  </Form.Group>
+                )}
+
+              {!usuarios.lastName || edit === true ? (
+                  <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Label>Apellido</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder={"Escriba su Apellido"}
+                      value={lastname}
+                      onChange={(e) => setLastname(e.target.value)}
+                    />
+                  </Form.Group>
+                ) : (
+                  <Form.Group className="mb-3" controlId="formBasiName">
+                    <Form.Label>Apellido</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder={usuarios.lastName}
+                      value={usuarios.lastName}
+                      onChange={(e) => setLastname(e.target.value)}
+                      disabled
+                    />
+                  </Form.Group>
+                )}
 
               <div className="row">
                 <Form.Group className="mb-3 col-6" controlId="formBasicFecha">
@@ -144,7 +205,7 @@ function ProfileCard({ user }) {
               </div>
 
               <div className="row">
-                {usuarios.documentNum === "" ? (
+                {!usuarios.documentNum || edit === true ? (
                   <Form.Group className="mb-3 col-4" controlId="formBasiDNI">
                     <Form.Label>DNI</Form.Label>
                     <Form.Control
@@ -167,7 +228,7 @@ function ProfileCard({ user }) {
                   </Form.Group>
                 )}
 
-                {usuarios.documentNum === "" ? (
+                {!usuarios.date || edit === true ? (
                   <Form.Group className="mb-3 col-4" controlId="formBasiDate">
                     <Form.Label>Fecha</Form.Label>
                     <Form.Control
@@ -190,7 +251,7 @@ function ProfileCard({ user }) {
                   </Form.Group>
                 )}
 
-                {usuarios.numberPhone === "" || "" ? (
+                {!usuarios.numberPhone || edit === true ? (
                   <Form.Group className="mb-3 col-4" controlId="formBasiPhone">
                     <Form.Label>Telefono</Form.Label>
                     <Form.Control
@@ -220,7 +281,7 @@ function ProfileCard({ user }) {
             </Form.Group> */}
 
               <div className="row">
-                {usuarios.country === "" ? (
+                {!usuarios.country || edit === true ? (
                   <Form.Group
                     className="mb-3 col-6"
                     controlId="formBasicCountry"
@@ -249,7 +310,7 @@ function ProfileCard({ user }) {
                   </Form.Group>
                 )}
 
-                {usuarios.postalCod === "" || "" ? (
+                {!usuarios.postalCod || edit === true ? (
                   <Form.Group className="mb-3 col-6" controlId="formBasicUser">
                     <Form.Label>Codigo postal</Form.Label>
                     <Form.Control

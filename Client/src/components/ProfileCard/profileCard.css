@@ -127,3 +127,19 @@
 input[type=file]::-webkit-file-upload-button{
     cursor: pointer;
 }
+
+.edit_btn{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #645bff;
+    width: 37px;
+    height: 37px;
+    line-height: 33px;
+    text-align: center;
+    border-radius: 5px;
+    overflow: hidden;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}

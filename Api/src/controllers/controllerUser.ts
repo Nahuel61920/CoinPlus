@@ -28,6 +28,7 @@ export const getUsers:RequestHandler = async (req,res) => {
         const dataChanged ={
             id: userFiltered?._id,
             name: userFiltered?.name,
+            lastName: userFiltered?.lastName,
             email: userFiltered?.email,
             nickname: userFiltered?.nickname,
             picture: userFiltered?.picture,
@@ -70,6 +71,8 @@ export const updateUser:RequestHandler = async (req,res) =>{
     console.log(user)
 
     const parametros ={
+        name:req.body.name?req.body.name : user?.name,
+        lastName : req.body.lastName?req.body.lastName:user?.lastName,
         picture:req.body.picture?req.body.picture : user?.picture,
         numberPhone : req.body.numberPhone?req.body.numberPhone:user?.numberPhone,
         date: req.body.date?req.body.date:user?.date,
