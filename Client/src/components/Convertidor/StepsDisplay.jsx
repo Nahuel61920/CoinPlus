@@ -70,7 +70,7 @@ export default function StepsDisplay ({ steps, currentStep }){
             key={index}
             className='d-flex'
           >
-            <div className="d-flex flex-column" >
+            <div className="d-flex flex-column  bordar-dark" >
               <div
               className={`rounded-circle  bg-warning d-flex justify-content-center mx-auto ${
                 step.selected 
