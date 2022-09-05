@@ -8,6 +8,7 @@ import store from "./redux/store";
 import Pagado from "./components/Pagado/Pagado.jsx";
 
 import { useAuth0 } from "@auth0/auth0-react";
+import Equipo from "./components/Equipo/Equipo.jsx";
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<LandingPage />} />
         <Route path="/pagado" element={<Pagado />} />
+        <Route path="/equipo" element={<Equipo />} />
         <Route
           path="/*"
           element={

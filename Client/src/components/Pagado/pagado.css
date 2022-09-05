@@ -1,0 +1,32 @@
+.container{
+    width: 100%;
+    
+
+}
+
+.separador{
+    background-color: rgb(241, 178, 19);
+    width: 100%;
+    min-height: 70px;
+    margin-bottom: 40px;
+}
+
+.impag{
+   margin: 20px; 
+   width: 80%;
+}
+
+.ipay{
+    border-radius: 100% ;
+    background-color: aqua;
+}
+
+.reg{
+    margin: 25px;
+}
+
+.divbot{
+    display:flex;
+    justify-content: center;
+    
+}

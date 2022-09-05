@@ -19,6 +19,7 @@ function PrivateRoutes() {
       <Route path="/operation" element={<Stepper />} />
       <Route path="/movements" element={<Transactions />} />
       <Route path="/equipo" element={<Equipo />} />
+      <Route path="/pagado" element={<Pagado />} />
     </Routes>
   );
 }

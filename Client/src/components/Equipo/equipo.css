@@ -1,5 +1,6 @@
 .general{
     font-family: 'Oxygen', sans-serif;
+    padding: 30px;    
     
     background: rgb(238, 69, 64);
     background: linear-gradient(
@@ -12,10 +13,15 @@
 }
 
 .titulo{
-    padding: 20px;
+    font-weight: bolder;
+    margin-bottom: 10px;
 }
 
-.row{
+.gridp{
+    display:flex;
     justify-content: center;
-    align-items: center;
+}
+
+.cardh{
+    margin-bottom: 10px;
 }
