@@ -4,6 +4,7 @@ import Services from "../Sections/Services/Services"
 import Promo from "../Sections/Promo/Promo"
 import Tobepart from "../Sections/ToBePart/ToBePart"
 import Notifications from "../Sections/Notifications/Notifications"
+import Reviews from "../Sections/Review/Review"
 
 function Main() {
   return (
@@ -13,6 +14,7 @@ function Main() {
       <Promo/>
       <Notifications/>
       <Tobepart/>
+      <Reviews/>
     </div>
   )
 }

@@ -19,6 +19,7 @@ function ProfileCard({ user }) {
   const [dni, setDni] = useState(usuarios ? usuarios.documentNum : "");
   const [date, setDate] = useState(usuarios ? usuarios.date : "");
   const [comment, setComment] = useState("");
+  const [rating, setRating] = useState(0);
 
   const uploadImage = async (e) => {
     const files = e.target.files;
@@ -60,6 +61,9 @@ function ProfileCard({ user }) {
     let crear = {
       owner: usuarios.id,
       content: comment,
+      name: usuarios.nickname,
+      picture: usuarios.picture,
+      rating: rating,
     };
     console.log("crear de comentario", crear);
     dispatch(postComent(crear));
@@ -304,15 +308,15 @@ function ProfileCard({ user }) {
                 ></textarea>
               </div>
               <div class="rating">
-                <input type="radio" name="rating" value="5" id="5" />
+                <input type="radio" name="rating" value="5" id="5" onChange={(e) => setRating(e.target.value)}/>
                 <label for="5">☆</label>
-                <input type="radio" name="rating" value="4" id="4" />
+                <input type="radio" name="rating" value="4" id="4" onChange={(e) => setRating(e.target.value)}/>
                 <label for="4">☆</label>
-                <input type="radio" name="rating" value="3" id="3" />
+                <input type="radio" name="rating" value="3" id="3" onChange={(e) => setRating(e.target.value)}/>
                 <label for="3">☆</label>
-                <input type="radio" name="rating" value="2" id="2" />
+                <input type="radio" name="rating" value="2" id="2" onChange={(e) => setRating(e.target.value)}/>
                 <label for="2">☆</label>
-                <input type="radio" name="rating" value="1" id="1" />
+                <input type="radio" name="rating" value="1" id="1" onChange={(e) => setRating(e.target.value)}/>
                 <label for="1">☆</label>
               </div>
             </form>

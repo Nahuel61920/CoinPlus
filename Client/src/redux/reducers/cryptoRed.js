@@ -13,6 +13,7 @@ export const cryptoSlice = createSlice({
     isLoading: true,
     users: [],
     usuarios: [],
+    commets: [],
   },
   reducers: {
     setCryptoList: (state, { type, payload }) => {
@@ -194,7 +195,10 @@ export const cryptoSlice = createSlice({
         return c.name === payload
       })
       state.cryptoPrice = nameChange
-    }
+    },
+    setCommet: (state, {type, payload}) => {
+      state.commets = payload
+    },
   },
 });
 
@@ -219,7 +223,8 @@ export const {
   inventUser,
   setUser,
   setCryptoBest,
-  getCryptoPrice
+  getCryptoPrice,
+  setCommet
 } = cryptoSlice.actions;
 
 export default cryptoSlice.reducer;
@@ -359,6 +364,15 @@ export const postComent = (payload) => (dispatch) => {
   console.log(payload)
   axios.post("/comment", payload).catch((err) => console.log(err));
   
+};
+
+export const fetchCommet = () => (dispatch) => {
+  axios
+    .get("/comment")
+    .then((res) => {
+      dispatch(setCommet(res.data));
+    })
+    .catch((err) => console.log(err));
 };
 
 export const findPrice = (payload) => (dispatch) => {

@@ -38,6 +38,7 @@ html {
   --btn-color-tertiary: #ff5e00;
   --btn-scroll-top: url('./assets/img/scroll_to_top.png');
   --bg-card-crypto-best: linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%);
+  --info-comment: rgb(30, 30, 30);
 }
 
 /* Color variables if the theme is dark */
@@ -66,6 +67,7 @@ html[data-theme="dark"] {
   --btn-color-tertiary: #ae00ff;
   --btn-scroll-top: url('./assets/img/scroll_to_top_black.png');
   --bg-card-crypto-best: linear-gradient(144deg,#0e0f24, #0e0f24 60%,#0e0f24);
+  --info-comment: #d6d5e7;
 }
 
 p, h1, h2, h3, h4, h5, h6 {
