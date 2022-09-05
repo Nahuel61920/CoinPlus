@@ -48,7 +48,7 @@ function User() {
   return (
     <div className="bg-global">
       <NavProfile logo={Logo} />
-      <div className="row justify-content-center m-2">
+      <div id="User" className="row justify-content-center m-2">
         <UserCard user={user} className="col-12" />
         
         {/* <div className="col-12 col-md-5 d-flex flex-column justify-content-center align-items-center animate__animated animate__backInRight animate__delay-1s">

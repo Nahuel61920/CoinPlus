@@ -6,6 +6,8 @@ import {Link} from 'react-router-dom'
 import DarkMode from '../DarkMode/DarkMode';
 import Profile from "../Profile/Profile";
 
+import "./nav.css";
+
 function OffcanvasExample({logo}) {
   return (
     <>
@@ -36,21 +38,21 @@ function OffcanvasExample({logo}) {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body className="nav-togle-user">
-                <Nav className="justify-content-end flex-grow-1 pe-3 text-primary">
+                <Nav className="justify-content-end flex-grow-1 pe-3 text-primary nav-market">
                 <Link to='/' style={{ textDecoration: 'none' }}>
-                  <Nav.Link href="#action1">Inicio</Nav.Link>
+                  Inicio
                 </Link>
                 <Link to='/user'>
-                   <Nav.Link href="#action2">Perfil</Nav.Link>
+                  Perfil
                 </Link>
                 <Link to='/wallet'>
-                   <Nav.Link href="#action2">Mi billetera</Nav.Link>
+                  billetera
                 </Link>
-                <Link to='/movements'>
-                <Nav.Link href="#action3">Movimientos</Nav.Link>
+                <Link to='/movements' >
+                  Movimientos
                 </Link>
                 <Link to='/operation'>
-                <Nav.Link href="#action4">Compra-Venta</Nav.Link>
+                  Compra-Venta
                 </Link>      
                 </Nav>
               </Offcanvas.Body>
