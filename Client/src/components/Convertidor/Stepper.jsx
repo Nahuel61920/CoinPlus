@@ -3,6 +3,8 @@ import Convertidor from "./Convertidor";
 import StepperControl from "./StepperControl";
 import StepsDisplay from "./StepsDisplay";
 import OperationDetail from "./OperationDetail"
+import Transference from "./Transference";
+import NavBar from "../Nav/NavProfile"
 
 
 export default function Stepper (){
@@ -23,7 +25,7 @@ export default function Stepper (){
         case 2:
             return <OperationDetail/>;
         case 3:
-            return (<div>Step03</div>);
+            return <Transference/>;
         case 4:
             return (<div>Step04</div>);
         default:
@@ -40,12 +42,12 @@ export default function Stepper (){
       };
     
     return(
+        <>
+         <NavBar/>
         <div className=" container border">
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center p-5">
               <StepsDisplay steps={steps} currentStep={currentStep}/>  
             </div>
-            
-
             {
                 displayStep(currentStep)
             }
@@ -57,5 +59,6 @@ export default function Stepper (){
             /> 
            
         </div>
+        </>
     );   
 }

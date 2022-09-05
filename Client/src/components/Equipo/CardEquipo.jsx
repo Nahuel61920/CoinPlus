@@ -1,5 +1,5 @@
 import React from 'react'
-import "./card.css"
+import "./cardequipo.css"
 import ilinkedin from "../../assets/img/linkedin.png"
 import igithub from "../../assets/img/github.png"
 import iemail from "../../assets/img/email.png"
@@ -8,18 +8,18 @@ export default function CardEquipo({nombre,imagen,linkedin,github,email,linkedin
   return (
     <div>
     
-        <div className="card text-center bg-dark animate__animated animate__fadeInUp" >
+        <div className="cardequipo text-center bg-dark animate__animated animate__fadeInUp" >
             <div className="imagen">
-            <img className="card-img-top" src={imagen}/>
+            <img className="cardequipo-img-top" src={imagen}/>
             </div>
-            <div className="card-body" >
+            <div className="cardequipo-body" >
             <h5 className="text-warning">{nombre}</h5>
-            <a href={linkedinlink} target="_blank" className="a" >
-              <img className="icon" src={ilinkedin}/>{linkedin}</a><br/>
-            <a href={githublink} target="_blank" className="a" >
-              <img className="icon" src={igithub}/>{github}</a>
-            <p className="card-text" >
-              <img className="icon" src={iemail}/>{email}</p>
+            <a href={linkedinlink} target="_blank" className="aequipo" >
+              <img className="equipoicon" src={ilinkedin}/>{linkedin}</a><br/>
+            <a href={githublink} target="_blank" className="aequipo" >
+              <img className="equipoicon" src={igithub}/>{github}</a>
+            <p className="cardequipo-text" >
+              <img className="equipoicon" src={iemail}/>{email}</p>
             </div>
         </div>
         </div>

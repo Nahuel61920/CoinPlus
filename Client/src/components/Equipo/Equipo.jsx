@@ -4,7 +4,7 @@ import CardEquipo from './CardEquipo'
 import "./equipo.css"
 import fotoprueba from "../../assets/img/progdem.jpg"
 import fotoprueba2 from "../../assets/img/backdev.jpg"
-
+import elara from "../../assets/img/laraequipo.jpg"
 
 const miembros = [
     {

@@ -1,13 +1,37 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import swal from 'sweetalert';
-
+import { ethers } from "ethers";
 
 function OperationDetail() {
 
   // function handleClickButton(){
   //   swal("Good job!", "You clicked the button!", "success")
   // }
+  const { ethereum } = window;
 
+  const [currentAccount, setCurrentAccount] = useState("");
+
+  const ethereumAccounts = async () => {
+    try {
+      if (!ethereum) return alert("Por favor instale MetaMask.");
+
+    const accounts = await ethereum.request({ method: "eth_accounts" });
+
+    if (accounts.length) {
+      setCurrentAccount(accounts);
+    } else {
+      console.log("No accounts found");
+    }
+
+    }
+    catch(error){
+      console.log("No accounts found");
+    }
+  }
+  console.log(currentAccount)
+  useEffect(() => {
+    ethereumAccounts()
+  }, []);
 
   return (
     <div className="container-fluidm mb-5 ">
@@ -45,6 +69,16 @@ function OperationDetail() {
                 <p>¿En qué cuenta deseas recibir tu dinero?</p>
                 <select  name="select" id="">
                   <option value="">Metamask</option>
+                  {
+                    currentAccount.length>0
+                    ?currentAccount.map((e,index) =>{
+                        return(
+                          <option key={index}>{e}</option>
+                        );
+                    })
+                    :(<option></option>)
+                  }
+
                 </select>
               </div>
              </div>
