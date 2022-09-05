@@ -1,6 +1,7 @@
 import { prop, getModelForClass, Ref, modelOptions } from '@typegoose/typegoose';
 import { TimeStamps } from "@typegoose/typegoose/lib/defaultClasses";
 import {Crypto} from "./Crypto"
+import { Comment } from './Comment';
 
 @modelOptions({ options: { allowMixed: 0 } })
 export class User extends TimeStamps{

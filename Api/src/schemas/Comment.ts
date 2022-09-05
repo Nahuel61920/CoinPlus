@@ -15,7 +15,7 @@ export class Comment extends TimeStamps{
     name!: string;
 
     @prop({ required: true, default: "https://www.ibei.org/images/4611/person_box.png" })
-    picture:string;
+    picture:Ref<User>;
 
     @prop({ required: true })
     rating:number;
