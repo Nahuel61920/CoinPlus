@@ -1,208 +1,285 @@
-
 .card {
-    width: 50%;
-    height: 100%;
-    background: var(--bg-card-user);
-    border: none;
-    position: relative;
-    font-family: inherit;
-    margin-left: 0%;
-   }
+  width: 50%;
+  height: 100%;
+  background: var(--bg-card-user);
+  border: none;
+  position: relative;
+  font-family: inherit;
+  margin-left: 0%;
+}
 
-  .bg-envio{
-    background: var(--bg-card-user);
-    border-radius: 10px;
+.bg-envio {
+  background: var(--bg-card-user);
+  border-radius: 10px;
+}
+
+.bg-envio input {
+  border: none !important;
+  background: var(--border-crypto) !important;
+}
+
+
+.btn-envio {
+  position: relative;
+  padding: 1em 1.8em;
+  outline: none;
+  border: 1px solid #303030;
+  background: var(--bg-btn-envio);
+  color: var(--btn-color-primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 15px;
+  overflow: hidden;
+  transition: 0.2s;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-envio:hover {
+  box-shadow: var(--box-shadow-btn-envio-hover);
+  transition-delay: 0.6s;
+}
+
+.btn-envio span {
+  position: absolute;
+}
+
+.btn-envio span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--btn-color-primary));
+}
+
+.btn-envio:hover span:nth-child(1) {
+  left: 100%;
+  transition: 0.7s;
+}
+
+.btn-envio span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--btn-color-secondary));
+}
+
+.btn-envio:hover span:nth-child(3) {
+  right: 100%;
+  transition: 0.7s;
+  transition-delay: 0.35s;
+}
+
+.btn-envio span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, var(--btn-color-primary));
+}
+
+.btn-envio:hover span:nth-child(2) {
+  top: 100%;
+  transition: 0.7s;
+  transition-delay: 0.17s;
+}
+
+.btn-envio span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, var(--btn-color-secondary));
+}
+
+.btn-envio:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 0.7s;
+  transition-delay: 0.52s;
+}
+
+.btn-envio:active {
+  background: var(--btn-color-tertiary);
+  background: linear-gradient(to top right, var(--btn-color-tertiary), var(--btn-color-secondary));
+  color: #bfbfbf;
+  box-shadow: var(--box-shadow-btn-envio);
+  transition: 0.1s;
+}
+
+.btn-envio:active span:nth-child(1) span:nth-child(2) span:nth-child(2) span:nth-child(2) {
+  transition: none;
+  transition-delay: none;
+}
+
+
+label {
+  color: var(--text-primary) !important;
+}
+
+.card span {
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  display: block;
+  padding-top: 10px;
+  font-size: 1.3em;
+}
+
+.card .job {
+  font-weight: 400;
+  color: var(--text-primary);
+  display: block;
+  text-align: center;
+  padding-top: 5px;
+  font-size: 1em;
+}
+
+.card-tarj {
+  background: url('../../assets/img/tarjeta.jpg');
+  background-size: contain;
+  background-position: center;
+  border-radius: 20px;
+  height: 250px;
+  width: 450px;
+}
+
+.card .img {
+  width: 120px;
+  height: 120px;
+  background: #e8e8e8;
+  border-radius: 50%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.imgprofile {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.card button {
+  --primary-color: #645bff;
+  --secondary-color: #fff;
+  --hover-color: #111;
+  --arrow-width: 10px;
+  --arrow-stroke: 2px;
+  box-sizing: border-box;
+  width: 85px;
+  border: 0;
+  border-radius: 20px;
+  color: var(--secondary-color);
+  padding: .5em .8em;
+  background: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: bold;
+  font-size: .9rem;
+  position: relative;
+
+}
+
+.card button:hover {
+  background-color: var(--hover-color);
+}
+
+.card-transac {
+  background: var(--bg-card-service);
+  border-radius: 20px;
+  height: 250px;
+  width: 450px;
+}
+
+.bg-hora-tranc {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.card-transaction {
+  background: var(--bg-card-service);
+  border-radius: 20px;
+}
+.card-comment .btn-form-comment,
+.card-formulario .btn-form-save {
+  font-family: inherit;
+  font-size: 10px;
+  background: royalblue;
+  color: white;
+  padding: 0.7em 1em;
+  padding-left: 0.6rem;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.card-formulario .btn-form-save {
+  padding: 0.7em 1.5rem;
+  padding-left: 0.3rem;
+}
+
+.card-comment .btn-disabled{
+  background: #1a1a1a;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.card-comment .btn-form-comment span,
+.card-formulario .btn-form-save span {
+  display: block;
+  transition: all 0.3s ease-in-out;
+  padding: 0 0 .1rem 0;
+  color: white;
+}
+
+
+.card-comment .btn-form-comment svg,
+.card-formulario .btn-form-save svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+  font-size: 20px;
+}
+
+.card-comment .btn-form-comment:hover .svg-wrapper,
+.card-formulario .btn-form-save:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+.card-comment .btn-form-comment:hover svg {
+  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+.card-formulario .btn-form-save:hover svg {
+  transform: translateX(1.4em) scale(1.1);
+}
+
+.card-comment .btn-form-comment:hover span,
+.card-formulario .btn-form-save:hover span {
+  transform: translateX(5em);
+}
+
+.card-comment .btn-form-comment:active,
+.card-formulario .btn-form-save:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
   }
 
-  .bg-envio input{
-    border: none!important;
-    background: var(--border-crypto)!important;
+  to {
+    transform: translateY(-0.1em);
   }
+}
 
-  
-  .btn-envio {
-    position: relative;
-    padding: 1em 1.8em;
-    outline: none;
-    border: 1px solid #303030;
-    background: var(--bg-btn-envio);
-    color: var(--btn-color-primary);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 15px;
-    overflow: hidden;
-    transition: 0.2s;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-   }
-   
-   .btn-envio:hover {
-    box-shadow: var(--box-shadow-btn-envio-hover);
-    transition-delay: 0.6s;
-   }
-   
-   .btn-envio span {
-    position: absolute;
-   }
-   
-   .btn-envio span:nth-child(1) {
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--btn-color-primary));
-   }
-   
-   .btn-envio:hover span:nth-child(1) {
-    left: 100%;
-    transition: 0.7s;
-   }
-   
-   .btn-envio span:nth-child(3) {
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--btn-color-secondary));
-   }
-   
-   .btn-envio:hover span:nth-child(3) {
-    right: 100%;
-    transition: 0.7s;
-    transition-delay: 0.35s;
-   }
-   
-   .btn-envio span:nth-child(2) {
-    top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, var(--btn-color-primary));
-   }
-   
-   .btn-envio:hover span:nth-child(2) {
-    top: 100%;
-    transition: 0.7s;
-    transition-delay: 0.17s;
-   }
-   
-   .btn-envio span:nth-child(4) {
-    bottom: -100%;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(360deg, transparent, var(--btn-color-secondary));
-   }
-   
-   .btn-envio:hover span:nth-child(4) {
-    bottom: 100%;
-    transition: 0.7s;
-    transition-delay: 0.52s;
-   }
-   
-   .btn-envio:active {
-    background: var(--btn-color-tertiary);
-    background: linear-gradient(to top right, var(--btn-color-tertiary), var(--btn-color-secondary));
-    color: #bfbfbf;
-    box-shadow: var(--box-shadow-btn-envio);
-    transition: 0.1s;
-   }
-   
-   .btn-envio:active span:nth-child(1) 
-   span:nth-child(2) 
-   span:nth-child(2) 
-   span:nth-child(2) {
-    transition: none;
-    transition-delay: none;
-   }
-   
-
-   label{
-    color: var(--text-primary)!important;
-   }
-   
-   .card span {
-    font-weight: 600;
-    color: var(--text-primary);
-    text-align: center;
-    display: block;
-    padding-top: 10px;
-    font-size: 1.3em;
-   }
-   
-   .card .job {
-    font-weight: 400;
-    color: var(--text-primary);
-    display: block;
-    text-align: center;
-    padding-top: 5px;
-    font-size: 1em;
-   }
-
-   .card-tarj{
-     background: url('../../assets/img/tarjeta.jpg');
-     background-size: contain;
-     background-position: center;
-     border-radius: 20px;
-     height: 250px;
-     width: 450px;
-   }
-   
-   .card .img {
-    width: 120px;
-    height: 120px;
-    background: #e8e8e8;
-    border-radius: 50%;
-    margin: auto;
-    margin-top: 20px;
-   }
-
-   .imgprofile {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-   }
-   
-   .card button {
-        --primary-color: #645bff;
-        --secondary-color: #fff;
-        --hover-color: #111;
-        --arrow-width: 10px;
-        --arrow-stroke: 2px;
-        box-sizing: border-box;
-        width: 85px;
-        border: 0;
-        border-radius: 20px;
-        color: var(--secondary-color);
-        padding: .5em .8em;
-        background: var(--primary-color);
-        display: flex;
-        align-items: center;
-        gap: 0.6em;
-        font-weight: bold;
-        font-size: .9rem;
-        position: relative;
-    
-   }
-   
-   .card button:hover {
-    background-color: var(--hover-color);
-   } 
-
-   .card-transac{
-    background: var(--bg-card-service);
-    border-radius: 20px;
-    height: 250px;
-    width: 450px;
-   }
-
-   .bg-hora-tranc{
-     border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
-   }
-
-   .card-transaction{
-    background: var(--bg-card-service);
-    border-radius: 20px;
-   }
+.card-comment{
+  margin-top: 18px!important;
+  max-height: 450px!important;
+}

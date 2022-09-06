@@ -3,6 +3,8 @@ import Form from "react-bootstrap/Form";
 import "./profileCard.css";
 import { useState } from "react";
 import { TbPencil, TbPencilOff } from "react-icons/tb";
+import { IoIosSend } from "react-icons/io";
+import { FaSave } from "react-icons/fa";
 
 import { FormGroup, Input } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -89,7 +91,7 @@ function ProfileCard({ user }) {
     <>
       {usuarios && usuarios.blocked === false ? (
         <div className="row gap-4 justify-content-center">
-          <Card className="my-3 animate__animated animate__backInLeft animate__delay-500ms p-0 col-5">
+          <Card className="my-3 animate__animated animate__backInLeft animate__delay-500ms p-0 col-5 card-formulario">
             <div
               className="d-flex justify-content-between px-5 py-3 w-100"
               style={{
@@ -342,15 +344,20 @@ function ProfileCard({ user }) {
  */}
               {edit === true ? (
                 <button
+                  className="btn-form-save mx-3 mb-3"
                   onClick={(e) => HandlerUpdate(e)}
-                  className="btn-form-sum"
                 >
-                  Enviar
+                  <div class="svg-wrapper-1">
+                    <div class="svg-wrapper">
+                      <FaSave />
+                    </div>
+                  </div>
+                  <span>Guardar</span>
                 </button>
               ) : null}
             </Card.Body>
           </Card>
-          <Card className="animate__animated animate__backInRight animate__delay-500ms p-0 col-5">
+          <Card className="animate__animated animate__backInRight animate__delay-500ms p-0 col-5 card-comment">
             <div
               className="d-flex justify-content-center align-items-center py-4"
               style={{
@@ -416,18 +423,36 @@ function ProfileCard({ user }) {
               </div>
             </form>
 
-            {!usuarios.name ? null : (
+            {!name && !usuarios.name ? (
               <button
-                className="btn-form-sum mx-3 mb-3"
+                className="btn-form-comment mx-3 mb-3 btn-disabled"
+                onClick={(e) => HandlerComent(e)}
+                disabled
+              >
+                <div class="svg-wrapper-1">
+                  <div class="svg-wrapper">
+                    <IoIosSend />
+                  </div>
+                </div>
+                <span>Enviar</span>
+              </button>
+            ) : (
+              <button
+                className="btn-form-comment mx-3 mb-3"
                 onClick={(e) => HandlerComent(e)}
               >
-                Enviar
+                <div class="svg-wrapper-1">
+                  <div class="svg-wrapper">
+                    <IoIosSend />
+                  </div>
+                </div>
+                <span>Enviar</span>
               </button>
             )}
           </Card>
         </div>
       ) : (
-        <h3>Hola</h3>
+        <Blocked/>
       )}
     </>
   );
