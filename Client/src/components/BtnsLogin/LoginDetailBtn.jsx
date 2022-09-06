@@ -14,11 +14,12 @@ export default function LoginDetailBtn() {
   function HandleCreate(e) {
 
     let crear = {
-      name: user.given_name,
+      name: user.name,
       email: user.email,
       nickname: user.nickname,
       picture: user.picture,
       source: user.sub.toString(),
+      blocked: user.blocked,
     };
     dispatch(getUser(user.email));
 

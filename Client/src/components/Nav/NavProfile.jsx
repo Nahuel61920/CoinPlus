@@ -26,7 +26,6 @@ function OffcanvasExample({ logo }) {
             </Navbar.Brand>
             <div className="d-flex gap-2 align-items-center">
               <DarkMode />
-              <Profile />
               <Navbar.Toggle
                 aria-controls={`offcanvasNavbar-expand-${expand}`}
                 className="btn-navProfile"
