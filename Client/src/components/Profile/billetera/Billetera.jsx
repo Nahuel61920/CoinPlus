@@ -9,10 +9,6 @@ function Billetera() {
   return (
     <div className="bg-global">
         <NavBar/>
-        <div className="row my-4 justify-content-center">
-          <Convertidor className="col-6"/>
-          <OperationDetail className="col-6"/>
-        </div>
         <Metamask/> 
     </div>
   )

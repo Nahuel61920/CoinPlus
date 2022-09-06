@@ -1,8 +1,16 @@
 import React, {useState, useEffect} from "react";
 import swal from 'sweetalert';
 import { ethers } from "ethers";
+import { useDispatch, useSelector } from "react-redux";
+import { modifyTransaction } from "../../redux/reducers/cryptoRed";
 
 function OperationDetail() {
+
+  const { transactions } = useSelector(
+    (state) => state.crypto
+  );
+  
+  const dispatch = useDispatch();
 
   // function handleClickButton(){
   //   swal("Good job!", "You clicked the button!", "success")
@@ -28,6 +36,21 @@ function OperationDetail() {
       console.log("No accounts found");
     }
   }
+
+
+
+  function handleChange(e) {
+
+    const dataUpdated ={
+      ...transactions,
+      metamaskAccount:e.target.value,
+    }
+  
+    dispatch(modifyTransaction(dataUpdated));
+    console.log("------>")
+    console.log(transactions)
+  }
+
   console.log(currentAccount)
   useEffect(() => {
     ethereumAccounts()
@@ -49,25 +72,23 @@ function OperationDetail() {
                   <p>Tu Recibes</p>
                 </div>
                 <div className="col ">
-                  <p>$38.50</p>
-                  <p>$10</p>
+                  <p>{`${transactions.kindOfOperation?"$":transactions.symbol} ${transactions.amountToSend}`}</p>
+                  <p>{`${transactions.kindOfOperation?transactions.symbol:"$"} ${transactions.amountToReceive}`}</p>
                 </div>
               </div>
               <div className="row mt-3 border-bottom">
-              <p>Tipo de cambio utilizado 3890</p>
+              <p>{`Tipo de cambio utilizado $ ${transactions.rateExchange}`}</p>
               </div>
             </div>
              {/* Segunda seccion */}
              <div className="container text-center">
               <div className="row">
-                <p>¿Desde qué banco nos envía tu dinero?</p>
-                <select  name="select" id="">
-                  <option value="">Paypal</option>
-                </select>
-              </div>
-              <div className="row">
-                <p>¿En qué cuenta deseas recibir tu dinero?</p>
-                <select  name="select" id="">
+                <p>¿Desde donde nos envía tu dinero?</p>
+                {transactions.kindOfOperation
+                ?(<select  name="select" id="">
+                    <option value="">Paypal</option>
+                  </select>)
+                :(<select  name="select" id="" onChange={handleChange}>
                   <option value="">Metamask</option>
                   {
                     currentAccount.length>0
@@ -78,8 +99,28 @@ function OperationDetail() {
                     })
                     :(<option></option>)
                   }
-
-                </select>
+                </select>)
+                }
+              </div>
+              <div className="row">
+                <p>¿En qué cuenta deseas recibir tu dinero?</p>
+                {!transactions.kindOfOperation
+                ?(<select  name="select" id="">
+                    <option value="">Paypal</option>
+                  </select>)
+                :(<select  name="select" id="" onChange={handleChange}>
+                  <option value="">Metamask</option>
+                  {
+                    currentAccount.length>0
+                    ?currentAccount.map((e,index) =>{
+                        return(
+                          <option key={index}>{e}</option>
+                        );
+                    })
+                    :(<option></option>)
+                  }
+                </select>)
+                }
               </div>
              </div>
           </div>

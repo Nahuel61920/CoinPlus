@@ -14,6 +14,7 @@ export const cryptoSlice = createSlice({
     users: [],
     usuarios: [],
     commets: [],
+    transactions: [],
   },
   reducers: {
     setCryptoList: (state, { type, payload }) => {
@@ -199,6 +200,9 @@ export const cryptoSlice = createSlice({
     setCommet: (state, {type, payload}) => {
       state.commets = payload
     },
+    setTransactions: (state, { type, payload }) => {
+      state.transactions = payload;
+    },
   },
 });
 
@@ -224,7 +228,8 @@ export const {
   setUser,
   setCryptoBest,
   getCryptoPrice,
-  setCommet
+  setCommet,
+  setTransactions
 } = cryptoSlice.actions;
 
 export default cryptoSlice.reducer;
@@ -379,3 +384,6 @@ export const findPrice = (payload) => (dispatch) => {
   dispatch(getCryptoPrice(payload));
 }
 
+export const modifyTransaction = (payload) => (dispatch) => {
+  dispatch(setTransactions(payload));
+}
