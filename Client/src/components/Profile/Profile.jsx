@@ -7,32 +7,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUser, createUser } from '../../redux/reducers/cryptoRed';
 
 export default function Profile() {
-  const { user,isLoading, isAuthenticated } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
   const { usuarios } = useSelector((state) => state.crypto);
   const dispatch = useDispatch();
 
-  if(isLoading){return <div>Cargando ...</div>;}
-
-  function HandleCreate(e) {
-
-    let crear = {
-      name: user.name,
-      email: user.email,
-      nickname: user.nickname,
-      picture: user.picture,
-      source: user.sub.toString(),
-      blocked: user.blocked,
-    };
+  useEffect(() => {
     dispatch(getUser(user.email));
-
-    dispatch(createUser(crear));
-    console.log(usuarios);
-  }
+  }, [dispatch, user.email]);
 
   return (
     isAuthenticated && (
         <div className="profile-nav dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" onClick={(e) => HandleCreate(e)}>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
                 <img className="img-profile-nav" src={usuarios.picture||user.picture} alt={user.nickname}/>
           </a>
           <ul class="dropdown-menu text-center p-0 justify-content-center ">

@@ -6,7 +6,7 @@ import { TbPencil, TbPencilOff } from "react-icons/tb";
 import { IoIosSend } from "react-icons/io";
 import { FaSave } from "react-icons/fa";
 
-import { FormGroup, Input } from "reactstrap";
+import { Input } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
   updateUser,
