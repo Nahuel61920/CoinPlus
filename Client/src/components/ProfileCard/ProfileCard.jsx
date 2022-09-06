@@ -102,7 +102,7 @@ function ProfileCard({ user }) {
         <div className="d-flex justify-content-center my-5">
           <img src={load} alt="loading" height="200" className="my-5" />
         </div>
-      ) : usuarios && usuarios.blocked === false ? (
+      ) : usuarios.blocked === false ? (
         <div className="row gap-4 justify-content-center">
           <Card className="my-3 animate__animated animate__backInLeft animate__delay-500ms p-0 col-5 card-formulario">
             <div
