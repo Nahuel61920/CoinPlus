@@ -1,11 +1,11 @@
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import "./profileCard.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TbPencil, TbPencilOff } from "react-icons/tb";
 import { IoIosSend } from "react-icons/io";
 import { FaSave } from "react-icons/fa";
-
+import load from "../../assets/img/load.gif";
 import { Input } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -32,6 +32,15 @@ function ProfileCard({ user }) {
   const [date, setDate] = useState(usuarios ? usuarios.date : "");
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
+
+  const [charge, setCharge] = useState(false);
+
+  useEffect(() => {
+    setCharge(true);
+    setTimeout(() => {
+      setCharge(false);
+    }, 2000);
+  }, []);
 
   const uploadImage = async (e) => {
     const files = e.target.files;
@@ -89,7 +98,11 @@ function ProfileCard({ user }) {
 
   return (
     <>
-      {usuarios && usuarios.blocked === false ? (
+      {charge ? (
+        <div className="d-flex justify-content-center my-5">
+          <img src={load} alt="loading" height="200" className="my-5" />
+        </div>
+      ) : usuarios && usuarios.blocked === false ? (
         <div className="row gap-4 justify-content-center">
           <Card className="my-3 animate__animated animate__backInLeft animate__delay-500ms p-0 col-5 card-formulario">
             <div
@@ -452,7 +465,7 @@ function ProfileCard({ user }) {
           </Card>
         </div>
       ) : (
-        <Blocked/>
+        <Blocked />
       )}
     </>
   );
