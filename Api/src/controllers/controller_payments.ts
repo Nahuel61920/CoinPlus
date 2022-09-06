@@ -89,7 +89,7 @@ export const captureOrder = async (req:Request, res:Response) => {
     console.log(response.data);
 
     res.redirect("http://localhost:3000/pagado");
-    emailertrans.sendMail(userBD)
+    emailertrans.sendMail()
   } catch (error:any) {
     console.log(error.message);
     return res.status(500).json({ message: "Internal Server error" });
