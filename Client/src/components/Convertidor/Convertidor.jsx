@@ -1,26 +1,70 @@
 import { number } from "prop-types";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCrypto } from "../../redux/reducers/cryptoRed";
+import { fetchCrypto,modifyTransaction } from "../../redux/reducers/cryptoRed";
 import { getCryptoPrice } from "../../redux/reducers/cryptoRed";
 
 export default function Convertidor() {
   const dispatch = useDispatch();
+
+  const { cryptos, cryptoPrice, usuarios, transactions } = useSelector(
+    (state) => state.crypto
+  );
+
   useEffect(() => {
     dispatch(fetchCrypto());
   }, [dispatch]);
+
+  
+
+
+  // useEffect(() => {
+  //   dispatch(modifyTransaction(currentTranferData));
+  //   console.log("---->")
+  // }, [dispatch]);
 
   // Constantes de conversión
 
   const factorExchange = 0.0035;
   const numberOfDecimals = 5
 
+  const ethereumEcosystem = cryptos?.filter(e=> e.tag_names.includes("ethereum-ecosystem")).sort((a, b) => (a.price < b.price ? 1 : -1))
 
-  const { cryptos, cryptoPrice, usuarios } = useSelector(
-    (state) => state.crypto
-  );
+  //Getting and modifying transactions
 
-  const ethereumEcosystem = cryptos?.filter(e=> e.tag_names.includes("ethereum-ecosystem"))
+  // const [currentTranferData, setCurrentTranferData] = useState(
+  //   {
+  //     amountToSend: 0,
+  //     amountToReceive: 0,
+  //     KindOfOperation: true,
+  //     cryptoSelected: 0,
+  //     rateExchange: 0,
+  //     symbol: "",
+  //   }
+  // );
+
+  function handleChange(e) {
+
+    const dataUpdated ={
+      metamaskAccount:"",
+      cryptoSelected: cryptoPrice[0].name,
+      symbol: cryptoPrice[0].symbol,
+      kindOfOperation:currentKindOfExchange,
+      rateExchange: currentKindOfExchange
+        ?Math.round(cryptoPrice[0].price* (1 - factorExchange)*Math.pow(10,numberOfDecimals))/Math.pow(10,numberOfDecimals)
+        :Math.round(cryptoPrice[0].price* (1 + factorExchange)*Math.pow(10,numberOfDecimals))/Math.pow(10,numberOfDecimals),
+      [e.target.name==="amountToSend"?"amountToSend":"amountToReceive"]:Number(e.target.value),
+      [e.target.name==="amountToSend"?"amountToReceive":"amountToSend"]:e.target.name==="amountToSend"
+      ?e.target.value*Math.round(cryptoPrice[0].price* (1 - factorExchange)*Math.pow(10,numberOfDecimals))/Math.pow(10,numberOfDecimals)
+      :e.target.value*Math.round(cryptoPrice[0].price/ (1 - factorExchange)*Math.pow(10,numberOfDecimals))/Math.pow(10,numberOfDecimals),
+    }
+
+    dispatch(modifyTransaction(dataUpdated));
+    console.log("------>")
+    console.log(transactions)
+  }
+
+
 
   //Set the current crypto name
   const [currentCrypto, setCurrentCrypto] = useState("");
@@ -38,7 +82,7 @@ export default function Convertidor() {
       return (Math.round((amount * cryptoPrice[0].price)*Math.pow(10,2)))/Math.pow(10,2);
     }
   }
-
+  
   function handleCryptoName(e) {
     dispatch(getCryptoPrice(e.target.value));
     console.log(e);
@@ -73,7 +117,7 @@ export default function Convertidor() {
       <div className="">
         <div className="card-1 ">
           <div className="card-body">
-            <h1 className="card-title text-center mb-2">{`Bienvenido ${usuarios.name}`}</h1>
+            <h1 className="card-title text-center mb-2">{`Bienvenido ${usuarios.name?usuarios.name:"a Coin+"}`}</h1>
             <h5 className="text-center border-bottom">Tipo de cambio hoy</h5>
             <div className="d-flex justify-content-center">
               <select
@@ -116,7 +160,7 @@ export default function Convertidor() {
             </div>
 
             </div>
-            <div className="container">
+            <div claessName="container">
               <div className="container">
                   {currentKindOfExchange&&
                 (<div className="row">
@@ -125,11 +169,11 @@ export default function Convertidor() {
                     <p>$</p>
                     <input
                       type="text"
-                      name="dolar"
+                      name= {currentKindOfExchange?"amountToSend":"amountToReceive"}
                       className="col-5 m-3  rounded-1"
                       placeholder="Ingrese monto a convertir..."
-                      onChange={handleExchange}
-                      value={currentTrade.dolar}
+                      onChange={handleChange}
+                      // value={currentTrade.dolar}
                     ></input>
                   </div>
                 </div>
@@ -155,11 +199,11 @@ export default function Convertidor() {
                     </span>
                     <input
                       type="text"
-                      name="crypto"
-                      value={currentTrade.crypto}
+                      name={currentKindOfExchange?"amountToReceive":"amountToSend"}
+                      // value={currentTrade.crypto}
                       className="col-5 m-3 rounded-1"
                       placeholder={currentKindOfExchange?"":"Ingrese monto a convertir..."}
-                      onChange={handleExchange}
+                      onChange={handleChange}
                     ></input>
                   </div>
 
@@ -179,11 +223,11 @@ export default function Convertidor() {
                     <p>$</p>
                     <input
                       type="text"
-                      name="dolar"
+                      name={currentKindOfExchange?"amountToSend":"amountToReceive"}
                       className="col-5 m-3 rounded-1"
                       placeholder=""
-                      onChange={handleExchange}
-                      value={currentTrade.dolar}
+                      onChange={handleChange}
+                      // value={currentTrade.dolar}
                     ></input>
                   </div>
                 </div>

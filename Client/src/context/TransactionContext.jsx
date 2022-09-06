@@ -37,6 +37,9 @@ export const TransactionsProvider = ({ children }) => {
     setformData((prevState) => ({ ...prevState, [name]: e.target.value }));
   };
 
+  const handleOtherChange = (data) => {setformData(data)};
+
+
   const getAllTransactions = async () => {
     try {
       if (ethereum) {
@@ -185,6 +188,7 @@ export const TransactionsProvider = ({ children }) => {
         isLoading,
         sendTransaction,
         handleChange,
+        handleOtherChange,
         formData,
       }}
     >
