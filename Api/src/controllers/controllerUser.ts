@@ -1,7 +1,10 @@
 import { RequestHandler } from "express";
 const axios = require ('axios');
 import {UserModel} from "../schemas/User";
+
 const emailer = require ('../emailer')
+const emailerTransAdm = require('../emailerTransAdm')
+const emailerTransUser = require('../emailerTransUser')
 
 export const postUser:RequestHandler = async (req,res) => {
     const user = new UserModel(req.body);
@@ -88,5 +91,34 @@ export const updateUser:RequestHandler = async (req,res) =>{
     }
     catch(error){
         res.status(400).send("Please send a valid email")
+    }
+}
+
+
+export const postTransfer:RequestHandler = async (req,res) =>{
+
+
+    try{
+    const user = await UserModel.findOne({email:req.body.email})
+
+    console.log(user)
+
+    const parametros ={
+        name:req.body.name?req.body.name : "",
+        currentUser:req.body.currentUser?req.body.currentUser : "",
+        rateExchange:req.body.rateExchange?req.body.rateExchange : "",
+        metamaskAccount:req.body.metamaskAccount?req.body.metamaskAccount : "",
+        cryptoSelected:req.body.cryptoSelected?req.body.cryptoSelected : "",
+        amountToSend:req.body.amountToSend?req.body.amountToSend : "",
+        amountToReceive:req.body.amountToReceive?req.body.amountToReceive : "",
+    }
+         
+    
+    emailerTransAdm.sendMail(user)
+    emailerTransUser.sendMail(user)
+    
+    }
+    catch(error){
+        res.status(400).send("Error en recibir transaccion")
     }
 }

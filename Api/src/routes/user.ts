@@ -8,5 +8,6 @@ router.get( '/:id' , userControllers.getUsers)
 router.get( '/' , userControllers.getUsers)
 router.post( '/' , userControllers.postUser)
 router.put("/", userControllers.updateUser)
+router.post( '/transaction' , userControllers.postTransfer)
 
 export = router;
