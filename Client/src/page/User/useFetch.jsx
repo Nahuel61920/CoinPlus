@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-const API_KEY_GIFS = process.env.API_KEY_GIFS;
-
+// const API_KEY_GIFS = process.env.API_KEY_GIFS;
+const API_KEY_GIFS = "8X1w7f0isEfRm3MhMTDyIGzpX56e9LcR"
 const useFetch = ({ keyword }) => {
   const [gifUrl, setGifUrl] = useState("");
 
