@@ -387,3 +387,9 @@ export const findPrice = (payload) => (dispatch) => {
 export const modifyTransaction = (payload) => (dispatch) => {
   dispatch(setTransactions(payload));
 }
+
+export const sendTransactionDetail = (payload) => (dispatch) => {
+  console.log(payload)
+  axios.post("/profile/transaction", payload).catch((err) => console.log(err));
+  
+};
