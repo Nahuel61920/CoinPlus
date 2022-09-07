@@ -48,18 +48,16 @@ function Metamask() {
       <div style={{ width: "35rem" }}>
         <h2 className="border-bottom border-dark mb-5">Conecte su billetera a Metamask</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-          temporibus explicabo veniam facere necessitatibus eveniet. Itaque nisi
-          officiis blanditiis architecto magni possimus eos praesentium cum
-          optio doloribus porro ex facilis dicta deserunt distinctio in
-          consequatur quis labore doloremque similique voluptatum, sapiente
-          soluta maiores quasi? Provident beatae illo repellat dolorum commodi
-          cupiditate numquam sequi! Sit, fugit. Quas impedit corporis odit
-          voluptatum at, consectetur odio itaque, exercitationem molestias neque
-          assumenda enim magnam deleniti expedita maiores quam autem. Delectus
-          labore quisquam quidem architecto unde quibusdam ipsam molestiae
-          nostrum sunt, laboriosam facilis maiores aut placeat explicabo commodi
-          ipsum porro impedit reprehenderit alias corporis sed.
+        MetaMask es una extensión para el navegador que sirve como wallet de Ethereum.
+        Una vez instalado, permite a los usuarios almacenar Ether, permitiéndoles realizar transacciones a cualquier dirección de Ethereum.
+        También permite acceder a otras blockchain seleccionadas y compatibles. </p>
+       
+        <p>Conéctala en 2 simples pasos:</p>
+        <p>1. Descarga e instala la extensión de Google Chrome o el addon de Firefox, dependiendo de tu navegador.</p>
+        <p>2. Crea tu cuenta si no tienes una y listo!</p>
+        
+        <p>
+        Importante: MetaMask te presentará  tu frase de respaldo de 12 palabras. Esto será necesario para recuperar tu wallet si alguna vez olvidas tu contraseña o pierdes el acceso a tu computadora, y debes guardarlo en algún lugar seguro.
         </p>
       </div>
 
@@ -106,6 +104,9 @@ function Metamask() {
               </div>
             </div>
             <div style={{ width: "30em" }} className="bg-envio p-5 sm:w-96 w-full d-flex flex-column justify-items-start justify-items-center col-5">
+            <p className="text-black text-center m-auto">
+                  Envia cripto a un amigo
+                </p>
               <Input
                 placeholder="Dirección"
                 name="addressTo"
