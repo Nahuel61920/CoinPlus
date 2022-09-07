@@ -4,7 +4,6 @@ import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Link } from "react-router-dom";
 import DarkMode from "../DarkMode/DarkMode";
-import Profile from "../Profile/Profile";
 
 import "./nav.css";
 
@@ -51,7 +50,6 @@ function OffcanvasExample({ logo }) {
                   <Link to="/wallet">Billetera</Link>
                   <Link to="/movements">Movimientos</Link>
                   <Link to="/operation">Compra-Venta</Link>
-
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

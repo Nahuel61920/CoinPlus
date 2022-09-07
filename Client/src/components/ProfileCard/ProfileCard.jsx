@@ -85,7 +85,6 @@ function ProfileCard({ user }) {
     dispatch(updateUser(crear));
     dispatch(getUser(user.email));
     setEdit(!edit);
-    console.log(crear);
   }
 
   function HandlerComent(e) {
@@ -96,7 +95,6 @@ function ProfileCard({ user }) {
       picture: usuarios.picture,
       rating: rating,
     };
-    console.log("crear de comentario", crear);
     dispatch(postComent(crear));
   }
 
@@ -111,8 +109,6 @@ function ProfileCard({ user }) {
       })
     );
   }
-
-  console.log("errores", errors);
 
   return (
     <>

@@ -60,12 +60,6 @@ function Market() {
     setCurrentPage(1);
   }
 
-  /* function handleSubmit(e) {
-    let tag = e.toString();
-    dispatch(orderCrypto(tag));
-    setCurrentPage(1);
-  } */
-
   function handleSort(e) {
     e.preventDefault();
     dispatch(filterPrice(e.target.value));
@@ -116,7 +110,7 @@ function Market() {
         <h1 className="fw-bold text-center">Mercado</h1>
         <p className="text-center">Precio de las criptomonedas de hoy</p>
         <div className="row d-flex align-items-center justify-content-center mt-4 pt-3 px-4">
-          <CryptoBest bestCrypto={bestCrypto}/>
+          <CryptoBest bestCrypto={bestCrypto} />
 
           <div className="row d-flex align-items-center justify-content-center">
             <select
@@ -138,18 +132,42 @@ function Market() {
               className="name-filt col-5  m-3 animate__animated animate__bounceInRight animate__delay-2s"
               onChange={(e) => handleSubmitPlatform(e.target.value)}
             >
-              <option value="All">Plataforma</option>
-              <option value="TRON Ecosystem">TRON Ecosystem</option>
-              <option value="Ethereum Ecosystem">Ethereum Ecosystem</option>
-              <option value="Asset-Backed Token">Asset-Backed Token</option>
-              <option value="Polkadot">Polkadot</option>
-              <option value="Binance Chain">Binance Chain</option>
-              <option value="Polkadot Ecosystem">Polkadot Ecosystem</option>
-              <option value="Fantom Ecosystem">Fantom Ecosystem</option>
-              <option value="Solana Ecosystem">Solana Ecosystem</option>
-              <option value="Arbitrum Ecosytem">Arbitrum Ecosytem</option>
-              <option value="Bnb Chain">Bnb Chain</option>
-              <option value="Injective Ecosystem">Injective Ecosystem</option>
+              <option key="todo" value="All">
+                Plataforma
+              </option>
+              <option key="TRON Ecosystem" value="TRON Ecosystem">
+                TRON Ecosystem
+              </option>
+              <option key="Ethereum Ecosystem" value="Ethereum Ecosystem">
+                Ethereum Ecosystem
+              </option>
+              <option key="Asset-Backed Token" value="Asset-Backed Token">
+                Asset-Backed Token
+              </option>
+              <option key="Polkadot" value="Polkadot">
+                Polkadot
+              </option>
+              <option key="Binance Chain" value="Binance Chain">
+                Binance Chain
+              </option>
+              <option key="Polkadot Ecosystem" value="Polkadot Ecosystem">
+                Polkadot Ecosystem
+              </option>
+              <option key="Fantom Ecosystem" value="Fantom Ecosystem">
+                Fantom Ecosystem
+              </option>
+              <option key="Solana Ecosystem" value="Solana Ecosystem">
+                Solana Ecosystem
+              </option>
+              <option key="Arbitrum Ecosytem" value="Arbitrum Ecosytem">
+                Arbitrum Ecosytem
+              </option>
+              <option key="Bnb Chain" value="Bnb Chain">
+                Bnb Chain
+              </option>
+              <option key="Injective Ecosystem" value="Injective Ecosystem">
+                Injective Ecosystem
+              </option>
             </select>
           </div>
           {currentCryps.length ? (
