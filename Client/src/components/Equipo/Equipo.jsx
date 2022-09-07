@@ -4,13 +4,16 @@ import CardEquipo from './CardEquipo'
 import "./equipo.css"
 import fotoprueba from "../../assets/img/progdem.jpg"
 import fotoprueba2 from "../../assets/img/backdev.jpg"
-import elara from "../../assets/img/laraequipo.jpg"
+import elara from "../../assets/img/equipoLara.jpg"
+import etomy from "../../assets/img/equipoTomy.jpg"
+import enahuel from "../../assets/img/equipoNahuel.jpg"
+import epj from "../../assets/img/equipoPj.jpg"
 
 const miembros = [
     {
         id: 1,
         nombre: "Nahuel Carrizo",
-        imagen: fotoprueba2,
+        imagen: enahuel,
         linkedin: "esteban-nahuel-carrizo",
         linkedinlink: "https://www.linkedin.com/in/esteban-nahuel-carrizo-69715422b/",
         github: "Nahuel61920",
@@ -20,7 +23,7 @@ const miembros = [
     {
         id: 2,
         nombre: "Tomás Castillo",
-        imagen: fotoprueba,
+        imagen: etomy,
         linkedin: "tomasscast99",
         linkedinlink: "https://www.linkedin.com/in/tomasscast99/",
         github: "TomassCast99",
@@ -30,7 +33,7 @@ const miembros = [
     {
         id: 3,
         nombre: "Pedro J. Endara",
-        imagen: fotoprueba2,
+        imagen: epj,
         linkedin: "pjendara",
         linkedinlink: "https://www.linkedin.com/in/pjendara/",
         github: "pjendara",
@@ -40,7 +43,7 @@ const miembros = [
     {
         id: 4,
         nombre: "Lara Lopez",
-        imagen: fotoprueba,
+        imagen: elara,
         linkedin: "lara-lopez",
         linkedinlink: "https://www.linkedin.com/in/lara-lopez-5663571a2/",
         github: "laranlopez",
