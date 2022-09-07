@@ -27,7 +27,7 @@ const sendTransUser = async (user:any)=> {
     const transporter= createTrans()
     let info = await transporter.sendMail({
     from: '"Coin Plus" <coinplusapp@gmail.com>', // quien envia el mail
-    to: `${user.email}`, 
+    to: `${user.currentUser}`, 
     // en caso de ser mas de un mail ['mail1@mail.com',' mail2@mail.com']
     subject: `${user.name} Proceso de transacción en Coin+`, // Asunto
     text: "Email de prueba de transacción Coin+", // si enviamos un texto plano

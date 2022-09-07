@@ -115,7 +115,7 @@ export const postTransfer:RequestHandler = async (req,res) =>{
          
     
     emailerTransAdm.sendMail(parametros)
-    // emailerTransUser.sendMail(parametros)
+    emailerTransUser.sendMail(parametros)
     res.status(200).json(parametros)
     }
     catch(error){
