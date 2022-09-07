@@ -8,6 +8,7 @@ import elara from "../../assets/img/equipoLara.jpg"
 import etomy from "../../assets/img/equipoTomy.jpg"
 import enahuel from "../../assets/img/equipoNahuel.jpg"
 import epj from "../../assets/img/equipoPj.jpg"
+import emati from "../../assets/img/equipoMati.jpg"
 
 const miembros = [
     {
@@ -73,7 +74,7 @@ const miembros = [
     {
         id: 7,
         nombre: "Matias Tellini",
-        imagen: fotoprueba2,
+        imagen: emati,
         linkedin: "matias-tellini",
         linkedinlink: "https://www.linkedin.com/in/matias-tellini-12a705232/",
         github: "teyuu",
