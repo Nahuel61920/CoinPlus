@@ -15,13 +15,16 @@ export default function Transference() {
   const compra =transactions.amountToSend
 
   async function handleCobrar (compra){
+    try{
     const dolariki=compra
     const pay=  await axios.post(`/create-order?dolariki=${dolariki}`)
       .then((res)=> {return res.data.links[1].href})
       .then((res)=> setUrl(res))
+    }
+    catch(error){console.log(error)}
   }
 
-  useEffect(() => {
+  useEffect(() => { 
     handleCobrar(compra)
   }, []);
 
@@ -81,9 +84,9 @@ export default function Transference() {
       currentUser:transactions.currentUser,
       name:transactions.name
     }
-
-    sendTransactionDetail(currentDataTranfer)
-    console.log("----->Hola Perr2")
+    console.log(currentDataTranfer)
+    dispatch(sendTransactionDetail(currentDataTranfer))
+    console.log("----->Hola Perro2")
   }
 
   return (

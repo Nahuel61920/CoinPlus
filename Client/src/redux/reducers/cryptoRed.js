@@ -389,7 +389,8 @@ export const modifyTransaction = (payload) => (dispatch) => {
 }
 
 export const sendTransactionDetail = (payload) => (dispatch) => {
-  console.log(payload)
+  console.log("---->sendTransactionDetail")
   axios.post("/profile/transaction", payload).catch((err) => console.log(err));
   
 };
+
