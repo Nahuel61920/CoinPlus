@@ -3,7 +3,6 @@ import axios from "axios";
 require("dotenv").config();
 const {PAYPAL_API, PAYPAL_CLIENT, PAYPAL_SECRET, HOST2} = process.env 
 
-const emailertrans = require ('../emailertrans')
 
 export const createOrder = async (req:Request, res:Response) => {
   const {dolariki}= req.query
@@ -90,7 +89,7 @@ export const captureOrder = async (req:Request, res:Response) => {
     console.log(response.data);
 
     res.redirect("http://localhost:3000/pagado");
-    // emailertrans.sendMail(usuarios?.email)
+   
   } catch (error:any) {
     console.log(error.message);
     return res.status(500).json({ message: "Internal Server error" });
