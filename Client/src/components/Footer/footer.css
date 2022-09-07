@@ -13,10 +13,60 @@
 }
 
 .altura{
-
+    padding: 20px;
+    min-width: 100vw;
     height: 30vh;
+}
+
+.copy{
+    min-width: 100vw;
 }
 
 .color-copy{
     color: rgb(192, 192, 189);
 }
+
+.nav-footer a{
+    font-size: 1rem;
+    font-weight: bold;
+    margin: .5rem 0;
+    color: var(--text-nav);
+    position: relative;
+    text-decoration: none;
+  }
+
+  .nav-footer a:hover {
+  color: rgb(237, 222, 14);
+}
+
+.nav-footer a::before {
+  content: "";
+  height: 3px;
+  width: 0;
+  background: rgb(237, 222, 14);
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  transition: 0.4s ease-out;
+}
+
+.nav-footer a:hover::before {
+    width: 30%;
+  }
+
+  .nav-footer a.active::before,
+  .nav-footer .active-link::before{
+    content: "";
+    height: 3px;
+    width: 30%;
+    background: rgb(237, 222, 14);
+    position: absolute;
+    left: 0;
+    bottom: -0.4rem;
+    transition: 0.4s ease-out;
+  }
+  
+  .nav-footer .active-link,
+  .nav-footer a.active{
+    color: rgb(237, 222, 14);
+  }
