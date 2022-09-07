@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-
 import { TransactionContext } from "../../context/TransactionContext";
+import Footer from '../../components/Footer/Footer'
 
 import useFetch from "./useFetch";
 import dummyData from "../../utils/dummyData";
@@ -63,10 +63,11 @@ const Transactions = () => {
   const { transactions, currentAccount } = useContext(TransactionContext);
 
   return (
-    <div className="bg-global">
+    <>
+    <div className="bg-global ">
       <NavProfile logo={Logo}/>
     <div className="d-flex w-full justify-content-center justify-items-center 2xl:px-20">
-      <div className="d-flex flex-column md:p-12 py-12 px-4">
+      <div  className="d-flex flex-column md:p-12 py-12 px-4">
         {currentAccount ? (
           <h3 className="text-3xl text-center my-2">Últimas Transacciones</h3>
         ) : (
@@ -83,6 +84,8 @@ const Transactions = () => {
       </div>
     </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

@@ -5,6 +5,7 @@ import paypalLogo from '../../assets/img/paypal-logo.png';
 import { TransactionContext } from '../../context/TransactionContext';
 import  axios  from "axios";
 import { sendTransactionDetail } from '../../redux/reducers/cryptoRed';
+import Timer from './Timer'
 
 export default function Transference() {
 
@@ -98,7 +99,6 @@ export default function Transference() {
           ?(
           <>
            <div className='d-flex justify-content-center p-5'>
-            </div>
             {
               url.length ?
               (<a href={url} target="_blank" onClick={sendCurrentDataTranfer}>
@@ -107,6 +107,7 @@ export default function Transference() {
               </a>)
               :(<h1></h1>)
             }
+            </div>
             <div className="container text-center">
               <img style={{width:'16rem'}} src={paypalLogo} alt='' className='mb-5'/>
             </div>
@@ -132,8 +133,8 @@ export default function Transference() {
 
 
             <div className="container text-center">
-              <h6>Tiempo de espera : 15m</h6>
-              <p>Este es un mensaje para la comunidad de twich</p>
+              <p>Tiempo aproximado de espera</p>
+              <Timer/>
             </div>
         </div>
       </div>
