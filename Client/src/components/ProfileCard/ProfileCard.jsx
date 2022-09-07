@@ -15,6 +15,7 @@ import {
 } from "../../redux/reducers/cryptoRed";
 import { ImCamera } from "react-icons/im";
 import Blocked from "../MsgBlocked/Blocked";
+import { validation } from "./Validations";
 
 function ProfileCard({ user }) {
   const dispatch = useDispatch();
@@ -34,6 +35,13 @@ function ProfileCard({ user }) {
   const [rating, setRating] = useState(0);
 
   const [charge, setCharge] = useState(false);
+
+  const [errors, setErrors] = useState({});
+
+  let regexName = /^[a-zA-Z ]+$/;
+  let regexDoc = /^[0-9_-]{8,10}$/;
+  let regexTel = /^[0-9_-]{10,12}$/;
+  let regexPostal = /^[0-9_-]{4,10}$/;
 
   useEffect(() => {
     setCharge(true);
@@ -96,6 +104,16 @@ function ProfileCard({ user }) {
     setEdit(!edit);
   }
 
+  function HandleValid(e) {
+    setErrors(
+      validation({
+        [e.target.name]: e.target.value,
+      })
+    );
+  }
+
+  console.log("errores", errors);
+
   return (
     <>
       {charge ? (
@@ -137,14 +155,6 @@ function ProfileCard({ user }) {
                 <Form.Control placeholder={usuarios.email} disabled />
               </Form.Group>
 
-              {/* <Form.Group className="mb-3" controlId="formBasicIdioma">
-                <Form.Label>Idioma</Form.Label>
-                <Form.Control
-                  placeholder={usuarios.local ? usuarios.local : "Es"}
-                  disabled
-                />
-              </Form.Group> */}
-
               <div className="row">
                 {!usuarios.name || edit === true ? (
                   <Form.Group className="mb-3 col-6" controlId="formBasicName">
@@ -153,8 +163,18 @@ function ProfileCard({ user }) {
                       type="text"
                       placeholder={"Escriba su Nombre"}
                       value={name}
-                      onChange={(e) => setName(e.target.value)}
+                      onChange={(e) => {
+                        setName(e.target.value);
+                        HandleValid(e);
+                      }}
                     />
+                    <strong>{name ? "" : errors.name}</strong>
+                    <br />
+                    <strong>
+                      {!regexName.test(name)
+                        ? "El campo Nombre solo acepta letras"
+                        : ""}
+                    </strong>
                   </Form.Group>
                 ) : (
                   <Form.Group className="mb-3 col-6" controlId="formBasiName">
@@ -176,8 +196,18 @@ function ProfileCard({ user }) {
                       type="text"
                       placeholder={"Escriba su Apellido"}
                       value={lastname}
-                      onChange={(e) => setLastname(e.target.value)}
+                      onChange={(e) => {
+                        setLastname(e.target.value);
+                        HandleValid(e);
+                      }}
                     />
+                    <strong>{lastname ? "" : errors.lastname}</strong>
+                    <br />
+                    <strong>
+                      {!regexName.test(lastname)
+                        ? "El campo Apellido solo acepta letras"
+                        : ""}
+                    </strong>
                   </Form.Group>
                 ) : (
                   <Form.Group className="mb-3 col-6" controlId="formBasiName">
@@ -229,8 +259,18 @@ function ProfileCard({ user }) {
                       type="text"
                       placeholder={"Escriba su DNI"}
                       value={dni}
-                      onChange={(e) => setDni(e.target.value)}
+                      onChange={(e) => {
+                        setDni(e.target.value);
+                        HandleValid(e);
+                      }}
                     />
+                    <strong>{dni ? "" : errors.dni}</strong>
+                    <br />
+                    <strong>
+                      {!regexDoc.test(dni)
+                        ? "El campo DNI solo acepta caracteres numéricos con un mínimo de 8"
+                        : ""}
+                    </strong>
                   </Form.Group>
                 ) : (
                   <Form.Group className="mb-3 col-4" controlId="formBasiDNI">
@@ -247,7 +287,7 @@ function ProfileCard({ user }) {
 
                 {!usuarios.date || edit === true ? (
                   <Form.Group className="mb-3 col-4" controlId="formBasiDate">
-                    <Form.Label>Fecha</Form.Label>
+                    <Form.Label>Fecha de nacimiento</Form.Label>
                     <Form.Control
                       type="date"
                       placeholder={"Escriba su Fecha"}
@@ -257,7 +297,7 @@ function ProfileCard({ user }) {
                   </Form.Group>
                 ) : (
                   <Form.Group className="mb-3 col-4" controlId="formBasiDate">
-                    <Form.Label>Fecha</Form.Label>
+                    <Form.Label>Fecha de nacimiento</Form.Label>
                     <Form.Control
                       type="date"
                       placeholder={usuarios.date}
@@ -275,8 +315,18 @@ function ProfileCard({ user }) {
                       type="text"
                       placeholder={"Escriba su telefono"}
                       value={number}
-                      onChange={(e) => setNumber(e.target.value)}
+                      onChange={(e) => {
+                        setNumber(e.target.value);
+                        HandleValid(e);
+                      }}
                     />
+                    <strong>{number ? "" : errors.number}</strong>
+                    <br />
+                    <strong>
+                      {!regexTel.test(number)
+                        ? "El campo Número de contacto solo acepta caracteres numéricos con un mínimo de 10"
+                        : ""}
+                    </strong>
                   </Form.Group>
                 ) : (
                   <Form.Group className="mb-3 col-4" controlId="formBasiPhone">
@@ -292,31 +342,36 @@ function ProfileCard({ user }) {
                 )}
               </div>
 
-              {/* <Form.Group className="mb-3" controlId="formBasicDirection">
-              <Form.Label>Direccion</Form.Label>
-              <Form.Control type="text" placeholder={usuarios.direccion ? usuarios.direccion :"Escriba su direccion"} />
-            </Form.Group> */}
-
               <div className="row">
                 {!usuarios.country || edit === true ? (
                   <Form.Group
                     className="mb-3 col-6"
                     controlId="formBasicCountry"
                   >
-                    <Form.Label>Pais</Form.Label>
+                    <Form.Label>País</Form.Label>
                     <Form.Control
                       type="text"
                       placeholder={"Escriba su pais"}
                       value={countryes}
-                      onChange={(e) => setCountryes(e.target.value)}
+                      onChange={(e) => {
+                        setCountryes(e.target.value);
+                        HandleValid(e);
+                      }}
                     />
+                    <strong>{countryes ? "" : errors.countryes}</strong>
+                    <br />
+                    <strong>
+                      {!regexName.test(countryes)
+                        ? "El campo País solo acepta letras"
+                        : ""}
+                    </strong>
                   </Form.Group>
                 ) : (
                   <Form.Group
                     className="mb-3 col-6"
                     controlId="formBasicCountry"
                   >
-                    <Form.Label>Pais</Form.Label>
+                    <Form.Label>País</Form.Label>
                     <Form.Control
                       type="text"
                       placeholder={usuarios.country}
@@ -329,17 +384,27 @@ function ProfileCard({ user }) {
 
                 {!usuarios.postalCod || edit === true ? (
                   <Form.Group className="mb-3 col-6" controlId="formBasicUser">
-                    <Form.Label>Codigo postal</Form.Label>
+                    <Form.Label>Código Postal</Form.Label>
                     <Form.Control
                       type="text"
                       placeholder={"Escriba su codigo postal"}
                       value={codigoPostal}
-                      onChange={(e) => setCodigoPostal(e.target.value)}
+                      onChange={(e) => {
+                        setCodigoPostal(e.target.value);
+                        HandleValid(e);
+                      }}
                     />
+                    <strong>{codigoPostal ? "" : errors.codigoPostal}</strong>
+                    <br />
+                    <strong>
+                      {!regexPostal.test(codigoPostal)
+                        ? "El campo Código Postal solo acepta caracteres numéricos con un mínimo de 4"
+                        : ""}
+                    </strong>
                   </Form.Group>
                 ) : (
                   <Form.Group className="mb-3 col-6" controlId="formBasicUser">
-                    <Form.Label>Codigo postal</Form.Label>
+                    <Form.Label>Código Postal</Form.Label>
                     <Form.Control
                       placeholder={usuarios.postalCod}
                       value={usuarios.postalCod}
@@ -350,12 +415,19 @@ function ProfileCard({ user }) {
                 )}
               </div>
 
-              {/* <FormGroup controlId="formFileSm" className="mb-3">
-                <Form.Label>Imagen</Form.Label>
-                
-              </FormGroup>
- */}
-              {edit === true ? (
+              {edit === true &&
+              name.length &&
+              regexName.test(name) &&
+              lastname.length &&
+              regexName.test(lastname) &&
+              codigoPostal.length &&
+              regexPostal.test(codigoPostal) &&
+              dni.length &&
+              regexDoc.test(dni) &&
+              number.length &&
+              regexTel.test(number) &&
+              countryes.length &&
+              regexName.test(countryes) ? (
                 <button
                   className="btn-form-save mx-3 mb-3"
                   onClick={(e) => HandlerUpdate(e)}
