@@ -1,44 +1,59 @@
-import React from 'react'
-import Logo from '../../assets/img/coin+Blan.png'
-import "./footer.css"
-import {Link} from 'react-router-dom'
-import Nav from 'react-bootstrap/Nav';
+import React from "react";
+import Logo from "../../assets/img/coin+Blan.png";
+import "./footer.css";
+import { NavLink } from "react-router-dom";
+import { Link } from "react-scroll";
 
 function Footer() {
   return (
-    <div className="container-fluid bg-dark text-white altura p-3">
-      <div className="row">
-        <div><img src={Logo} width="120" alt="" /></div>
+    <div className="container-fluid bg-dark text-white altura row">
+      <div className="col-3">
+        <img src={Logo} width="220" alt="" />
       </div>
 
-      <div className="row">
-        <div className="col invisible">hola</div>
-        <div className="col">
-        <Link to='/user'>
-                   <Nav> 
-                   <p className='text-white'>Mi perfil</p>
-                   </Nav>
+      <div className="nav-footer col-3">
+        <NavLink to="/">
+          <p className="text-white">Inicio</p>
+        </NavLink>
+        <Link to="Services" spy={true} offset={-150} href="#Services">
+          <p className="text-white">Servicios</p>
         </Link>
-        <Link to='/wallet'>
-                   <Nav> 
-                   <p className='text-white'>Mi billetera</p>
-                   </Nav>
+        <Link to="About" spy={true} offset={-150} href="#About">
+          <p className="text-white">Nosotros</p>
         </Link>
-          
-        </div>
-        <div className="col">
-        <Link to='/equipo'>
-                    <Nav>  
-                    <p className='text-white'> Nuestro equipo </p>
-                    </Nav>
+        <Link to="Notifications" spy={true} offset={-150} href="#Notifications">
+          <p className="text-white">Notificaciones</p>
         </Link>
-        </div>
-        
       </div>
-
-      <div className="row text-center text-white mt-5"><p className='color-copy'>Copyright © 2022. Todos los derechos reservados.</p></div>
+      <div className="nav-footer col-3">
+        <NavLink to="/equipo">
+          <p className="text-white"> Nuestro equipo </p>
+        </NavLink>
+        <NavLink to="/market">
+          <p className="text-white">Mercado</p>
+        </NavLink>
+      </div>
+      <div className="nav-footer col-3">
+        <NavLink to="/user">
+          <p className="text-white"> Usuario </p>
+        </NavLink>
+        <NavLink to="/wallet">
+          <p className="text-white">Billetera</p>
+        </NavLink>
+        <NavLink to="/movements">
+          <p className="text-white"> Movimientos </p>
+        </NavLink>
+        <NavLink to="/operation">
+          <p className="text-white">Compra-Venta</p>
+        </NavLink>
+      </div>
+      <div className="row text-center bg-dark text-white copy">
+        <p className="color-copy">
+          Copyright © 2022. Todos los derechos reservados.
+        </p>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
