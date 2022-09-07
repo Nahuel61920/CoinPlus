@@ -49,8 +49,10 @@ export default function Convertidor() {
         :Math.round(cryptoPrice[0].price* (1 + factorExchange)*Math.pow(10,numberOfDecimals))/Math.pow(10,numberOfDecimals),
       [e.target.name==="amountToSend"?"amountToSend":"amountToReceive"]:Number(e.target.value),
       [e.target.name==="amountToSend"?"amountToReceive":"amountToSend"]:e.target.name==="amountToSend"
-      ?e.target.value*Math.round(cryptoPrice[0].price* (1 - factorExchange)*Math.pow(10,numberOfDecimals))/Math.pow(10,numberOfDecimals)
-      :e.target.value*Math.round(cryptoPrice[0].price/ (1 - factorExchange)*Math.pow(10,numberOfDecimals))/Math.pow(10,numberOfDecimals),
+      ?convert(Number(e.target.value),"amountToSend")
+      :convert(Number(e.target.value),"amountToReceive"),
+      currentUser:usuarios.email,
+      name:usuarios.name
     }
 
     dispatch(modifyTransaction(dataUpdated));
@@ -75,10 +77,10 @@ export default function Convertidor() {
       return (Math.round((amount * (cryptoPrice[0].price*(1 - factorExchange)))*Math.pow(10,2)))/Math.pow(10,2);
     }}
     else{
-      if(type==="amountToSend"){return (Math.round((amount * (cryptoPrice[0].price*(1 + factorExchange)))*Math.pow(10,numberOfDecimals)))/Math.pow(10,numberOfDecimals);
+      if(type==="amountToSend"){return (Math.round((amount * (cryptoPrice[0].price*(1 + factorExchange)))*Math.pow(10,2)))/Math.pow(10,2);
     } else {
       // return (5)
-      return (Math.round((amount /(cryptoPrice[0].price*(1 + factorExchange)))*Math.pow(10,2)))/Math.pow(10,2);
+      return (Math.round((amount /(cryptoPrice[0].price*(1 + factorExchange)))*Math.pow(10,numberOfDecimals)))/Math.pow(10,numberOfDecimals);
     }
     }
   }

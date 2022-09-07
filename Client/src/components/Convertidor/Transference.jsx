@@ -4,7 +4,7 @@ import metamaskLogo from '../../assets/img/metamask-logo.png';
 import paypalLogo from '../../assets/img/paypal-logo.png';
 import { TransactionContext } from '../../context/TransactionContext';
 import  axios  from "axios";
-
+import { sendTransactionDetail } from '../../redux/reducers/cryptoRed';
 
 export default function Transference() {
 
@@ -69,6 +69,23 @@ export default function Transference() {
     sendTransaction();
   }
 
+  const sendCurrentDataTranfer = (e) => {
+    const currentDataTranfer ={
+      amountToSend: transactions.amountToSend,
+      amountToReceive: transactions.amountToReceive,
+      kindOfOperation:transactions.kindOfOperation,
+      cryptoSelected: transactions.cryptoSelected,
+      symbol: transactions.symbol,
+      rateExchange:transactions.rateExchange,
+      metamaskAccount:transactions.metamaskAccount,
+      currentUser:transactions.currentUser,
+      name:transactions.name
+    }
+
+    sendTransactionDetail(currentDataTranfer)
+    console.log("----->Hola Perr2")
+  }
+
   return (
     <div style={{height:'500px'}} className='container d-flex justify-content-center'>
       <div className="card">
@@ -81,10 +98,11 @@ export default function Transference() {
             </div>
             {
               url.length ?
-              (<a href={url} target="_blank">
+              (<a href={url} target="_blank" onClick={sendCurrentDataTranfer}>
                 <button 
                 style={{width:'12rem'}} type='button' className='btn-primary'>Completar transaccion</button>
-              </a>):(<h1></h1>)
+              </a>)
+              :(<h1></h1>)
             }
             <div className="container text-center">
               <img style={{width:'16rem'}} src={paypalLogo} alt='' className='mb-5'/>
@@ -95,7 +113,11 @@ export default function Transference() {
           <>
             <div className='d-flex justify-content-center p-5'>
               <button 
-                onClick ={handleSubmit}
+                onClick =
+                {(e) => {
+                  handleSubmit(e);
+                  sendCurrentDataTranfer(e);
+                }}
                 style={{width:'12rem'}} type='button' className='btn-primary'>Completar transaccion</button>
             </div>
             <div className="container text-center">
