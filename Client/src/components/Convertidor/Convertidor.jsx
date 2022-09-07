@@ -187,20 +187,20 @@ export default function Convertidor() {
                
                 <div className="row">
                   <h6 className="text-center">Enviar {currentKindOfExchange?"Dólares":"Criptomonedas"}</h6>
-                  <div className="container d-flex justify-content-center">
+                  <div className=" d-flex justify-content-center">
                   {currentKindOfExchange
-                    ?(<p>$</p>)
+                    ?(<div className=" d-flex align-items-center">$</div>)
                     :(<span>
                       {cryptoPrice.length > 0 ? (
-                        <p>{cryptoPrice[0].symbol}</p>
+                        <div className=" d-flex align-items-center">{cryptoPrice[0].symbol}</div>
                       ) : (
-                        <p>$</p>
+                        <div className=" d-flex align-items-center">$</div>
                       )}
                     </span>)}
                     <input
                       type="text"
                       name= "amountToSend"
-                      className="col-5 m-3  rounded-1"
+                      className="col-5 m-3  rounded-1 border border-dark"
                       placeholder="Ingrese monto a convertir..."
 
                       value={currentTrade.amountToSend}
@@ -226,20 +226,20 @@ export default function Convertidor() {
                   <div className="container d-flex justify-content-center">
                     
                   {currentKindOfExchange   
-                    ?(<span>
+                    ?(<div className="d-flex align-items-center">
                       {cryptoPrice.length > 0 ? (
-                        <p>{cryptoPrice[0].symbol}</p>
+                        <p className="mt-3">{cryptoPrice[0].symbol}</p>
                       ) : (
                         <p>$</p>
                       )}
-                    </span>)
+                    </div>)
                     :(<p>$</p>)
                   }
                     <input
                       type="text"
                       name="amountToReceive"
                       value={currentTrade.amountToReceive}
-                      className="col-5 m-3 rounded-1"
+                      className="col-5 m-3 rounded-1 border border-dark"
                       placeholder={currentKindOfExchange?"":"Ingrese monto a convertir..."}
                       onChange={(e) => {
                         handleChange(e);
