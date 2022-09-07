@@ -15,33 +15,11 @@ export default function Convertidor() {
     dispatch(fetchCrypto());
   }, [dispatch]);
 
-  
-
-
-  // useEffect(() => {
-  //   dispatch(modifyTransaction(currentTranferData));
-  //   console.log("---->")
-  // }, [dispatch]);
-
-  // Constantes de conversión
 
   const factorExchange = 0.0035;
   const numberOfDecimals = 5
 
   const ethereumEcosystem = cryptos?.filter(e=> e.tag_names.includes("ethereum-ecosystem")).sort((a, b) => (a.price < b.price ? 1 : -1))
-
-  //Getting and modifying transactions
-
-  // const [currentTranferData, setCurrentTranferData] = useState(
-  //   {
-  //     amountToSend: 0,
-  //     amountToReceive: 0,
-  //     KindOfOperation: true,
-  //     cryptoSelected: 0,
-  //     rateExchange: 0,
-  //     symbol: "",
-  //   }
-  // );
 
   function handleChange(e) {
 
@@ -91,7 +69,7 @@ export default function Convertidor() {
 
   function handleExchange(e) {
     setCurrentTrade({
-      // [e.target.name!=="dolar"?"crypto":"dolar"] : e.target.value,
+      [e.target.name!=="dolar"?"crypto":"dolar"] : e.target.value,
       [e.target.name === "dolar" ? "crypto" : "dolar"]:
         e.target.name === "dolar"
           ? convert("dolar", e.target.value)
