@@ -6,6 +6,8 @@ import './profile.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser, createUser } from '../../redux/reducers/cryptoRed';
 
+
+
 export default function Profile() {
   const { user,isLoading, isAuthenticated } = useAuth0();
   const { usuarios } = useSelector((state) => state.crypto);
