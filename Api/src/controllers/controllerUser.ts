@@ -99,23 +99,23 @@ export const postTransfer:RequestHandler = async (req,res) =>{
 
 
     try{
-    const user = await UserModel.findOne({email:req.body.email})
+    const { name, currentUser, rateExchange, metamaskAccount, cryptoSelected, amountToSend, amountToReceive } = req.body
 
-    console.log(user)
+    
 
     const parametros ={
-        name:req.body.name?req.body.name : "",
-        currentUser:req.body.currentUser?req.body.currentUser : "",
-        rateExchange:req.body.rateExchange?req.body.rateExchange : "",
-        metamaskAccount:req.body.metamaskAccount?req.body.metamaskAccount : "",
-        cryptoSelected:req.body.cryptoSelected?req.body.cryptoSelected : "",
-        amountToSend:req.body.amountToSend?req.body.amountToSend : "",
-        amountToReceive:req.body.amountToReceive?req.body.amountToReceive : "",
+        name,
+        currentUser,
+        rateExchange,
+        metamaskAccount,
+        cryptoSelected,
+        amountToSend,
+        amountToReceive,
     }
          
     
-    emailerTransAdm.sendMail(user)
-    emailerTransUser.sendMail(user)
+    emailerTransAdm.sendMail(parametros)
+    emailerTransUser.sendMail(parametros)
     
     }
     catch(error){
