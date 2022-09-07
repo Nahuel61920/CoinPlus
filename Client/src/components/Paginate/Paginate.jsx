@@ -30,7 +30,9 @@ export default function Paginate({
           <p className="text-title pt-1 mx-3">{currentPage - 1}</p>
         )}
         <p className="text-title pt-1 mx-3 text-primary">{currentPage}</p>
-        <p className="text-title pt-1 mx-3">{currentPage + 1}</p>
+        {currentPage + 1 === pageNumbers.length + 1 ? null : (
+          <p className="text-title pt-1 mx-3">{currentPage + 1}</p>
+        )}
         <button
           className={
             currentPage === pageNumbers.length
