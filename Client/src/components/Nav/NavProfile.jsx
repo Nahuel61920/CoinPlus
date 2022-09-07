@@ -47,9 +47,11 @@ function OffcanvasExample({ logo }) {
                     Inicio
                   </Link>
                   <Link to="/user">Perfil</Link>
+                  <Link to="/market">Mercado</Link>
                   <Link to="/wallet">Billetera</Link>
                   <Link to="/movements">Movimientos</Link>
                   <Link to="/operation">Compra-Venta</Link>
+
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
