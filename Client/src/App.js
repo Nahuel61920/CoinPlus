@@ -6,15 +6,15 @@ import PrivateRoutes from "./routes/PrivateRoutes";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import Pagado from "./components/Pagado/Pagado.jsx";
-
-import { useAuth0 } from "@auth0/auth0-react";
 import Equipo from "./components/Equipo/Equipo.jsx";
 
+import RouterScrollTop from "./components/ScrollTop/RouterScrollTop"
+
 function App() {
-  const { isAuthenticated } = useAuth0();
 
   return (
     <Provider store={store}>
+      <RouterScrollTop />
       <Routes>
         <Route exact path="/" element={<LandingPage />} />
         <Route path="/pagado" element={<Pagado />} />
