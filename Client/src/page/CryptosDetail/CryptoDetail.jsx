@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { detailCrypto, cleanState } from "../../redux/reducers/cryptoRed";
 import NavMarket from "../../components/Nav/NavMarket";
 import Footer from "../../components/Footer/Footer";
@@ -51,7 +51,7 @@ function CryptoDetail() {
 
 
   let porcentaje1h =
-    details.price * (details.percent_change_1h / 100) + details.price ;
+    details.price * (details.percent_change_1h / 100) + details.price;
   let porcentaje3h = (details.price * porcentajeCam3h) / 100 + details.price;
   let porcentaje6h = (details.price * porcentajeCam6h) / 100 + details.price;
   let porcentaje12h = (details.price * porcentajeCam12h) / 100 + details.price;
@@ -72,20 +72,20 @@ function CryptoDetail() {
   let porcentaje90d =
     details.price * (details.percent_change_90d / 100) + details.price;
 
-  let precio90d = details.percent_change_90d + "%" ;
-  let precio60d = details.percent_change_60d + "%" ;
-  let precio30d = details.percent_change_30d + "%" ;
-  let precio7d = details.percent_change_7d + "%" ;
-  let precio6d = porcentajeCam6d + "%" ;
-  let precio5d = porcentajeCam5d + "%" ;
-  let precio4d = porcentajeCam4d + "%" ;
-  let precio3d = details.volume_change_24h + "%" ;
-  let precio2d = porcentajeCam2d + "%" ;
-  let precio24h = details.percent_change_24h + "%" ;
-  let precio12h = porcentajeCam12h + "%" ;
-  let precio6h = porcentajeCam6h + "%" ;
-  let precio3h = porcentajeCam3h + "%" ;
-  let precio1h = details.percent_change_1h + "%" ;
+  let precio90d = details.percent_change_90d + "%";
+  let precio60d = details.percent_change_60d + "%";
+  let precio30d = details.percent_change_30d + "%";
+  let precio7d = details.percent_change_7d + "%";
+  let precio6d = porcentajeCam6d + "%";
+  let precio5d = porcentajeCam5d + "%";
+  let precio4d = porcentajeCam4d + "%";
+  let precio3d = details.volume_change_24h + "%";
+  let precio2d = porcentajeCam2d + "%";
+  let precio24h = details.percent_change_24h + "%";
+  let precio12h = porcentajeCam12h + "%";
+  let precio6h = porcentajeCam6h + "%";
+  let precio3h = porcentajeCam3h + "%";
+  let precio1h = details.percent_change_1h + "%";
 
 
   const scores = [
@@ -126,10 +126,10 @@ function CryptoDetail() {
     responsive: true,
     plugins: {
       legend: {
-          display: false
+        display: false
       },
     },
-    scales: { y: { title: { display: true, text: 'USD' }}}
+    scales: { y: { title: { display: true, text: 'USD' } } }
     /* 
     scales: {
       x: {
@@ -182,6 +182,7 @@ function CryptoDetail() {
               <h1>
                 {details.name} <span>{details.symbol}</span>
               </h1>
+              {details.tag_names.filter((tag) => tag === "ethereum-ecosystem").length > 0 ? <Link className="por" to={`/operation`} style={{ textDecoration: 'none' }}><button className="ethereum-ecosystem">Comprar</button></Link> : null}
             </div>
             <div className="col-6">
               <h1 className="fw-bold text-end">

@@ -12,6 +12,7 @@ import {
   Filler,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import "./crypto.css"
 
 ChartJS.register(
   CategoryScale,
@@ -55,7 +56,7 @@ function Cryptos({
   let porcentajeCam90d = percent_change_24h / -.4;
 
   let porcentaje1h =
-    price * (percent_change_1h / 100) + price ;
+    price * (percent_change_1h / 100) + price;
   let porcentaje3h = (price * porcentajeCam3h) / 100 + price;
   let porcentaje6h = (price * porcentajeCam6h) / 100 + price;
   let porcentaje12h = (price * porcentajeCam12h) / 100 + price;
@@ -76,71 +77,71 @@ function Cryptos({
   let porcentaje90d =
     price * (porcentajeCam90d / 100) + price;
 
-    const scores = [
-      porcentaje2d,
-      porcentaje90d,
-      porcentaje60d,
-      porcentaje30d,
-      porcentaje6d,
-      porcentaje5d,
-      porcentaje4d,
-      porcentaje3d,
-      porcentaje7d,
-      porcentaje24h,
-      porcentaje12h,
-      porcentaje6h,
-      porcentaje3h,
-      porcentaje1h,
-    ];
+  const scores = [
+    porcentaje2d,
+    porcentaje90d,
+    porcentaje60d,
+    porcentaje30d,
+    porcentaje6d,
+    porcentaje5d,
+    porcentaje4d,
+    porcentaje3d,
+    porcentaje7d,
+    porcentaje24h,
+    porcentaje12h,
+    porcentaje6h,
+    porcentaje3h,
+    porcentaje1h,
+  ];
 
-    const labels = [
-      porcentajeCam2d + "%",
-      porcentajeCam90d + "%",
-      porcentajeCam60d + "%",
-      porcentajeCam30d + "%",
-      porcentajeCam6d + "%",
-      porcentajeCam5d + "%",
-      porcentajeCam4d + "%",
-      porcentajeCam3d + "%",
-      percent_change_7d + "%",
-      percent_change_24h + "%",
-      porcentajeCam12h + "%",
-      porcentajeCam6h + "%",
-      porcentajeCam3h + "%",
-      percent_change_1h + "%",
-    ];
+  const labels = [
+    porcentajeCam2d + "%",
+    porcentajeCam90d + "%",
+    porcentajeCam60d + "%",
+    porcentajeCam30d + "%",
+    porcentajeCam6d + "%",
+    porcentajeCam5d + "%",
+    porcentajeCam4d + "%",
+    porcentajeCam3d + "%",
+    percent_change_7d + "%",
+    percent_change_24h + "%",
+    porcentajeCam12h + "%",
+    porcentajeCam6h + "%",
+    porcentajeCam3h + "%",
+    percent_change_1h + "%",
+  ];
 
-    const options = {
-      fill: false,
-      responsive: true,
-      plugins: {
-        legend: {
-            display: false
-        },
+  const options = {
+    fill: false,
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false
       },
-      scales: {
-        x: {
-          display: false,
-          
-        },
-        y: {
-          display: false,
-          endOnTick:false
-        }
+    },
+    scales: {
+      x: {
+        display: false,
+
       },
-    };
-  
-    const data = {
-      datasets: [
-        {
-          label: "USD",
-          data: scores,
-          pointRadius: 2,
-          borderColor: price > porcentaje7d ? "rgba(255, 99, 132, 1)" : "rgba(54, 235, 162, 1)",
-        },
-      ],
-      labels,
-    };
+      y: {
+        display: false,
+        endOnTick: false
+      }
+    },
+  };
+
+  const data = {
+    datasets: [
+      {
+        label: "USD",
+        data: scores,
+        pointRadius: 2,
+        borderColor: price > porcentaje7d ? "rgba(255, 99, 132, 1)" : "rgba(54, 235, 162, 1)",
+      },
+    ],
+    labels,
+  };
 
 
   return (
@@ -152,13 +153,13 @@ function Cryptos({
         <img src={logo} alt={name} />
         <Link className="por" to={`/market/${id}`} style={{ textDecoration: 'none' }}>
           <p className="fw-bold px-2">
-            {name} <span>{symbol}</span> 
+            {name} <span>{symbol}</span>
           </p>
         </Link>
-        {tag_names.filter((tag) => tag === "ethereum-ecosystem").length > 0 ? <button className="ethereum-ecosystem">Comprar</button> : null}
+        {tag_names.filter((tag) => tag === "ethereum-ecosystem").length > 0 ? <Link className="por" to={`/operation`} style={{ textDecoration: 'none' }}><button className="ethereum-ecosystem">Comprar</button></Link> : null}
       </div>
       <div className="col-2 col-md-1">
-        <p className="fw-bold">${price.toLocaleString( "en-US" )}</p>
+        <p className="fw-bold">${price.toLocaleString("en-US")}</p>
       </div>
       <div className="col-2 col-md-1">
         {percent_change_1h > 0 ? (
@@ -181,7 +182,7 @@ function Cryptos({
         )}
       </div>
       <div className="col-2 col-md-1">
-      {percent_change_7d > 0 ? (
+        {percent_change_7d > 0 ? (
           <p className="fw-bold text-success">
             {percent_change_7d.toFixed(2)}%
           </p>
@@ -191,11 +192,11 @@ function Cryptos({
       </div>
       <div className="col-2 info-cry-none">
         <p className="fw-bold">
-        ${volume_24h.toLocaleString( "en-US" )}
+          ${volume_24h.toLocaleString("en-US")}
         </p>
       </div>
       <div className="col-2 info-cry-none">
-      <Line data={data} options={options} />
+        <Line data={data} options={options} />
       </div>
     </div>
   );
