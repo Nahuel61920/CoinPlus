@@ -1,20 +1,17 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-import Logo from "../../assets/img/coin+logo.png";
-import UserCard from "../../components/ProfileCard/ProfileCard";
+// import Logo from "../../assets/img/coin+logo.png";
+// import UserCard from "../../components/ProfileCard/ProfileCard";
 // import Wallet from "../../components/boostrap/walletmini";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 import { TransactionContext } from "../../context/TransactionContext";
 import { shortenAddress } from "../../utils/shortenAddress";
-import  axios  from "axios";
-
+import Footer from '../Footer/Footer'
 
 const Input = ({ placeholder, name, type, value, handleChange }) => (
-
-  
   <input
     placeholder={placeholder}
     type={type}
@@ -25,12 +22,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
   />
 );
 
- function  Metamask  () {
-  const { user, isAuthenticated } = useAuth0();
-  const [compra, setCompra] = useState("");
-  const navigate = useNavigate()
-  const [url, setUrl]=useState("")
-
+function Metamask() {
   const {
     currentAccount,
     connectWallet,
@@ -49,50 +41,31 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 
     sendTransaction();
   };
- 
- 
-  async function handleCobrar (e, compra){
-    const dolariki=compra
-    const pay=  await axios.post(`/create-order?dolariki=${dolariki}`)
-                    .then((res)=> {return res.data.links[1].href})
-                    .then((res)=> setUrl(res))
-  }
-   
- 
-  
+
   return (
-    <div className="container-fluid ">
+    <>
+    <div style={{height:'100vh'}} className="container-fluid d-flex justify-content-evenly p-3 ">
+      <div style={{ width: "35rem" }}>
+        <h2 className="border-bottom border-dark mb-5">Conecte su billetera a Metamask</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+          temporibus explicabo veniam facere necessitatibus eveniet. Itaque nisi
+          officiis blanditiis architecto magni possimus eos praesentium cum
+          optio doloribus porro ex facilis dicta deserunt distinctio in
+          consequatur quis labore doloremque similique voluptatum, sapiente
+          soluta maiores quasi? Provident beatae illo repellat dolorum commodi
+          cupiditate numquam sequi! Sit, fugit. Quas impedit corporis odit
+          voluptatum at, consectetur odio itaque, exercitationem molestias neque
+          assumenda enim magnam deleniti expedita maiores quam autem. Delectus
+          labore quisquam quidem architecto unde quibusdam ipsam molestiae
+          nostrum sunt, laboriosam facilis maiores aut placeat explicabo commodi
+          ipsum porro impedit reprehenderit alias corporis sed.
+        </p>
+      </div>
 
-       {/* Aca comienza PAYPAL*/}
-        <div>
-          <div>
-            <p>Ingresa aqui los dolares a pagar:</p>
-            <input
-              type="text"
-              name="crypto"
-              value={compra}
-              className="col-5 m-3 animateanimated animatebounceInLeft animate__delay-1s"
-              onChange={(e) => setCompra(e.target.value)}
-            />
-        </div>
-          <button onClick={(e)=>handleCobrar(e, compra)} >Hacer pedido</button>
-            {
-              url.length ?
-
-              
-              (<a href={url} target="_blank">
-                <button >pagar</button>
-              </a>):(<h1></h1>)
-
-               
-            }
-          
-         
-          
-        </div>
-
-        {/* Aca comienza METAMASK*/}
-        <div className="col-12 col-md-5 d-flex flex-column justify-content-center align-items-center animate__animated animate__backInRight animate__delay-1s">
+     
+        {/* Boton antes de conectar*/}
+        <div className="d-flex flex-column">
           {!currentAccount && (
             <button
               type="button"
@@ -101,80 +74,85 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
             >
               <AiFillPlayCircle className="text-white me-2" />
               <div>
-                <p className="text-white text-center m-auto">Conecte su billetera</p>
+                <p className="text-white text-center m-auto">
+                  Conecte su billetera
+                </p>
               </div>
             </button>
           )}
-          </div>
 
-      <div className="container">
-      {/* <Wallet/> */}
+          {/* <Wallet/> */}
 
-      <div className="d-flex flex-column flex-1 justify-items-center justify-content-start row">
-        <div className="my-3 card-tarj p-3 d-flex justify-items-start flex-column rounded-xl h-40 sm:w-72 col-5">
-          <div className="d-flex justify-between flex-column w-full h-full">
-            <div className="d-flex justify-content-between justify-items-start">
-              <div className="p-2 rounded-full rounded-circle border border-2 border-white d-flex justify-content-center justify-items-center">
-                <SiEthereum fontSize={30} color="#fff" />
-              </div>
-              <BsInfoCircle fontSize={17} color="#fff" />
-            </div>
-            <div className="pt-5">
-              <p className="text-white font-light text-sm">
-                {shortenAddress(currentAccount)}
-              </p>
-              <p className="text-white font-semibold text-lg mt-1">Ethereum</p>
-            </div>
-          </div>
-        </div>
-        <div className="bg-envio p-5 sm:w-96 w-full d-flex flex-column justify-items-start justify-items-center col-5">
-          <Input
-            placeholder="Dirección"
-            name="addressTo"
-            type="text"
-            handleChange={handleChange}
-          />
-          <Input
-            placeholder="Monto (ETH)"
-            name="amount"
-            type="number"
-            handleChange={handleChange}
-          />
-          <Input
-            placeholder="Clave (Gif)"
-            name="keyword"
-            type="text"
-            handleChange={handleChange}
-          />
-          <Input
-            placeholder="Ingrese un mensaje"
-            name="message"
-            type="text"
-            handleChange={handleChange}
-          />
 
-          <div className="h-[1px] w-full bg-gray-400 my-2" />
-
-          {isLoading ? (
-            <h1 className="text-white">Enviando crypto</h1>
-          ) : (
-            <button
-              type="button"
-              onClick={handleSubmit}
-              className="btn-envio w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
+            <div
+            style={{ width: "30em" }}
+              className="my-3 card-tarj p-3 d-flex justify-items-start flex-column rounded-xl h-40 sm:w-72 col-5"
             >
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span> Enviar
-            </button>
-          )}
+              <div className="d-flex justify-between flex-column w-full h-full">
+                <div className="d-flex justify-content-between justify-items-start">
+                  <div className="p-2 rounded-full rounded-circle border border-2 border-white d-flex justify-content-center justify-items-center">
+                    <SiEthereum fontSize={30} color="#fff" />
+                  </div>
+                  <BsInfoCircle fontSize={17} color="#fff" />
+                </div>
+                <div className="pt-5">
+                  <p className="text-white font-light text-sm">
+                    {shortenAddress(currentAccount)}
+                  </p>
+                  <p className="text-white font-semibold text-lg mt-1">
+                    Ethereum
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div style={{ width: "30em" }} className="bg-envio p-5 sm:w-96 w-full d-flex flex-column justify-items-start justify-items-center col-5">
+              <Input
+                placeholder="Dirección"
+                name="addressTo"
+                type="text"
+                handleChange={handleChange}
+              />
+              <Input
+                placeholder="Monto (ETH)"
+                name="amount"
+                type="number"
+                handleChange={handleChange}
+              />
+              <Input
+                placeholder="Clave (Gif)"
+                name="keyword"
+                type="text"
+                handleChange={handleChange}
+              />
+              <Input
+                placeholder="Ingrese un mensaje"
+                name="message"
+                type="text"
+                handleChange={handleChange}
+              />
+
+              <div className="h-[1px] w-full bg-gray-400 my-2" />
+
+              {isLoading ? (
+                <h1 className="text-white">Enviando crypto</h1>
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleSubmit}
+                  className="btn-envio w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
+                >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span> Enviar
+                </button>
+              )}
+            </div>
+         
         </div>
-
-
-      </div>
-      </div>
     </div>
+     <Footer/>
+     </>
   );
 }
 
