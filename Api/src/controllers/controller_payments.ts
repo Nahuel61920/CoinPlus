@@ -73,6 +73,7 @@ export const createOrder = async (req:Request, res:Response) => {
 
 export const captureOrder = async (req:Request, res:Response) => {
     const { token } = req.query;
+    const { usuarios } = req.query;
 
   try {
     const response = await axios.post(
@@ -89,7 +90,7 @@ export const captureOrder = async (req:Request, res:Response) => {
     console.log(response.data);
 
     res.redirect("http://localhost:3000/pagado");
-    emailertrans.sendMail()
+    // emailertrans.sendMail(usuarios?.email)
   } catch (error:any) {
     console.log(error.message);
     return res.status(500).json({ message: "Internal Server error" });
@@ -99,6 +100,6 @@ export const captureOrder = async (req:Request, res:Response) => {
 
 
 export const cancelOrder = (req:Request, res:Response) => {
-    res.redirect("/");
+    res.redirect("/user");
     
 }
