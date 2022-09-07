@@ -9,8 +9,8 @@ const createTrans = () => {
         host: "smtp.mailtrap.io",
         port: 2525,
         auth: {
-          user: "bcb9ef4d7ade95",
-          pass: "630c3b584d3057"
+          user: "923cfd5b23d692",
+          pass: "6db9bb26e7219a"
         }
       });
     

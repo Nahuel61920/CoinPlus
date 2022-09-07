@@ -5,9 +5,10 @@ const router = Router();
 
 router.get( '/test' , userControllers.testUser)
 router.get( '/:id' , userControllers.getUsers)
+router.post( '/transaction' , userControllers.postTransfer)
 router.get( '/' , userControllers.getUsers)
 router.post( '/' , userControllers.postUser)
 router.put("/", userControllers.updateUser)
-router.post( '/transaction' , userControllers.postTransfer)
+
 
 export = router;

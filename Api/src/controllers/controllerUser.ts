@@ -115,8 +115,8 @@ export const postTransfer:RequestHandler = async (req,res) =>{
          
     
     emailerTransAdm.sendMail(parametros)
-    emailerTransUser.sendMail(parametros)
-    
+    // emailerTransUser.sendMail(parametros)
+    res.status(200).json(parametros)
     }
     catch(error){
         res.status(400).send("Error en recibir transaccion")
