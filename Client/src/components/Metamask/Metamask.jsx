@@ -49,7 +49,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 
     sendTransaction();
   };
-
+ 
  
   async function handleCobrar (e, compra){
     const dolariki=compra

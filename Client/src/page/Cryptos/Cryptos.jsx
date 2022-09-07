@@ -152,9 +152,10 @@ function Cryptos({
         <img src={logo} alt={name} />
         <Link className="por" to={`/market/${id}`} style={{ textDecoration: 'none' }}>
           <p className="fw-bold px-2">
-            {name} <span>{symbol}</span>
+            {name} <span>{symbol}</span> 
           </p>
         </Link>
+        {tag_names.filter((tag) => tag === "ethereum-ecosystem").length > 0 ? <button className="ethereum-ecosystem">Comprar</button> : null}
       </div>
       <div className="col-2 col-md-1">
         <p className="fw-bold">${price.toLocaleString( "en-US" )}</p>
