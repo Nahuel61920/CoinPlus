@@ -42,6 +42,9 @@ function Nav() {
             <Link to="Services" spy={true} offset={-150} href="#Services">
               Servicios
             </Link>
+            <Link to="Services" spy={true} offset={-150} href="#Services">
+              Mercado
+            </Link>
             <Link to="About" spy={true} offset={-150} href="#About">
               Nosotros
             </Link>
