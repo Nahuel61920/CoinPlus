@@ -1,6 +1,8 @@
 import React from "react";
 import "./Blocked.css";
 import blockedimg from "../../assets/img/blocked.jpg";
+import { AiOutlineWhatsApp } from "react-icons/ai";
+import {SiGmail} from "react-icons/si";
 
 function Blocked() {
   return (
@@ -19,7 +21,11 @@ function Blocked() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <button>Email</button>
+          <button className="button-wp button-mail">
+            <i class="">
+              <SiGmail className="wp-ico" />
+            </i><span>Gmail</span>
+          </button>
         </a>
         <a
           className="col-3"
@@ -27,7 +33,11 @@ function Blocked() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <button>WhatsApp</button>
+          <button className="button-wp">
+            <i class="">
+              <AiOutlineWhatsApp className="wp-ico" />
+            </i><span>WhatsApp</span>
+          </button>
         </a>
       </div>
     </div>

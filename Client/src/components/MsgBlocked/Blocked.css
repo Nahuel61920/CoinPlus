@@ -5,5 +5,58 @@
 
 .div-btn-block{
     padding-top: 20px;
-    padding-left: 50px;
+    padding-left: 40px;
+    margin: 1rem 0;
+}
+
+
+.button-wp {
+  color: #ffffff;
+  background-color: #2ecc71!important;
+  border: none!important;
+  border-radius: 6px!important;
+  padding: 20px 50px!important;
+  font-size: 10px!important;
+  font-weight: 500!important;
+  line-height: 22px!important;
+  display: flex!important;
+  align-items: center!important;
+    justify-content: flex-start!important;
+    text-align: start!important;
+}
+
+.button-mail{
+    color: #ffffff;
+    background-color: #e41818!important;
+    border: none!important;
+    border-radius: 6px!important;
+    padding: 20px 30px!important;
+    font-size: 10px!important;
+    font-weight: 500!important;
+    line-height: 22px!important;
+    display: flex!important;
+    align-items: center!important;
+        justify-content: flex-start!important;
+        text-align: start!important;
+}
+
+.button-wp span{
+    position: absolute;
+    padding: 0 4rem 0 0!important;
+    margin: 0!important;
+    left: 30px!important;
+}
+
+.button-mail span{
+    left: 40px!important;
+}
+
+.wp-ico{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 5px;
+    top: 10px;
+    padding: 0!important;
+    margin: 0!important;
 }
