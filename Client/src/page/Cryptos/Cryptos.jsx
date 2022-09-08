@@ -14,6 +14,8 @@ import {
 import { Line } from "react-chartjs-2";
 import "./crypto.css";
 
+import { FormattedMessage } from "react-intl";
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -155,7 +157,9 @@ function Cryptos({
             to={`/operation`}
             style={{ textDecoration: "none" }}
           >
-            <button className="ethereum-ecosystem">Comprar</button>
+            <button className="ethereum-ecosystem">
+              <FormattedMessage id="Comprar-cry" defaultMessage="To buy" />
+            </button>
           </Link>
         ) : null}
       </div>

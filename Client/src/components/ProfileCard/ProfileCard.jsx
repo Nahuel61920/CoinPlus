@@ -16,9 +16,8 @@ import {
 import { ImCamera } from "react-icons/im";
 import Blocked from "../MsgBlocked/Blocked";
 import { validation } from "./Validations";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 import { FormattedMessage } from "react-intl";
-
 
 function ProfileCard({ user }) {
   const dispatch = useDispatch();
@@ -104,7 +103,7 @@ function ProfileCard({ user }) {
     };
     dispatch(postComent(crear));
     swal("Your comment has been updated!", "", "success");
-    setComment("")
+    setComment("");
   }
 
   function HandlerEdit() {
@@ -163,10 +162,9 @@ function ProfileCard({ user }) {
               <div className="row">
                 {!usuarios.name || edit === true ? (
                   <Form.Group className="mb-3 col-6" controlId="formBasicName">
-                    <Form.Label><FormattedMessage
-                      id='Nombre'
-                      defaultMessage='Name'
-                    /></Form.Label>
+                    <Form.Label>
+                      <FormattedMessage id="Nombre" defaultMessage="Name" />
+                    </Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="..."
@@ -179,20 +177,21 @@ function ProfileCard({ user }) {
                     <strong>{name ? "" : errors.name}</strong>
                     <br />
                     <strong>
-                      {!regexName.test(name)
-                        ? <FormattedMessage
-                          id='Nombre-error-vali'
-                          defaultMessage='The Name field only accepts letters'
+                      {!regexName.test(name) ? (
+                        <FormattedMessage
+                          id="Nombre-error-vali"
+                          defaultMessage="The Name field only accepts letters"
                         />
-                        : ""}
+                      ) : (
+                        ""
+                      )}
                     </strong>
                   </Form.Group>
                 ) : (
                   <Form.Group className="mb-3 col-6" controlId="formBasiName">
-                    <Form.Label><FormattedMessage
-                      id='Nombre'
-                      defaultMessage='Name'
-                    /></Form.Label>
+                    <Form.Label>
+                      <FormattedMessage id="Nombre" defaultMessage="Name" />
+                    </Form.Label>
                     <Form.Control
                       type="text"
                       placeholder={usuarios.name}
@@ -205,10 +204,12 @@ function ProfileCard({ user }) {
 
                 {!usuarios.lastName || edit === true ? (
                   <Form.Group className="mb-3 col-6" controlId="formBasicName">
-                    <Form.Label><FormattedMessage
-                      id='Apellido'
-                      defaultMessage='Last Name'
-                    /></Form.Label>
+                    <Form.Label>
+                      <FormattedMessage
+                        id="Apellido"
+                        defaultMessage="Last Name"
+                      />
+                    </Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="..."
@@ -221,20 +222,24 @@ function ProfileCard({ user }) {
                     <strong>{lastname ? "" : errors.lastname}</strong>
                     <br />
                     <strong>
-                      {!regexName.test(lastname)
-                        ? <FormattedMessage
-                          id='Apellido-error-vali'
-                          defaultMessage='The Surname field only accepts letters'
+                      {!regexName.test(lastname) ? (
+                        <FormattedMessage
+                          id="Apellido-error-vali"
+                          defaultMessage="The Surname field only accepts letters"
                         />
-                        : ""}
+                      ) : (
+                        ""
+                      )}
                     </strong>
                   </Form.Group>
                 ) : (
                   <Form.Group className="mb-3 col-6" controlId="formBasiName">
-                    <Form.Label><FormattedMessage
-                      id='Apellido'
-                      defaultMessage='Last Name'
-                    /></Form.Label>
+                    <Form.Label>
+                      <FormattedMessage
+                        id="Apellido"
+                        defaultMessage="Last Name"
+                      />
+                    </Form.Label>
                     <Form.Control
                       type="text"
                       placeholder={usuarios.lastName}
@@ -248,10 +253,12 @@ function ProfileCard({ user }) {
 
               <div className="row">
                 <Form.Group className="mb-3 col-6" controlId="formBasicFecha">
-                  <Form.Label><FormattedMessage
-                    id='ingreso'
-                    defaultMessage='Last entry date:'
-                  /></Form.Label>
+                  <Form.Label>
+                    <FormattedMessage
+                      id="ingreso"
+                      defaultMessage="Last entry date:"
+                    />
+                  </Form.Label>
                   <Form.Control
                     placeholder={
                       user.updated_at.slice(0, 10) +
@@ -263,17 +270,19 @@ function ProfileCard({ user }) {
                 </Form.Group>
 
                 <Form.Group className="mb-3 col-6">
-                  <Form.Label><FormattedMessage
-                    id='Logueado'
-                    defaultMessage='Logged in with:'
-                  /></Form.Label>
+                  <Form.Label>
+                    <FormattedMessage
+                      id="Logueado"
+                      defaultMessage="Logged in with:"
+                    />
+                  </Form.Label>
                   <Form.Control
                     placeholder={
                       user.sub.charAt(0) === "a"
                         ? user.sub.charAt(0).toUpperCase() +
-                        user.sub.slice(1, 5)
+                          user.sub.slice(1, 5)
                         : user.sub.charAt(0).toUpperCase() +
-                        user.sub.slice(1, 6)
+                          user.sub.slice(1, 6)
                     }
                     disabled
                   />
@@ -296,12 +305,14 @@ function ProfileCard({ user }) {
                     <strong>{dni ? "" : errors.dni}</strong>
                     <br />
                     <strong>
-                      {!regexDoc.test(dni)
-                        ? <FormattedMessage
-                          id='DNI-error-vali'
-                          defaultMessage='The DNI field only accepts numeric characters with a minimum of 8'
+                      {!regexDoc.test(dni) ? (
+                        <FormattedMessage
+                          id="DNI-error-vali"
+                          defaultMessage="The DNI field only accepts numeric characters with a minimum of 8"
                         />
-                        : ""}
+                      ) : (
+                        ""
+                      )}
                     </strong>
                   </Form.Group>
                 ) : (
@@ -319,10 +330,12 @@ function ProfileCard({ user }) {
 
                 {!usuarios.date || edit === true ? (
                   <Form.Group className="mb-3 col-4" controlId="formBasiDate">
-                    <Form.Label><FormattedMessage
-                      id='Fecha'
-                      defaultMessage='Date of birth'
-                    /></Form.Label>
+                    <Form.Label>
+                      <FormattedMessage
+                        id="Fecha"
+                        defaultMessage="Date of birth"
+                      />
+                    </Form.Label>
                     <Form.Control
                       type="date"
                       placeholder={"Escriba su Fecha"}
@@ -332,10 +345,12 @@ function ProfileCard({ user }) {
                   </Form.Group>
                 ) : (
                   <Form.Group className="mb-3 col-4" controlId="formBasiDate">
-                    <Form.Label><FormattedMessage
-                      id='Fecha'
-                      defaultMessage='Date of birth'
-                    /></Form.Label>
+                    <Form.Label>
+                      <FormattedMessage
+                        id="Fecha"
+                        defaultMessage="Date of birth"
+                      />
+                    </Form.Label>
                     <Form.Control
                       type="date"
                       placeholder={usuarios.date}
@@ -348,10 +363,9 @@ function ProfileCard({ user }) {
 
                 {!usuarios.numberPhone || edit === true ? (
                   <Form.Group className="mb-3 col-4" controlId="formBasiPhone">
-                    <Form.Label><FormattedMessage
-                      id='Telefono'
-                      defaultMessage='Phone'
-                    /></Form.Label>
+                    <Form.Label>
+                      <FormattedMessage id="Telefono" defaultMessage="Phone" />
+                    </Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="..."
@@ -364,20 +378,21 @@ function ProfileCard({ user }) {
                     <strong>{number ? "" : errors.number}</strong>
                     <br />
                     <strong>
-                      {!regexTel.test(number)
-                        ? <FormattedMessage
-                          id='Telefono-error-vali'
-                          defaultMessage='The Contact Number field only accepts numeric characters with a minimum of 10'
+                      {!regexTel.test(number) ? (
+                        <FormattedMessage
+                          id="Telefono-error-vali"
+                          defaultMessage="The Contact Number field only accepts numeric characters with a minimum of 10"
                         />
-                        : ""}
+                      ) : (
+                        ""
+                      )}
                     </strong>
                   </Form.Group>
                 ) : (
                   <Form.Group className="mb-3 col-4" controlId="formBasiPhone">
-                    <Form.Label><FormattedMessage
-                      id='Telefono'
-                      defaultMessage='Phone'
-                    /></Form.Label>
+                    <Form.Label>
+                      <FormattedMessage id="Telefono" defaultMessage="Phone" />
+                    </Form.Label>
                     <Form.Control
                       type="text"
                       placeholder={usuarios.numberPhone}
@@ -395,10 +410,9 @@ function ProfileCard({ user }) {
                     className="mb-3 col-6"
                     controlId="formBasicCountry"
                   >
-                    <Form.Label><FormattedMessage
-                      id='Pais'
-                      defaultMessage='Country'
-                    /></Form.Label>
+                    <Form.Label>
+                      <FormattedMessage id="Pais" defaultMessage="Country" />
+                    </Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="..."
@@ -411,12 +425,14 @@ function ProfileCard({ user }) {
                     <strong>{countryes ? "" : errors.countryes}</strong>
                     <br />
                     <strong>
-                      {!regexName.test(countryes)
-                        ? <FormattedMessage
-                          id='Pais-error-vali'
-                          defaultMessage='The Country field only accepts letters'
+                      {!regexName.test(countryes) ? (
+                        <FormattedMessage
+                          id="Pais-error-vali"
+                          defaultMessage="The Country field only accepts letters"
                         />
-                        : ""}
+                      ) : (
+                        ""
+                      )}
                     </strong>
                   </Form.Group>
                 ) : (
@@ -424,10 +440,9 @@ function ProfileCard({ user }) {
                     className="mb-3 col-6"
                     controlId="formBasicCountry"
                   >
-                    <Form.Label><FormattedMessage
-                      id='Pais'
-                      defaultMessage='Country'
-                    /></Form.Label>
+                    <Form.Label>
+                      <FormattedMessage id="Pais" defaultMessage="Country" />
+                    </Form.Label>
                     <Form.Control
                       type="text"
                       placeholder={usuarios.country}
@@ -440,10 +455,12 @@ function ProfileCard({ user }) {
 
                 {!usuarios.postalCod || edit === true ? (
                   <Form.Group className="mb-3 col-6" controlId="formBasicUser">
-                    <Form.Label><FormattedMessage
-                      id='Postal'
-                      defaultMessage='Postal Code'
-                    /></Form.Label>
+                    <Form.Label>
+                      <FormattedMessage
+                        id="Postal"
+                        defaultMessage="Postal Code"
+                      />
+                    </Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="..."
@@ -456,20 +473,24 @@ function ProfileCard({ user }) {
                     <strong>{codigoPostal ? "" : errors.codigoPostal}</strong>
                     <br />
                     <strong>
-                      {!regexPostal.test(codigoPostal)
-                        ? <FormattedMessage
-                          id='Postal--error-vali'
-                          defaultMessage='The Postal Code field only accepts numeric characters with a minimum of 4'
+                      {!regexPostal.test(codigoPostal) ? (
+                        <FormattedMessage
+                          id="Postal--error-vali"
+                          defaultMessage="The Postal Code field only accepts numeric characters with a minimum of 4"
                         />
-                        : ""}
+                      ) : (
+                        ""
+                      )}
                     </strong>
                   </Form.Group>
                 ) : (
                   <Form.Group className="mb-3 col-6" controlId="formBasicUser">
-                    <Form.Label><FormattedMessage
-                      id='Postal'
-                      defaultMessage='Postal Code'
-                    /></Form.Label>
+                    <Form.Label>
+                      <FormattedMessage
+                        id="Postal"
+                        defaultMessage="Postal Code"
+                      />
+                    </Form.Label>
                     <Form.Control
                       placeholder={usuarios.postalCod}
                       value={usuarios.postalCod}
@@ -481,18 +502,18 @@ function ProfileCard({ user }) {
               </div>
 
               {edit === true &&
-                name &&
-                regexName.test(name) &&
-                lastname &&
-                regexName.test(lastname) &&
-                codigoPostal &&
-                regexPostal.test(codigoPostal) &&
-                dni &&
-                regexDoc.test(dni) &&
-                number &&
-                regexTel.test(number) &&
-                countryes &&
-                regexName.test(countryes) ? (
+              name &&
+              regexName.test(name) &&
+              lastname &&
+              regexName.test(lastname) &&
+              codigoPostal &&
+              regexPostal.test(codigoPostal) &&
+              dni &&
+              regexDoc.test(dni) &&
+              number &&
+              regexTel.test(number) &&
+              countryes &&
+              regexName.test(countryes) ? (
                 <button
                   className="btn-form-save mx-3 mb-3"
                   onClick={(e) => HandlerUpdate(e)}
@@ -502,10 +523,9 @@ function ProfileCard({ user }) {
                       <FaSave />
                     </div>
                   </div>
-                  <span><FormattedMessage
-                    id='btn-form'
-                    defaultMessage='Save'
-                  /></span>
+                  <span>
+                    <FormattedMessage id="btn-form" defaultMessage="Save" />
+                  </span>
                 </button>
               ) : null}
             </Card.Body>
@@ -517,17 +537,21 @@ function ProfileCard({ user }) {
                 background: "var(--bg-nav)",
               }}
             >
-              <h2 className="text-center"><FormattedMessage
-                id='comentario-title'
-                defaultMessage='Leave a comment'
-              /></h2>
+              <h2 className="text-center">
+                <FormattedMessage
+                  id="comentario-title"
+                  defaultMessage="Leave a comment"
+                />
+              </h2>
             </div>
             <form id="algin-form" className="p-3">
               <div className="form-group mb-3">
-                <Form.Label for="message"><FormattedMessage
-                  id='comentario-sub'
-                  defaultMessage='Message'
-                /></Form.Label>
+                <Form.Label for="message">
+                  <FormattedMessage
+                    id="comentario-sub"
+                    defaultMessage="Message"
+                  />
+                </Form.Label>
                 <textarea
                   name="msg"
                   id=""
@@ -594,10 +618,9 @@ function ProfileCard({ user }) {
                     <IoIosSend />
                   </div>
                 </div>
-                <span><FormattedMessage
-                  id='btn-comentario'
-                  defaultMessage='Send'
-                /></span>
+                <span>
+                  <FormattedMessage id="btn-comentario" defaultMessage="Send" />
+                </span>
               </button>
             ) : (
               <button
@@ -609,10 +632,9 @@ function ProfileCard({ user }) {
                     <IoIosSend />
                   </div>
                 </div>
-                <span><FormattedMessage
-                  id='btn-comentario'
-                  defaultMessage='Send'
-                /></span>
+                <span>
+                  <FormattedMessage id="btn-comentario" defaultMessage="Send" />
+                </span>
               </button>
             )}
           </Card>
