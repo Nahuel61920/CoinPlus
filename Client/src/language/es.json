@@ -1,9 +1,15 @@
-{
+﻿{
     "Inicio": "Inicio",
     "Servicios": "Servicios",
     "Nosotros": "Nosotros",
     "Notificaciones": "Notificaciones",
     "Comentarios": "Comentarios",
+	"Equipo": "Nuestro equipo",
+	"Mercado": "Mercado",
+	"Usuario": "Usuario",
+	"Billetera": "Billetera",
+	"Movimiento": "Movimientos",
+	"Comprar": "Compra-Venta",
 
     "site-web": "Páginas web",
     "games": "juegos",
@@ -20,5 +26,127 @@
     "Servicios-card-2-tit": "Comprar",
     "Servicios-card-2-par": "Accede a toda la red de Etherum y otros activos digitales en pocos pasos.",
     "Servicios-card-3-tit": "Vender",
-    "Servicios-card-3-par": "Transforma tus criptos en otras divisas y/o dólares de manera rápida y segura."
+    "Servicios-card-3-par": "Transforma tus criptos en otras divisas y/o dólares de manera rápida y segura.",
+
+    "Quienes-Somos": "Quienes Somos",
+    "Quienes-par": "La forma más simple y segura de comerciar criptomonedas.",
+    "btn-queienes": "Conoce al equipo",
+    
+
+    "notifi-sub": "Siempre informado.",
+	"notifi-title": "Recibe notificaciones",
+	"notifi-par": "Cada vez que realices una transacción recibirás una notificación en tu correo electrónico.",
+
+	"Parte": "Cómo ser parte",
+	"parte-sub": "Paso a paso",
+
+	"parte-card-1": "Crea tu usuario",
+	"parte-card-2": "Confirma tu correo",
+	"parte-card-3": "Conéctate con Paypal y Metamask",
+	"parte-card-4": "Disfrute de los beneficios",
+	
+
+
+	"Nombre": "Nombre",
+	"Nombre-label": "Escriba su Nombre",
+	"Nombre-error": "El campo Nombre es requerido",
+	"Nombre-error-vali": "El campo Nombre solo acepta letras",
+	"Apellido": "Apellido",
+	"Apellido-label": "Escriba su Apellido",
+	"Apellido-error": "El campo Apellido es requerido",
+	"Apellido-error-vali": "El campo Apellido solo acepta letras",
+	"ingreso": "Ultima fecha de ingreso:",
+	"Logueado": "Logueado con:",
+	"DNI-label": "Escribe su DNI",
+	"DNI-error": "El campo DNI es requerido",
+	"DNI-error-vali": "El campo DNI solo acepta caracteres numéricos con un mínimo de 8",
+	"Fecha": "Fecha de nacimiento",
+	"Telefono": "Telefono",
+	"Telefono-error": "El campo Número de contacto es requerido",
+	"Telefono-label": "Escriba su telefono",
+	"Telefono-error-vali": "El campo Número de contacto solo acepta caracteres numéricos con un mínimo de 10",
+	"Pais": "País",
+	"Pais-label": "Escriba su País",
+	"Pais-error": "El campo País es requerido",
+	"Pais-error-vali": "El campo País solo acepta letras",
+	"Postal": "Código Postal",
+	"Postal-error": "El campo Código Postal es requerido",
+	"Postal-label": "Escriba su código postal",
+	"Postal--error-vali": "El campo Código Postal solo acepta caracteres numéricos con un mínimo de 4",
+	
+	"comentario-title": "Deje un comentario",
+	"comentario-sub": "Mensaje",
+
+	"btn-form": "Guardar",
+	"btn-comentario": "Enviar",
+
+	"Mercado-sub": "Precio de las criptomonedas de hoy",
+	"mejores-cry": "Las mejores Criptos",
+	"categoria": "Categoría",
+	"categorías": "Categorías",
+	"plataforma": "Plataforma",
+	"buscar": "Buscar...",
+	
+	"Precio": "Precio",
+	"Volumen": "Volumen",
+	"Ultimo": "Últimos 7 días",
+	"Volumen-24h": "Volumen cada 24h:",
+	"Volumen-cam": "Volumen de cambio cada 24h:",
+	"Cambio-1h": "Cambio 1h:",
+	"Cambio-24h": "Cambio 24h:",
+	"Cambio-7d": "Cambio 7d:",
+	"Cambio-30d": "Cambio 30d:",
+	"Cambio-60d": "Cambio 60d:",
+	"Cambio-90d": "Cambio 90d:",
+
+
+	"Metamask-conect": "Conecte su billetera a Metamask",
+	"Metamask-par-1": "MetaMask es una extensión para el navegador que sirve como wallet de Ethereum. Una vez instalado, permite a los usuarios almacenar Ether, permitiéndoles realizar transacciones a cualquier dirección de Ethereum. También permite acceder a otras blockchain seleccionadas y compatibles.",
+	"Metamask-par-2": "Conéctala en 2 simples pasos:",
+	"Metamask-par-3": "1. Descarga e instala la extensión de Google Chrome o el addon de Firefox, dependiendo de tu navegador.",
+	"Metamask-par-4": "2. Crea tu cuenta si no tienes una y listo!",
+	"Metamask-par-5": "Importante: MetaMask te presentará tu frase de respaldo de 12 palabras. Esto será necesario para recuperar tu wallet si alguna vez olvidas tu contraseña o pierdes el acceso a tu computadora, y debes guardarlo en algún lugar seguro.",
+	
+	"Metamask-btn-conect": "Conecte su billetera",
+	"envia-cry": "Envia cripto a un amigo",
+	"Dirrecion": "Dirección",
+	"Monto": "Monto (ETH)",
+	"GIF": "Clave (GIF)",
+	"SMS": "Ingrese un mensaje",
+	"Enviar": "Enviar", 
+	
+
+	"Ultimas-trans": "Últimas Transacciones",
+	"Desde": "Desde",
+	"Para": "Para",
+	"Cantidad": "Cantidad",
+
+	
+	"Cotiza": "Cotiza",
+	"Elije-cuentas": "Elije tus cuentas",
+	"Trasnfiere": "Transfiere",
+	"Completa": "Completa Transacción",
+	"Bienvenido": "Bienvenido",
+	"Cambio-tipo": "Tipo de cambio hoy",
+	"Compra": "Compra",
+	"Venta": "Venta",
+	"Enviar-dolares": "Enviar Dólares",
+	"Ingrese-monto": "Ingrese monto a convertir",
+	"Recibe-cry": "Recibe Criptomonedas",
+	"Adelante": "Adelante",
+	"Atras": "Atras",
+	"Confirmar": "Confirmar",
+
+	
+	"Elige-cuenta": "Completa los datos de tu operación",
+	"Tu-envias": "Tu envias",
+	"Tu-recibes": "Tu Recibes",
+	"Tipo-utilizado": "Tipo de cambio utilizado",
+	"Desde-donde": "¿Desde donde nos envía tu dinero?",
+	"En-que-Cuenta": "¿En qué cuenta deseas recibir tu dinero?",
+	"trans-ahora": "Transfiere ahora",
+	"Espera": "Tiempo aproximado de espera",
+	"btn-trasn": "Completar transaccion",
+	"Confirmar-trans": "¡Su operación se ha realizado exitosamente!"
+	
 }

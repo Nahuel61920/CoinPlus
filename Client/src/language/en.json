@@ -4,16 +4,145 @@
     "Nosotros": "About",
     "Notificaciones": "Notifications",
     "Comentarios": "Comments",
-
-
-    "site-web": "websites",
-    "games": "games",
-
+	"Equipo": "Our team",
+	"Mercado": "Market",
+	"Usuario": "User",
+	"Billetera": "Wallet",
+	"Movimiento": "Moves",
+	"Comprar": "Buy Sell",
 
     "inicio_sub": "Your route to the future.",
     "inicio_title": "Get closer to the crypto world.",
     "inicio_par": "The simplest and safest way to trade cryptocurrencies.",
 
-    "btn-iniciar": "Login/Sign up"
+    "btn-iniciar": "Login/Sign up",
+    "Servicios-sub": "What can you do on Coin+?",
+    "Servicios-card-1-tit": "Analyze the market",
+    "Servicios-card-1-par": "Learn about the main cryptos, how they work and what moves the market.",
+    "Servicios-card-2-tit": "Buy",
+    "Servicios-card-2-par": "Access the entire Etherum network and other digital assets in a few steps.",
+    "Servicios-card-3-tit": "Sell",
+    "Servicios-card-3-par": "Transform your cryptos into other currencies and/or dollars quickly and safely.",
 
+    "Quienes-Somos": "Who We Are",
+    "Quienes-par": "The simplest and safest way to trade cryptocurrencies.",
+    "btn-queienes": "Meet the team",
+    
+
+    "notifi-sub": "Always informed.",
+	"notifi-title": "Receive notifications",
+	"notifi-par": "Every time you make a transaction you will receive a notification in your email.",
+
+	"Parte": "How to be a part",
+	"parte-sub": "Step by step",
+
+	"parte-card-1": "Create your user",
+	"parte-card-2": "Confirm your email",
+	"parte-card-3": "Connect with Paypal and Metamask",
+	"parte-card-4": "Enjoy the benefits",
+	
+
+
+	"Nombre": "Name",
+	"Nombre-label": "Type your Name",
+	"Nombre-error": "The Name field is required",
+	"Nombre-error-vali": "The Name field only accepts letters",
+	"Apellido": "Last Name",
+	"Apellido-label": "Enter your Surname",
+	"Apellido-error": "Lastname field is required",
+	"Apellido-error-vali": "The Surname field only accepts letters",
+	"ingreso": "Last entry date:",
+	"Logueado": "Logged in with:",
+	"DNI-label": "Write your DNI",
+	"DNI-error": "The DNI field is necessary",
+	"DNI-error-vali": "The DNI field only accepts numeric characters with a minimum of 8",
+	"Fecha": "Date of birth",
+	"Telefono": "Phone",
+	"Telefono-error": "The contact number field is required",
+	"Telefono-label": "Write your phone number",
+	"Telefono-error-vali": "The Contact Number field only accepts numeric characters with a minimum of 10",
+	"Pais": "Country",
+	"Pais-label": "Write your Country",
+	"Pais-error": "The Country field is required",
+	"Pais-error-vali": "The Country field only accepts letters",
+	"Postal": "Postal Code",
+	"Postal-error": "Zip Code field is required",
+	"Postal-label": "Enter your postal code",
+	"Postal--error-vali": "The Postal Code field only accepts numeric characters with a minimum of 4",
+	
+	"comentario-title": "Leave a comment",
+	"comentario-sub": "Message",
+
+	"btn-form": "Save",
+	"btn-comentario": "Send",
+
+	"Mercado-sub": "Cryptocurrency price today",
+	"mejores-cry": "Best Cryptos",
+	"categoria": "Category",
+	"categorías": "Categories",
+	"plataforma": "Platform",
+	"buscar": "Search...",
+	
+	"Precio": "Price",
+	"Volumen": "Volume",
+	"Ultimo": "Last 7 days",
+	"Volumen-24h": "Volume every 24h:",
+	"Volumen-cam": "Change volume every 24h:",
+	"Cambio-1h": "Change 1h:",
+	"Cambio-24h": "Change 24h:",
+	"Cambio-7d": "Shift 7d:",
+	"Cambio-30d": "Shift 30d:",
+	"Cambio-60d": "Shift 60d:",
+	"Cambio-90d": "Shift 90d:",
+
+
+	"Metamask-conect": "Connect your wallet to Metamask",
+	"Metamask-par-1": "MetaMask is a browser extension that serves as an Ethereum wallet. Once installed, it allows users to store Ether, allowing them to transact to any Ethereum address. It also allows access to other selected blockchains. and compatible.",
+	"Metamask-par-2": "Connect it in 2 simple steps:",
+	"Metamask-par-3": "1. Download and install the Google Chrome extension or Firefox addon, depending on your browser.",
+	"Metamask-par-4": "2. Create your account if you don't have one and that's it!",
+	"Metamask-par-5": "Important: MetaMask will complete your 12-word backup phrase for you. This will be necessary to recover your wallet if you ever forget your password or lose access to your computer, and you should store it somewhere safe .",
+	
+	"Metamask-btn-conect": "Connect your wallet",
+	"envia-cry": "Send crypto to a friend",
+	"Dirrecion": "Direction",
+	"Monto": "Amount (ETH)",
+	"GIF": "Key (GIF)",
+	"SMS": "Enter a message",
+	"Enviar": "Send", 
+	
+
+	"Ultimas-trans": "Last Transactions",
+	"Desde": "Since",
+	"Para": "For",
+	"Cantidad": "Quantity",
+
+	
+	"Cotiza": "Quote",
+	"Elije-cuentas": "Choose your accounts",
+	"Trasnfiere": "Transfer",
+	"Completa": "Transaction Complete",
+	"Bienvenido": "Welcome",
+	"Cambio-tipo": "Exchange rate today",
+	"Compra": "Purchase",
+	"Venta": "Sale",
+	"Enviar-dolares": "Send dollars",
+	"Ingrese-monto": "Enter amount to convert",
+	"Recibe-cry": "Receive Cryptocurrencies",
+	"Adelante": "Go",
+	"Atras": "Back",
+	"Confirmar": "Confirm",
+
+	
+	"Elige-cuenta": "Complete the details of your operation",
+	"Tu-envias": "You send",
+	"Tu-recibes": "You receive",
+	"Tipo-utilizado": "Exchange rate used",
+	"Desde-donde": "From where do you send us your money?",
+	"En-que-Cuenta": "In which account do you want to receive your money?",
+	"trans-ahora": "Transfer Now",
+	"Espera": "Approximate waiting time",
+	"btn-trasn": "Complete transaction",
+	"Confirmar-trans": "Your operation was successful!"
+	
 }

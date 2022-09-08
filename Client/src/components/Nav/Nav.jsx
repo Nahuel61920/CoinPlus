@@ -18,11 +18,11 @@ function Nav() {
   const idioma = useContext(langContext);
 
   return (
-    <nav class="navbar navbar-expand-md navbar-dark bg-warning px-md-5 px-1 sticky-top">
-      <div class="container-fluid w-100 ">
+    <nav className="navbar navbar-expand-md navbar-dark bg-warning px-md-5 px-1 sticky-top">
+      <div className="container-fluid w-100 ">
 
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -30,7 +30,7 @@ function Nav() {
           aria-expanded="false"
           aria-label="toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
         <NavLink to="/">
           <div className="navbar-imge" width="150">
@@ -38,8 +38,8 @@ function Nav() {
           </div>
         </NavLink>
         <div className="user-nav d-flex align-items-center gap-2"><DarkMode />{isAuthenticated ? <Profile /> : <LoginButton />}</div>
-        <div class="collapse navbar-collapse collapse-imge" id="navbarSupportedContent">
-          <div class="nav navbar-nav ms-auto ">
+        <div className="collapse navbar-collapse collapse-imge" id="navbarSupportedContent">
+          <div className="nav navbar-nav ms-auto ">
             <Link to="Home" spy={true} offset={-150} href="#Home">
               <FormattedMessage
                 id='Inicio'
