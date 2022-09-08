@@ -44,7 +44,7 @@ export default function Stepper() {
   return (
     <div className="bg-global">
       <NavBar />
-      <div style={{height:'100vh'}} className=" container">
+      <div className=" container">
         <div className="d-flex justify-content-center p-5">
           <StepsDisplay steps={steps} currentStep={currentStep} />
         </div>

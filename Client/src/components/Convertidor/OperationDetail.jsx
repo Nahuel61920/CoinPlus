@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { modifyTransaction } from "../../redux/reducers/cryptoRed";
+import { FormattedMessage } from "react-intl";
 
 function OperationDetail() {
   const { transactions } = useSelector((state) => state.crypto);
@@ -46,32 +47,45 @@ function OperationDetail() {
         <div className="card-1 ">
           <div className="card-body">
             <h4 className="card-title text-center mb-2">
-              Completa los datos de tu operación
+              <FormattedMessage
+                id='Elige-cuenta'
+                defaultMessage='Complete the details of your operation'
+              />
             </h4>
             {/* Primera seccion */}
             <div className="container text-center">
               <div className="row ">
                 <div className="col">
-                  <p>Tu envias</p>
-                  <p>Tu Recibes</p>
+                  <p><FormattedMessage
+                    id='Tu-envias'
+                    defaultMessage='You send'
+                  /></p>
+                  <p><FormattedMessage
+                    id='Tu-recibes'
+                    defaultMessage='You receive'
+                  /></p>
                 </div>
                 <div className="col ">
-                  <p>{`${
-                    transactions.kindOfOperation ? "$" : transactions.symbol
-                  } ${transactions.amountToSend}`}</p>
-                  <p>{`${
-                    transactions.kindOfOperation ? transactions.symbol : "$"
-                  } ${transactions.amountToReceive}`}</p>
+                  <p>{`${transactions.kindOfOperation ? "$" : transactions.symbol
+                    } ${transactions.amountToSend}`}</p>
+                  <p>{`${transactions.kindOfOperation ? transactions.symbol : "$"
+                    } ${transactions.amountToReceive}`}</p>
                 </div>
               </div>
               <div className="row mt-3 border-bottom">
-                <p>{`Tipo de cambio utilizado $ ${transactions.rateExchange}`}</p>
+                <p><FormattedMessage
+                  id='Tipo-utilizado'
+                  defaultMessage='Exchange rate used'
+                />$ {transactions.rateExchange}</p>
               </div>
             </div>
             {/* Segunda seccion */}
             <div className="container text-center">
               <div className="row">
-                <p>¿Desde donde nos envía tu dinero?</p>
+                <p><FormattedMessage
+                  id='Desde-donde'
+                  defaultMessage='From where do you send us your money?'
+                /></p>
                 {transactions.kindOfOperation ? (
                   <select name="select" id="">
                     <option value="">Paypal</option>
@@ -90,7 +104,10 @@ function OperationDetail() {
                 )}
               </div>
               <div className="row">
-                <p>¿En qué cuenta deseas recibir tu dinero?</p>
+                <p><FormattedMessage
+                  id='En-que-Cuenta'
+                  defaultMessage='In which account do you want to receive your money?'
+                /></p>
                 {!transactions.kindOfOperation ? (
                   <select name="select" id="">
                     <option value="">Paypal</option>

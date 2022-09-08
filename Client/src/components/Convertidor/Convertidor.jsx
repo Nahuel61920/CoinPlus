@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCrypto, modifyTransaction } from "../../redux/reducers/cryptoRed";
 import { getCryptoPrice } from "../../redux/reducers/cryptoRed";
 import reverseLogo from "../../assets/img/reverse-logo.png";
+import { FormattedMessage } from "react-intl";
 
 export default function Convertidor() {
   const dispatch = useDispatch();
@@ -45,15 +46,15 @@ export default function Convertidor() {
       kindOfOperation: currentKindOfExchange,
       rateExchange: currentKindOfExchange
         ? Math.round(
-            cryptoPrice[0].price *
-              (1 - factorExchange) *
-              Math.pow(10, numberOfDecimals)
-          ) / Math.pow(10, numberOfDecimals)
+          cryptoPrice[0].price *
+          (1 - factorExchange) *
+          Math.pow(10, numberOfDecimals)
+        ) / Math.pow(10, numberOfDecimals)
         : Math.round(
-            cryptoPrice[0].price *
-              (1 + factorExchange) *
-              Math.pow(10, numberOfDecimals)
-          ) / Math.pow(10, numberOfDecimals),
+          cryptoPrice[0].price *
+          (1 + factorExchange) *
+          Math.pow(10, numberOfDecimals)
+        ) / Math.pow(10, numberOfDecimals),
       [e.target.name === "amountToSend" ? "amountToSend" : "amountToReceive"]:
         Number(e.target.value),
       [e.target.name === "amountToSend" ? "amountToReceive" : "amountToSend"]:
@@ -80,15 +81,15 @@ export default function Convertidor() {
         return (
           Math.round(
             (amount / (cryptoPrice[0].price * (1 - factorExchange))) *
-              Math.pow(10, numberOfDecimals)
+            Math.pow(10, numberOfDecimals)
           ) / Math.pow(10, numberOfDecimals)
         );
       } else {
         return (
           Math.round(
             amount *
-              (cryptoPrice[0].price * (1 - factorExchange)) *
-              Math.pow(10, 2)
+            (cryptoPrice[0].price * (1 - factorExchange)) *
+            Math.pow(10, 2)
           ) / Math.pow(10, 2)
         );
       }
@@ -97,8 +98,8 @@ export default function Convertidor() {
         return (
           Math.round(
             amount *
-              (cryptoPrice[0].price * (1 + factorExchange)) *
-              Math.pow(10, 2)
+            (cryptoPrice[0].price * (1 + factorExchange)) *
+            Math.pow(10, 2)
           ) / Math.pow(10, 2)
         );
       } else {
@@ -106,7 +107,7 @@ export default function Convertidor() {
         return (
           Math.round(
             (amount / (cryptoPrice[0].price * (1 + factorExchange))) *
-              Math.pow(10, numberOfDecimals)
+            Math.pow(10, numberOfDecimals)
           ) / Math.pow(10, numberOfDecimals)
         );
       }
@@ -152,10 +153,16 @@ export default function Convertidor() {
       <div className="">
         <div className="card-1 ">
           <div className="card-body">
-            <h1 className="card-title text-center mb-2">{`Bienvenido ${
-              usuarios.name ? usuarios.name : "a Coin+"
-            }`}</h1>
-            <h5 className="text-center border-bottom">Tipo de cambio hoy</h5>
+            <h1 className="card-title text-center mb-2"><FormattedMessage
+              id='Bienvenido'
+              defaultMessage='Welcome'
+            /> {
+                usuarios.name ? usuarios.name : "a Coin+"
+              }</h1>
+            <h5 className="text-center border-bottom"><FormattedMessage
+              id='Cambio-tipo'
+              defaultMessage='Exchange rate today'
+            /> </h5>
             <div className="d-flex justify-content-center">
               <select
                 defaultValue="Category"
@@ -167,7 +174,10 @@ export default function Convertidor() {
                 value={currentCrypto}
               >
                 <option className="text-center" value="All">
-                  Seleccione su Criptomoneda
+                  <FormattedMessage
+                    id='Select-cry'
+                    defaultMessage='Select your cryptocurrency'
+                  />
                 </option>
                 {ethereumEcosystem.map((c) => (
                   <option value={c.name}>{c.name}</option>
@@ -177,32 +187,38 @@ export default function Convertidor() {
             <div className="container border-bottom">
               <div className="row">
                 <div className="col">
-                  <h6 className="text-center">Compra</h6>
+                  <h6 className="text-center"><FormattedMessage
+                    id='Compra'
+                    defaultMessage='Purchase'
+                  /></h6>
                   {cryptoPrice.length > 0 ? (
                     <p className="text-center">
                       {"$" +
                         Math.round(
                           cryptoPrice[0].price *
-                            (1 - factorExchange) *
-                            Math.pow(10, numberOfDecimals)
+                          (1 - factorExchange) *
+                          Math.pow(10, numberOfDecimals)
                         ) /
-                          Math.pow(10, numberOfDecimals)}
+                        Math.pow(10, numberOfDecimals)}
                     </p>
                   ) : (
                     <p>-</p>
                   )}
                 </div>
                 <div className="col">
-                  <h6 className="text-center">Venta</h6>
+                  <h6 className="text-center"><FormattedMessage
+                    id='Venta'
+                    defaultMessage='Sale'
+                  /></h6>
                   {cryptoPrice.length > 0 ? (
                     <p className="text-center">
                       {"$" +
                         Math.round(
                           cryptoPrice[0].price *
-                            (1 + factorExchange) *
-                            Math.pow(10, numberOfDecimals)
+                          (1 + factorExchange) *
+                          Math.pow(10, numberOfDecimals)
                         ) /
-                          Math.pow(10, numberOfDecimals)}
+                        Math.pow(10, numberOfDecimals)}
                     </p>
                   ) : (
                     <p>-</p>
@@ -214,7 +230,10 @@ export default function Convertidor() {
               <div className="container">
                 <div className="row">
                   <h6 className="text-center">
-                    Enviar {currentKindOfExchange ? "Dólares" : "Criptomonedas"}
+                    <FormattedMessage
+                      id='Enviar'
+                      defaultMessage='Send'
+                    /> {currentKindOfExchange ? "Dólares" : "Criptomonedas"}
                   </h6>
                   <div className=" d-flex justify-content-center">
                     {currentKindOfExchange ? (
@@ -258,7 +277,10 @@ export default function Convertidor() {
 
                 <div className="row">
                   <h6 className="text-center">
-                    Recibe {currentKindOfExchange ? "Criptomonedas" : "Dólares"}{" "}
+                    <FormattedMessage
+                      id='Recibe-cry'
+                      defaultMessage='Receive'
+                    /> {currentKindOfExchange ? "Criptomonedas" : "Dólares"}{" "}
                   </h6>
                   <div className="container d-flex justify-content-center">
                     {currentKindOfExchange ? (

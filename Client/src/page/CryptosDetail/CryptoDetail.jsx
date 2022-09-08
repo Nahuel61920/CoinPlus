@@ -377,7 +377,7 @@ function CryptoDetail() {
             </div>
             <Line data={data} options={options} />
             <h2 className="text-center m-4"><FormattedMessage
-              id='Categories'
+              id='categorías'
               defaultMessage='Categories'
             /></h2>
             <div className="d-flex align-items-center justify-content-center flex-wrap mb-2">

@@ -6,6 +6,8 @@ import { TransactionContext } from "../../context/TransactionContext";
 import axios from "axios";
 import { sendTransactionDetail } from "../../redux/reducers/cryptoRed";
 import Timer from "./Timer";
+import { FormattedMessage } from "react-intl";
+
 
 export default function Transference() {
   const { transactions } = useSelector((state) => state.crypto);
@@ -90,9 +92,11 @@ export default function Transference() {
     >
       <div className="card">
         <div className="card-body d-flex flex-column justify-content-evenly">
-          <h4 className="card-title text-center">{`Transfiere ahora ${
-            transactions.kindOfOperation ? "$" : transactions.symbol
-          } ${transactions.amountToSend} a Coin+`}</h4>
+          <h4 className="card-title text-center"><FormattedMessage
+            id='trans-ahora'
+            defaultMessage='Transfer Now'
+          />{`${transactions.kindOfOperation ? "$" : transactions.symbol
+            } ${transactions.amountToSend} a Coin+`}</h4>
           {transactions.kindOfOperation ? (
             <>
               <div className="d-flex justify-content-center p-5">
@@ -107,7 +111,10 @@ export default function Transference() {
                       type="button"
                       className="btn-primary"
                     >
-                      Completar transaccion
+                      <FormattedMessage
+                        id='btn-trasn'
+                        defaultMessage='Complete transaction'
+                      />
                     </button>
                   </a>
                 ) : (
@@ -135,7 +142,10 @@ export default function Transference() {
                   type="button"
                   className="btn-primary"
                 >
-                  Completar transaccion
+                  <FormattedMessage
+                    id='btn-trasn'
+                    defaultMessage='Complete transaction'
+                  />
                 </button>
               </div>
               <div className="container text-center">
@@ -150,7 +160,10 @@ export default function Transference() {
           )}
 
           <div className="container text-center">
-            <p>Tiempo aproximado de espera</p>
+            <p><FormattedMessage
+              id='Espera'
+              defaultMessage='Approximate waiting time'
+            /></p>
             <Timer />
           </div>
         </div>
