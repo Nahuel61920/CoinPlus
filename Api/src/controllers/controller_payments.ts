@@ -23,8 +23,8 @@ export const createOrder = async (req:Request, res:Response) => {
             brand_name: "CoinPlus",
             landing_page: "NO_PREFERENCE",
             user_action: "PAY_NOW",
-            return_url: `http://localhost:3001/capture-order`,
-            cancel_url: `http://localhost:3001/cancel-order`,
+            return_url: `https://coinplus-backend.herokuapp.com/capture-order`,
+            cancel_url: `https://coinplus-backend.herokuapp.com/cancel-order`,
           },
         };
 
@@ -88,7 +88,7 @@ export const captureOrder = async (req:Request, res:Response) => {
 
     console.log(response.data);
 
-    res.redirect("http://localhost:3000/pagado");
+    res.redirect("https://coin-plus.vercel.app/pagado");
    
   } catch (error:any) {
     console.log(error.message);
