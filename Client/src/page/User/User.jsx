@@ -6,7 +6,7 @@ import NavProfile from "../../components/Nav/NavProfile";
 import UserCard from "../../components/ProfileCard/ProfileCard";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, createUser } from "../../redux/reducers/cryptoRed";
-import Footer from "../../components/Footer/Footer";
+
 
 function User() {
   const { user } = useAuth0();
@@ -28,18 +28,18 @@ function User() {
   }, [dispatch, user.email]);
 
   return (
+<<<<<<< HEAD
     <>
       <div >
         <div className="bg-global">
+=======
+      <div>
+>>>>>>> 7f853c0690b1610c2584506bcadf3509de561026
           {usuarios.blocked === true ? null : <NavProfile logo={Logo} />}
-          <div id="User" className="row justify-content-center p-2">
+          <div id="User" className="row justify-content-center">
             <UserCard user={user} className="col-12" />
           </div>
         </div>
-      </div>
-
-      <Footer />
-    </>
   );
 }
 
