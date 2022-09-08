@@ -1,0 +1,24 @@
+{
+    "Inicio": "Inicio",
+    "Servicios": "Servicios",
+    "Nosotros": "Nosotros",
+    "Notificaciones": "Notificaciones",
+    "Comentarios": "Comentarios",
+
+    "site-web": "Páginas web",
+    "games": "juegos",
+
+
+    "inicio_sub": "Tu ruta hacia el futuro.",
+    "inicio_title": "Acércate al mundo cripto.",
+    "inicio_par": "La forma más simple y segura de comerciar criptomonedas.",
+
+    "btn-iniciar": "Entrar/Registro",
+    "Servicios-sub": "¿Qué puedes hacer en Coin+?",
+    "Servicios-card-1-tit": "Analiza el mercado",
+    "Servicios-card-1-par": "Conoce las principales criptos, cómo funcionan y qué mueve el mercado.",
+    "Servicios-card-2-tit": "Comprar",
+    "Servicios-card-2-par": "Accede a toda la red de Etherum y otros activos digitales en pocos pasos.",
+    "Servicios-card-3-tit": "Vender",
+    "Servicios-card-3-par": "Transforma tus criptos en otras divisas y/o dólares de manera rápida y segura."
+}
