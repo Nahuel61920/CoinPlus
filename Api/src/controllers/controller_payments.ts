@@ -1,7 +1,7 @@
 import {Request, Response} from "express"
 import axios from "axios";
 require("dotenv").config();
-const {PAYPAL_API, PAYPAL_CLIENT, PAYPAL_SECRET, HOST2} = process.env 
+const { PAYPAL_CLIENT, PAYPAL_SECRET, HOST2} = process.env 
 
 
 export const createOrder = async (req:Request, res:Response) => {
@@ -23,8 +23,8 @@ export const createOrder = async (req:Request, res:Response) => {
             brand_name: "CoinPlus",
             landing_page: "NO_PREFERENCE",
             user_action: "PAY_NOW",
-            return_url: `${HOST2}/capture-order`,
-            cancel_url: `${HOST2}/cancel-order`,
+            return_url: `http://localhost:3001/capture-order`,
+            cancel_url: `http://localhost:3001/cancel-order`,
           },
         };
 
@@ -49,7 +49,7 @@ export const createOrder = async (req:Request, res:Response) => {
     );
         console.log(access_token)
 
-     const response = await axios.post(`${PAYPAL_API}/v2/checkout/orders`, order, {
+     const response = await axios.post("https://api-m.sandbox.paypal.com/v2/checkout/orders", order, {
             headers: {
                 Authorization: `Bearer ${access_token}`,
                 // Authorization: `Bearer A21AAJagUs1imx554lpd2G8qZ90mw92sMV-6p9aHYNQJzJyS2y6HVCtewFzclvMIqmduuBWk5ysBQklmB6NYOex91fNpnKbog `
@@ -76,7 +76,7 @@ export const captureOrder = async (req:Request, res:Response) => {
 
   try {
     const response = await axios.post(
-      `${PAYPAL_API}/v2/checkout/orders/${token}/capture`,
+      `https://api-m.sandbox.paypal.com/v2/checkout/orders/${token}/capture`,
       {},
       {
         auth: {
