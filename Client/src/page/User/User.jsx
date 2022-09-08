@@ -28,18 +28,12 @@ function User() {
   }, [dispatch, user.email]);
 
   return (
-<<<<<<< HEAD
-    <>
-      <div >
-        <div className="bg-global">
-=======
-      <div>
->>>>>>> 7f853c0690b1610c2584506bcadf3509de561026
-          {usuarios.blocked === true ? null : <NavProfile logo={Logo} />}
-          <div id="User" className="row justify-content-center">
-            <UserCard user={user} className="col-12" />
-          </div>
-        </div>
+    <div>
+      {usuarios.blocked === true ? null : <NavProfile logo={Logo} />}
+      <div id="User" className="row justify-content-center">
+        <UserCard user={user} className="col-12" />
+      </div>
+    </div>
   );
 }
 
