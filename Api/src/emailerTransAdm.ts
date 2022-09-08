@@ -29,22 +29,21 @@ const sendTransAdm = async (user:any)=> {
     to: "coinplusapp@gmail.com", 
     // en caso de ser mas de un mail ['mail1@mail.com',' mail2@mail.com']
     subject: `Transacción en Coin+ de ${user.name}`, // Asunto
-    text: `${
-              user.amountToReceive,
-              user.amountToSend,
-              user.cryptoSelected,
-              user.metamaskAccount,
-              user.rateExchange,
-              user.currentUser,
-              user.name
-
-            }
+    text: `
+          - monto a entregar:  ${user.amountToReceive}
+          - Crypto seleccionada:  ${user.cryptoSelected}
+          - monto se recibira:  ${user.amountToSend}
+          - Crypto seleccionada:  ${user.cryptoSelected}
+          - Uuario de metamask:  ${user.metamaskAccount}
+          - Tasa congelada:  ${user.rateExchange}
+          - email:  ${user.currentUser}
+          - usuario:  ${user.name}
           
-          `, // si enviamos un texto plano
+          - "procesar transaccion"`, // si enviamos un texto plano
     html: "", // si enviamos un html como template
     });
 
-    console.log ("Mensaje enviado:", info.messageId?info.messageId:"Se envio con sendgrid")
+    console.log ("Mensaje enviado:", info.messageId?info.messageId:"Se envio con sendgrid", user)
     return
 }
 

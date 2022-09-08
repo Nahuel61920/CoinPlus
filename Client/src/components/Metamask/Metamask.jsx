@@ -1,15 +1,10 @@
-import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
-// import Logo from "../../assets/img/coin+logo.png";
-// import UserCard from "../../components/ProfileCard/ProfileCard";
-// import Wallet from "../../components/boostrap/walletmini";
+import React, { useContext } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 import { TransactionContext } from "../../context/TransactionContext";
 import { shortenAddress } from "../../utils/shortenAddress";
-import Footer from '../Footer/Footer'
+import Footer from "../Footer/Footer";
 
 const Input = ({ placeholder, name, type, value, handleChange }) => (
   <input
@@ -44,24 +39,37 @@ function Metamask() {
 
   return (
     <>
-    <div style={{height:'100vh'}} className="container-fluid d-flex justify-content-evenly p-3 ">
-      <div style={{ width: "35rem" }}>
-        <h2 className="border-bottom border-dark mb-5">Conecte su billetera a Metamask</h2>
-        <p>
-        MetaMask es una extensión para el navegador que sirve como wallet de Ethereum.
-        Una vez instalado, permite a los usuarios almacenar Ether, permitiéndoles realizar transacciones a cualquier dirección de Ethereum.
-        También permite acceder a otras blockchain seleccionadas y compatibles. </p>
-       
-        <p>Conéctala en 2 simples pasos:</p>
-        <p>1. Descarga e instala la extensión de Google Chrome o el addon de Firefox, dependiendo de tu navegador.</p>
-        <p>2. Crea tu cuenta si no tienes una y listo!</p>
-        
-        <p>
-        Importante: MetaMask te presentará  tu frase de respaldo de 12 palabras. Esto será necesario para recuperar tu wallet si alguna vez olvidas tu contraseña o pierdes el acceso a tu computadora, y debes guardarlo en algún lugar seguro.
-        </p>
-      </div>
+      <div
+        style={{ height: "100vh" }}
+        className="container-fluid d-flex justify-content-evenly p-3 "
+      >
+        <div style={{ width: "35rem" }}>
+          <h2 className="border-bottom border-dark mb-5">
+            Conecte su billetera a Metamask
+          </h2>
+          <p>
+            MetaMask es una extensión para el navegador que sirve como wallet de
+            Ethereum. Una vez instalado, permite a los usuarios almacenar Ether,
+            permitiéndoles realizar transacciones a cualquier dirección de
+            Ethereum. También permite acceder a otras blockchain seleccionadas y
+            compatibles.{" "}
+          </p>
 
-     
+          <p>Conéctala en 2 simples pasos:</p>
+          <p>
+            1. Descarga e instala la extensión de Google Chrome o el addon de
+            Firefox, dependiendo de tu navegador.
+          </p>
+          <p>2. Crea tu cuenta si no tienes una y listo!</p>
+
+          <p>
+            Importante: MetaMask te presentará tu frase de respaldo de 12
+            palabras. Esto será necesario para recuperar tu wallet si alguna vez
+            olvidas tu contraseña o pierdes el acceso a tu computadora, y debes
+            guardarlo en algún lugar seguro.
+          </p>
+        </div>
+
         {/* Boton antes de conectar*/}
         <div className="d-flex flex-column">
           {!currentAccount && (
@@ -81,79 +89,80 @@ function Metamask() {
 
           {/* <Wallet/> */}
 
-
-            <div
+          <div
             style={{ width: "30em" }}
-              className="my-3 card-tarj p-3 d-flex justify-items-start flex-column rounded-xl h-40 sm:w-72 col-5"
-            >
-              <div className="d-flex justify-between flex-column w-full h-full">
-                <div className="d-flex justify-content-between justify-items-start">
-                  <div className="p-2 rounded-full rounded-circle border border-2 border-white d-flex justify-content-center justify-items-center">
-                    <SiEthereum fontSize={30} color="#fff" />
-                  </div>
-                  <BsInfoCircle fontSize={17} color="#fff" />
+            className="my-3 card-tarj p-3 d-flex justify-items-start flex-column rounded-xl h-40 sm:w-72 col-5"
+          >
+            <div className="d-flex justify-between flex-column w-full h-full">
+              <div className="d-flex justify-content-between justify-items-start">
+                <div className="p-2 rounded-full rounded-circle border border-2 border-white d-flex justify-content-center justify-items-center">
+                  <SiEthereum fontSize={30} color="#fff" />
                 </div>
-                <div className="pt-5">
-                  <p className="text-white font-light text-sm">
-                    {shortenAddress(currentAccount)}
-                  </p>
-                  <p className="text-white font-semibold text-lg mt-1">
-                    Ethereum
-                  </p>
-                </div>
+                <BsInfoCircle fontSize={17} color="#fff" />
+              </div>
+              <div className="pt-5">
+                <p className="text-white font-light text-sm">
+                  {shortenAddress(currentAccount)}
+                </p>
+                <p className="text-white font-semibold text-lg mt-1">
+                  Ethereum
+                </p>
               </div>
             </div>
-            <div style={{ width: "30em" }} className="bg-envio p-5 sm:w-96 w-full d-flex flex-column justify-items-start justify-items-center col-5">
+          </div>
+          <div
+            style={{ width: "30em" }}
+            className="bg-envio p-5 sm:w-96 w-full d-flex flex-column justify-items-start justify-items-center col-5"
+          >
             <p className="text-black text-center m-auto">
-                  Envia cripto a un amigo
-                </p>
-              <Input
-                placeholder="Dirección"
-                name="addressTo"
-                type="text"
-                handleChange={handleChange}
-              />
-              <Input
-                placeholder="Monto (ETH)"
-                name="amount"
-                type="number"
-                handleChange={handleChange}
-              />
-              <Input
-                placeholder="Clave (Gif)"
-                name="keyword"
-                type="text"
-                handleChange={handleChange}
-              />
-              <Input
-                placeholder="Ingrese un mensaje"
-                name="message"
-                type="text"
-                handleChange={handleChange}
-              />
+              Envia cripto a un amigo
+            </p>
+            <Input
+              placeholder="Dirección"
+              name="addressTo"
+              type="text"
+              handleChange={handleChange}
+            />
+            <Input
+              placeholder="Monto (ETH)"
+              name="amount"
+              type="number"
+              handleChange={handleChange}
+            />
+            <Input
+              placeholder="Clave (Gif)"
+              name="keyword"
+              type="text"
+              handleChange={handleChange}
+            />
+            <Input
+              placeholder="Ingrese un mensaje"
+              name="message"
+              type="text"
+              handleChange={handleChange}
+            />
 
-              <div className="h-[1px] w-full bg-gray-400 my-2" />
+            <div className="h-[1px] w-full bg-gray-400 my-2" />
 
-              {isLoading ? (
-                <h1 className="text-white">Enviando crypto</h1>
-              ) : (
-                <button
-                  type="button"
-                  onClick={handleSubmit}
-                  className="btn-envio w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
-                >
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span> Enviar
-                </button>
-              )}
-            </div>
-         
+            {isLoading ? (
+              <h1 className="text-white">Enviando crypto</h1>
+            ) : (
+              <button
+                type="button"
+                onClick={handleSubmit}
+                className="btn-envio w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
+              >
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span> Enviar
+              </button>
+            )}
+          </div>
         </div>
-    </div>
-     <Footer/>
-     </>
+      </div>
+      <Footer />
+    </>
   );
 }
 

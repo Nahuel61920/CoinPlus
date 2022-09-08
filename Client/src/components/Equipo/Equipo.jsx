@@ -2,13 +2,14 @@ import React from 'react'
 import CardEquipo from './CardEquipo' 
 
 import "./equipo.css"
-import fotoprueba from "../../assets/img/progdem.jpg"
-import fotoprueba2 from "../../assets/img/backdev.jpg"
+
 import elara from "../../assets/img/equipoLara.jpg"
 import etomy from "../../assets/img/equipoTomy.jpg"
 import enahuel from "../../assets/img/equipoNahuel.jpg"
 import epj from "../../assets/img/equipoPj.jpg"
 import emati from "../../assets/img/equipoMati.jpg"
+import etefi from "../../assets/img/equipoTefy.jpg"
+import eAnthony from "../../assets/img/equipoAnthony.jpg"
 
 const miembros = [
     {
@@ -54,7 +55,7 @@ const miembros = [
     {
         id: 5,
         nombre: "Stefania Peralta",
-        imagen: fotoprueba2,
+        imagen: etefi,
         linkedin: "stefania-peralta",
         linkedinlink: "https://www.linkedin.com/in/stefania-peralta-353bba247/",
         github: "StefaniaLP",
@@ -64,7 +65,7 @@ const miembros = [
     {
         id: 6,
         nombre: "Anthony Perez",
-        imagen: fotoprueba,
+        imagen: eAnthony,
         linkedin: "anthony-p",
         linkedinlink: "https://www.linkedin.com/in/anthony-p-53962163/",
         github: "Anthony29p",
@@ -87,8 +88,11 @@ const miembros = [
 export default function Equipo() {
   return (
     <div className="general">
-        <h3 className="titulo text-white text-center">El Equipo de Coin+</h3>
-        
+        <div className="contit">
+        <div className="bortit">
+        <h3 className="titulo text-center">El Equipo de Coin+</h3>
+        </div>
+        </div>
         <div className="container">
             <div className="row gridp">
                 
@@ -105,6 +109,9 @@ export default function Equipo() {
                     </div>
                 ))
             }
+            </div>
+            <div className="text-center">
+                <p>Un Gran Equipo, para un gran proyecto</p>
             </div>
         </div>
     
