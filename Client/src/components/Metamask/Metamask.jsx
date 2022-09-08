@@ -5,6 +5,7 @@ import { BsInfoCircle } from "react-icons/bs";
 import { TransactionContext } from "../../context/TransactionContext";
 import { shortenAddress } from "../../utils/shortenAddress";
 import Footer from "../Footer/Footer";
+import { FormattedMessage } from "react-intl";
 
 const Input = ({ placeholder, name, type, value, handleChange }) => (
   <input
@@ -40,33 +41,41 @@ function Metamask() {
   return (
     <>
       <div
-        style={{ height: "100vh" }}
         className="container-fluid d-flex justify-content-evenly p-3 "
       >
         <div style={{ width: "35rem" }} className="text-center ">
           <h2 className="border-bottom border-dark mb-5">
-            Conecte su billetera a Metamask
+            <FormattedMessage
+              id='Metamask-conect'
+              defaultMessage='Connect your wallet to Metamask'
+            />
           </h2>
           <p>
-            MetaMask es una extensión para el navegador que sirve como wallet de
-            Ethereum. Una vez instalado, permite a los usuarios almacenar Ether,
-            permitiéndoles realizar transacciones a cualquier dirección de
-            Ethereum. También permite acceder a otras blockchain seleccionadas y
-            compatibles.{" "}
+            <FormattedMessage
+              id='Metamask-par-1'
+              defaultMessage='MetaMask is a browser extension that serves as an Ethereum wallet. Once installed, it allows users to store Ether, allowing them to transact to any Ethereum address. It also allows access to other selected blockchains. and compatible.'
+            />
           </p>
 
-          <p>Conéctala en 2 simples pasos:</p>
+          <p><FormattedMessage
+            id='Metamask-par-2'
+            defaultMessage='Connect it in 2 simple steps:'
+          /></p>
           <p>
-            1. Descarga e instala la extensión de Google Chrome o el addon de
-            Firefox, dependiendo de tu navegador.
+            <FormattedMessage
+              id='Metamask-par-3'
+              defaultMessage='1. Download and install the Google Chrome extension or Firefox addon, depending on your browser.'
+            />
           </p>
-          <p>2. Crea tu cuenta si no tienes una y listo!</p>
+          <p><FormattedMessage
+            id='Metamask-par-4'
+            defaultMessage="2. Create your account if you don't have one and that's it!"
+          /></p>
 
-          <p>
-            Importante: MetaMask te presentará tu frase de respaldo de 12
-            palabras. Esto será necesario para recuperar tu wallet si alguna vez
-            olvidas tu contraseña o pierdes el acceso a tu computadora, y debes
-            guardarlo en algún lugar seguro.
+          <p><FormattedMessage
+            id='Metamask-par-5'
+            defaultMessage='Important: MetaMask will complete your 12-word backup phrase for you. This will be necessary to recover your wallet if you ever forget your password or lose access to your computer, and you should store it somewhere safe .'
+          />
           </p>
         </div>
 
@@ -81,7 +90,10 @@ function Metamask() {
               <AiFillPlayCircle className="text-white me-2" />
               <div>
                 <p className="text-white text-center m-auto">
-                  Conecte su billetera
+                  <FormattedMessage
+                    id='Metamask-btn-conect'
+                    defaultMessage='Connect your wallet'
+                  />
                 </p>
               </div>
             </button>
@@ -114,29 +126,32 @@ function Metamask() {
             style={{ width: "30em" }}
             className="bg-envio p-5 sm:w-96 w-full d-flex flex-column justify-items-start justify-items-center col-5"
           >
-            <p className="text-black text-center m-auto">
-              Envia cripto a un amigo
+            <p className="text-center m-auto">
+              <FormattedMessage
+                id='envia-cry'
+                defaultMessage='Send crypto to a friend'
+              />
             </p>
             <Input
-              placeholder="Dirección"
+              placeholder="Direction"
               name="addressTo"
               type="text"
               handleChange={handleChange}
             />
             <Input
-              placeholder="Monto (ETH)"
+              placeholder="Amount (ETH)"
               name="amount"
               type="number"
               handleChange={handleChange}
             />
             <Input
-              placeholder="Clave (Gif)"
+              placeholder="Key (GIF)"
               name="keyword"
               type="text"
               handleChange={handleChange}
             />
             <Input
-              placeholder="Ingrese un mensaje"
+              placeholder="Enter a message"
               name="message"
               type="text"
               handleChange={handleChange}
@@ -145,7 +160,10 @@ function Metamask() {
             <div className="h-[1px] w-full bg-gray-400 my-2" />
 
             {isLoading ? (
-              <h1 className="text-white">Enviando crypto</h1>
+              <h1 className="text-white"><FormattedMessage
+                id='Enviar-cry'
+                defaultMessage='Sending cryptocurrency'
+              /></h1>
             ) : (
               <button
                 type="button"
@@ -155,7 +173,10 @@ function Metamask() {
                 <span></span>
                 <span></span>
                 <span></span>
-                <span></span> Enviar
+                <span></span> <FormattedMessage
+                  id='Enviar'
+                  defaultMessage='Send'
+                />
               </button>
             )}
           </div>
