@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import { detailCrypto, cleanState } from "../../redux/reducers/cryptoRed";
@@ -49,7 +49,6 @@ function CryptoDetail() {
   let porcentajeCam5d = details.percent_change_90d / 2;
   let porcentajeCam6d = details.volume_change_24h / 2;
 
-
   let porcentaje1h =
     details.price * (details.percent_change_1h / 100) + details.price;
   let porcentaje3h = (details.price * porcentajeCam3h) / 100 + details.price;
@@ -86,7 +85,6 @@ function CryptoDetail() {
   let precio6h = porcentajeCam6h + "%";
   let precio3h = porcentajeCam3h + "%";
   let precio1h = details.percent_change_1h + "%";
-
 
   const scores = [
     porcentaje90d,
@@ -126,21 +124,10 @@ function CryptoDetail() {
     responsive: true,
     plugins: {
       legend: {
-        display: false
+        display: false,
       },
     },
-    scales: { y: { title: { display: true, text: 'USD' } } }
-    /* 
-    scales: {
-      x: {
-        display: false,
-        
-      },
-      y: {
-        display: false,
-        endOnTick:false
-      }
-    }, */
+    scales: { y: { title: { display: true, text: "USD" } } },
   };
 
   const data = {
@@ -149,8 +136,10 @@ function CryptoDetail() {
         label: "USD",
         data: scores,
         pointRadius: 4,
-        /* backgroundColor: "rgba(255, 99, 132, 0.2)", */
-        backgroundColor: details.price > porcentaje1h ? "rgba(255, 99, 132, 0.2)" : "rgba(54, 235, 162, 0.2",
+        backgroundColor:
+          details.price > porcentaje1h
+            ? "rgba(255, 99, 132, 0.2)"
+            : "rgba(54, 235, 162, 0.2",
         segment: {
           borderColor: function (context) {
             let x = context.p1.parsed.y;
@@ -159,8 +148,8 @@ function CryptoDetail() {
             } else {
               return "rgba(255, 0, 0, 1)";
             }
-          }
-        }
+          },
+        },
       },
     ],
     labels,
@@ -182,7 +171,16 @@ function CryptoDetail() {
               <h1>
                 {details.name} <span>{details.symbol}</span>
               </h1>
-              {details.tag_names.filter((tag) => tag === "ethereum-ecosystem").length > 0 ? <Link className="por" to={`/operation`} style={{ textDecoration: 'none' }}><button className="ethereum-ecosystem">Comprar</button></Link> : null}
+              {details.tag_names.filter((tag) => tag === "ethereum-ecosystem")
+                .length > 0 ? (
+                <Link
+                  className="por"
+                  to={`/operation`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <button className="ethereum-ecosystem">Comprar</button>
+                </Link>
+              ) : null}
             </div>
             <div className="col-6">
               <h1 className="fw-bold text-end">
@@ -198,7 +196,8 @@ function CryptoDetail() {
           <div className="cardDetalle gap-3">
             <div className="my-4 base2">
               <h2>
-                Description: <span className="fs-4"> "(Inglés)" {details.description}</span>
+                Description:{" "}
+                <span className="fs-4"> "(Inglés)" {details.description}</span>
               </h2>
             </div>
             <div className="base4">

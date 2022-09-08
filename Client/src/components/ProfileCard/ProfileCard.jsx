@@ -134,7 +134,7 @@ function ProfileCard({ user }) {
               </div>
               <div className="update">
                 <Card.Img
-                  class="img-profile"
+                  className="img-profile"
                   variant="top"
                   src={image || usuarios.picture}
                 />
@@ -412,24 +412,24 @@ function ProfileCard({ user }) {
               </div>
 
               {edit === true &&
-              name.length &&
+              name &&
               regexName.test(name) &&
-              lastname.length &&
+              lastname &&
               regexName.test(lastname) &&
-              codigoPostal.length &&
+              codigoPostal &&
               regexPostal.test(codigoPostal) &&
-              dni.length &&
+              dni &&
               regexDoc.test(dni) &&
-              number.length &&
+              number &&
               regexTel.test(number) &&
-              countryes.length &&
+              countryes &&
               regexName.test(countryes) ? (
                 <button
                   className="btn-form-save mx-3 mb-3"
                   onClick={(e) => HandlerUpdate(e)}
                 >
-                  <div class="svg-wrapper-1">
-                    <div class="svg-wrapper">
+                  <div className="svg-wrapper-1">
+                    <div className="svg-wrapper">
                       <FaSave />
                     </div>
                   </div>
@@ -448,7 +448,7 @@ function ProfileCard({ user }) {
               <h2 className="text-center">Deje un comentario</h2>
             </div>
             <form id="algin-form" className="p-3">
-              <div class="form-group mb-3">
+              <div className="form-group mb-3">
                 <Form.Label for="message">Mensaje</Form.Label>
                 <textarea
                   name="msg"
@@ -456,11 +456,11 @@ function ProfileCard({ user }) {
                   msg
                   cols="30"
                   rows="5"
-                  class="form-control my-2"
+                  className="form-control my-2"
                   onChange={(e) => setComment(e.target.value)}
                 ></textarea>
               </div>
-              <div class="rating">
+              <div className="rating">
                 <input
                   type="radio"
                   name="rating"
@@ -510,8 +510,8 @@ function ProfileCard({ user }) {
                 onClick={(e) => HandlerComent(e)}
                 disabled
               >
-                <div class="svg-wrapper-1">
-                  <div class="svg-wrapper">
+                <div className="svg-wrapper-1">
+                  <div className="svg-wrapper">
                     <IoIosSend />
                   </div>
                 </div>
@@ -522,8 +522,8 @@ function ProfileCard({ user }) {
                 className="btn-form-comment mx-3 mb-3"
                 onClick={(e) => HandlerComent(e)}
               >
-                <div class="svg-wrapper-1">
-                  <div class="svg-wrapper">
+                <div className="svg-wrapper-1">
+                  <div className="svg-wrapper">
                     <IoIosSend />
                   </div>
                 </div>

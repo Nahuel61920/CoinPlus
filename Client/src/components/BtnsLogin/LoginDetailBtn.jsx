@@ -6,13 +6,14 @@ import { useDispatch } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function LoginDetailBtn() {
-  const { user,isLoading } = useAuth0();
+  const { user, isLoading } = useAuth0();
   const dispatch = useDispatch();
 
-  if(isLoading){return <div>Cargando ...</div>;}
+  if (isLoading) {
+    return <div>Cargando ...</div>;
+  }
 
   function HandleCreate(e) {
-
     let crear = {
       name: user.name,
       email: user.email,
@@ -24,15 +25,14 @@ export default function LoginDetailBtn() {
     dispatch(getUser(user.email));
 
     dispatch(createUser(crear));
-    
   }
 
   return (
     <Link to="/user" style={{ textDecoration: "none" }}>
       <button className="buttonLogin" onClick={(e) => HandleCreate(e)}>
         Perfil
-        <div class="arrow-wrapper">
-          <div class="arrow"></div>
+        <div className="arrow-wrapper">
+          <div className="arrow"></div>
         </div>
       </button>
     </Link>
