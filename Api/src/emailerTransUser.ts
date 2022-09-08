@@ -29,9 +29,9 @@ const sendTransUser = async (user:any)=> {
     from: '"Coin Plus" <coinplusapp@gmail.com>', // quien envia el mail
     to: `${user.currentUser}`, 
     // en caso de ser mas de un mail ['mail1@mail.com',' mail2@mail.com']
-    subject: `${user.name} Proceso de transacción en Coin+`, // Asunto
-    text: "Email de prueba de transacción Coin+", // si enviamos un texto plano
-    html: "", // si enviamos un html como template
+    subject: `${user.name}, Proceso de transacción en Coin+`, // Asunto
+    text: "", // si enviamos un texto plano
+    html: emailTransUser, // si enviamos un html como template
     });
 
     console.log ("Mensaje enviado:", info.messageId?info.messageId:"Se envio con sendgrid")
