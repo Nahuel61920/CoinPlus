@@ -30,15 +30,15 @@ function User() {
   return (
     <>
       <div style={{ height: "100vh" }}>
-        <div className="bg-global">
+        <div className="bg-global border border-warning">
           {usuarios.blocked === true ? null : <NavProfile logo={Logo} />}
           <div id="User" className="row justify-content-center p-2">
             <UserCard user={user} className="col-12" />
           </div>
         </div>
+      <Footer />
       </div>
 
-      <Footer />
     </>
   );
 }

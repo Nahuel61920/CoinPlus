@@ -43,7 +43,7 @@ function Metamask() {
         style={{ height: "100vh" }}
         className="container-fluid d-flex justify-content-evenly p-3 "
       >
-        <div style={{ width: "35rem" }}>
+        <div style={{ width: "35rem" }} className="text-center ">
           <h2 className="border-bottom border-dark mb-5">
             Conecte su billetera a Metamask
           </h2>

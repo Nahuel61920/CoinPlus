@@ -98,7 +98,7 @@ function ProfileCard({ user }) {
       rating: rating,
     };
     dispatch(postComent(crear));
-    swal("¡Su comentario ha sido actualizado!", "", "success");
+    swal("¡Su comentario ha sido publicado!", "", "success");
     setComment("")
   }
 
@@ -117,11 +117,11 @@ function ProfileCard({ user }) {
   return (
     <>
       {charge ? (
-        <div className="d-flex justify-content-center my-5">
+        <div className="d-flex justify-content-center my-5 ">
           <img src={load} alt="loading" height="200" className="my-5" />
         </div>
       ) : usuarios.blocked === false ? (
-        <div className="row gap-4 justify-content-center">
+        <div  className="row gap-4 justify-content-center ">
           <Card className="my-3 animate__animated animate__backInLeft animate__delay-500ms p-0 col-5 card-formulario">
             <div
               className="d-flex justify-content-between px-5 py-3 w-100"
