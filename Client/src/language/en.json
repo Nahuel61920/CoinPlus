@@ -148,6 +148,10 @@
 	"trans-ahora": "Transfer Now",
 	"Espera": "Approximate waiting time",
 	"btn-trasn": "Complete transaction",
-	"Confirmar-trans": "Your operation was successful!"
+	"Confirmar-trans": "Your operation was successful!",
 	
+	"equipo": "The Coin+ team",
+	"Un-gran": "A Great Team, for a great project",
+
+	"block-sms": "You have been temporarily blocked for breach of the pre-established rules. If you think it has been an error, please contact us and we will analyze your case as soon as possible."
 }

@@ -1,5 +1,4 @@
-import React from "react";
-import Logo from "../../assets/img/coin+logo.png";
+import React, {useContext} from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import DarkMode from '../DarkMode/DarkMode';
 import "./nav.css";
@@ -9,12 +8,15 @@ import { fetchCrypto, nameCrypto } from "../../redux/reducers/cryptoRed";
 import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 
+
 import { FormattedMessage } from "react-intl";
+import { langContext } from '../../context/Language';
 
 function NavMarket({ setCurrentPage }) {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const navigate = useNavigate();
+  const idioma = useContext(langContext);
 
   useEffect(() => {
     dispatch(fetchCrypto());
@@ -75,6 +77,10 @@ function NavMarket({ setCurrentPage }) {
               defaultMessage='Market'
             />
           </NavLink>
+          <div className="dropdown ps-3">
+            <button onClick={() => idioma.selectLanguage('es-ES') } className="btn btn-outline-primary">ES</button>
+            <button onClick={() => idioma.selectLanguage('en-US') } className="btn btn-outline-primary">EN</button>
+            </div>
         </div>
 
         <div className="nav-All-2 d-flex align-items-center gap-2"><DarkMode /><Profile />  </div>

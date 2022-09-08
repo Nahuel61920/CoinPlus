@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import Logo from "../../assets/img/coin+logo.png";
 import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
 import DarkMode from '../DarkMode/DarkMode';
@@ -84,9 +83,10 @@ function Nav() {
                 defaultMessage='Comments'
               />
             </Link>
-            <div id="buttons">
-              <img onClick={() => idioma.selectLanguage('en-US')} src="https://nahuel61920.github.io/Portafoliovirtual/img/en.png" alt="EEUU" />
-              <img onClick={() => idioma.selectLanguage('es-ES')} src="https://nahuel61920.github.io/Portafoliovirtual/img/es.png" alt="España" />
+            
+            <div className="dropdown ps-3">
+            <button onClick={() => idioma.selectLanguage('es-ES') } className="btn btn-outline-primary">ES</button>
+            <button onClick={() => idioma.selectLanguage('en-US') } className="btn btn-outline-primary">EN</button>
             </div>
           </div>
         </div>

@@ -4,13 +4,7 @@
     
         
     /* background: rgb(238, 69, 64); */
-    background: linear-gradient(
-      180deg,
-      #ffc107 100%,
-      #ffc107 45%,
-      #ffc107 30%,
-      #e2f10e 15%,
-      #e2f10e 0%)
+    background: var(--bg-team);
             
 }
 
@@ -21,7 +15,7 @@
 }
 
 .titulo{
-    color: #080d22;
+    color: var(--title-card-service);
     font-weight: bolder;
     margin: 10px;
     

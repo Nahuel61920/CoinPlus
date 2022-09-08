@@ -42,7 +42,7 @@ export default function Profile() {
             <img
               className="img-profile-nav"
               src={usuarios.picture || user.picture}
-              alt={user.nickname}
+              alt="profile"
             />
           </a>
         ) : (
@@ -57,7 +57,7 @@ export default function Profile() {
             <img
               className="img-profile-nav"
               src={usuarios.picture || user.picture}
-              alt={user.nickname}
+              alt="profile"
             />
           </a>
         )}
@@ -66,8 +66,8 @@ export default function Profile() {
             <div className="img-desp">
               <img
                 className="img-profile-nav-desp"
-                src={usuarios.picture}
-                alt={user.nickname}
+                src={usuarios.picture || user.picture}
+                alt="profile"
               />
             </div>
             <h6>{usuarios.nickname}</h6>

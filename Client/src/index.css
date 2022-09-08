@@ -24,12 +24,12 @@ html {
   --bg-service: linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%);
   --bg-card-service: #ddd5d5;
   --title-card-service: #060628;
-  --box-shadow-service: 0 5px 20px 2px rgba(0,0,0,0.1);
+  --box-shadow-service: 0 5px 20px 2px rgba(0, 0, 0, 0.1);
   --border-card-img-service: 10px solid #fff;
   --bg-card-step: #ddd5d5;
   --step-line: #ffc107;
   --border-crypto: #ebebeb;
-  --bg-card-user: linear-gradient(144deg,#ed9224, #eeff54 60%,#e6eeb0);
+  --bg-card-user: linear-gradient(144deg, #ed9224, #eeff54 60%, #e6eeb0);
   --bg-btn-envio: linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%);
   --box-shadow-btn-envio: 0 0 2px #c8ff00, 0 0 2px #ff9900, 0 0 2px #e5ff00;
   --box-shadow-btn-envio-hover: 0 0 10px #c8ff00, 0 0 15px #ff9900, 0 0 25px #e5ff00;
@@ -39,6 +39,12 @@ html {
   --btn-scroll-top: url('./assets/img/scroll_to_top.png');
   --bg-card-crypto-best: linear-gradient(to bottom, #ffc107 0%, #e2f10e 100%);
   --info-comment: rgb(30, 30, 30);
+  --bg-team: linear-gradient(180deg,
+      #ffc107 100%,
+      #ffc107 45%,
+      #ffc107 30%,
+      #e2f10e 15%,
+      #e2f10e 0%);
 }
 
 /* Color variables if the theme is dark */
@@ -58,7 +64,7 @@ html[data-theme="dark"] {
   --bg-card-step: #333670;
   --step-line: #d6d5e7;
   --border-crypto: #080d22;
-  --bg-card-user: linear-gradient(144deg,#0e0f24, #0e0f24 60%,#0e0f24);
+  --bg-card-user: linear-gradient(144deg, #0e0f24, #0e0f24 60%, #0e0f24);
   --bg-btn-envio: linear-gradient(to bottom, #1a0747 0%, #06052e 100%);
   --box-shadow-btn-envio: 0 0 8px #ae00ff, 0 0 8px #001eff, 0 0 8px #ae00ff;
   --box-shadow-btn-envio-hover: 0 0 10px #ae00ff, 0 0 15px #001eff, 0 0 25px #ae00ff;
@@ -66,18 +72,30 @@ html[data-theme="dark"] {
   --btn-color-secondary: #001eff;
   --btn-color-tertiary: #ae00ff;
   --btn-scroll-top: url('./assets/img/scroll_to_top_black.png');
-  --bg-card-crypto-best: linear-gradient(144deg,#0e0f24, #0e0f24 60%,#0e0f24);
+  --bg-card-crypto-best: linear-gradient(144deg, #0e0f24, #0e0f24 60%, #0e0f24);
   --info-comment: #d6d5e7;
+  --bg-team: linear-gradient(180deg,
+      #1a0747 100%,
+      #1a0747 45%,
+      #1a0747 30%,
+      #06052e 15%,
+      #06052e 0%);
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--text-primary);
 }
 
-.bg-global{
+.bg-global {
   background: var(--background);
 }
 
-a{
-  text-decoration: none!important;
+a {
+  text-decoration: none !important;
 }

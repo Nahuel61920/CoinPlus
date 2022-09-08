@@ -88,6 +88,10 @@ function ProfileCard({ user }) {
     dispatch(updateUser(crear));
     dispatch(getUser(user.email));
     setEdit(!edit);
+    setCharge(true);
+    setTimeout(() => {
+      setCharge(false);
+    }, 2000);
   }
 
   function HandlerComent(e) {
@@ -99,7 +103,7 @@ function ProfileCard({ user }) {
       rating: rating,
     };
     dispatch(postComent(crear));
-    swal("¡Su comentario ha sido actualizado!", "", "success");
+    swal("Your comment has been updated!", "", "success");
     setComment("")
   }
 
@@ -506,7 +510,7 @@ function ProfileCard({ user }) {
               ) : null}
             </Card.Body>
           </Card>
-          <Card className="animate__animated animate__backInRight animate__delay-500ms p-0 col-5 card-comment">
+          <Card className="animate__animated animate__backInRight animate__delay-1s p-0 col-5 card-comment">
             <div
               className="d-flex justify-content-center align-items-center py-4"
               style={{

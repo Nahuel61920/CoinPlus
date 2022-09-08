@@ -152,6 +152,10 @@
 	"trans-ahora": "Transfiere ahora",
 	"Espera": "Tiempo aproximado de espera",
 	"btn-trasn": "Completar transaccion",
-	"Confirmar-trans": "¡Su operación se ha realizado exitosamente!"
+	"Confirmar-trans": "¡Su operación se ha realizado exitosamente!",
 	
+	"equipo": "El Equipo de Coin+",
+	"Un-gran": "Un Gran Equipo, para un gran proyecto",
+
+	"block-sms": "Usted ha sido bloqueado temporalmente por incumplimiento de las normas preestablecidas. Si cree que ha sido un error, por favor comuniquese y a la brevedad analizaremos su caso."
 }

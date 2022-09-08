@@ -43,7 +43,7 @@ function Metamask() {
       <div
         className="container-fluid d-flex justify-content-evenly p-3 "
       >
-        <div style={{ width: "35rem" }} className="text-center ">
+        <div style={{ width: "35rem" }} className="text-center animate__animated animate__backInLeft animate__delay-500ms">
           <h2 className="border-bottom border-dark mb-5">
             <FormattedMessage
               id='Metamask-conect'
@@ -80,7 +80,7 @@ function Metamask() {
         </div>
 
         {/* Boton antes de conectar*/}
-        <div className="d-flex flex-column">
+        <div className="d-flex flex-column animate__animated animate__backInRight animate__delay-1s">
           {!currentAccount && (
             <button
               type="button"

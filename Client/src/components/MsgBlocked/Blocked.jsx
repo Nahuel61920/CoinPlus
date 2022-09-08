@@ -1,16 +1,18 @@
 import React from "react";
 import "./Blocked.css";
-import blockedimg from "../../assets/img/blocked.jpg";
+import blockedimg from "../../assets/img/blocked.png";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { SiGmail } from "react-icons/si";
+import { FormattedMessage } from "react-intl";
 
 function Blocked() {
   return (
     <div className="div-blocked d-flex text-center card container-sm">
       <h3 className="msg-block">
-        Usted ha sido bloqueado temporalmente por incumplimiento de las normas
-        preestablecidas. Si cree que ha sido un error, por favor comuniquese y a
-        la brevedad analizaremos su caso.
+        <FormattedMessage
+          id="block-sms"
+          defaultMessage="You have been temporarily blocked for breach of the pre-established rules. If you think it has been an error, please contact us and we will analyze your case as soon as possible."
+        />
       </h3>
       <img src={blockedimg} alt="blocked-user" />
 

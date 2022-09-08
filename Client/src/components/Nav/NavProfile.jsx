@@ -1,3 +1,4 @@
+import React, {useContext} from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -7,8 +8,10 @@ import DarkMode from "../DarkMode/DarkMode";
 
 import "./nav.css";
 import { FormattedMessage } from "react-intl";
+import { langContext } from '../../context/Language';
 
 function OffcanvasExample({ logo }) {
+  const idioma = useContext(langContext);
   return (
     <>
       {[false].map((expand) => (
@@ -25,6 +28,10 @@ function OffcanvasExample({ logo }) {
               </Link>
             </Navbar.Brand>
             <div className="d-flex gap-2 align-items-center">
+            <div className="dropdown ps-3">
+            <button onClick={() => idioma.selectLanguage('es-ES') } className="btn btn-outline-primary">ES</button>
+            <button onClick={() => idioma.selectLanguage('en-US') } className="btn btn-outline-primary">EN</button>
+            </div>
               <DarkMode />
               <Navbar.Toggle
                 aria-controls={`offcanvasNavbar-expand-${expand}`}

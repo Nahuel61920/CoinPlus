@@ -3,6 +3,8 @@ import CardEquipo from './CardEquipo'
 
 import "./equipo.css"
 
+import { FormattedMessage } from "react-intl";
+
 import elara from "../../assets/img/equipoLara.jpg"
 import etomy from "../../assets/img/equipoTomy.jpg"
 import enahuel from "../../assets/img/equipoNahuel.jpg"
@@ -90,7 +92,10 @@ export default function Equipo() {
     <div className="general">
         <div className="contit">
         <div className="bortit">
-        <h3 className="titulo text-center">El Equipo de Coin+</h3>
+        <h3 className="titulo text-center"><FormattedMessage
+                id='equipo'
+                defaultMessage='The Coin+ team'
+              /></h3>
         </div>
         </div>
         <div className="container">
@@ -111,7 +116,10 @@ export default function Equipo() {
             }
             </div>
             <div className="text-center">
-                <p>Un Gran Equipo, para un gran proyecto</p>
+                <p><FormattedMessage
+                id='Un-gran'
+                defaultMessage='A Great Team, for a great project'
+              /></p>
             </div>
         </div>
     
