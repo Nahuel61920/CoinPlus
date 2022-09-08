@@ -7,7 +7,7 @@ import { FormattedMessage } from "react-intl";
 
 function Footer() {
   return (
-    <div className="container-fluid bg-dark text-white altura row">
+    <div className="bg-dark text-white altura row">
       <div className="col-3">
         <img src={Logo} width="220" alt="" />
       </div>

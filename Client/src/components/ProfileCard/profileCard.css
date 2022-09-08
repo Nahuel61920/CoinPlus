@@ -1,145 +1,149 @@
 .img-profile {
-    min-height: 90px;
-    max-height: 90px;
-    min-width: 90px;
-    max-width: 90px;
-    border-radius: 50%;
-    border: 3px solid #645bff;
-    background-color: #fff;
+  min-height: 90px;
+  max-height: 90px;
+  min-width: 90px;
+  max-width: 90px;
+  border-radius: 50%;
+  border: 3px solid #645bff;
+  background-color: #fff;
 }
 
 .title-name {
-    color: var(--text-nav) !important;
+  color: var(--text-nav) !important;
 }
 
+strong {
+  color: red;
+  font-size: 14px;
+}
 
 .btn-form-sum {
-    font-family: inherit;
-    display: inline-block;
-    width: 8em;
-    height: 2.6em;
-    line-height: 2.5em;
-    position: relative;
-    overflow: hidden;
-    border: 2px solid var(--color);
-    transition: color .5s;
-    z-index: 1;
-    font-size: 17px;
-    border-radius: 6px;
-    font-weight: 500;
+  font-family: inherit;
+  display: inline-block;
+  width: 8em;
+  height: 2.6em;
+  line-height: 2.5em;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--color);
+  transition: color 0.5s;
+  z-index: 1;
+  font-size: 17px;
+  border-radius: 6px;
+  font-weight: 500;
 }
 
 .btn-form-sum:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    background: var(--color);
-    height: 150px;
-    width: 200px;
-    border-radius: 50%;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--color);
+  height: 150px;
+  width: 200px;
+  border-radius: 50%;
 }
 
 .btn-form-sum:hover {
-    color: #fff;
+  color: #fff;
 }
 
 .btn-form-sum:before {
-    top: 100%;
-    left: 100%;
-    transition: all .7s;
+  top: 100%;
+  left: 100%;
+  transition: all 0.7s;
 }
 
 .btn-form-sum:hover:before {
-    top: -30px;
-    left: -30px;
+  top: -30px;
+  left: -30px;
 }
 
 .btn-form-sum:active:before {
-    background: #3a0ca3;
-    transition: background 0s;
+  background: #3a0ca3;
+  transition: background 0s;
 }
 
 .rating {
-    display: flex;
-    margin-top: -10px;
-    flex-direction: row-reverse;
-    margin-left: -4px;
-    float: left;
+  display: flex;
+  margin-top: -10px;
+  flex-direction: row-reverse;
+  margin-left: -4px;
+  float: left;
 }
 
-.rating>input {
-    display: none
+.rating > input {
+  display: none;
 }
 
-.rating>label {
-    position: relative;
-    width: 19px;
-    font-size: 25px;
-    color: #645bff !important;
-    cursor: pointer;
+.rating > label {
+  position: relative;
+  width: 19px;
+  font-size: 25px;
+  color: #645bff !important;
+  cursor: pointer;
 }
 
-.rating>label::before {
-    content: "\2605";
-    position: absolute;
-    opacity: 0
+.rating > label::before {
+  content: "\2605";
+  position: absolute;
+  opacity: 0;
 }
 
-.rating>label:hover:before,
-.rating>label:hover~label:before {
-    opacity: 1 !important
+.rating > label:hover:before,
+.rating > label:hover ~ label:before {
+  opacity: 1 !important;
 }
 
-.rating>input:checked~label:before {
-    opacity: 1
+.rating > input:checked ~ label:before {
+  opacity: 1;
 }
 
-.rating:hover>input:checked~label:before {
-    opacity: 0.4
+.rating:hover > input:checked ~ label:before {
+  opacity: 0.4;
 }
-.update{
-    width: 100px;
-    position: relative;
+.update {
+  width: 100px;
+  position: relative;
 }
 
 .update img {
 }
 
 .update .round {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: #645bff;
-    width: 37px;
-    height: 37px;
-    line-height: 33px;
-    text-align: center;
-    border-radius: 50%;
-    overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #645bff;
+  width: 37px;
+  height: 37px;
+  line-height: 33px;
+  text-align: center;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .update .round input[type="file"] {
-    position: absolute;
-    transform: scale(2);
-    opacity: 0;
+  position: absolute;
+  transform: scale(2);
+  opacity: 0;
 }
 
-input[type=file]::-webkit-file-upload-button{
-    cursor: pointer;
+input[type="file"]::-webkit-file-upload-button {
+  cursor: pointer;
 }
 
-.edit_btn{
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #645bff;
-    width: 37px;
-    height: 37px;
-    line-height: 33px;
-    text-align: center;
-    border-radius: 5px;
-    overflow: hidden;
-    color: #fff;
-    font-size: 20px;
-    cursor: pointer;
+.edit_btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #645bff;
+  width: 37px;
+  height: 37px;
+  line-height: 33px;
+  text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
 }

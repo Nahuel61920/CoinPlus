@@ -1,3 +1,4 @@
+import { FormattedMessage } from "react-intl";
 export function validation({
   name,
   lastname,
@@ -9,37 +10,55 @@ export function validation({
   let errors = {};
 
   if (!name) {
-    errors.name = "El campo Nombre es requerido";
+    errors.name = <FormattedMessage
+      id='Nombre-error'
+      defaultMessage='The Name field is required'
+    />;
   }
 
   //////////////////////////////////////////////////////////
 
   if (!lastname) {
-    errors.lastname = "El campo Apellido es requerido";
+    errors.lastname = <FormattedMessage
+      id='Apellido-error'
+      defaultMessage='Lastname field is required'
+    />;
   }
 
   //////////////////////////////////////////////////////////
 
   if (!number) {
-    errors.number = "El campo Número de contacto es requerido";
+    errors.number = <FormattedMessage
+      id='Telefono-error'
+      defaultMessage='The contact number field is required'
+    />;
   }
 
   //////////////////////////////////////////////////////////
 
   if (!countryes) {
-    errors.countryes = "El campo País es requerido";
+    errors.countryes = <FormattedMessage
+      id='Pais-error'
+      defaultMessage='The Country field is required'
+    />;
   }
 
   //////////////////////////////////////////////////////////
 
   if (!codigoPostal) {
-    errors.codigoPostal = "El campo Código Postal es requerido";
+    errors.codigoPostal = <FormattedMessage
+      id='Postal-error'
+      defaultMessage='Zip Code field is required'
+    />;
   }
 
   //////////////////////////////////////////////////////////
 
   if (!dni) {
-    errors.dni = "El campo DNI es requerido";
+    errors.dni = <FormattedMessage
+      id='DNI-error'
+      defaultMessage='The DNI field is necessary'
+    />;
   }
 
   return errors;

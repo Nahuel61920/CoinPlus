@@ -1,41 +1,41 @@
-.section1 p{
-    color: #fff!important;
+.section1 p {
+  color: #fff !important;
 }
 
 .section2 h3,
-.section2 p{
-    color: #fff!important;
+.section2 p {
+  color: #fff !important;
 }
 
 .section3 h3,
-.section3 p{
-    color: #fff!important;
+.section3 p {
+  color: #fff !important;
 }
 
-.altura{
-    padding: 20px;
-    min-width: 100vw;
-    height: 30vh;
+.altura {
+  padding: 20px;
+  min-width: 100vw;
+  position: initial;
 }
 
-.copy{
-    min-width: 100vw;
+.copy {
+  min-width: 100vw;
 }
 
-.color-copy{
-    color: rgb(192, 192, 189);
+.color-copy {
+  color: rgb(192, 192, 189);
 }
 
-.nav-footer a{
-    font-size: 1rem;
-    font-weight: bold;
-    margin: .5rem 0;
-    color: var(--text-nav);
-    position: relative;
-    text-decoration: none;
-  }
+.nav-footer a {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  color: var(--text-nav);
+  position: relative;
+  text-decoration: none;
+}
 
-  .nav-footer a:hover {
+.nav-footer a:hover {
   color: rgb(237, 222, 14);
 }
 
@@ -51,22 +51,22 @@
 }
 
 .nav-footer a:hover::before {
-    width: 30%;
-  }
+  width: 30%;
+}
 
-  .nav-footer a.active::before,
-  .nav-footer .active-link::before{
-    content: "";
-    height: 3px;
-    width: 30%;
-    background: rgb(237, 222, 14);
-    position: absolute;
-    left: 0;
-    bottom: -0.4rem;
-    transition: 0.4s ease-out;
-  }
-  
-  .nav-footer .active-link,
-  .nav-footer a.active{
-    color: rgb(237, 222, 14);
-  }
+.nav-footer a.active::before,
+.nav-footer .active-link::before {
+  content: "";
+  height: 3px;
+  width: 30%;
+  background: rgb(237, 222, 14);
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  transition: 0.4s ease-out;
+}
+
+.nav-footer .active-link,
+.nav-footer a.active {
+  color: rgb(237, 222, 14);
+}

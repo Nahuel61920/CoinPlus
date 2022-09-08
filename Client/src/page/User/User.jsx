@@ -29,7 +29,7 @@ function User() {
 
   return (
     <>
-      <div style={{ height: "100vh" }}>
+      <div >
         <div className="bg-global">
           {usuarios.blocked === true ? null : <NavProfile logo={Logo} />}
           <div id="User" className="row justify-content-center p-2">

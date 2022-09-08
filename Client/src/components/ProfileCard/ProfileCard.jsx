@@ -17,6 +17,7 @@ import { ImCamera } from "react-icons/im";
 import Blocked from "../MsgBlocked/Blocked";
 import { validation } from "./Validations";
 import swal from 'sweetalert';
+import { FormattedMessage } from "react-intl";
 
 
 function ProfileCard({ user }) {
@@ -158,10 +159,13 @@ function ProfileCard({ user }) {
               <div className="row">
                 {!usuarios.name || edit === true ? (
                   <Form.Group className="mb-3 col-6" controlId="formBasicName">
-                    <Form.Label>Nombre</Form.Label>
+                    <Form.Label><FormattedMessage
+                      id='Nombre'
+                      defaultMessage='Name'
+                    /></Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder={"Escriba su Nombre"}
+                      placeholder="..."
                       value={name}
                       onChange={(e) => {
                         setName(e.target.value);
@@ -172,13 +176,19 @@ function ProfileCard({ user }) {
                     <br />
                     <strong>
                       {!regexName.test(name)
-                        ? "El campo Nombre solo acepta letras"
+                        ? <FormattedMessage
+                          id='Nombre-error-vali'
+                          defaultMessage='The Name field only accepts letters'
+                        />
                         : ""}
                     </strong>
                   </Form.Group>
                 ) : (
                   <Form.Group className="mb-3 col-6" controlId="formBasiName">
-                    <Form.Label>Nombre</Form.Label>
+                    <Form.Label><FormattedMessage
+                      id='Nombre'
+                      defaultMessage='Name'
+                    /></Form.Label>
                     <Form.Control
                       type="text"
                       placeholder={usuarios.name}
@@ -191,10 +201,13 @@ function ProfileCard({ user }) {
 
                 {!usuarios.lastName || edit === true ? (
                   <Form.Group className="mb-3 col-6" controlId="formBasicName">
-                    <Form.Label>Apellido</Form.Label>
+                    <Form.Label><FormattedMessage
+                      id='Apellido'
+                      defaultMessage='Last Name'
+                    /></Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder={"Escriba su Apellido"}
+                      placeholder="..."
                       value={lastname}
                       onChange={(e) => {
                         setLastname(e.target.value);
@@ -205,13 +218,19 @@ function ProfileCard({ user }) {
                     <br />
                     <strong>
                       {!regexName.test(lastname)
-                        ? "El campo Apellido solo acepta letras"
+                        ? <FormattedMessage
+                          id='Apellido-error-vali'
+                          defaultMessage='The Surname field only accepts letters'
+                        />
                         : ""}
                     </strong>
                   </Form.Group>
                 ) : (
                   <Form.Group className="mb-3 col-6" controlId="formBasiName">
-                    <Form.Label>Apellido</Form.Label>
+                    <Form.Label><FormattedMessage
+                      id='Apellido'
+                      defaultMessage='Last Name'
+                    /></Form.Label>
                     <Form.Control
                       type="text"
                       placeholder={usuarios.lastName}
@@ -225,7 +244,10 @@ function ProfileCard({ user }) {
 
               <div className="row">
                 <Form.Group className="mb-3 col-6" controlId="formBasicFecha">
-                  <Form.Label>Ultima fecha de ingreso:</Form.Label>
+                  <Form.Label><FormattedMessage
+                    id='ingreso'
+                    defaultMessage='Last entry date:'
+                  /></Form.Label>
                   <Form.Control
                     placeholder={
                       user.updated_at.slice(0, 10) +
@@ -237,14 +259,17 @@ function ProfileCard({ user }) {
                 </Form.Group>
 
                 <Form.Group className="mb-3 col-6">
-                  <Form.Label>Logueado con:</Form.Label>
+                  <Form.Label><FormattedMessage
+                    id='Logueado'
+                    defaultMessage='Logged in with:'
+                  /></Form.Label>
                   <Form.Control
                     placeholder={
                       user.sub.charAt(0) === "a"
                         ? user.sub.charAt(0).toUpperCase() +
-                          user.sub.slice(1, 5)
+                        user.sub.slice(1, 5)
                         : user.sub.charAt(0).toUpperCase() +
-                          user.sub.slice(1, 6)
+                        user.sub.slice(1, 6)
                     }
                     disabled
                   />
@@ -257,7 +282,7 @@ function ProfileCard({ user }) {
                     <Form.Label>DNI</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder={"Escriba su DNI"}
+                      placeholder="..."
                       value={dni}
                       onChange={(e) => {
                         setDni(e.target.value);
@@ -268,7 +293,10 @@ function ProfileCard({ user }) {
                     <br />
                     <strong>
                       {!regexDoc.test(dni)
-                        ? "El campo DNI solo acepta caracteres numéricos con un mínimo de 8"
+                        ? <FormattedMessage
+                          id='DNI-error-vali'
+                          defaultMessage='The DNI field only accepts numeric characters with a minimum of 8'
+                        />
                         : ""}
                     </strong>
                   </Form.Group>
@@ -287,7 +315,10 @@ function ProfileCard({ user }) {
 
                 {!usuarios.date || edit === true ? (
                   <Form.Group className="mb-3 col-4" controlId="formBasiDate">
-                    <Form.Label>Fecha de nacimiento</Form.Label>
+                    <Form.Label><FormattedMessage
+                      id='Fecha'
+                      defaultMessage='Date of birth'
+                    /></Form.Label>
                     <Form.Control
                       type="date"
                       placeholder={"Escriba su Fecha"}
@@ -297,7 +328,10 @@ function ProfileCard({ user }) {
                   </Form.Group>
                 ) : (
                   <Form.Group className="mb-3 col-4" controlId="formBasiDate">
-                    <Form.Label>Fecha de nacimiento</Form.Label>
+                    <Form.Label><FormattedMessage
+                      id='Fecha'
+                      defaultMessage='Date of birth'
+                    /></Form.Label>
                     <Form.Control
                       type="date"
                       placeholder={usuarios.date}
@@ -310,10 +344,13 @@ function ProfileCard({ user }) {
 
                 {!usuarios.numberPhone || edit === true ? (
                   <Form.Group className="mb-3 col-4" controlId="formBasiPhone">
-                    <Form.Label>Telefono</Form.Label>
+                    <Form.Label><FormattedMessage
+                      id='Telefono'
+                      defaultMessage='Phone'
+                    /></Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder={"Escriba su telefono"}
+                      placeholder="..."
                       value={number}
                       onChange={(e) => {
                         setNumber(e.target.value);
@@ -324,13 +361,19 @@ function ProfileCard({ user }) {
                     <br />
                     <strong>
                       {!regexTel.test(number)
-                        ? "El campo Número de contacto solo acepta caracteres numéricos con un mínimo de 10"
+                        ? <FormattedMessage
+                          id='Telefono-error-vali'
+                          defaultMessage='The Contact Number field only accepts numeric characters with a minimum of 10'
+                        />
                         : ""}
                     </strong>
                   </Form.Group>
                 ) : (
                   <Form.Group className="mb-3 col-4" controlId="formBasiPhone">
-                    <Form.Label>Telefono</Form.Label>
+                    <Form.Label><FormattedMessage
+                      id='Telefono'
+                      defaultMessage='Phone'
+                    /></Form.Label>
                     <Form.Control
                       type="text"
                       placeholder={usuarios.numberPhone}
@@ -348,10 +391,13 @@ function ProfileCard({ user }) {
                     className="mb-3 col-6"
                     controlId="formBasicCountry"
                   >
-                    <Form.Label>País</Form.Label>
+                    <Form.Label><FormattedMessage
+                      id='Pais'
+                      defaultMessage='Country'
+                    /></Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder={"Escriba su pais"}
+                      placeholder="..."
                       value={countryes}
                       onChange={(e) => {
                         setCountryes(e.target.value);
@@ -362,7 +408,10 @@ function ProfileCard({ user }) {
                     <br />
                     <strong>
                       {!regexName.test(countryes)
-                        ? "El campo País solo acepta letras"
+                        ? <FormattedMessage
+                          id='Pais-error-vali'
+                          defaultMessage='The Country field only accepts letters'
+                        />
                         : ""}
                     </strong>
                   </Form.Group>
@@ -371,7 +420,10 @@ function ProfileCard({ user }) {
                     className="mb-3 col-6"
                     controlId="formBasicCountry"
                   >
-                    <Form.Label>País</Form.Label>
+                    <Form.Label><FormattedMessage
+                      id='Pais'
+                      defaultMessage='Country'
+                    /></Form.Label>
                     <Form.Control
                       type="text"
                       placeholder={usuarios.country}
@@ -384,10 +436,13 @@ function ProfileCard({ user }) {
 
                 {!usuarios.postalCod || edit === true ? (
                   <Form.Group className="mb-3 col-6" controlId="formBasicUser">
-                    <Form.Label>Código Postal</Form.Label>
+                    <Form.Label><FormattedMessage
+                      id='Postal'
+                      defaultMessage='Postal Code'
+                    /></Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder={"Escriba su codigo postal"}
+                      placeholder="..."
                       value={codigoPostal}
                       onChange={(e) => {
                         setCodigoPostal(e.target.value);
@@ -398,13 +453,19 @@ function ProfileCard({ user }) {
                     <br />
                     <strong>
                       {!regexPostal.test(codigoPostal)
-                        ? "El campo Código Postal solo acepta caracteres numéricos con un mínimo de 4"
+                        ? <FormattedMessage
+                          id='Postal--error-vali'
+                          defaultMessage='The Postal Code field only accepts numeric characters with a minimum of 4'
+                        />
                         : ""}
                     </strong>
                   </Form.Group>
                 ) : (
                   <Form.Group className="mb-3 col-6" controlId="formBasicUser">
-                    <Form.Label>Código Postal</Form.Label>
+                    <Form.Label><FormattedMessage
+                      id='Postal'
+                      defaultMessage='Postal Code'
+                    /></Form.Label>
                     <Form.Control
                       placeholder={usuarios.postalCod}
                       value={usuarios.postalCod}
@@ -416,18 +477,18 @@ function ProfileCard({ user }) {
               </div>
 
               {edit === true &&
-              name &&
-              regexName.test(name) &&
-              lastname &&
-              regexName.test(lastname) &&
-              codigoPostal &&
-              regexPostal.test(codigoPostal) &&
-              dni &&
-              regexDoc.test(dni) &&
-              number &&
-              regexTel.test(number) &&
-              countryes &&
-              regexName.test(countryes) ? (
+                name &&
+                regexName.test(name) &&
+                lastname &&
+                regexName.test(lastname) &&
+                codigoPostal &&
+                regexPostal.test(codigoPostal) &&
+                dni &&
+                regexDoc.test(dni) &&
+                number &&
+                regexTel.test(number) &&
+                countryes &&
+                regexName.test(countryes) ? (
                 <button
                   className="btn-form-save mx-3 mb-3"
                   onClick={(e) => HandlerUpdate(e)}
@@ -437,7 +498,10 @@ function ProfileCard({ user }) {
                       <FaSave />
                     </div>
                   </div>
-                  <span>Guardar</span>
+                  <span><FormattedMessage
+                    id='btn-form'
+                    defaultMessage='Save'
+                  /></span>
                 </button>
               ) : null}
             </Card.Body>
@@ -449,11 +513,17 @@ function ProfileCard({ user }) {
                 background: "var(--bg-nav)",
               }}
             >
-              <h2 className="text-center">Deje un comentario</h2>
+              <h2 className="text-center"><FormattedMessage
+                id='comentario-title'
+                defaultMessage='Leave a comment'
+              /></h2>
             </div>
             <form id="algin-form" className="p-3">
               <div className="form-group mb-3">
-                <Form.Label for="message">Mensaje</Form.Label>
+                <Form.Label for="message"><FormattedMessage
+                  id='comentario-sub'
+                  defaultMessage='Message'
+                /></Form.Label>
                 <textarea
                   name="msg"
                   id=""
@@ -520,7 +590,10 @@ function ProfileCard({ user }) {
                     <IoIosSend />
                   </div>
                 </div>
-                <span>Enviar</span>
+                <span><FormattedMessage
+                  id='btn-comentario'
+                  defaultMessage='Send'
+                /></span>
               </button>
             ) : (
               <button
@@ -532,7 +605,10 @@ function ProfileCard({ user }) {
                     <IoIosSend />
                   </div>
                 </div>
-                <span>Enviar</span>
+                <span><FormattedMessage
+                  id='btn-comentario'
+                  defaultMessage='Send'
+                /></span>
               </button>
             )}
           </Card>
