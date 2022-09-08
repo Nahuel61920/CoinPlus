@@ -39,10 +39,7 @@ function NavMarket({ setCurrentPage }) {
             <input
               class="form-control me-2 hight"
               type="search"
-              placeholder={<FormattedMessage
-                id='buscar'
-                defaultMessage='Search...'
-              />}
+              placeholder='Search...'
               aria-label="Search"
               value={name}
               onChange={(e) => {

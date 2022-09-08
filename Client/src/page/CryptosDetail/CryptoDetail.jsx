@@ -18,6 +18,8 @@ import {
   Filler,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { FormattedMessage } from "react-intl";
+
 
 ChartJS.register(
   CategoryScale,
@@ -184,7 +186,10 @@ function CryptoDetail() {
             </div>
             <div className="col-6">
               <h1 className="fw-bold text-end">
-                Precio:{" "}
+                <FormattedMessage
+                  id='Precio'
+                  defaultMessage='Price'
+                />:{" "}
                 <span>
                   {" "}
                   $
@@ -196,13 +201,19 @@ function CryptoDetail() {
           <div className="cardDetalle gap-3">
             <div className="my-4 base2">
               <h2>
-                Description:{" "}
+                <FormattedMessage
+                  id='Description'
+                  defaultMessage='Description'
+                />:{" "}
                 <span className="fs-4"> "(Inglés)" {details.description}</span>
               </h2>
             </div>
             <div className="base4">
               <h2>
-                Volumen cada 24h:{" "}
+                <FormattedMessage
+                  id='Volumen-24h'
+                  defaultMessage='Volume every 24h:'
+                />{" "}
                 <span>
                   $
                   {!details.volume_24h
@@ -213,7 +224,10 @@ function CryptoDetail() {
             </div>
             <div className="base3">
               <h2>
-                Volumen de cambio cada 24h:{" "}
+                <FormattedMessage
+                  id='Volumen-cam'
+                  defaultMessage='Change volume every 24h:'
+                />{" "}
                 {!details.volume_change_24h ? (
                   " "
                 ) : details.volume_change_24h > 0 ? (
@@ -227,25 +241,46 @@ function CryptoDetail() {
                 )}
               </h2>
             </div>
-            <h2 className="text-center m-4">Cambio porcentual</h2>
+            <h2 className="text-center m-4"><FormattedMessage
+              id='Cambio-porcentual'
+              defaultMessage='Percentage change'
+            /></h2>
             <div className="row d-flex align-items-center border-cell">
               <div className="col-2 info-detail-cry">
-                <h4>Cambio 1h:</h4>
+                <h4><FormattedMessage
+                  id='Cambio-1h'
+                  defaultMessage='Change 1h:'
+                /></h4>
               </div>
               <div className="col-2 info-detail-cry">
-                <h4>Cambio 24h:</h4>
+                <h4><FormattedMessage
+                  id='Cambio-24h'
+                  defaultMessage='Change 24h:'
+                /></h4>
               </div>
               <div className="col-2 info-detail-cry">
-                <h4>Cambio 7d:</h4>
+                <h4><FormattedMessage
+                  id='Cambio-7d'
+                  defaultMessage='Shift 7d:'
+                /></h4>
               </div>
               <div className="col-2 info-detail-cry">
-                <h4>Cambio 30d:</h4>
+                <h4><FormattedMessage
+                  id='Cambio-30d'
+                  defaultMessage='Shift 30d:'
+                /></h4>
               </div>
               <div className="col-2 info-detail-cry">
-                <h4>Cambio 60d:</h4>
+                <h4><FormattedMessage
+                  id='Cambio-60d'
+                  defaultMessage='Shift 60d:'
+                /></h4>
               </div>
               <div className="col-2 info-detail-cry">
-                <h4>Cambio 90d:</h4>
+                <h4><FormattedMessage
+                  id='Cambio-90d'
+                  defaultMessage='Shift 90d:'
+                /></h4>
               </div>
             </div>
             <div className="row d-flex align-items-center  border-cell mb-3">
@@ -341,7 +376,10 @@ function CryptoDetail() {
               </div>
             </div>
             <Line data={data} options={options} />
-            <h2 className="text-center m-4">Categorías</h2>
+            <h2 className="text-center m-4"><FormattedMessage
+              id='Categories'
+              defaultMessage='Categories'
+            /></h2>
             <div className="d-flex align-items-center justify-content-center flex-wrap mb-2">
               {details.tag_names.length ? (
                 details.tag_names.map((tag, index) => {

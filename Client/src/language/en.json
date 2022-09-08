@@ -87,6 +87,8 @@
 	
 	"Precio": "Price",
 	"Volumen": "Volume",
+	"Description": "Description",
+	"Cambio-porcentual": "Percentage change",
 	"Ultimo": "Last 7 days",
 	"Volumen-24h": "Volume every 24h:",
 	"Volumen-cam": "Change volume every 24h:",

@@ -6,11 +6,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
 
 import loader from "../../assets/img/loading-best.gif";
+import { FormattedMessage } from "react-intl";
 
-function CryptoBest({bestCrypto}) {
+function CryptoBest({ bestCrypto }) {
   return (
     <div>
-      <h2>Las mejores Criptos</h2>
+      <h2><FormattedMessage
+        id='mejores-cry'
+        defaultMessage='Best Cryptos'
+      /></h2>
       {bestCrypto.length ? (
         <div className="row d-flex align-items-center justify-content-center mt-4 mb-5">
           <Swiper
@@ -65,7 +69,7 @@ function CryptoBest({bestCrypto}) {
         </div>
       ) : (
         <div className="d-flex justify-content-center my-5">
-            <img src={loader} alt="loading" height="20" className="my-5" />
+          <img src={loader} alt="loading" height="20" className="my-5" />
         </div>
       )}
     </div>

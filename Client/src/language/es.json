@@ -91,6 +91,8 @@
 	
 	"Precio": "Precio",
 	"Volumen": "Volumen",
+	"Description": "Descripción",
+	"Cambio-porcentual": "Cambio porcentual",
 	"Ultimo": "Últimos 7 días",
 	"Volumen-24h": "Volumen cada 24h:",
 	"Volumen-cam": "Volumen de cambio cada 24h:",

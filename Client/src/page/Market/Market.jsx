@@ -25,6 +25,8 @@ import "./market.css";
 import load from "../../assets/img/load.gif";
 import noCryptos from "../../assets/img/no_crypto_found.png";
 
+import { FormattedMessage } from "react-intl";
+
 function Market() {
   const dispatch = useDispatch();
   const { cryptos, bestCrypto, category, isLoading } = useSelector(
@@ -107,8 +109,14 @@ function Market() {
       <NavMarket setCurrentPage={setCurrentPage} />
 
       <div className="container-xxl my-4">
-        <h1 className="fw-bold text-center">Mercado</h1>
-        <p className="text-center">Precio de las criptomonedas de hoy</p>
+        <h1 className="fw-bold text-center"><FormattedMessage
+          id='Mercado'
+          defaultMessage='Market'
+        /></h1>
+        <p className="text-center"><FormattedMessage
+          id='Mercado-sub'
+          defaultMessage='Cryptocurrency price today'
+        /></p>
         <div className="row d-flex align-items-center justify-content-center mt-4 pt-3 px-4">
           <CryptoBest bestCrypto={bestCrypto} />
 
@@ -118,7 +126,10 @@ function Market() {
               className="name-filt col-5  m-3 animate__animated animate__bounceInLeft animate__delay-1s"
               onChange={(e) => handleSubmitCategory(e.target.value)}
             >
-              <option value="All">Categoría</option>
+              <option value="All"><FormattedMessage
+                id='categoria'
+                defaultMessage='Category'
+              /></option>
               {category.map((capt, key) => (
                 <option key={key} value={capt.name}>
                   {" "}
@@ -133,7 +144,10 @@ function Market() {
               onChange={(e) => handleSubmitPlatform(e.target.value)}
             >
               <option key="todo" value="All">
-                Plataforma
+                <FormattedMessage
+                  id='plataforma'
+                  defaultMessage='Platform'
+                />
               </option>
               <option key="TRON Ecosystem" value="TRON Ecosystem">
                 TRON Ecosystem
@@ -189,15 +203,27 @@ function Market() {
               onChange={(e) => handleSortOrderByName(e)}
             >
               <option className="p-2" value="name">
-                Nombre
+                <FormattedMessage
+                  id='Nombre'
+                  defaultMessage='Name'
+                />
               </option>
-              <option value="asc">Nombre (A-Z)</option>
-              <option value="desc">Nombre (Z-A)</option>
+              <option value="asc"><FormattedMessage
+                id='Nombre'
+                defaultMessage='Name'
+              /> (A-Z)</option>
+              <option value="desc"><FormattedMessage
+                id='Nombre'
+                defaultMessage='Name'
+              /> (Z-A)</option>
             </select>
           </div>
           <div className="col-2 col-md-1 select_filter">
             <select defaultValue="Precio" onChange={(e) => handleSort(e)}>
-              <option value="Precio">Precio</option>
+              <option value="Precio"><FormattedMessage
+                id='Precio'
+                defaultMessage='Price'
+              /></option>
               <option value="min">Min</option>
               <option value="max">Max</option>
             </select>
@@ -237,7 +263,10 @@ function Market() {
               defaultValue="Volumen"
               onChange={(e) => handleSortVolume(e)}
             >
-              <option value="Volumen">Volumen</option>
+              <option value="Volumen"><FormattedMessage
+                id='Volumen'
+                defaultMessage='Volume'
+              /></option>
               <option value="min">Min</option>
               <option value="max">Max</option>
             </select>
@@ -247,7 +276,10 @@ function Market() {
               defaultValue="Volumen24h"
               onChange={(e) => handleSortfilterForVolume24(e)}
             >
-              <option value="Volumen24h">Últimos 7 días</option>
+              <option value="Volumen24h"><FormattedMessage
+                id='Ultimo'
+                defaultMessage='Last 7 days'
+              /></option>
               <option value="min">Min</option>
               <option value="max">Max</option>
             </select>
