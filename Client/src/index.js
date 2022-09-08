@@ -12,6 +12,7 @@ import "swiper/css/bundle";
 import { Auth0Provider } from "@auth0/auth0-react";
 
 import { TransactionsProvider } from "./context/TransactionContext";
+import { LangProvider } from "./context/Language";
 
 import axios from "axios";
 
@@ -23,15 +24,17 @@ const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-      <Auth0Provider
-        domain={domain}
-        clientId={clientId}
-        redirectUri={window.location.origin}
-      >
-        <TransactionsProvider>
+    <Auth0Provider
+      domain={domain}
+      clientId={clientId}
+      redirectUri={window.location.origin}
+    >
+      <TransactionsProvider>
+        <LangProvider>
           <App />
-        </TransactionsProvider>
-      </Auth0Provider>
+        </LangProvider>
+      </TransactionsProvider>
+    </Auth0Provider>
   </BrowserRouter>
 );
 

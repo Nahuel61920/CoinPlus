@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Logo from "../../assets/img/coin+logo.png";
 import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
@@ -10,13 +10,17 @@ import { useAuth0 } from "@auth0/auth0-react";
 import LoginButton from "../BtnsLogin/LoginButton";
 import Profile from "../Profile/Profile";
 
+import { FormattedMessage } from "react-intl";
+import { langContext } from '../../context/Language';
+
 function Nav() {
   const { isAuthenticated } = useAuth0();
+  const idioma = useContext(langContext);
 
   return (
     <nav class="navbar navbar-expand-md navbar-dark bg-warning px-md-5 px-1 sticky-top">
       <div class="container-fluid w-100 ">
-        
+
         <button
           class="navbar-toggler"
           type="button"
@@ -30,20 +34,31 @@ function Nav() {
         </button>
         <NavLink to="/">
           <div className="navbar-imge" width="150">
-            
+
           </div>
         </NavLink>
-        <div className="user-nav d-flex align-items-center gap-2"><DarkMode/>{isAuthenticated ? <Profile /> : <LoginButton />}</div>
+        <div className="user-nav d-flex align-items-center gap-2"><DarkMode />{isAuthenticated ? <Profile /> : <LoginButton />}</div>
         <div class="collapse navbar-collapse collapse-imge" id="navbarSupportedContent">
           <div class="nav navbar-nav ms-auto ">
             <Link to="Home" spy={true} offset={-150} href="#Home">
-              Inicio
+              <FormattedMessage
+                id='Inicio'
+                defaultMessage='Inicio'
+              />
             </Link>
             <Link to="Services" spy={true} offset={-150} href="#Services">
-              Servicios
+
+              <FormattedMessage
+                id='Servicios'
+                defaultMessage='Servicios'
+              />
             </Link>
             <Link to="About" spy={true} offset={-150} href="#About">
-              Nosotros
+
+              <FormattedMessage
+                id='Nosotros'
+                defaultMessage='Nosotros'
+              />
             </Link>
             <Link
               to="Notifications"
@@ -51,7 +66,11 @@ function Nav() {
               offset={-150}
               href="#Notifications"
             >
-              Notificaciones
+
+              <FormattedMessage
+                id='Notificaciones'
+                defaultMessage='Notificaciones'
+              />
             </Link>
             <Link
               to="Reviews"
@@ -59,12 +78,20 @@ function Nav() {
               offset={-150}
               href="#Reviews"
             >
-              Comentarios
+
+              <FormattedMessage
+                id='Comentarios'
+                defaultMessage='Comentarios'
+              />
             </Link>
+            <div id="buttons">
+              <img onClick={() => idioma.selectLanguage('en-US')} src="https://nahuel61920.github.io/Portafoliovirtual/img/en.png" alt="EEUU" />
+              <img onClick={() => idioma.selectLanguage('es-ES')} src="https://nahuel61920.github.io/Portafoliovirtual/img/es.png" alt="España" />
+            </div>
           </div>
         </div>
-        
-        <div className="user-nav-2 align-items-center gap-2"><DarkMode/>{isAuthenticated ? <Profile /> : <LoginButton />}</div>
+
+        <div className="user-nav-2 align-items-center gap-2"><DarkMode />{isAuthenticated ? <Profile /> : <LoginButton />}</div>
       </div>
     </nav>
   );
