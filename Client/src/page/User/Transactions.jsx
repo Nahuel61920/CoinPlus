@@ -7,6 +7,7 @@ import dummyData from "../../utils/dummyData";
 import { shortenAddress } from "../../utils/shortenAddress";
 import NavProfile from "../../components/Nav/NavProfile";
 import Logo from "../../assets/img/coin+logo.png";
+import { FormattedMessage } from "react-intl";
 
 const TransactionsCard = ({
   addressTo,
@@ -28,20 +29,32 @@ const TransactionsCard = ({
             target="_blank"
             rel="noreferrer"
           >
-            <p className="text-base">Desde: {shortenAddress(addressFrom)}</p>
+            <p className="text-base"><FormattedMessage
+              id='Desde'
+              defaultMessage='Since'
+            />: {shortenAddress(addressFrom)}</p>
           </a>
           <a
             href={`https://ropsten.etherscan.io/address/${addressTo}`}
             target="_blank"
             rel="noreferrer"
           >
-            <p className="text-base">Para: {shortenAddress(addressTo)}</p>
+            <p className="text-base"><FormattedMessage
+              id='Para'
+              defaultMessage='For'
+            />: {shortenAddress(addressTo)}</p>
           </a>
-          <p className="text-base">Cantidad: {amount} ETH</p>
+          <p className="text-base"><FormattedMessage
+            id='Cantidad'
+            defaultMessage='Quantity'
+          />: {amount} ETH</p>
           {message && (
             <>
               <br />
-              <p className="text-base">Mensaje: {message}</p>
+              <p className="text-base"><FormattedMessage
+                id='comentario-sub'
+                defaultMessage='Message'
+              />: {message}</p>
             </>
           )}
         </div>
@@ -64,27 +77,30 @@ const Transactions = () => {
 
   return (
     <>
-    <div className="bg-global ">
-      <NavProfile logo={Logo}/>
-    <div className="d-flex w-full justify-content-center justify-items-center 2xl:px-20">
-      <div  className="d-flex flex-column md:p-12 py-12 px-4">
-        {currentAccount ? (
-          <h3 className="text-3xl text-center my-2">Últimas Transacciones</h3>
-        ) : (
-          <h3 className="text-3xl text-center my-2">
-             Últimas Transacciones
-          </h3>
-        )}
+      <div className="bg-global ">
+        <NavProfile logo={Logo} />
+        <div className="d-flex w-full justify-content-center justify-items-center 2xl:px-20">
+          <div className="d-flex flex-column md:p-12 py-12 px-4">
+            {currentAccount ? (
+              <h3 className="text-3xl text-center my-2">Últimas Transacciones</h3>
+            ) : (
+              <h3 className="text-3xl text-center my-2">
+                <FormattedMessage
+                  id='Ultimas-trans'
+                  defaultMessage='Last Transactions'
+                />
+              </h3>
+            )}
 
-        <div className="d-flex flex-wrap justify-content-center justify-items-center mt-5">
-          {[...dummyData, ...transactions.slice(-10, transactions.length)].reverse().map((transaction, i) => (
-            <TransactionsCard key={i} {...transaction} />
-          ))}
+            <div className="d-flex flex-wrap justify-content-center justify-items-center mt-5">
+              {[...dummyData, ...transactions.slice(-10, transactions.length)].reverse().map((transaction, i) => (
+                <TransactionsCard key={i} {...transaction} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    </div>
-    <Footer/>
+      <Footer />
     </>
   );
 };
