@@ -1,7 +1,7 @@
 import {Request, Response} from "express"
 import axios from "axios";
 require("dotenv").config();
-const {PAYPAL_API, PAYPAL_CLIENT, PAYPAL_SECRET, HOST2, HOST_FRON} = process.env 
+const {PAYPAL_API, PAYPAL_CLIENT, PAYPAL_SECRET, HOST2} = process.env 
 
 
 export const createOrder = async (req:Request, res:Response) => {
@@ -88,7 +88,7 @@ export const captureOrder = async (req:Request, res:Response) => {
 
     console.log(response.data);
 
-    res.redirect(`${HOST_FRON}/pagado`);
+    res.redirect("http://localhost:3000/pagado");
    
   } catch (error:any) {
     console.log(error.message);
