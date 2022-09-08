@@ -17,6 +17,7 @@ import { ImCamera } from "react-icons/im";
 import Blocked from "../MsgBlocked/Blocked";
 import { validation } from "./Validations";
 import swal from 'sweetalert';
+import Footer from '../Footer/Footer'
 
 
 function ProfileCard({ user }) {
@@ -536,6 +537,7 @@ function ProfileCard({ user }) {
               </button>
             )}
           </Card>
+          <Footer/>
         </div>
       ) : (
         <Blocked />
