@@ -6,20 +6,20 @@ const {API_KEY_SENDGRID} = process.env
 import {emailCambioDatos} from "./Plantillas/cambioDatos"
 
 const createTrans = () => {
-    // let transport = nodemailer.createTransport({
-    //     host: "smtp.mailtrap.io",
-    //     port: 2525,
-    //     auth: {
-    //       user: "923cfd5b23d692",
-    //       pass: "6db9bb26e7219a"
-    //     }
-    //   });
+    let transport = nodemailer.createTransport({
+        host: "smtp.mailtrap.io",
+        port: 2525,
+        auth: {
+          user: "923cfd5b23d692",
+          pass: "6db9bb26e7219a"
+        }
+      });
     
-    const transport = nodemailer.createTransport(
-        nodemailerSendgrid({
-            apiKey: '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',
-        })
-    )
+    // const transport = nodemailer.createTransport(
+    //     nodemailerSendgrid({
+    //         apiKey: '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',
+    //     })
+    // )
     return transport;
 }
 
