@@ -1,11 +1,11 @@
 .card {
-  width: 50%;
   height: 100%;
   background: var(--bg-card-user);
   border: none;
   position: relative;
   font-family: inherit;
   margin-left: 0%;
+  margin-bottom: 2rem !important;
 }
 
 .bg-envio {

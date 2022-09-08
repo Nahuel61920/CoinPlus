@@ -16,6 +16,7 @@
   padding: 20px;
   min-width: 100vw;
   position: initial;
+  margin-top: 2rem !important;
 }
 
 .copy {
