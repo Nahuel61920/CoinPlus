@@ -16,6 +16,8 @@ import {
 import { ImCamera } from "react-icons/im";
 import Blocked from "../MsgBlocked/Blocked";
 import { validation } from "./Validations";
+import swal from 'sweetalert';
+
 
 function ProfileCard({ user }) {
   const dispatch = useDispatch();
@@ -96,6 +98,8 @@ function ProfileCard({ user }) {
       rating: rating,
     };
     dispatch(postComent(crear));
+    swal("¡Su comentario ha sido actualizado!", "", "success");
+    setComment("")
   }
 
   function HandlerEdit() {
@@ -457,6 +461,7 @@ function ProfileCard({ user }) {
                   cols="30"
                   rows="5"
                   className="form-control my-2"
+                  value={comment}
                   onChange={(e) => setComment(e.target.value)}
                 ></textarea>
               </div>
