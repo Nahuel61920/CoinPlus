@@ -8,12 +8,19 @@ import mail from "../../../assets/img/mail.png";
 import pay from "../../../assets/img/pay.png";
 import wallet from "../../../assets/img/wallet.png";
 import "./toBePart.css";
+import { FormattedMessage } from "react-intl";
 
 function ToBePart() {
   return (
     <div className="container-fluid">
-      <h1 className="fw-bold text-center"> Cómo ser parte </h1>
-      <p className="text-center">Paso a paso</p>
+      <h1 className="fw-bold text-center"><FormattedMessage
+        id='Parte'
+        defaultMessage='How to be a part'
+      /></h1>
+      <p className="text-center"><FormattedMessage
+        id='parte-sub'
+        defaultMessage='Step by step'
+      /></p>
 
       <div className="container-fluid card-tobe d-flex flex-wrap">
         <div className="step">
@@ -29,7 +36,10 @@ function ToBePart() {
               <img src={uno} alt="uno" width="100" />
             </div>
             <div className="card-info text-center">
-              <p className="text-title">Crea tu usuario</p>
+              <p className="text-title"><FormattedMessage
+                id='parte-card-1'
+                defaultMessage='Create your user'
+              /></p>
               <img src={login} alt="login" width="100" />
             </div>
           </div>
@@ -44,7 +54,10 @@ function ToBePart() {
               <img src={dos} alt="dos" width="100" />
             </div>
             <div className="card-info text-center">
-              <p className="text-title">Confirma tu correo</p>
+              <p className="text-title"><FormattedMessage
+                id='parte-card-2'
+                defaultMessage='Confirm your email'
+              /></p>
               <img src={mail} alt="mail" width="100" />
             </div>
           </div>
@@ -59,7 +72,10 @@ function ToBePart() {
               <img src={tres} alt="tres" width="100" />
             </div>
             <div className="card-info text-center">
-              <p className="text-title">Conéctate con Paypal y Metamask</p>
+              <p className="text-title"><FormattedMessage
+                id='parte-card-3'
+                defaultMessage='Connect with Paypal and Metamask'
+              /></p>
               <img src={pay} alt="pay" width="100" />
             </div>
           </div>
@@ -74,7 +90,10 @@ function ToBePart() {
               <img src={cuatro} alt="cuatro" width="100" />
             </div>
             <div className="card-info text-center">
-              <p className="text-title">Disfrute de los beneficios</p>
+              <p className="text-title"><FormattedMessage
+                id='parte-card-4'
+                defaultMessage='Enjoy the benefits'
+              /></p>
               <img src={wallet} alt="wallet" width="100" />
             </div>
           </div>

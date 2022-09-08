@@ -10,6 +10,7 @@
 	"Billetera": "Billetera",
 	"Movimiento": "Movimientos",
 	"Comprar": "Compra-Venta",
+	"Perfil": "Perfil",
 
     "site-web": "Páginas web",
     "games": "juegos",
@@ -20,6 +21,7 @@
     "inicio_par": "La forma más simple y segura de comerciar criptomonedas.",
 
     "btn-iniciar": "Entrar/Registro",
+	"btn-salir": "Salir",
     "Servicios-sub": "¿Qué puedes hacer en Coin+?",
     "Servicios-card-1-tit": "Analiza el mercado",
     "Servicios-card-1-par": "Conoce las principales criptos, cómo funcionan y qué mueve el mercado.",

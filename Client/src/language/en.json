@@ -10,12 +10,14 @@
 	"Billetera": "Wallet",
 	"Movimiento": "Moves",
 	"Comprar": "Buy Sell",
+    "Perfil": "Profile",
 
     "inicio_sub": "Your route to the future.",
     "inicio_title": "Get closer to the crypto world.",
     "inicio_par": "The simplest and safest way to trade cryptocurrencies.",
 
-    "btn-iniciar": "Login/Sign up",
+    "btn-iniciar": "Login/SignUp",
+    "btn-salir": "LogOut",
     "Servicios-sub": "What can you do on Coin+?",
     "Servicios-card-1-tit": "Analyze the market",
     "Servicios-card-1-par": "Learn about the main cryptos, how they work and what moves the market.",

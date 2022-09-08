@@ -9,7 +9,9 @@ import { fetchCrypto, nameCrypto } from "../../redux/reducers/cryptoRed";
 import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 
-function NavMarket({setCurrentPage}) {
+import { FormattedMessage } from "react-intl";
+
+function NavMarket({ setCurrentPage }) {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const navigate = useNavigate();
@@ -28,23 +30,26 @@ function NavMarket({setCurrentPage}) {
     <nav class="navbar navbar-expand-sm navbar-dark bg-warning px-md-5 px-1 sticky-top">
       <div class="container-fluid w-100 ">
         <NavLink to="/">
-            <div className="navbar-imge" width="150">
-            
-            </div>
+          <div className="navbar-imge" width="150">
+
+          </div>
         </NavLink>
         <div>
           <div class="container-fluid">
-              <input
-                class="form-control me-2 hight"
-                type="search"
-                placeholder="Buscar..."
-                aria-label="Search"
-                value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                  handleSubmit(e.target.value);
-                }}
-              />
+            <input
+              class="form-control me-2 hight"
+              type="search"
+              placeholder={<FormattedMessage
+                id='buscar'
+                defaultMessage='Search...'
+              />}
+              aria-label="Search"
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+                handleSubmit(e.target.value);
+              }}
+            />
           </div>
         </div>
         <button
@@ -58,9 +63,9 @@ function NavMarket({setCurrentPage}) {
         >
           <span class="navbar-toggler-icon fs-6"></span>
         </button>
-        <div className="nav-All d-flex align-items-center gap-2"><DarkMode/><Profile />  </div>      
-        
-        
+        <div className="nav-All d-flex align-items-center gap-2"><DarkMode /><Profile />  </div>
+
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <div class="nav navbar-nav ms-auto mx-3" />
           <NavLink
@@ -68,11 +73,14 @@ function NavMarket({setCurrentPage}) {
             style={{ textDecoration: "none" }}
             className="px-4 fw-bold text-primary"
           >
-            Mercado
+            <FormattedMessage
+              id='Mercado'
+              defaultMessage='Market'
+            />
           </NavLink>
         </div>
-        
-        <div className="nav-All-2 d-flex align-items-center gap-2"><DarkMode/><Profile />  </div> 
+
+        <div className="nav-All-2 d-flex align-items-center gap-2"><DarkMode /><Profile />  </div>
       </div>
     </nav>
   );

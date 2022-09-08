@@ -3,12 +3,19 @@ import "./services.css";
 import compraCryp from "../../../assets/img/compra.png";
 import criptomonedas from "../../../assets/img/cryptocurrency.png";
 import retiro from "../../../assets/img/retiro.png";
+import { FormattedMessage } from "react-intl";
 
 function Services() {
   return (
     <div id="Services">
-      <h1 className="fw-bold text-center">Servicios</h1>
-      <p className="text-center">Qué puedes hacer en Coin+?</p>
+      <h1 className="fw-bold text-center"><FormattedMessage
+        id='Servicios'
+        defaultMessage='Services'
+      /></h1>
+      <p className="text-center"><FormattedMessage
+        id='Servicios-sub'
+        defaultMessage='What can you do on Coin+?'
+      /></p>
       <div className="row justify-content-center">
         <div
           className="col-6 col-md-4 d-flex justify-content-center"
@@ -20,10 +27,15 @@ function Services() {
               <img src={criptomonedas} alt="criptomonedas" width="70" />
             </div>
             <div className="card-info">
-              <p className="text-title">Analiza el mercado</p>
+              <p className="text-title"><FormattedMessage
+                id='Servicios-card-1-tit'
+                defaultMessage='Analyze the market'
+              /></p>
               <p className="text-bodys">
-                Conoce las principales criptos, cómo funcionan y qué mueve el
-                mercado.
+                <FormattedMessage
+                  id='Servicios-card-1-par'
+                  defaultMessage='Learn about the main cryptos, how they work and what moves the market.'
+                />
               </p>
             </div>
           </div>
@@ -38,10 +50,15 @@ function Services() {
               <img src={compraCryp} alt="compraCryp" width="70" />
             </div>
             <div className="card-info">
-              <p className="text-title">Comprar</p>
+              <p className="text-title"><FormattedMessage
+                id='Servicios-card-2-tit'
+                defaultMessage='Buy'
+              /></p>
               <p className="text-bodys">
-                Accede a toda la red de Etherum y otros activos digitales en
-                pocos pasos.
+                <FormattedMessage
+                  id='Servicios-card-2-par'
+                  defaultMessage='Access the entire Etherum network and other digital assets in a few steps.'
+                />
               </p>
             </div>
           </div>
@@ -61,10 +78,15 @@ function Services() {
               />
             </div>
             <div className="card-info">
-              <p className="text-title">Vender</p>
+              <p className="text-title"><FormattedMessage
+                id='Servicios-card-3-tit'
+                defaultMessage='Sell'
+              /></p>
               <p className="text-bodys">
-                Transforma tus criptos en otras divisas y/o dólares de manera
-                rápida y segura.
+                <FormattedMessage
+                  id='Servicios-card-3-par'
+                  defaultMessage='Transform your cryptos into other currencies and/or dollars quickly and safely.'
+                />
               </p>
             </div>
           </div>

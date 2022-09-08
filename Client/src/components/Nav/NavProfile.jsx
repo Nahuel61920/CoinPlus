@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import DarkMode from "../DarkMode/DarkMode";
 
 import "./nav.css";
+import { FormattedMessage } from "react-intl";
 
 function OffcanvasExample({ logo }) {
   return (
@@ -37,19 +38,40 @@ function OffcanvasExample({ logo }) {
             >
               <Offcanvas.Header closeButton className="bg-nav-user">
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  Perfil
+                  <FormattedMessage
+                    id='Perfil'
+                    defaultMessage='Profile'
+                  />
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body className="nav-togle-user">
                 <Nav className="justify-content-end flex-grow-1 pe-3 text-primary nav-market">
                   <Link to="/" style={{ textDecoration: "none" }}>
-                    Inicio
+                    <FormattedMessage
+                      id='Inicio'
+                      defaultMessage='Home'
+                    />
                   </Link>
-                  <Link to="/user">Perfil</Link>
-                  <Link to="/market">Mercado</Link>
-                  <Link to="/wallet">Billetera</Link>
-                  <Link to="/movements">Movimientos</Link>
-                  <Link to="/operation">Compra-Venta</Link>
+                  <Link to="/user"><FormattedMessage
+                    id='Usuario'
+                    defaultMessage='User'
+                  /></Link>
+                  <Link to="/market"><FormattedMessage
+                    id='Mercado'
+                    defaultMessage='Market'
+                  /></Link>
+                  <Link to="/wallet"><FormattedMessage
+                    id='Billetera'
+                    defaultMessage='Wallet'
+                  /></Link>
+                  <Link to="/movements"><FormattedMessage
+                    id='Movimiento'
+                    defaultMessage='Moves'
+                  /></Link>
+                  <Link to="/operation"><FormattedMessage
+                    id='Comprar'
+                    defaultMessage='Buy Sell'
+                  /></Link>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

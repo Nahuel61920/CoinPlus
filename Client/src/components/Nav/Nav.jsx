@@ -43,21 +43,21 @@ function Nav() {
             <Link to="Home" spy={true} offset={-150} href="#Home">
               <FormattedMessage
                 id='Inicio'
-                defaultMessage='Inicio'
+                defaultMessage='Home'
               />
             </Link>
             <Link to="Services" spy={true} offset={-150} href="#Services">
 
               <FormattedMessage
                 id='Servicios'
-                defaultMessage='Servicios'
+                defaultMessage='Services'
               />
             </Link>
             <Link to="About" spy={true} offset={-150} href="#About">
 
               <FormattedMessage
                 id='Nosotros'
-                defaultMessage='Nosotros'
+                defaultMessage='About'
               />
             </Link>
             <Link
@@ -69,7 +69,7 @@ function Nav() {
 
               <FormattedMessage
                 id='Notificaciones'
-                defaultMessage='Notificaciones'
+                defaultMessage='Notifications'
               />
             </Link>
             <Link
@@ -81,7 +81,7 @@ function Nav() {
 
               <FormattedMessage
                 id='Comentarios'
-                defaultMessage='Comentarios'
+                defaultMessage='Comments'
               />
             </Link>
             <div id="buttons">

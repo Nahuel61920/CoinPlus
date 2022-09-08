@@ -10,6 +10,7 @@ import { Navigation } from "swiper";
 import "./review.css";
 import "swiper/css";
 import "swiper/css/navigation";
+import { FormattedMessage } from "react-intl";
 
 export default function Review() {
   const dispatch = useDispatch();
@@ -24,7 +25,10 @@ export default function Review() {
       id="Reviews"
       className="row aling-content-center justify-content-center d-flex flex-md-row flex-column min-vh-100"
     >
-      <h1 className="fw-bold text-center mt-4">Comentarios</h1>
+      <h1 className="fw-bold text-center mt-4"><FormattedMessage
+        id='Comentarios'
+        defaultMessage='Comments'
+      /></h1>
       <div
         className="col-12 col-md-6 aling-content-center mt-5"
         data-aos="fade-right"
