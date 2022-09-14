@@ -88,7 +88,7 @@ export const captureOrder = async (req:Request, res:Response) => {
 
     console.log(response.data);
 
-    res.redirect("https://coinplus-backend.herokuapp.com/");
+    res.redirect("https://coin-plus.vercel.app/pagado");
    
   } catch (error:any) {
     console.log(error.message);
