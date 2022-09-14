@@ -34,7 +34,7 @@ export default function Review() {
         data-aos="fade-right"
         data-aos-delay="300"
       >
-        {/* <Swiper
+        <Swiper
           spaceBetween={30}
           slidesPerView={1}
           navigation={{
@@ -90,7 +90,7 @@ export default function Review() {
               <TbPlayerTrackNext />
             </div>
           </div>
-        </Swiper> */}
+        </Swiper>
       </div>
       <div
         className="col-12 col-md-6 my-5 container__img_header"
