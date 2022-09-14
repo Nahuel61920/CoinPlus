@@ -126,7 +126,7 @@ function ProfileCard({ user }) {
         </div>
       ) : usuarios.blocked === false ? (
         <div className="row gap-4 justify-content-center">
-          <Card className="my-3 animate__animated animate__backInLeft animate__delay-500ms p-0 col-5 card-formulario">
+          <Card className="my-3 animate__animated animate__backInLeft animate__delay-500ms p-0 col-12 col-md-5 card-formulario">
             <div
               className="d-flex justify-content-between px-5 py-3 w-100"
               style={{
@@ -530,7 +530,7 @@ function ProfileCard({ user }) {
               ) : null}
             </Card.Body>
           </Card>
-          <Card className="animate__animated animate__backInRight animate__delay-1s p-0 col-5 card-comment">
+          <Card className="animate__animated animate__backInRight animate__delay-1s p-0 col-12 col-md-5 card-comment">
             <div
               className="d-flex justify-content-center align-items-center py-4"
               style={{

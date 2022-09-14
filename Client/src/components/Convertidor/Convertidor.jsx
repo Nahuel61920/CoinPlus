@@ -149,7 +149,7 @@ export default function Convertidor() {
   }
 
   return (
-    <div className="col-5">
+    <div className="col-10 col-md-7">
       <div className="">
         <div className="card-1 ">
           <div className="card-body">
