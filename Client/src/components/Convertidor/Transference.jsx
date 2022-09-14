@@ -87,7 +87,8 @@ export default function Transference() {
 
   return (
     <div
-      className="container d-flex justify-content-center col-10 col-md-7"
+      style={{ height: "500px" }}
+      className="container d-flex justify-content-center"
     >
       <div className="card">
         <div className="card-body d-flex flex-column justify-content-evenly">
