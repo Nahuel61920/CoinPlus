@@ -41,9 +41,9 @@ function Metamask() {
   return (
     <>
       <div
-        className="container-fluid d-flex justify-content-evenly p-3 "
+        className=" d-flex justify-content-evenly row gap-3 p-3"
       >
-        <div style={{ width: "35rem" }} className="text-center animate__animated animate__backInLeft animate__delay-500ms">
+        <div className="text-center animate__animated animate__backInLeft animate__delay-500ms col-12 col-md-6">
           <h2 className="border-bottom border-dark mb-5">
             <FormattedMessage
               id='Metamask-conect'
@@ -80,11 +80,12 @@ function Metamask() {
         </div>
 
         {/* Boton antes de conectar*/}
-        <div className="d-flex flex-column animate__animated animate__backInRight animate__delay-1s">
+        <div className="d-flex flex-column justify-content-center  align-items-center animate__animated animate__backInRight animate__delay-1s col-12 col-md-5">
           {!currentAccount && (
             <button
               type="button"
               onClick={connectWallet}
+              style={{ width: "30em" }}
               className="d-flex flex-row justify-content-center align-items-center bg-primary p-2"
             >
               <AiFillPlayCircle className="text-white me-2" />

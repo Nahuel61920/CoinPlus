@@ -3,7 +3,7 @@ import { FormattedMessage } from "react-intl";
 
 function FinalOperation() {
   return (
-    <div style={{ height: '500px' }} className='container d-flex justify-content-center'>
+    <div lassName='container d-flex justify-content-center col-10 col-md-7'>
       <div className="card">
         <div className="card-body d-flex flex-column justify-content-evenly">
           <h4 className="card-title text-center"><FormattedMessage

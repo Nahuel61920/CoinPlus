@@ -21,7 +21,7 @@ const TransactionsCard = ({
   const gifUrl = useFetch({ keyword });
 
   return (
-    <div className="col-4 gap-4 md:col-6 lg:col-4 xl:col-4 p-2 md:p-4 lg:p-6 xl:p-6">
+    <div className="col-6 col-md-4 gap-4 md:col-6 lg:col-4 xl:col-4 p-2 md:p-4 lg:p-6 xl:p-6">
       <div className="d-flex flex-column justify-content-center  card-transaction">
         <div className="display-flex text-center justify-content-start w-full p-2">
           <a
