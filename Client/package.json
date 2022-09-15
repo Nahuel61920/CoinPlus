@@ -39,7 +39,7 @@
     "reactstrap": "^9.1.4",
     "sweet-alert": "^2.0.5",
     "sweetalert": "^2.1.2",
-    "swiper": "^8.1.4",
+    "swiper": "^7.0.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

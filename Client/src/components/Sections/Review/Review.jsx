@@ -1,18 +1,16 @@
 import React, { useEffect } from "react";
+import commentSVG from "../../../assets/svg/commentSVG.svg";
 import { fetchCommet } from "../../../redux/reducers/cryptoRed.js";
 import { useDispatch, useSelector } from "react-redux";
 import { ImQuotesLeft } from "react-icons/im";
 import { TbPlayerTrackPrev, TbPlayerTrackNext } from "react-icons/tb";
-import "./review.css";
-
-import { FormattedMessage } from "react-intl";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
 import { Navigation } from "swiper";
 
-import commentSVG from "../../../assets/svg/commentSVG.svg";
+import "./review.css";
+import "swiper/css";
+import "swiper/css/navigation";
+import { FormattedMessage } from "react-intl";
 
 export default function Review() {
   const dispatch = useDispatch();
@@ -27,75 +25,72 @@ export default function Review() {
       id="Reviews"
       className="row aling-content-center justify-content-center d-flex flex-md-row flex-column min-vh-100"
     >
-      <h1 className="fw-bold text-center mt-4">
-        <FormattedMessage id="Comentarios" defaultMessage="Comments" />
-      </h1>
+      <h1 className="fw-bold text-center mt-4"><FormattedMessage
+        id='Comentarios'
+        defaultMessage='Comments'
+      /></h1>
       <div
         className="col-12 col-md-6 aling-content-center mt-5"
         data-aos="fade-right"
         data-aos-delay="300"
       >
-        {!commets ? (
-          <h3 className="text-center"> not found</h3>
-        ) : (
-          <Swiper
-            spaceBetween={30}
-            slidesPerView={1}
-            navigation={{
-              nextEl: ".next",
-              prevEl: ".prev",
-            }}
-            loop={true}
-            modules={[Navigation]}
-            className="mySwiper"
-          >
-            <div>
-              {commets.map((commet) => (
-                <SwiperSlide key={commet.id}>
-                  <div className="testimonial__quote">
-                    <ImQuotesLeft className="bx bxs-quote-alt-left"></ImQuotesLeft>
-                  </div>
-                  <p className="testimonial__description">{commet.content}</p>
-                  <h3 className="testimonial__date">
-                    {commet.createdAt.slice(0, 10)}
-                  </h3>
-                  <div className="testimonial__perfil">
-                    <img
-                      src={commet.picture}
-                      alt=""
-                      className="testimonial__perfil-img"
-                    />
+        <Swiper
+          spaceBetween={30}
+          slidesPerView={1}
+          navigation={{
+            nextEl: ".next",
+            prevEl: ".prev",
+          }}
+          loop={true}
+          modules={[Navigation]}
+          className="mySwiper"
+        >
+          <div>
+            {commets.map((commet) => (
+              <SwiperSlide key={commet.id}>
+                <div className="testimonial__quote">
+                  <ImQuotesLeft className="bx bxs-quote-alt-left"></ImQuotesLeft>
+                </div>
+                <p className="testimonial__description">{commet.content}</p>
+                <h3 className="testimonial__date">
+                  {commet.createdAt.slice(0, 10)}
+                </h3>
+                <div className="testimonial__perfil">
+                  <img
+                    src={commet.picture}
+                    alt=""
+                    className="testimonial__perfil-img"
+                  />
 
-                    <div className="testimonial__perfil-data">
-                      <span className="testimonial__perfil-name">
-                        {commet.name}
-                      </span>
-                      {commet.rating === 1 ? (
-                        <span className="testimonial__perfil-stars">★</span>
-                      ) : commet.rating === 2 ? (
-                        <span className="testimonial__perfil-stars">★★</span>
-                      ) : commet.rating === 3 ? (
-                        <span className="testimonial__perfil-stars">★★★</span>
-                      ) : commet.rating === 4 ? (
-                        <span className="testimonial__perfil-stars">★★★★</span>
-                      ) : commet.rating === 5 ? (
-                        <span className="testimonial__perfil-stars">★★★★★</span>
-                      ) : null}
-                    </div>
+                  <div className="testimonial__perfil-data">
+                    <span className="testimonial__perfil-name">
+                      {commet.name}
+                    </span>
+                    {commet.rating === 1 ? (
+                      <span className="testimonial__perfil-stars">★</span>
+                    ) : commet.rating === 2 ? (
+                      <span className="testimonial__perfil-stars">★★</span>
+                    ) : commet.rating === 3 ? (
+                      <span className="testimonial__perfil-stars">★★★</span>
+                    ) : commet.rating === 4 ? (
+                      <span className="testimonial__perfil-stars">★★★★</span>
+                    ) : commet.rating === 5 ? (
+                      <span className="testimonial__perfil-stars">★★★★★</span>
+                    ) : null}
                   </div>
-                </SwiperSlide>
-              ))}
+                </div>
+              </SwiperSlide>
+            ))}
+          </div>
+          <div className="d-flex gap-3">
+            <div className="prev">
+              <TbPlayerTrackPrev />
             </div>
-            <div className="d-flex gap-3">
-              <div className="prev">
-                <TbPlayerTrackPrev />
-              </div>
-              <div className="next">
-                <TbPlayerTrackNext />
-              </div>
+            <div className="next">
+              <TbPlayerTrackNext />
             </div>
-          </Swiper>
-        )}
+          </div>
+        </Swiper>
       </div>
       <div
         className="col-12 col-md-6 my-5 container__img_header"
