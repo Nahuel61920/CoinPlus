@@ -137,10 +137,10 @@ function Cryptos({
 
   return (
     <div className="row d-flex align-items-center pt-3 px-4 row-crypto">
-      <div className="col-1">
+      <div className="col-1 info-cry-none">
         <p className="fw-bold">{keyNumber}</p>
       </div>
-      <div className="col-3 d-flex name-cry-info">
+      <div className="col-4 col-md-3 d-flex name-cry-info">
         <img src={logo} alt={name} />
         <Link
           className="por"
@@ -157,7 +157,7 @@ function Cryptos({
             to={`/operation`}
             style={{ textDecoration: "none" }}
           >
-            <button className="ethereum-ecosystem">
+            <button className="ethereum-ecosystem not-ethe">
               <FormattedMessage id="Comprar-cry" defaultMessage="To buy" />
             </button>
           </Link>
@@ -166,13 +166,13 @@ function Cryptos({
       <div className="col-2 col-md-1">
         <p className="fw-bold">${price.toLocaleString("en-US")}</p>
       </div>
-      <div className="col-2 col-md-1">
+      <div className="col-2 col-md-1 text-end">
         {percent_change_1h > 0 ? (
-          <p className="fw-bold text-success">
+          <p className="fw-bold text-success text-end">
             {percent_change_1h.toFixed(2)}%
           </p>
         ) : (
-          <p className="fw-bold text-danger">{percent_change_1h.toFixed(2)}%</p>
+          <p className="fw-bold text-danger text-end">{percent_change_1h.toFixed(2)}%</p>
         )}
       </div>
       <div className="col-2 col-md-1">

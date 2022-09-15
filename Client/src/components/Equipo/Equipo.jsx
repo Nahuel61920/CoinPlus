@@ -103,7 +103,7 @@ export default function Equipo() {
                 
             {
                 miembros.map(m => (
-                    <div className="col-md-3 cardh" key={m.id}>
+                    <div className="col-md-4 col-lg-3 col-6 cardh" key={m.id}>
                         <CardEquipo nombre={m.nombre} 
                                     imagen={m.imagen}       
                                     linkedin={m.linkedin}

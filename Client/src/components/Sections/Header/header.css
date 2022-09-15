@@ -18,3 +18,9 @@
 .contenedor-header .buttonLoginMq{
     display: none!important;
 }
+
+@media (max-width: 768px) {
+    .title__text{
+        font-size: 3rem!important;
+    }
+}

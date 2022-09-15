@@ -70,6 +70,9 @@ strong {
   margin-left: -4px;
   float: left;
 }
+input{
+  min-width: 100%!important;
+}
 
 .rating > input {
   display: none;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import "./convertidor.css"
 
 export default function StepsDisplay({ steps, currentStep }) {
   const [newStep, setNewStep] = useState([]);
@@ -86,9 +87,8 @@ export default function StepsDisplay({ steps, currentStep }) {
           {index !== 3 && (
             <div
               className={`'mb-3' ${
-                step.completed ? "bg-success" : "bg-warning"
+                step.completed ? "bg-success line-conver" : "bg-warning line-conver"
               } `}
-              style={{ height: "5px", width: "10rem" }}
             ></div>
           )}
         </div>

@@ -1,0 +1,21 @@
+.line-conver{
+    width: 10rem;
+    height: 6px;
+    margin-bottom: 1.3rem;
+}
+
+@media (max-width: 768px) {
+    .line-conver{
+        width: 5rem;
+        margin-bottom: 2.5rem;
+    }
+    
+}
+
+@media (max-width: 508px) {
+    .line-conver{
+        width: 3rem;
+        margin-bottom: 2.5rem;
+    }
+    
+}

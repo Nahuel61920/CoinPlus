@@ -6,3 +6,11 @@
   height: 30px !important;
   font-weight: bold;
 }
+
+@media screen and (max-width: 568px) {
+  .not-ethe {
+    display: none;
+  }
+}
+  
+

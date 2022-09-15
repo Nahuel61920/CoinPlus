@@ -194,10 +194,10 @@ function Market() {
           ) : (
             <></>
           )}
-          <div className="col-1 select_filter">
+          <div className="col-1 select_filter info-cry-none">
             <p className="fw-bold">#</p>
           </div>
-          <div className="col-3 select_filter">
+          <div className="col-4 col-md-3 select_filter">
             <select
               defaultValue="name"
               onChange={(e) => handleSortOrderByName(e)}
@@ -228,7 +228,7 @@ function Market() {
               <option value="max">Max</option>
             </select>
           </div>
-          <div className="col-2 col-md-1 select_filter">
+          <div className="col-2 col-md-1 select_filter text-end">
             <select
               defaultValue="1h"
               onChange={(e) => handleSortPercentChange1h(e)}

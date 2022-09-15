@@ -2,6 +2,7 @@
   background: var(--bg-nav);
   box-shadow: var(--box-shadow-nav);
   border-bottom: var(--border-bottom-nav);
+  padding: 1rem 3rem!important;
 }
 
 .nav a {
@@ -39,7 +40,7 @@
   background: rgb(15, 157, 223);
   position: absolute;
   left: 0;
-  bottom: -0.4rem;
+  bottom: 0;
   transition: 0.4s ease-out;
 }
 
@@ -65,8 +66,12 @@
   background: rgb(15, 157, 223);
   position: absolute;
   left: 0;
-  bottom: -0.4rem;
+  bottom: 0;
   transition: 0.4s ease-out;
+}
+
+.div-lag{
+  padding-left: 1rem;
 }
 
 .nav .active-link,
@@ -117,7 +122,10 @@
   color: var(--text-nav);
 }
 
-
+.serch-contain .form-control{
+  width: 300px!important;
+  margin: 0 !important;
+}
 
 
 
@@ -166,8 +174,36 @@
     margin: 0 0 0 2rem;
   }
 }
+@media (max-width: 1068px) {
+  .nav a {
+    margin: 0 0 0 1rem;
+    font-size: .9rem;
+  }
+
+  .navbar {
+    padding: 1rem!important;
+  }
+}
+
+@media (max-width: 844px) {
+  .navbar {
+    padding: 1rem 0!important;
+  }
+  .div-lag button{
+    font-size: .8rem;
+  }
+  
+  .serch-contain .form-control{
+    width: 80%!important;
+    margin: 0 !important;
+  }
+}
 
 @media (max-width: 768px) {
+  .nav a {
+    margin: .5rem 0 .5rem 0;
+    font-size: 1rem;
+  }
 
   .nav .active-link::before,
   .nav a.active::before {
@@ -192,7 +228,19 @@
   }
 
   .form-control{
-    width: 150px!important;
+    width: 100%!important;
+  }
+
+
+  .div-lag{
+    padding: 0!important;
+  }
+  
+}
+
+@media (max-width: 500px) {
+  .serch-contain .form-control{
+    width: 120px!important;
   }
   
 }

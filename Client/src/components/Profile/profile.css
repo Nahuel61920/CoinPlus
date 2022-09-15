@@ -2,6 +2,7 @@
     min-height: 55px;
     max-height: 55px;
     max-width: 55px;
+    min-width: 55px;
     border-radius: 50%;
     border: 3px solid #645bff;
     background-color: #fff;
@@ -57,7 +58,7 @@
 }
 
 @media (max-width: 768px) {
-    .nav-All .profile-nav{
+    .profile-nav{
         min-height: 40px;
         min-width: 40px;
         max-width: 40px;

@@ -17,7 +17,7 @@ function Nav() {
   const idioma = useContext(langContext);
 
   return (
-    <nav className="navbar navbar-expand-md navbar-dark bg-warning px-md-5 px-1 sticky-top">
+    <nav className="navbar navbar-expand-md navbar-dark bg-warning sticky-top">
       <div className="container-fluid w-100 ">
 
         <button
@@ -84,7 +84,7 @@ function Nav() {
               />
             </Link>
             
-            <div className="dropdown ps-3">
+            <div className="dropdown div-lag">
             <button onClick={() => idioma.selectLanguage('es-ES') } className="btn btn-outline-primary">ES</button>
             <button onClick={() => idioma.selectLanguage('en-US') } className="btn btn-outline-primary">EN</button>
             </div>

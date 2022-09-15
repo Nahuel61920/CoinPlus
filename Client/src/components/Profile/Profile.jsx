@@ -70,7 +70,7 @@ export default function Profile() {
                 alt="profile"
               />
             </div>
-            <h6>{usuarios.nickname}</h6>
+            <h5>{usuarios.nickname}</h5>
             <p className="email">{user.email}</p>
           </div>
           <div className="justify-content-center d-flex m-2 gap-2 btns-profile">

@@ -85,8 +85,7 @@ function Metamask() {
             <button
               type="button"
               onClick={connectWallet}
-              style={{ width: "30em" }}
-              className="d-flex flex-row justify-content-center align-items-center bg-primary p-2"
+              className="d-flex flex-row justify-content-center align-items-center bg-primary p-2 col-12"
             >
               <AiFillPlayCircle className="text-white me-2" />
               <div>
@@ -103,8 +102,7 @@ function Metamask() {
           {/* <Wallet/> */}
 
           <div
-            style={{ width: "30em" }}
-            className="my-3 card-tarj p-3 d-flex justify-items-start flex-column rounded-xl h-40 sm:w-72 col-5"
+            className="my-3 card-tarj p-3 d-flex justify-items-start flex-column rounded-xl h-40 sm:w-72 col-12"
           >
             <div className="d-flex justify-between flex-column w-full h-full">
               <div className="d-flex justify-content-between justify-items-start">
@@ -124,8 +122,7 @@ function Metamask() {
             </div>
           </div>
           <div
-            style={{ width: "30em" }}
-            className="bg-envio p-5 sm:w-96 w-full d-flex flex-column justify-items-start justify-items-center col-5"
+            className="bg-envio p-5 sm:w-96 w-full d-flex flex-column justify-items-start justify-items-center col-12"
           >
             <p className="text-center m-auto">
               <FormattedMessage

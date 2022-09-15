@@ -28,10 +28,6 @@ function OffcanvasExample({ logo }) {
               </Link>
             </Navbar.Brand>
             <div className="d-flex gap-2 align-items-center">
-            <div className="dropdown ps-3">
-            <button onClick={() => idioma.selectLanguage('es-ES') } className="btn btn-outline-primary">ES</button>
-            <button onClick={() => idioma.selectLanguage('en-US') } className="btn btn-outline-primary">EN</button>
-            </div>
               <DarkMode />
               <Navbar.Toggle
                 aria-controls={`offcanvasNavbar-expand-${expand}`}
@@ -79,6 +75,20 @@ function OffcanvasExample({ logo }) {
                     id='Comprar'
                     defaultMessage='Buy Sell'
                   /></Link>
+                  <div className="dropdown px-0 py-2">
+                    <button
+                      onClick={() => idioma.selectLanguage("es-ES")}
+                      className="btn btn-outline-primary"
+                    >
+                      ES
+                    </button>
+                    <button
+                      onClick={() => idioma.selectLanguage("en-US")}
+                      className="btn btn-outline-primary"
+                    >
+                      EN
+                    </button>
+                  </div>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
