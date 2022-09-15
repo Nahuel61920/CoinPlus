@@ -8,11 +8,11 @@ import { FormattedMessage } from "react-intl";
 function Footer() {
   return (
     <div className="bg-dark text-white altura row">
-      <div className="col-3">
+      <div className="col-6 col-md-3">
         <img src={Logo} width="220" alt="" />
       </div>
 
-      <div className="nav-footer col-3">
+      <div className="nav-footer col-6 col-md-3">
         <NavLink to="/">
           <p className="text-white"><FormattedMessage
             id='Inicio'
@@ -38,7 +38,7 @@ function Footer() {
           /></p>
         </Link>
       </div>
-      <div className="nav-footer col-3">
+      <div className="nav-footer col-6 col-md-3">
         <NavLink to="/equipo">
           <p className="text-white"><FormattedMessage
             id='btn-queienes'
@@ -52,7 +52,7 @@ function Footer() {
           /></p>
         </NavLink>
       </div>
-      <div className="nav-footer col-3">
+      <div className="nav-footer col-6 col-md-3">
         <NavLink to="/user">
           <p className="text-white"> <FormattedMessage
             id='Usuario'
